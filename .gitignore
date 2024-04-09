@@ -1,0 +1,4 @@
+# LaTeX
+main.*
+!main.tex
+!main.pdf
