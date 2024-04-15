@@ -1,4 +1,4 @@
-# mscunito-thesis
+# mscunito-thesis-document
 
 Sources for thesis content.
 
