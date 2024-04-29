@@ -3,6 +3,19 @@
 \usepackage{amssymb}
 
 \begin{document}
+An indicator (i.e. a climate indicator for drivers within the hazard determinant) is a function
+\begin{equation}
+  \label{eq:indicator}
+  h : \mathcal{C} \to \mathbb{R}
+\end{equation}
+where $\mathcal{C}$ is the set of climate variables. When more hazard indicators are considered, a subscript is added to identify each of them (e.g. the symbol $h_j$ with $j = 1, 2, 3$ is the shorthand for functions $h_1$, $h_2$ and $h_3$).
+
+Once the system is identified and analysed from a structural point of view, the set of assets composing it is available. This set is represented as
+\begin{equation}
+  \mathcal{A} = \{ a_i : i = 1, \dots, n_A \}
+\end{equation}
+with $n_A$ number of assets, which is constant throughout the project.
+
 The set of chosen hazard indicators is
 \begin{equation}
   \mathcal{H} = \{ h_i : i = 1, \dots, n_H \}
@@ -19,12 +32,6 @@ The set of indicators built by the interaction from existent hazard drivers is
   \{ h_{n_H + i} : i = 1, \dots, n_{X_j} \}
 \end{equation}
 with $n_{X_j}$ number of additional hazard drivers considered in the $j$-th experiment. This number might change in each experiment for category 2 complex risks.
-
-The set of assets characterising the system is
-\begin{equation}
-  \mathcal{A} = \{ a_i : i = 1, \dots, n_A \}
-\end{equation}
-with $n_A$ as the number of assets. This number is fixed as the outcome of the vulnerability and exposure analysis steps.
 
 Considering experiments for category 1 complex risks, the resulting \emph{hazard matrix}, i.e. the matrix containing values of hazard indicators for each asset, is $H \in \mathbb{R}^{n_A \times n_H}$
 \begin{equation}
