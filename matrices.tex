@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+The set of chosen hazard indicators is
+\begin{equation}
+  \mathcal{H} = \{ h_i : i = 1, \dots, n_H \}
+\end{equation}
+with $n_H$ number of hazard drivers from the European Taxonomy.  % MC cite the EU taxonomy.
+Each element is a function of climate variables
+\begin{equation}
+  \forall i \in \{ 1, \dots, n_H \} \quad h_i : \mathcal{C} \to \mathbb{R}
+\end{equation}
+where $\mathcal{C}$ is the set of climate variables.
+
+The set of indicators built by the interaction from existent hazard drivers is
+\begin{equation}
+  \{ h_{n_H + i} : i = 1, \dots, n_{X_j} \}
+\end{equation}
+with $n_{X_j}$ number of additional hazard drivers considered in the $j$-th experiment. This number might change in each experiment for category 2 complex risks.
+
+The set of assets characterising the system is
+\begin{equation}
+  \mathcal{A} = \{ a_i : i = 1, \dots, n_A \}
+\end{equation}
+with $n_A$ as the number of assets. This number is fixed as the outcome of the vulnerability and exposure analysis steps.
+
+Considering experiments for category 1 complex risks, the resulting \emph{hazard matrix}, i.e. the matrix containing values of hazard indicators for each asset, is $H \in \mathbb{R}^{n_A \times n_H}$
+\begin{equation}
+  H =
+  \begin{bmatrix}
+    h_{1, 1}   & \cdots & h_{1, n_H}   \\
+    \vdots     & \ddots & \vdots       \\
+    h_{n_A, 1} & \cdots & h_{n_A, n_H}
+  \end{bmatrix}
+\end{equation}
+Once a particular choice of indicators is made, values of this matrix change when different datasets are considered.
+
+When category 2 complex risks are considered, the hazard matrix is extended adding new columns corresponding to indicators which model complex interactions between hazard drivers. The new indicators are collected in a matrix $H_{X_j} \in \mathbb{R}^{n_A \times n_{X_j}}$.
+Using block notation the extended matrix becomes $[H | H_{X_j}]$ for the $j$-th experiment and all the analysis performed on category 1 complex risks are extended directly to this matrix since they operate only on the rows.
+
+\end{document}
