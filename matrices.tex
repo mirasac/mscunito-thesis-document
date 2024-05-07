@@ -3,29 +3,25 @@
 \usepackage{amssymb}
 
 \begin{document}
-An indicator (i.e. a climate indicator for drivers within the hazard determinant) is a function
+An hazard indicator (i.e. a climate indicator for drivers within the hazard determinant) is a function
 \begin{equation}
   \label{eq:indicator}
   h : \mathcal{C} \to \mathbb{R}
 \end{equation}
 where $\mathcal{C}$ is the set of climate variables. When more hazard indicators are considered, a subscript is added to identify each of them (e.g. the symbol $h_j$ with $j = 1, 2, 3$ is the shorthand for functions $h_1$, $h_2$ and $h_3$).
 
+Each hazard driver can have many indicators. From a previous phase of the assessment a subset of hazard drivers is chosen from the European Taxonomy\cite[438]{2024EU20212139}. The choice of the drivers makes available some hazard indicators related to them.
+The collection of selected hazard indicators for the analysis is the set
+\begin{equation}
+  \mathcal{H} = \{ h_i : i = 1, \dots, n_H \}
+\end{equation}
+with $n_H$ number of hazard indicators.
+
 Once the system is identified and analysed from a structural point of view, the set of assets composing it is available. This set is represented as
 \begin{equation}
   \mathcal{A} = \{ a_i : i = 1, \dots, n_A \}
 \end{equation}
 with $n_A$ number of assets, which is constant throughout the project.
-
-The set of chosen hazard indicators is
-\begin{equation}
-  \mathcal{H} = \{ h_i : i = 1, \dots, n_H \}
-\end{equation}
-with $n_H$ number of hazard drivers from the European Taxonomy.  % MC cite the EU taxonomy.
-Each element is a function of climate variables
-\begin{equation}
-  \forall i \in \{ 1, \dots, n_H \} \quad h_i : \mathcal{C} \to \mathbb{R}
-\end{equation}
-where $\mathcal{C}$ is the set of climate variables.
 
 The set of indicators built by the interaction from existent hazard drivers is
 \begin{equation}
