@@ -4,44 +4,180 @@
 \usepackage{pgfpages}
 
 %%%%%%%%% Packages setup %%%%%%%%%
-\setbeameroption{show notes on second screen}
+% \setbeameroption{show notes on second screen}
 %\setbeameroption{show only notes}
 %\setbeamerfont{note page}{size=\tiny}
 \setbeamercolor{note page}{bg=white, fg=black}
 \setbeamercolor{note title}{bg=white!99!black, fg=black}
-\usetheme{Hannover}
+%\usetheme{Hannover}
 \usecolortheme{spruce}
+\setbeamerfont{institute}{size=\scriptsize}
 
 %%%%%%%%% Document informations %%%%%%%%%
-\title{NA}  % MC find a title.
-\author{Marco Casari}
-\date[04/05/2024]{Midterm thesis exam, 4 July 2024}
+\title{Sensitivity analysis of climate change risk assessment}
+\subtitle{Study of parameters variation in hazard indicators}
+\author[Marco Casari]{%
+  Marco Casari\\[2ex]%
+  {\scriptsize Supervisors}\\%
+  Prof.ssa Elisa Palazzi\\%
+  Prof. Alberto Viglione\\%
+}
+\date[04/07/2024]{Midterm discussion, 4 July 2024}
 \institute[UniTo]{University of Turin}
 
 %%%%%%%%% Document %%%%%%%%%
 \begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
 
 \section{Introduction}
-% MC state the problem.
-% MC sum up the proposed resolution.
-% MC sho a slide about nomenclature.
+\begin{frame}{Introduction}
+  \begin{itemize}
+    \item Risk: potential for adverse consequences for human or ecological systems [...]
+    % 2021MatthewsAnnexVII
+    \note[item]{First few definitions to have a common starting point, all from IPCC AR6.}
+    \item Climate Change Risk Assessment (CCRA)
+    \note[item]{Estimation of risk related to climate change, i.e. determined by potential impacts of climate change and human responses to climate change.}
+    % 2021MatthewsAnnexVII
+    \note[item]{Some additional definitions are needed, e.g. determinants of risk, risk drivers.}
+    % 2021SimpsonAFramework
+    \note[item]{If quantitative, CCRA conveys numerical values combining the chosen indicators.}
+  \end{itemize}
+\end{frame}
 
-\section{Climate datasets}
-% MC list the used datasets, distinguish between historical period and climate projections and explain the choice (e.g. for climate projections describe why some scenarios are chosen and which periods).
+\begin{frame}{The problem}
+  \begin{itemize}
+    \item<1-> The choice of indicators is arbitrary
+    \note[item]<1->{Many methodologies and guidelines, different indicators may lead to different risks.}
+    \item<2-> Sensitivity analysis of indicators within the hazard determinant
+    \note[item]<1->{Many methodologies and guidelines.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Case study}
+  \begin{itemize}
+    \item<1-> Torino Airport
+    % MC picture of geographical location.
+    \note[item]<1->{Exposure and vulnerability are fixed.}
+    \item<2-> Hazard drivers: heat wave, heavy precipitation
+    \note[item]<2->{Hazard drivers are from the European Taxonomy of climate hazards.}
+    % 2024EU20212139
+  \end{itemize}
+\end{frame}
+
+
+
+\section{Data}
+\begin{frame}{Climate datasets}
+  \begin{itemize}
+    \item Climatological baseline: ERA5
+    % 2018C3SERA5Hourly
+    \item Climate projections: NEX-GDDP-CMIP6
+    % NASAEarth
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{ERA5}
+  \begin{itemize}
+    \item Organisation: European Centre for Medium-Range Weather Forecasts
+    \item Data type: reanalysis
+    \item Spatial resolution: 0.25° x 0.25°
+    \item Time frequency: hour
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{NEX-GDDP-CMIP6}
+  \begin{itemize}
+    \item Organisation: NASA Earth Exchange
+    \item Data type: statistically downscaled bias-corrected climate projections
+    \item Spatial resolution: 0.25° x 0.25°
+    \item Time frequency: day
+    \item Historical period 1950-2014, projection period 2015-2100
+    \item Model: EC-Earth3
+    \note[item]{Only model EC-Earth3 is considered for the midterm discussion.}
+    \item Scenario: SSP1-2.6, SSP2-4.5, SSP5-8.5
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Spatial frame}
+  \begin{itemize}
+    \item Box of 3 x 3 grid points centred at the coordinates of the airport
+    \note[item]{}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Temporal frame}
+  \begin{itemize}
+    \item Baseline period: 1994-2023
+    \item Time horizons: 2021-2040, 2051-2070, 2081-2100
+  \end{itemize}
+\end{frame}
+
+
 
 \section{Methods}
-% MC list the technology used for the analysis (e.g. Python, xarray) in a slide that will be just flashed.
 % MC show with schemes and matrices the idea of varying the hazard indicators and study the statistics of the resulting ensembles.
-% MC do not show code.
 
-\section{Case study}
+\begin{frame}{Methodology}
+  \begin{itemize}
+    \item<1-> Indicators: heat wave frequency, maximum $n$-days precipitation
+    \note[item]{The $n$ is one of the parameters of the indicator. Select intervals of variation of parameters and evaluate indicators for each combination of them.}
+    \item<2-> Fix exposure and vulnerability from literature
+    \item<3-> Evaluate risk
+    %\note[item]{Risk is evaluated as average from }
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Preprocessing}
+  \begin{enumerate}
+    \item<1-> Regrid ERA5
+    \note[item]<1->{Since resolution is the same, a simple traslation of coordinates is sufficient. Use convention of NEX-GDDP-CMIP6: coordinates are the centre of the grid points.}
+    \item<2-> Aggregate ERA5 at daily frequency
+    \note[item]<2->{Total precipitation is summed, other quantities are averaged.}
+    \item<3-> Align NEX-GDDP-CMIP6 timestamps
+    \note[item]<3->{At daily resolution timestamps differ by hours of the same day, the offset loses meaning when aggregation at daily frequency is applied. Use convention of ERA5: timestamps point to the start of the day.}
+    \item<4-> Bias adjustment
+    \note[item]<4->{Training period 1950-1999, test period 2000-2014. Quantile Delta Mapping for both temperature and precipitation, show p-p plot for qualitative assessment of the adjustment.}
+    % MC extend historical period to 2023 with one period from the projections?
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Evaluation of hazard indicators}
+  \begin{enumerate}
+    \item<1-> Define intervals of parameters
+    \note[item]<1->{Less dense for regions of slowly varying quantile function.}
+    \item<2-> Spatial aggregation
+    \note[item]<2->{Sample average, check standard deviation.}
+    % MC try EOF?
+    \item<3-> Temporal aggregation
+    \note[item]<3->{Sample average, check standard deviation.}
+    % MC try Mann-Kendall, check compatiblity of Senn slope with 0?
+    \item<4-> Risk evaluation
+    \note[item]<4->{Given exposure and vulnerability, evaluate the final risk.}
+  \end{enumerate}
+\end{frame}
+
+%\section{Case study}
 % MC talk about airports, the hazard drivers affecting them and the chosen indicators.
 
-\section{Results and discussion}
+\begin{frame}{Next steps}
+  \begin{itemize}
+    \item Uncertainty evaluation
+    \item Evaluate risk with non-linear relations among hazard indicators and among determinants
+    \item Extend analysis to Bologna's and Ciampino's airports
+  \end{itemize}
+\end{frame}
+
+%\section{Results and discussion}
 % MC show some results and their implications.
 
-\section{Conclusion}
+%\section{Conclusion}
 % MC resume the initial idea and how the results obtained at this point match it.
 % MC list some criticalities I am having at this point.
+
+% MC make a subsection on open points.
 
 \end{document}
