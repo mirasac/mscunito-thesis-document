@@ -4,7 +4,7 @@
 \usepackage{pgfpages}
 
 %%%%%%%%% Packages setup %%%%%%%%%
-% \setbeameroption{show notes on second screen}
+\setbeameroption{show notes on second screen}
 %\setbeameroption{show only notes}
 %\setbeamerfont{note page}{size=\tiny}
 \setbeamercolor{note page}{bg=white, fg=black}
@@ -12,6 +12,7 @@
 %\usetheme{Hannover}
 \usecolortheme{spruce}
 \setbeamerfont{institute}{size=\scriptsize}
+\graphicspath{{./figures/}{../figures/}}
 
 %%%%%%%%% Document informations %%%%%%%%%
 \title{Sensitivity analysis of climate change risk assessment}
@@ -36,15 +37,18 @@
 \section{Introduction}
 \begin{frame}{Introduction}
   \begin{itemize}
-    \item Risk: potential for adverse consequences for human or ecological systems [...]
+    \item<1-> Risk: potential for adverse consequences for human or ecological systems [...]
     % 2021MatthewsAnnexVII
-    \note[item]{First few definitions to have a common starting point, all from IPCC AR6.}
-    \item Climate Change Risk Assessment (CCRA)
-    \note[item]{Estimation of risk related to climate change, i.e. determined by potential impacts of climate change and human responses to climate change.}
+    \note[item]<1->{Few definitions to have a common starting point, all from IPCC AR6.}
+    \item<2-> Climate Change Risk Assessment (CCRA)\\[1em]
+    \begin{center}
+      \includegraphics[keepaspectratio=true,width=0.5\textheight]{nomenclature}
+    \end{center}
+    \note[item]<2->{Estimation of risk related to climate change, i.e. determined by potential impacts of climate change and human responses to climate change.}
     % 2021MatthewsAnnexVII
-    \note[item]{Some additional definitions are needed, e.g. determinants of risk, risk drivers.}
+    \note[item]<2->{Some additional definitions are needed, e.g. determinants of risk, risk drivers.}
     % 2021SimpsonAFramework
-    \note[item]{If quantitative, CCRA conveys numerical values combining the chosen indicators.}
+    \note[item]<2->{If quantitative, CCRA conveys numerical values combining the chosen indicators.}
   \end{itemize}
 \end{frame}
 
@@ -52,15 +56,14 @@
   \begin{itemize}
     \item<1-> The choice of indicators is arbitrary
     \note[item]<1->{Many methodologies and guidelines, different indicators may lead to different risks.}
-    \item<2-> Sensitivity analysis of indicators within the hazard determinant
-    \note[item]<1->{Many methodologies and guidelines.}
+    \item<2-> Analysis of the sensitivity of indicators to a change in value of their parameters, for drivers within the hazard determinant
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Case study}
   \begin{itemize}
     \item<1-> Torino Airport
-    % MC picture of geographical location.
+    % MC insert picture of geographical location, simple, box around Turin, with point on the coordinates and label with name of the city.
     \note[item]<1->{Exposure and vulnerability are fixed.}
     \item<2-> Hazard drivers: heat wave, heavy precipitation
     \note[item]<2->{Hazard drivers are from the European Taxonomy of climate hazards.}
@@ -78,6 +81,7 @@
     \item Climate projections: NEX-GDDP-CMIP6
     % NASAEarth
   \end{itemize}
+  % MC maybe insert logo of the organizations, here or in the next slides on the datasets.
 \end{frame}
 
 \begin{frame}{ERA5}
@@ -102,18 +106,19 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Spatial frame}
+\begin{frame}{Spatial domain}
   \begin{itemize}
     \item Box of 3 x 3 grid points centred at the coordinates of the airport
-    \note[item]{}
   \end{itemize}
+  % MC insert map as in frame Case study but with tiles of the variables for an example timestamp (e.g. anomaly in the same day of the presentation, for scenic effect).
 \end{frame}
 
-\begin{frame}{Temporal frame}
+\begin{frame}{Temporal domain}
   \begin{itemize}
     \item Baseline period: 1994-2023
     \item Time horizons: 2021-2040, 2051-2070, 2081-2100
   \end{itemize}
+  % MC put a pretty time line.
 \end{frame}
 
 
@@ -124,12 +129,16 @@
 \begin{frame}{Methodology}
   \begin{itemize}
     \item<1-> Indicators: heat wave frequency, maximum $n$-days precipitation
-    \note[item]{The $n$ is one of the parameters of the indicator. Select intervals of variation of parameters and evaluate indicators for each combination of them.}
-    \item<2-> Fix exposure and vulnerability from literature
-    \item<3-> Evaluate risk
-    %\note[item]{Risk is evaluated as average from }
+    \note[item]<1->{The $n$ is one of the parameters of the indicator. Select intervals of variation of parameters and evaluate indicators for each combination of them.}
+    \item<1-> Fixed exposure and vulnerability from literature
+    \item<2-> Evaluate risk following the guidelines
+    \note[item]<2->{A value for each determinant is evaluated, which is the aggregation of the respective indicators. The aggregation include also a normalisation step, hence the final value is in the interval $[0, 1]$ and values from different determinants can be compared to each other. Risk is the weighted mean of those values and in this project the weights are set to 1 because exposure and vulnerability are constant, hence the relation between risk and hazard is linear and no interesting information is added by considering different weigths. Finally the risk values are classified in a rank of 5 classes, by splitting the interval $[0, 1]$ in 5 equally sized subintervals.}
+    % MC add formula for risk.
+    % 2017GIZRiskSupplement
   \end{itemize}
 \end{frame}
+
+% MC add frame Indicators which shows the definitions of the chosen indicators. Remove from the final discussion because it takes too long.
 
 \begin{frame}{Preprocessing}
   \begin{enumerate}
