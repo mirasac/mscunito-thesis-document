@@ -42,7 +42,7 @@
     \note[item]<1->{Few definitions to have a common starting point, all from IPCC AR6.}
     \item<2-> Climate Change Risk Assessment (CCRA)\\[1em]
     \begin{center}
-      \includegraphics[keepaspectratio=true,width=0.5\textheight]{nomenclature}
+      \includegraphics[keepaspectratio=true,width=0.8\textheight]{nomenclature}
     \end{center}
     \note[item]<2->{Estimation of risk related to climate change, i.e. determined by potential impacts of climate change and human responses to climate change.}
     % 2021MatthewsAnnexVII
@@ -88,8 +88,10 @@
   \begin{itemize}
     \item Organisation: European Centre for Medium-Range Weather Forecasts
     \item Data type: reanalysis
+    \item Spatial coverage: global
     \item Spatial resolution: 0.25° x 0.25°
-    \item Time frequency: hour
+    \item Temporal coverage: 1940-present
+    \item Temporal resolution: hour
   \end{itemize}
 \end{frame}
 
@@ -97,8 +99,10 @@
   \begin{itemize}
     \item Organisation: NASA Earth Exchange
     \item Data type: statistically downscaled bias-corrected climate projections
+    \item Spatial coverage: global
     \item Spatial resolution: 0.25° x 0.25°
-    \item Time frequency: day
+    \item Temporal coverage: 1950-2100
+    \item Temporal resolution: day
     \item Historical period 1950-2014, projection period 2015-2100
     \item Model: EC-Earth3
     \note[item]{Only model EC-Earth3 is considered for the midterm discussion.}
@@ -197,6 +201,7 @@
     \includegraphics[width=0.47\textheight]{temperature_q-q_plot}\\
     \includegraphics[width=0.47\textheight]{precipitation_q-q_plot}
   \end{center}
+  % MC put title with scenario!
   }
 \end{column}
 \end{columns}
@@ -216,6 +221,7 @@
     \note[item]<3->{Sample average, check standard deviation.}
     % MC try Mann-Kendall, check compatiblity of Senn slope with 0?
     \item<4-> Risk evaluation
+    % MC insert here the explicit formula for risk which is linear.
     \note[item]<4->{Given exposure and vulnerability, evaluate the final risk.}
   \end{enumerate}
 \end{column}
@@ -235,7 +241,16 @@
 
 \section{Results and discussion}
 \begin{frame}{Heat wave frequency}
-  % MC show plot of hazard for range thresh_tasmax [288.7, 309.1].
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{heat_wave_frequency_ssp245}
+    % MC put title with scenario and year!
+\end{center}
+\end{frame}
+
+\begin{frame}{Maximum $n$-days precipitation}
+  \begin{center}
+    \includegraphics[width=0.9\textheight]{max_n_day_precipitation_amount_ssp245}
+  \end{center}
 \end{frame}
 
 %\section{Conclusion}
@@ -244,10 +259,11 @@
 
 \begin{frame}{Next steps}
   \begin{itemize}
-    \item Uncertainty evaluation
-    \item Evaluate risk with non-linear relations among hazard indicators and among determinants
+    \item Extend analysis to other indicators for same hazard drivers
     \item Extend analysis to Bologna's and Ciampino's airports
-    \item Choose points of the interval more appropriate for the location of interest
+    \item Sample intervals specifically for the location of interest
+    \item Evaluate uncertainty
+    \item Evaluate risk with non-linear relations among hazard indicators and among determinants
   \end{itemize}
 \end{frame}
 
