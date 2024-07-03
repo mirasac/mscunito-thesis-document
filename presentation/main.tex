@@ -2,7 +2,6 @@
 \documentclass[aspectratio=169]{beamer}
 \usepackage[T1]{fontenc}
 \usepackage{pgfpages}
-% \usepackage{graphicx}
 
 %%%%%%%%% Packages setup %%%%%%%%%
 %\setbeameroption{show notes on second screen}
@@ -141,32 +140,66 @@
 
 % MC add frame Indicators which shows the definitions of the chosen indicators. Remove from the final discussion because it takes too long.
 
+% \begin{frame}{Preprocessing}
+%   \begin{enumerate}
+%     \item<1-> Regrid ERA5
+%     \note[item]<1->{Since resolution is the same, a simple traslation of coordinates is sufficient. Use convention of NEX-GDDP-CMIP6: coordinates are the centre of the grid points.}
+%     \item<2-> Aggregate ERA5 at daily frequency
+%     \note[item]<2->{Total precipitation is summed, other quantities are averaged.}
+%     \item<3-> Align NEX-GDDP-CMIP6 timestamps
+%     \note[item]<3->{At daily resolution timestamps differ by hours of the same day, the offset loses meaning when aggregation at daily frequency is applied. Use convention of ERA5: timestamps point to the start of the day.}
+%     \item<4-> Bias adjustment\\[0.5em]
+%     \begin{center}
+%       \begin{minipage}{0.6\linewidth}
+%         \centering
+%         \begin{tabular}{ccc}
+%           \includegraphics[width=0.30\linewidth]{tasmin_anomaly_preprocessed} & \includegraphics[width=0.30\linewidth]{tasmax_anomaly_preprocessed} & \includegraphics[width=0.30\linewidth]{pr_anomaly_preprocessed} \\
+%           \includegraphics[width=0.30\linewidth]{tasmin_anomaly_adjusted} & \includegraphics[width=0.30\linewidth]{tasmax_anomaly_adjusted} & \includegraphics[width=0.30\linewidth]{pr_anomaly_adjusted}
+%         \end{tabular}
+%       \end{minipage}\hfill
+%       \begin{minipage}{0.3\linewidth}
+%         \centering
+%         \includegraphics[width=0.5\textheight]{temperature_q-q_plot}\\
+%         \includegraphics[width=0.5\textheight]{precipitation_q-q_plot}
+%       \end{minipage}
+%     \end{center}
+%     \note[item]<4->{Training period 1950-1999, test period 2000-2014. Additive Quantile Delta Mapping for both temperature and precipitation, show p-p plot for qualitative assessment of the adjustment. THe figures refere to the coordinates of grid point containing the airport.}
+%     % MC extend historical period to 2023 with one period from the projections?
+%   \end{enumerate}
+% \end{frame}
+
 \begin{frame}{Preprocessing}
+\begin{columns}[T]
+\begin{column}{0.45\textwidth}
   \begin{enumerate}
     \item<1-> Regrid ERA5
     \note[item]<1->{Since resolution is the same, a simple traslation of coordinates is sufficient. Use convention of NEX-GDDP-CMIP6: coordinates are the centre of the grid points.}
-    \item<2-> Aggregate ERA5 at daily frequency
-    \note[item]<2->{Total precipitation is summed, other quantities are averaged.}
-    \item<3-> Align NEX-GDDP-CMIP6 timestamps
-    \note[item]<3->{At daily resolution timestamps differ by hours of the same day, the offset loses meaning when aggregation at daily frequency is applied. Use convention of ERA5: timestamps point to the start of the day.}
-    \item<4-> Bias adjustment\\[0.5em]
+    \item<1-> Aggregate ERA5 at daily frequency
+    \note[item]<1->{Total precipitation is summed, other quantities are averaged.}
+    \item<1-> Align NEX-GDDP-CMIP6 timestamps
+    \note[item]<1->{At daily resolution timestamps differ by hours of the same day, the offset loses meaning when aggregation at daily frequency is applied. Use convention of ERA5: timestamps point to the start of the day.}
+    \item<2-> Bias adjustment
     \begin{center}
-      \begin{minipage}{0.6\linewidth}
-        \centering
-        \begin{tabular}{ccc}
-          \includegraphics[width=0.30\linewidth]{tasmin_anomaly_preprocessed} & \includegraphics[width=0.30\linewidth]{tasmax_anomaly_preprocessed} & \includegraphics[width=0.30\linewidth]{pr_anomaly_preprocessed} \\
-          \includegraphics[width=0.30\linewidth]{tasmin_anomaly_adjusted} & \includegraphics[width=0.30\linewidth]{tasmax_anomaly_adjusted} & \includegraphics[width=0.30\linewidth]{pr_anomaly_adjusted}
-        \end{tabular}
-      \end{minipage}\hfill
-      \begin{minipage}{0.3\linewidth}
-        \centering
-        % MC add q-q plot.
-      \end{minipage}
+      \begin{tabular}{ccc}
+        \includegraphics[width=0.30\columnwidth]{tasmin_anomaly_preprocessed} & \includegraphics[width=0.30\columnwidth]{tasmax_anomaly_preprocessed} & \includegraphics[width=0.30\columnwidth]{pr_anomaly_preprocessed} \\
+        \includegraphics[width=0.30\columnwidth]{tasmin_anomaly_adjusted} & \includegraphics[width=0.30\columnwidth]{tasmax_anomaly_adjusted} & \includegraphics[width=0.30\columnwidth]{pr_anomaly_adjusted}
+      \end{tabular}
     \end{center}
-    \note[item]<4->{Training period 1950-1999, test period 2000-2014. Additive Quantile Delta Mapping for both temperature and precipitation, show p-p plot for qualitative assessment of the adjustment. THe figures refere to the coordinates of grid point containing the airport.}
+    \note[item]<2->{Training period 1950-1999, test period 2000-2014. Additive Quantile Delta Mapping for both temperature and precipitation, show p-p plot for qualitative assessment of the adjustment. THe figures refere to the coordinates of grid point containing the airport.}
     % MC extend historical period to 2023 with one period from the projections?
   \end{enumerate}
+\end{column}
+\begin{column}{0.45\textwidth}
+  \visible<3->{
+  \begin{center}
+    \includegraphics[width=0.47\textheight]{temperature_q-q_plot}\\
+    \includegraphics[width=0.47\textheight]{precipitation_q-q_plot}
+  \end{center}
+  }
+\end{column}
+\end{columns}
 \end{frame}
+% MC rearrange figures to make them more readable.
 
 \begin{frame}{Evaluation of hazard indicators}
   \begin{enumerate}
