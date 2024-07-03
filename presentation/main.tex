@@ -2,6 +2,7 @@
 \documentclass[aspectratio=169]{beamer}
 \usepackage[T1]{fontenc}
 \usepackage{pgfpages}
+\usepackage[style=authortitle,backend=biber]{biblatex}
 
 %%%%%%%%% Packages setup %%%%%%%%%
 %\setbeameroption{show notes on second screen}
@@ -12,6 +13,7 @@
 %\usetheme{Hannover}
 \usecolortheme{spruce}
 \setbeamerfont{institute}{size=\scriptsize}
+\addbibresource{../bibliography.bib}
 \graphicspath{{./figures/}{../figures/}}
 
 %%%%%%%%% Document informations %%%%%%%%%
@@ -76,12 +78,14 @@
 \section{Data}
 \begin{frame}{Climate datasets}
   \begin{itemize}
-    \item Climatological baseline: ERA5
-    % 2018C3SERA5Hourly
-    \item Climate projections: NEX-GDDP-CMIP6
-    % NASAEarth
+    \item Climatological baseline: ERA5\footnotemark
+    % 2023HersbachERA5Hourly
+    \item Climate projections: NEX-GDDP-CMIP6\footnotemark
+    % 2021ThrasherNEX-GDDP-CMIP6, 2022ThrasherNASAGlobal
   \end{itemize}
   % MC maybe insert logo of the organizations, here or in the next slides on the datasets.
+  \footcitetext{2023HersbachERA5Hourly}
+  \footcitetext{2021ThrasherNEX-GDDP-CMIP6,2022ThrasherNASAGlobal}
 \end{frame}
 
 \begin{frame}{ERA5}
@@ -129,7 +133,6 @@
 
 \section{Methods}
 % MC show with schemes and matrices the idea of varying the hazard indicators and study the statistics of the resulting ensembles.
-
 \begin{frame}{Methodology}
   \begin{itemize}
     \item<1-> Indicators: heat wave frequency, maximum $n$-days precipitation
@@ -236,8 +239,12 @@
 \end{columns}
 \end{frame}
 
+
+
 %\section{Case study}
 % MC talk about airports, the hazard drivers affecting them and the chosen indicators.
+
+
 
 \section{Results and discussion}
 \begin{frame}{Heat wave frequency}
@@ -253,10 +260,11 @@
   \end{center}
 \end{frame}
 
+
+
 %\section{Conclusion}
 % MC resume the initial idea and how the results obtained at this point match it.
 % MC list some criticalities I am having at this point.
-
 \begin{frame}{Next steps}
   \begin{itemize}
     \item Extend analysis to other indicators for same hazard drivers
@@ -266,5 +274,7 @@
     \item Evaluate risk with non-linear relations among hazard indicators and among determinants
   \end{itemize}
 \end{frame}
+
+
 
 \end{document}
