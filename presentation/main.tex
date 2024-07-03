@@ -1,10 +1,11 @@
 %%%%%%%%% Packages %%%%%%%%%
-\documentclass[aspectratio=43]{beamer}
+\documentclass[aspectratio=169]{beamer}
 \usepackage[T1]{fontenc}
 \usepackage{pgfpages}
+% \usepackage{graphicx}
 
 %%%%%%%%% Packages setup %%%%%%%%%
-\setbeameroption{show notes on second screen}
+%\setbeameroption{show notes on second screen}
 %\setbeameroption{show only notes}
 %\setbeamerfont{note page}{size=\tiny}
 \setbeamercolor{note page}{bg=white, fg=black}
@@ -148,8 +149,21 @@
     \note[item]<2->{Total precipitation is summed, other quantities are averaged.}
     \item<3-> Align NEX-GDDP-CMIP6 timestamps
     \note[item]<3->{At daily resolution timestamps differ by hours of the same day, the offset loses meaning when aggregation at daily frequency is applied. Use convention of ERA5: timestamps point to the start of the day.}
-    \item<4-> Bias adjustment
-    \note[item]<4->{Training period 1950-1999, test period 2000-2014. Quantile Delta Mapping for both temperature and precipitation, show p-p plot for qualitative assessment of the adjustment.}
+    \item<4-> Bias adjustment\\[0.5em]
+    \begin{center}
+      \begin{minipage}{0.6\linewidth}
+        \centering
+        \begin{tabular}{ccc}
+          \includegraphics[width=0.30\linewidth]{tasmin_anomaly_preprocessed} & \includegraphics[width=0.30\linewidth]{tasmax_anomaly_preprocessed} & \includegraphics[width=0.30\linewidth]{pr_anomaly_preprocessed} \\
+          \includegraphics[width=0.30\linewidth]{tasmin_anomaly_adjusted} & \includegraphics[width=0.30\linewidth]{tasmax_anomaly_adjusted} & \includegraphics[width=0.30\linewidth]{pr_anomaly_adjusted}
+        \end{tabular}
+      \end{minipage}\hfill
+      \begin{minipage}{0.3\linewidth}
+        \centering
+        % MC add q-q plot.
+      \end{minipage}
+    \end{center}
+    \note[item]<4->{Training period 1950-1999, test period 2000-2014. Additive Quantile Delta Mapping for both temperature and precipitation, show p-p plot for qualitative assessment of the adjustment. THe figures refere to the coordinates of grid point containing the airport.}
     % MC extend historical period to 2023 with one period from the projections?
   \end{enumerate}
 \end{frame}
@@ -157,6 +171,7 @@
 \begin{frame}{Evaluation of hazard indicators}
   \begin{enumerate}
     \item<1-> Define intervals of parameters
+    % MC add downsampled quantile plot for temperature and precipitation.
     \note[item]<1->{Less dense for regions of slowly varying quantile function.}
     \item<2-> Spatial aggregation
     \note[item]<2->{Sample average, check standard deviation.}
@@ -172,21 +187,22 @@
 %\section{Case study}
 % MC talk about airports, the hazard drivers affecting them and the chosen indicators.
 
-\begin{frame}{Next steps}
-  \begin{itemize}
-    \item Uncertainty evaluation
-    \item Evaluate risk with non-linear relations among hazard indicators and among determinants
-    \item Extend analysis to Bologna's and Ciampino's airports
-  \end{itemize}
+\section{Results and discussion}
+\begin{frame}{Heat wave frequency}
+  % MC show plot of hazard for range thresh_tasmax [288.7, 309.1].
 \end{frame}
-
-%\section{Results and discussion}
-% MC show some results and their implications.
 
 %\section{Conclusion}
 % MC resume the initial idea and how the results obtained at this point match it.
 % MC list some criticalities I am having at this point.
 
-% MC make a subsection on open points.
+\begin{frame}{Next steps}
+  \begin{itemize}
+    \item Uncertainty evaluation
+    \item Evaluate risk with non-linear relations among hazard indicators and among determinants
+    \item Extend analysis to Bologna's and Ciampino's airports
+    \item Choose points of the interval more appropriate for the location of interest
+  \end{itemize}
+\end{frame}
 
 \end{document}
