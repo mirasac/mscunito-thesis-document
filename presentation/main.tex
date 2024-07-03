@@ -170,7 +170,7 @@
 
 \begin{frame}{Preprocessing}
 \begin{columns}[T]
-\begin{column}{0.45\textwidth}
+\begin{column}{0.60\textwidth}
   \begin{enumerate}
     \item<1-> Regrid ERA5
     \note[item]<1->{Since resolution is the same, a simple traslation of coordinates is sufficient. Use convention of NEX-GDDP-CMIP6: coordinates are the centre of the grid points.}
@@ -179,17 +179,19 @@
     \item<1-> Align NEX-GDDP-CMIP6 timestamps
     \note[item]<1->{At daily resolution timestamps differ by hours of the same day, the offset loses meaning when aggregation at daily frequency is applied. Use convention of ERA5: timestamps point to the start of the day.}
     \item<2-> Bias adjustment
-    \begin{center}
-      \begin{tabular}{ccc}
-        \includegraphics[width=0.30\columnwidth]{tasmin_anomaly_preprocessed} & \includegraphics[width=0.30\columnwidth]{tasmax_anomaly_preprocessed} & \includegraphics[width=0.30\columnwidth]{pr_anomaly_preprocessed} \\
-        \includegraphics[width=0.30\columnwidth]{tasmin_anomaly_adjusted} & \includegraphics[width=0.30\columnwidth]{tasmax_anomaly_adjusted} & \includegraphics[width=0.30\columnwidth]{pr_anomaly_adjusted}
-      \end{tabular}
-    \end{center}
     \note[item]<2->{Training period 1950-1999, test period 2000-2014. Additive Quantile Delta Mapping for both temperature and precipitation, show p-p plot for qualitative assessment of the adjustment. THe figures refere to the coordinates of grid point containing the airport.}
     % MC extend historical period to 2023 with one period from the projections?
   \end{enumerate}
+  \visible<2->{
+  \begin{center}
+    \begin{tabular}{ccc}
+      \includegraphics[width=0.25\columnwidth]{tasmin_anomaly_preprocessed} & \includegraphics[width=0.25\columnwidth]{tasmax_anomaly_preprocessed} & \includegraphics[width=0.25\columnwidth]{pr_anomaly_preprocessed} \\
+      \includegraphics[width=0.25\columnwidth]{tasmin_anomaly_adjusted} & \includegraphics[width=0.25\columnwidth]{tasmax_anomaly_adjusted} & \includegraphics[width=0.25\columnwidth]{pr_anomaly_adjusted}
+    \end{tabular}
+  \end{center}
+  }
 \end{column}
-\begin{column}{0.45\textwidth}
+\begin{column}{0.40\textwidth}
   \visible<3->{
   \begin{center}
     \includegraphics[width=0.47\textheight]{temperature_q-q_plot}\\
@@ -202,9 +204,10 @@
 % MC rearrange figures to make them more readable.
 
 \begin{frame}{Evaluation of hazard indicators}
+\begin{columns}[c]
+\begin{column}{0.60\textwidth}
   \begin{enumerate}
-    \item<1-> Define intervals of parameters
-    % MC add downsampled quantile plot for temperature and precipitation.
+    \item<1-> Define intervals of parameter values
     \note[item]<1->{Less dense for regions of slowly varying quantile function.}
     \item<2-> Spatial aggregation
     \note[item]<2->{Sample average, check standard deviation.}
@@ -215,6 +218,16 @@
     \item<4-> Risk evaluation
     \note[item]<4->{Given exposure and vulnerability, evaluate the final risk.}
   \end{enumerate}
+\end{column}
+\begin{column}{0.40\textwidth}
+  \visible<1>{
+  \begin{center}
+    \includegraphics[width=0.47\textheight]{temperature_quantile_ssp245_sample}\\
+    \includegraphics[width=0.47\textheight]{precipitation_quantile_ssp245_sample}
+  \end{center}
+  }
+\end{column}
+\end{columns}
 \end{frame}
 
 %\section{Case study}
