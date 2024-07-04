@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{pgfpages}
 \usepackage[style=authortitle,backend=biber]{biblatex}
+\usepackage{xcolor}
 
 %%%%%%%%% Packages setup %%%%%%%%%
 %\setbeameroption{show notes on second screen}
@@ -15,6 +16,9 @@
 \setbeamerfont{institute}{size=\scriptsize}
 \addbibresource{../bibliography.bib}
 \graphicspath{{./figures/}{../figures/}}
+\definecolor{hazard}{RGB}{24, 50, 84}
+\definecolor{driver}{RGB}{255, 0, 0}
+\definecolor{indicator}{RGB}{69, 69, 69}
 
 %%%%%%%%% Document informations %%%%%%%%%
 \title{Sensitivity analysis of climate change risk assessment}
@@ -37,14 +41,14 @@
 
 
 \section{Introduction}
-\begin{frame}{Introduction}
+\begin{frame}{Definitions}
   \begin{itemize}
     \item<1-> Risk: potential for adverse consequences for human or ecological systems [...]
     % 2021MatthewsAnnexVII
     \note[item]<1->{Few definitions to have a common starting point, all from IPCC AR6.}
     \item<2-> Climate Change Risk Assessment (CCRA)\\[1em]
     \begin{center}
-      \includegraphics[keepaspectratio=true,width=0.8\textheight]{nomenclature}
+      \includegraphics[keepaspectratio=true,width=0.9\textheight]{nomenclature}
     \end{center}
     \note[item]<2->{Estimation of risk related to climate change, i.e. determined by potential impacts of climate change and human responses to climate change.}
     % 2021MatthewsAnnexVII
@@ -58,7 +62,7 @@
   \begin{itemize}
     \item<1-> The choice of indicators is arbitrary
     \note[item]<1->{Many methodologies and guidelines, different indicators may lead to different risks.}
-    \item<2-> Analysis of the sensitivity of indicators to a change in value of their parameters, for drivers within the hazard determinant
+    \item<2-> Analysis of the sensitivity of \textcolor{indicator}{indicators} to a change in value of their parameters, for \textcolor{driver}{drivers} within the \textcolor{hazard}{hazard} determinant
   \end{itemize}
 \end{frame}
 
@@ -134,18 +138,26 @@
 \section{Methods}
 % MC show with schemes and matrices the idea of varying the hazard indicators and study the statistics of the resulting ensembles.
 \begin{frame}{Methodology}
-  \begin{itemize}
-    \item<1-> Indicators: heat wave frequency, maximum $n$-days precipitation
-    \note[item]<1->{The $n$ is one of the parameters of the indicator. Select intervals of variation of parameters and evaluate indicators for each combination of them.}
-    \item<1-> Fixed exposure and vulnerability from literature
-    \item<2-> Evaluate risk following the guidelines
-    \note[item]<2->{A value for each determinant is evaluated, which is the aggregation of the respective indicators. The aggregation include also a normalisation step, hence the final value is in the interval $[0, 1]$ and values from different determinants can be compared to each other. Risk is the weighted mean of those values and in this project the weights are set to 1 because exposure and vulnerability are constant, hence the relation between risk and hazard is linear and no interesting information is added by considering different weigths. Finally the risk values are classified in a rank of 5 classes, by splitting the interval $[0, 1]$ in 5 equally sized subintervals.}
-    % MC add formula for risk.
+  \begin{enumerate}
+    \item<1-> Select indicators:
+      \begin{itemize}
+        \item heat wave frequency (tasmin threshold, tasmax threshold, window size)
+        \item maximum $n$-days precipitation amount (window size)
+      \end{itemize}
+    \note[item]<1->{Definition of heat wave: sequence of at least a given number of contiguous days with daily minimum and maximum temperatures exceeding given thresholds. Heat wave frequency is the yearly number of heat waves.}
+    \note[item]<1->{Maximum $n$-days precipitation amount is the yearly maximum of the moving sum of daily precipitation for a window of $n$ days.}
+    \note[item]<1->{Select intervals of variation of parameters and evaluate indicators for each combination of them.}
+    \item<2-> Fix exposure and vulnerability from literature
+    \item<3-> Evaluate risk following the guidelines
+    \begin{equation}
+      \label{eq:risk}
+      r = r(\mathcal{H}, \mathcal{E}, \mathcal{V}) = r(H, E, V) = \frac{w_H H + w_E E + w_V V}{w_H + w_E + w_V} = c_0 + c_1 H
+    \end{equation}
+    \note[item]<3->{A value for each determinant is calculated, which is the aggregation of the respective indicators. The aggregation include also a normalisation step, hence the final value is in the interval $[0, 1]$ and values from different determinants can be compared to each other. Risk is the weighted mean of those values. Finally the risk values are classified in a rank of 5 classes, by splitting the interval $[0, 1]$ in 5 equally sized subintervals.}
+    \note[item]<3->{For this phase of the project, weights are set to 1 because exposure and vulnerability are constant, hence the relation between risk and hazard is linear and no interesting information is added by considering different weigths.}
     % 2017GIZRiskSupplement
-  \end{itemize}
+  \end{enumerate}
 \end{frame}
-
-% MC add frame Indicators which shows the definitions of the chosen indicators. Remove from the final discussion because it takes too long.
 
 % \begin{frame}{Preprocessing}
 %   \begin{enumerate}
@@ -223,9 +235,6 @@
     \item<3-> Temporal aggregation
     \note[item]<3->{Sample average, check standard deviation.}
     % MC try Mann-Kendall, check compatiblity of Senn slope with 0?
-    \item<4-> Risk evaluation
-    % MC insert here the explicit formula for risk which is linear.
-    \note[item]<4->{Given exposure and vulnerability, evaluate the final risk.}
   \end{enumerate}
 \end{column}
 \begin{column}{0.40\textwidth}
@@ -247,16 +256,29 @@
 
 
 \section{Results and discussion}
-\begin{frame}{Heat wave frequency}
+\begin{frame}{Heat wave frequency -- Fixed scenario}
   \begin{center}
     \includegraphics[width=0.8\textwidth]{heat_wave_frequency_ssp245}
-    % MC put title with scenario and year!
-\end{center}
+  \end{center}
+  \note[item]<1->{No spatial aggregation is performed to reduce isleading behaviour due to problems in the dataset, hence results are presented only for one year of the baseline period.}
+  \note[item]<1->{To avoid cluttering the plot, only one scenario is presented and for interesting threshold values.}
 \end{frame}
 
-\begin{frame}{Maximum $n$-days precipitation}
+\begin{frame}{Heat wave frequency -- Fixed tasmax threshold}
   \begin{center}
-    \includegraphics[width=0.9\textheight]{max_n_day_precipitation_amount_ssp245}
+    \begin{tabular}{ccc}
+      \includegraphics[width=0.3\columnwidth]{heat_wave_frequency_ssp126_tasmax} & \includegraphics[width=0.3\columnwidth]{heat_wave_frequency_ssp245_tasmax} & \includegraphics[width=0.3\columnwidth]{heat_wave_frequency_ssp585_tasmax}
+    \end{tabular}
+  \end{center}
+  \note[item]<1->{No spatial aggregation is performed to reduce isleading behaviour due to problems in the dataset, hence results are presented only for one year of the baseline period.}
+  \note[item]<1->{To avoid cluttering the plot, only one scenario is presented and for interesting threshold values.}
+\end{frame}
+
+\begin{frame}{Maximum $n$-days precipitation amount}
+  \begin{center}
+    \begin{tabular}{ccc}
+      \includegraphics[width=0.3\columnwidth]{max_n_day_precipitation_amount_ssp126} & \includegraphics[width=0.3\columnwidth]{max_n_day_precipitation_amount_ssp245} & \includegraphics[width=0.3\columnwidth]{max_n_day_precipitation_amount_ssp585}
+    \end{tabular}
   \end{center}
 \end{frame}
 
@@ -267,11 +289,12 @@
 % MC list some criticalities I am having at this point.
 \begin{frame}{Next steps}
   \begin{itemize}
-    \item Extend analysis to other indicators for same hazard drivers
+    \item Extend analysis to other indicators for each hazard drivers
     \item Extend analysis to Bologna's and Ciampino's airports
     \item Sample intervals specifically for the location of interest
-    \item Evaluate uncertainty
+    \item Normalise indicators
     \item Evaluate risk with non-linear relations among hazard indicators and among determinants
+    \item Evaluate uncertainty (multi-model ensemble)
   \end{itemize}
 \end{frame}
 
