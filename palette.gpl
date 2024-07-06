@@ -1,11 +1,11 @@
 GIMP Palette
 Name: mscunito-thesis
 #
-  0   0   0 black 0x000000
-  1 168 210 exposure 0x01A8D2
- 24  50  84 hazard 0x183254
- 69  69  69 indicator 0x454545
-132  29  93 risk 0x841D5D
-200 123  17 response 0xC87B11
-247 168   0 vulnerability 0xF7A800
-255   0   0 driver 0xFF0000
+  0   0   0 black #000000
+  1 168 210 exposure #01A8D2
+ 24  50  84 hazard #183254
+ 69  69  69 indicator #454545
+132  29  93 risk #841D5D
+200 123  17 response #C87B11
+247 168   0 vulnerability #F7A800
+255   0   0 driver #FF0000
