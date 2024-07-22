@@ -1,5 +1,12 @@
 # LaTeX
-main.*
-!main.tex
-!main.pdf
 *.aux
+*.bbl
+*.bcf
+*.blg
+*.glo
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.toc
