@@ -2,19 +2,26 @@
 
 % Packages.
 \usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{glossaries}  % Load after some packages, check its documentation.
+
+\setacronymstyle{long-short}
+\makenoidxglossaries  % Put before any new glossary term.
+
+\newglossary*{definitions}{Definitions}
+\setglossarypreamble[definitions]{\label{gls:definitions}}
+\loadglsentries[definitions]{./glossaries/definitions.tex}
 
 % Document.
 \begin{document}
 
 
 
-\section{Introduction}
-\include{introduction.tex}
+\input{introduction.tex}
 
 
 
-\subsection{Definitions}
-\include{definitions.tex}
+\printnoidxglossary[type=definitions,sort=word]
 
 
 
