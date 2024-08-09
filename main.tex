@@ -2,7 +2,8 @@
 
 % Packages.
 \usepackage[T1]{fontenc}
-\usepackage[hidelinks]{hyperref}
+\usepackage[breakable]{tcolorbox}
+\usepackage[hidelinks]{hyperref}  % Load last.
 \usepackage{glossaries}  % Load after some packages, check its documentation.
 
 \setacronymstyle{long-short}
@@ -11,6 +12,16 @@
 \newglossary*{definitions}{Definitions}
 \setglossarypreamble[definitions]{\label{gls:definitions}}
 \loadglsentries[definitions]{./glossaries/definitions.tex}
+
+\newtcolorbox{example}{
+  breakable,
+  title=Example,
+  coltitle=green!5!white,
+  colbacktitle=green,
+  fonttitle=\bfseries,
+  colframe=green,
+  colback=green!5!white
+}
 
 % Document.
 \begin{document}
