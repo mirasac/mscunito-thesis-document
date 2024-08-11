@@ -3,15 +3,19 @@
 % Packages.
 \usepackage[T1]{fontenc}
 \usepackage[breakable]{tcolorbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage[hidelinks]{hyperref}  % Load last.
-\usepackage{glossaries}  % Load after some packages, check its documentation.
+\usepackage[acronym]{glossaries}  % Load after some packages, check its documentation.
 
 \setacronymstyle{long-short}
 \makenoidxglossaries  % Put before any new glossary term.
 
-\newglossary*{definitions}{Definitions}
-\setglossarypreamble[definitions]{\label{gls:definitions}}
-\loadglsentries[definitions]{./glossaries/definitions.tex}
+\loadglsentries{./glossaries/acronyms.tex}
+
+\newglossary*{definition}{Definitions}
+\setglossarypreamble[definition]{\label{gls:definitions}}
+\loadglsentries[definition]{./glossaries/definitions.tex}
 
 \newtcolorbox{example}{
   breakable,
@@ -32,7 +36,12 @@
 
 
 
-\printnoidxglossary[type=definitions,sort=word]
+\input{data.tex}
+
+
+
+\printnoidxglossary[type=definition,sort=word]
+\printnoidxglossary[type=acronym,sort=word]
 
 
 
