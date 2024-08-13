@@ -3,18 +3,25 @@
 %%%%%%%%% Packages %%%%%%%%%
 \usepackage[T1]{fontenc}  % Load first.
 
+\usepackage{amssymb}
+
+\usepackage[tableposition=top,figureposition=bottom,font=footnotesize]{caption}
+
 \usepackage[useregional]{datetime2}
 
 \usepackage{etoolbox}
 \newtoggle{toggle_example}
-\settoggle{toggle_example}{true}
+\settoggle{toggle_example}{true}  % Set false to remove example boxes.
 
-\usepackage[breakable,skins]{tcolorbox}
-
-\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{{./figures/}}
 
 \usepackage{mathtools}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+\usepackage[group-digits=integer,separate-uncertainty,per-mode=symbol]{siunitx}
+
+\usepackage[breakable,skins]{tcolorbox}
 
 \usepackage{verbatim}
 
@@ -33,6 +40,7 @@
 
 %%%%%%%%% Other %%%%%%%%%
 \newcommand{\tasmax}{\mathrm{tasmax}}
+\newcommand{\tas}{\mathrm{tas}}
 
 \iftoggle{toggle_example}{
   \newtcolorbox{example}{
