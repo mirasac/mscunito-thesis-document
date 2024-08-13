@@ -5,22 +5,18 @@
 
 \usepackage[useregional]{datetime2}
 
+\usepackage{etoolbox}
+\newtoggle{toggle_example}
+\settoggle{toggle_example}{true}
+
 \usepackage[breakable,skins]{tcolorbox}
-\newtcolorbox{example}{
-  enhanced,
-  breakable,
-  title=Example,
-  coltitle=green!5!white,
-  colbacktitle=green,
-  fonttitle=\bfseries,
-  colframe=green,
-  colback=green!5!white
-}
 
 \usepackage{amssymb}
 
 \usepackage{mathtools}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+\usepackage{verbatim}
 
 \usepackage[hidelinks]{hyperref}  % Load last.
 
@@ -37,6 +33,21 @@
 
 %%%%%%%%% Other %%%%%%%%%
 \newcommand{\tasmax}{\mathrm{tasmax}}
+
+\iftoggle{toggle_example}{
+  \newtcolorbox{example}{
+    enhanced,
+    breakable,
+    title=Example,
+    coltitle=green!5!white,
+    colbacktitle=green,
+    fonttitle=\bfseries,
+    colframe=green,
+    colback=green!5!white
+  }
+}{
+  \newenvironment{example}{\comment}{\endcomment}
+}
 
 %%%%%%%%% Document %%%%%%%%%
 \begin{document}
