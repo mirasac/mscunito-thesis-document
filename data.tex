@@ -1,8 +1,47 @@
 \section{Data}
-Climate data show great complexity in structure and availability. For these and other properties they can be regarded as big data.\cite{2014FaghmousABig}
-Each \gls{ECV} can be represented as a multidimensional object and in this work a generic \gls{ECV} $E$ is represented mathematically as a scalar function
+\label{sec:Data}
+Climate data show great complexity in structure and availability, for instance \glspl{ECV} can be represented as multidimensional objects. For these and other properties they can be regarded as big data.\cite{2014FaghmousABig}
+In this work a generic \gls{ECV} $V$ can be represented mathematically as a scalar function
 \begin{equation}
-  E : D_\text{time} \times D_\text{lat} \times D_\text{lon} \to \mathbb{R}
+  \label{eq:math_dataset}
+  V : S_\text{lat} \times S_\text{lon} \times S_\text{time} \to \mathbb{R}
 \end{equation}
-where $D_\text{time}$, $D_\text{lat}$ and $D_\text{lon}$ are domains of time, latitude and longitude coordinates, respectively.%
-\footnote{In Machine Learning-related fields these objects are called tensors. Since they may not satisfy the mathematical definition of a tensor, in particular the numerical sets over which they are defined may not be vector spaces, in this work no reference to multilinear algebra is made.}
+where $S_\text{lat}$, $S_\text{lon}$ and $S_\text{time}$ are domains of latitude, longitude and time dimensions, respectively.%
+\footnote{In contests related to Machine Learning these objects are called tensors. Since they may not satisfy the mathematical definition of a tensor, in particular the map may not be multilinear and the numerical sets may not be vector spaces, no reference to such objects is made in this work.}
+A more practical representation is a multidimensional array, where values in the domain are coordinates associated to each dimension. Each entry of the array is the result of $V$ evaluated on the coordinates.
+
+\Glspl{normal} used as reference depends only on spatial coordinates, hence they are functions
+\begin{equation}
+  \label{eq:math_normal}
+  \bar{V} : S_\text{lat} \times S_\text{lon} \to \mathbb{R}
+  \quad .
+\end{equation}
+They are evaluated as explained in \cite[6]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines} using an averaging period specific to each case study (cf. section~\ref{sec:case_study}).
+
+\Glspl{indicator} are functions of \glspl{ECV} and additional parameters may be needed in their definition. In general they are aggregated over the temporal dimension and in this work their evaluation is performed for each year, i.e. the \gls{indicator} has yearly resolution or is evaluated with yearly frequency.
+
+Mathematically an \gls{indicator} $I$ can be defined as function
+\begin{equation}
+  \label{eq:math_indicator}
+  I : S_\text{lat} \times S_\text{lon} \times S_\text{y} \times \prod_{p \in P_I} S_p \to \mathbb{R}
+\end{equation}
+where $S_\text{y}$ is a set of the years considered during the analysis, $P_I$ is the set of parameters for that indicator and $S_p$ is the set of values available for each parameter $p \in P_I$. As a symbolic shortcut, if $P_I = \emptyset$ then the indicator is defined only over $S_\text{lat} \times S_\text{lon} \times S_\text{y}$.
+An indicator can be represented as a multidimensional array, similarly to \glspl{ECV}.
+
+\begin{example}
+  The \gls{indicator} $\mathrm{TX_x}$ is evaluated for the period 1991-2020 with yearly frequency. This \gls{indicator} is the monthly maximum value of daily maximum temperature,\cite{ETCCDIClimate} hence:
+  \begin{itemize}
+    \item the \gls{ECV} $\tasmax$ defined at daily frequency over the considered period is needed,
+      \begin{equation*}
+        S_\text{time} = \left\{ t : \parbox{0.45\linewidth}{$t$ day from \DTMdisplaydate{1991}{1}{1}{-1} to \DTMdisplaydate{2020}{12}{31}{-1}} \right\}
+        \quad ;
+      \end{equation*}
+    \item spatial dimensions are not specified, hence the evaluation is performed for each point of an arbitrary set $S_\text{lat} \times S_\text{lon}$;
+    \item no additional parameters are required, $P_\mathrm{TX_x} = \emptyset$;
+    \item the outcome is a scalar value for each year in the period,
+      \begin{equation*}
+        S_\text{y} = \{ 1991, 1992, \dots, 2020 \}
+        \quad .
+      \end{equation*}
+  \end{itemize}
+\end{example}

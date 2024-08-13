@@ -1,16 +1,18 @@
-\documentclass[a4paper,11pt,twoside,openany]{book}
+\documentclass[a4paper,11pt,twoside,openany,british]{book}
 
 % Packages.
-\usepackage[T1]{fontenc}
-\usepackage[breakable]{tcolorbox}
-\usepackage{amsmath}
+\usepackage[T1]{fontenc}  % Load first.
+\usepackage[useregional]{datetime2}
+\usepackage[breakable,skins]{tcolorbox}
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage[hidelinks]{hyperref}  % Load last.
 \usepackage[acronym]{glossaries}  % Load after some packages, check its documentation.
 
 \setacronymstyle{long-short}
 \makenoidxglossaries  % Put before any new glossary term.
 
+% Glossary acronym created by package option.
 \loadglsentries{./glossaries/acronyms.tex}
 
 \newglossary*{definition}{Definitions}
@@ -18,6 +20,7 @@
 \loadglsentries[definition]{./glossaries/definitions.tex}
 
 \newtcolorbox{example}{
+  enhanced,
   breakable,
   title=Example,
   coltitle=green!5!white,
@@ -26,6 +29,10 @@
   colframe=green,
   colback=green!5!white
 }
+
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+\newcommand{\tasmax}{\mathrm{tasmax}}
 
 % Document.
 \begin{document}
