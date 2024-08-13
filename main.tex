@@ -1,24 +1,11 @@
 \documentclass[a4paper,11pt,twoside,openany,british]{book}
 
-% Packages.
+%%%%%%%%% Packages %%%%%%%%%
 \usepackage[T1]{fontenc}  % Load first.
+
 \usepackage[useregional]{datetime2}
+
 \usepackage[breakable,skins]{tcolorbox}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage[hidelinks]{hyperref}  % Load last.
-\usepackage[acronym]{glossaries}  % Load after some packages, check its documentation.
-
-\setacronymstyle{long-short}
-\makenoidxglossaries  % Put before any new glossary term.
-
-% Glossary acronym created by package option.
-\loadglsentries{./glossaries/acronyms.tex}
-
-\newglossary*{definition}{Definitions}
-\setglossarypreamble[definition]{\label{gls:definitions}}
-\loadglsentries[definition]{./glossaries/definitions.tex}
-
 \newtcolorbox{example}{
   enhanced,
   breakable,
@@ -30,26 +17,31 @@
   colback=green!5!white
 }
 
+\usepackage{amssymb}
+
+\usepackage{mathtools}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 
+\usepackage[hidelinks]{hyperref}  % Load last.
+
+\usepackage[acronym]{glossaries}  % Load after some packages, check its documentation.
+\setacronymstyle{long-short}
+\makenoidxglossaries  % Put before any new glossary term.
+
+% Glossary acronym created by package option.
+\loadglsentries{./glossaries/acronyms.tex}
+
+\newglossary*{definition}{Definitions}
+\setglossarypreamble[definition]{\label{gls:definitions}}
+\loadglsentries[definition]{./glossaries/definitions.tex}
+
+%%%%%%%%% Other %%%%%%%%%
 \newcommand{\tasmax}{\mathrm{tasmax}}
 
-% Document.
+%%%%%%%%% Document %%%%%%%%%
 \begin{document}
-
-
-
 \input{introduction.tex}
-
-
-
 \input{data.tex}
-
-
-
 \printnoidxglossary[type=definition,sort=word]
 \printnoidxglossary[type=acronym,sort=word]
-
-
-
 \end{document}
