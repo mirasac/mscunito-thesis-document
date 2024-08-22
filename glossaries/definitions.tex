@@ -1,19 +1,40 @@
 \newglossaryentry{determinant}{
   name={determinant},
-  description={Any component of risk, i.e. hazard, exposure, vulnerability, response, from \cite[493]{2023SimpsonAdaptationTo}.}
+  description={Any component of risk, i.e. hazard, exposure, vulnerability, response, from \cite[493]{2021SimpsonAFramework}.}
 }
 \newglossaryentry{risk}{
   name={risk},
-  description={``The potential for adverse consequences for human or ecological systems, recognizing the diversity of values and objectives associated with such systems. In the context of climate change, risks can arise from potential impacts of climate change as well as human responses to climate change. Relevant adverse consequences include those on lives, livelihoods, health and well-being, economic, social and cultural assets and investments, infrastructure, services (including ecosystem services), ecosystems and species.'', from \cite[2246]{2021MatthewsAnnexVII}. For further information on the use of the term in other fields see \cite[14]{2017GIZRiskSupplement}.}
+  description={``effect of uncertainty'', from \cite{2021ISO14091}},
+  user1={``The potential for adverse consequences for human or ecological systems, recognizing the diversity of values and objectives associated with such systems. In the context of climate change, risks can arise from potential impacts of climate change as well as human responses to climate change. Relevant adverse consequences include those on lives, livelihoods, health and well-being, economic, social and cultural assets and investments, infrastructure, services (including ecosystem services), ecosystems and species. [...]'', from \cite[2246]{2021MatthewsAnnexVII}}
+}
+\newglossaryentry{impact}{
+  name={impact},
+  description={``effect on natural and human systems (3.3)'', from \cite{2021ISO14091}},
+  user1={``The consequences of realized risks on natural and human systems, where risks result from the interactions of climate-related hazards (including extreme weather/climate events), exposure, and vulnerability. Impacts generally refer to effects on lives, livelihoods, health and well-being, ecosystems and species, economic, social and cultural assets, services (including ecosystem services), and infrastructure. Impacts may be referred to as consequences or outcomes and can be adverse or beneficial.'', from \cite[2235]{2021MatthewsAnnexVII}}
+}
+\newglossaryentry{response}{
+  name={response},
+  description={action enact to mitigate the effects of climate change or adapt to it}
+}
+\newglossaryentry{mitigation}{
+  name={mitigation},
+  description={``A human intervention to reduce emissions or enhance the sinks of greenhouse gases.'', from \cite[2239]{2021MatthewsAnnexVII}}
+}
+\newglossaryentry{adaptation}{
+  name={adaptation},
+  description={``process of adjustment to actual or expected climate (3.4) and its effects'', from \cite{2021ISO14091}},
+  user1={``In human systems, the process of adjustment to
+  actual or expected climate and its effects, in order to moderate harm or exploit beneficial opportunities. In natural systems, the process of adjustment to actual climate and its effects; human intervention may facilitate adjustment to expected climate and its effects.'', from \cite[2216]{2021MatthewsAnnexVII}}
 }
 \newglossaryentry{hazard}{
   name={hazard},
-  description={Here is used the IPCC's definition: ``The potential occurrence of a natural or human-induced physical event or trend that may cause loss of life, injury, or other health impacts, as well as damage and loss to property, infrastructure, livelihoods, service provision, ecosystems and environmental resources'', from \cite[2233]{2021MatthewsAnnexVII}. Note that this concept focues on the negative impacts of the physical drivers, the term \emph{Climatic impact-driver} is used for conditions with more general impacts (cfr. \cite[2224]{2021MatthewsAnnexVII}, \cite[10]{2020ReisingerGuidanceFor} and \cite[1871]{2021RanasingheClimateChange}). In this document the term Driver is used.},
-  see={driver}
+  description={``potential source of harm'', from \cite{2021ISO14091}},
+  user1={``The potential occurrence of a natural or human-induced physical event or trend that may cause loss of life, injury, or other health impacts, as well as damage and loss to property, infrastructure, livelihoods, service provision, ecosystems and environmental resources'', from \cite[2233]{2021MatthewsAnnexVII}}
 }
 \newglossaryentry{driver}{
   name={driver},
-  description={Individual components of determinants, from \cite[493]{2023SimpsonAdaptationTo}.}
+  description={individual components of determinants, from \cite[493]{2021SimpsonAFramework}},
+  see={determinant,hazard,vulnerability,exposure,response}
 }
 \newglossaryentry{indicator}{
   name={indicator},
@@ -24,19 +45,28 @@
   name={organization},
   description={``person or group of people that has its own functions with responsibilities, authorities and relationships to achieve its objectives'', from \cite{2021ISO14091}.}
 }
-\newglossaryentry{climate index}{
-  name={cliamte index},
-  description={``A time series constructed from climate variables that provides an aggregate summary of the state of the climate system'', cfr. \cite{2021MatthewsAnnexVII}.}
+\newglossaryentry{climate_index}{
+  name={climate index},
+  description={``A time series constructed from climate variables that provides an aggregate summary of the state of the climate system'', cfr. \cite[2222]{2021MatthewsAnnexVII}.}
 }
 \newglossaryentry{vulnerability}{
   name={vulnerability},
-  description={some sources evaluate the vulnerability determinant as a function of sensitivity and adaptive capacity,\cite[559]{2022DeVivoRiskAssessment} others also include the exposure determinant.\cite[58]{2017GIZTheVulnerability} In this document the first meaning is adopted, in particular as linear combination of sensitivity and adaptive capacity.},
-  see={exposure}
+  description={``propensity or predisposition to be adversely affected'', from \cite{2021ISO14091}},
+  user1={``The propensity or predisposition to be adversely affected. Vulnerability encompasses a variety of concepts and elements including sensitivity or susceptibility to harm and lack of capacity to cope and adapt.'', from \cite[2253]{2021MatthewsAnnexVII}},
+  see={sensitivity,adaptive_capacity}
+}
+\newglossaryentry{sensitivity}{
+  name={sensitivity},
+  description={``degree to which a system (3.3) or species is affected, either adversely or beneficially, by climate (3.4) variability or change'', from \cite{2021ISO14091}}
+}
+\newglossaryentry{adaptive_capacity}{
+  name={adaptive capacity},
+  description={``ability of systems (3.3), institutions, humans, and other organisms to adjust to potential damage, to take advantage of opportunities, or to respond to consequences'', from \cite{2021ISO14091}}
 }
 \newglossaryentry{exposure}{
   name={exposure},
-  description={determinant of risk which includes all the elements of the system which are under threat, e.g. airport runways. The exposed elements are the drivers of this determinant, in \cite[553]{2022DeVivoRiskAssessment} they are called ``exposed samples''.},
-  see={driver,determinant,risk}
+  description={``presence of people, livelihoods, species or ecosystems, environmental functions, services, resources, infrastructure, or economic, social or cultural assets in places and settings that could be affected'', from \cite{2021ISO14091}},
+  user1={``The presence of people; livelihoods; species or ecosystems; environmental functions, services, and resources; infrastructure; or economic, social, or cultural assets in places and settings that could be adversely affected.'', from \cite[2229]{2021MatthewsAnnexVII}}
 }
 \newglossaryentry{normal}{
   name={normal},
