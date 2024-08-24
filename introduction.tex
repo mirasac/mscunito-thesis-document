@@ -2,23 +2,15 @@
 Climate risk assessment is becoming central in contemporary activities related in any way to the environment and whose assets could be affected by climate change.
 In particular, climate change risk assessment is a topic more and more organizations are considering in their decisions.
 
-A climate change risk assessment for a given system is the analysis of the impacts of and the responses to climate change regarding that system. Various guidelines are available for these kind of risk assessments (cfr. \cite{2021ISO14091,2024EEAExecutiveSummary,2017GIZTheVulnerability}) and authors of assessments (e.g. consulting firms) follow a common procedure.
-This procedure can be summarised in few steps:
-\begin{enumerate}
-  \item Collect requirements, documentation and information in general from clients and users about the system which is the subject of the assessment.
-  \item Collect from the client data and information about climate, environment and exposed samples concerning the assessed system.
-  \item Determine hazards potentially affecting the exposed samples of the system and their exposure and vulnerability.
-  \item For each determinant, identify indicators suitable to describe the system.
-  \item Quantify indicators using collected data.
-  \item Unify previous information and climate projections to obtain the final risk, also projected into the future using specific climate change scenarios.
-  \item Propose mitigation and adaptation measures and responses based on the outcome of the risk assessment.
-\end{enumerate}
-
-In general, slight variations of this procedure is adopted by authors and guidelines do not specify precisely the practical details of the assessment. In particular, there is no objective method to choose the climate indicators used in the assessment, but they are selected according to their effectiveness in scientific literature and in previous assessments, combined with the personal experience of the authors. The choice of the indicators is far from objective.
+A climate change risk assessment for a given system is the analysis of the impacts of and the responses to climate change regarding that system. Various guidelines are available for these kind of risk assessments (cf. \cite{2021ISO14091,2024EEAExecutiveSummary,2017GIZTheVulnerability}) and slight variations of them are adopted by authors, but they do not specify precisely the practical details of the assessment. In particular, there is no objective method to choose the climate indicators used in the assessment, but they are selected according to their effectiveness in scientific literature and in previous assessments, combined with the personal experience of the authors. The choice of the indicators is far from objective.
 
 
 
 \subsection{Climate risk}
+\label{sec:Climate risk}
+But what is risk? Before introducing the methodology adopted to evaluate risk in the present work, first it is convenient to introduce a proper terminology.
+In this work definitions by \gls{ISO} are used for their concision. When some terms are not available, they are taken from \gls{IPCC}. Both sources have similar definitions for the same terms.
+
 \Gls{risk} is a general term which can be tailored to different contexts and applications as a measure of uncertain consequences on a system of interest.%
 \footnote{Without delving into Philosophy, a source of change is needed to have consequences and it is specified by the definitions in use.}
 A system is very broadly any concrete or abstract entity which can be affected by \gls{risk}.
@@ -28,40 +20,64 @@ A system is very broadly any concrete or abstract entity which can be affected b
 A paradigmatic example is the financial sector, where the concept of \gls{risk} is widely known and is connected directly to economic value and the concept of portfolio, to the point that financial risk management can be considered a research field itself.\cite{2004ChristoffersenElementsOf}
 Examples on how other fields implement the concept are elaborated in \cite[14]{2017GIZRiskSupplement} and in \cite{2020ReisingerTheConcept}.
 
-In this work the declination of \gls{risk} related to climate change given by \gls{ISO} is adopted: \glsdesc{risk}.%
+In this work the \gls{risk} related to climate change is: \glsdesc{risk}.%
 \footnote{Note that this definition is not specific to climate \gls{risk} since no reference to climate is made.}
 \Gls{IPCC} proposes a similar definition, expanding on the entities involved (e.g. the possible systems) and the contexts in which the term is used, but focusing only on negative effects: \glsdesc{risk}.
 An important aspect of climate \gls{risk} is that it originates both from \gls{impact} of climate change, i.e. \glsdesc{impact}, and any response to it, i.e. \glsdesc{response}. It is not common to see \glspl{response} integrated into risk assessment, as exposed by \cite[492]{2021SimpsonAFramework}, and for the purposes of the present study they are neglected.
 Henceforth, terms climate \gls{risk} and \gls{risk} are used interchangeably.
 
-Restricting the treatise to climate-related applications is not sufficient to fix details on \gls{risk}, e.g. how to evaluate it. These implementation details depend on which methodology is chosen to perform the risk assessment, which is presented in section~\ref{sec:Climate change risk assessment} and is defined operatively in section~\ref{sec:Evaluation of risk}.
-
-To make the assessment easily extensible and modular, \gls{risk} is defined as the result of the interaction of three elements, i.e. its \glspl{determinant}, namely \gls{hazard}, \gls{exposure} and \gls{vulnerability}.%
-\footnote{\Gls{response} is considered the fourth \gls{determinant} of \gls{risk}, when they the adopted methodology includes it in the assessment.}
-Each \gls{determinant} may be viewed as a collection of elements, which are of different nature depending on the \gls{determinant} they belong to, but are addressed generically as \glspl{driver}.%
-\footnote{Where this terminology has not been applied, it is common to refer to \glspl{driver} with the name of the \glspl{determinant} they belong to, e.g. drivers within the \gls{vulnerability} determinant are simply called vulnerabilities.}
-In this regard, the various components of \gls{risk} can be logically arranged as in figure~\ref{fig:nomenclature}.
-\begin{figure}[h]
-  \centering
-  \includegraphics*[keepaspectratio=true,width=0.75\textwidth]{nomenclature}
-  \caption{A possibile representation of the logical relation beween components of climate \gls{risk}.}
-  \label{fig:nomenclature}
-\end{figure}
-The concept of \gls{driver} of \gls{risk} is borrowed from \cite{2021SimpsonAFramework} to allow a smooth extension to methodologies where \gls{risk} is the result of complex interactions within and across \glspl{determinant}.
-\begin{example}
-  A tropical storm is a \gls{driver} within the \gls{hazard} \gls{determinant},\cite[15]{2017GIZRiskSupplement} income is a \gls{driver} within the \gls{vulnerability} \gls{determinant},\cite[493]{2021SimpsonAFramework} airport structures (e.g. runways, aprons, terminals) in an airport (i.e. the system) are \glspl{driver} within the \gls{exposure} \gls{determinant}.\cite[551]{2022DeVivoRiskAssessment} Each of these references contain more examples of \glspl{driver}.
-\end{example}
-
-Definitions of \glspl{determinant} were introduced in \cite[69-70]{2012FieldManagingThe} and offer a change of direction from previous methodologies centered on the concept of \gls{vulnerability} of the system instead of the overall \gls{risk}.\cite{2017GIZTheVulnerability,2017GIZRiskSupplement}
-In this work definitions by \gls{ISO} are used but they differ little from the ones by \gls{IPCC}.
+To make the assessment easily extensible and modular, \gls{risk} is defined as the result of the interaction of three elements, i.e. its \glspl{determinant}, namely \gls{hazard}, \gls{exposure} and \gls{vulnerability}. \Gls{response} is considered the fourth \gls{determinant} of \gls{risk}, when the adopted methodology includes it in the assessment.
+Definitions of \glspl{determinant} were introduced in \cite[69-70]{2012FieldManagingThe} and offer a change of direction from previous methodologies centered on the concept of \gls{vulnerability} of the system instead of the overall \gls{risk} (cf. \cite{2017GIZTheVulnerability} and \cite{2017GIZRiskSupplement}).
 
 The \gls{hazard} is defined by \gls{ISO} as \glsdesc{hazard} and is elaborated further by \gls{IPCC}. In the following the term \gls{hazard} is used to address to climate-related \glspl{hazard} without further specification.
 In \cite[2224]{2021MatthewsAnnexVII} \gls{IPCC} provides the term \gls{CID} to address to climate-related physical phenomena with neutral effects (cf. \cite[10]{2020ReisingerTheConcept} or \cite[1871]{2021RanasingheClimateChange}). In other words, among the \glspl{CID} which can affect the system, only some may be regarded as \glspl{hazard}, depending on the \gls{risk} assessed.
 Hazards used in the present work are selected among the taxonomy provided by European Union for \gls{CCRA}, to have a well-known and authoritative reference in the field.\cite[177]{2024EU20212139}
 
-The \gls{exposure} of a system is determined by \glsdesc{exposure}. Physical elements of the system may be effectively considered as \Glspl{driver} of this \gls{determinant}.
+The \gls{exposure} of a system is determined by \glsdesc{exposure}.
 
-The \gls{vulnerability} of a system is \glsdesc{vulnerability}. Properties of the system which determine its \gls{vulnerability} are further classified under \gls{sensitivity}, i.e. \glsdesc{sensitivity}, and \gls{adaptive_capacity}, i.e. \glsdesc{adaptive_capacity}. How these elements are related and quantified depends on the chosen methodology for \gls{CCRA}.
+The \gls{vulnerability} of a system is \glsdesc{vulnerability}. Properties of the system which determine its \gls{vulnerability} may be classified further in \gls{sensitivity}, i.e. \glsdesc{sensitivity}, and \gls{adaptive_capacity}, i.e. \glsdesc{adaptive_capacity}. This classification in general helps the analysis of the system and the identification of responses, e.g. \gls{adaptation} measures may increase the \gls{adaptive_capacity} of some elements of the system.
+
+Each \gls{determinant} may be viewed as a collection of elements, which are of different nature depending on the \gls{determinant} they belong to, but are addressed generically as \glspl{driver}.%
+\footnote{When this terminology has not been applied, it is common to refer to \glspl{driver} with the name of the \glspl{determinant} they belong to, e.g. drivers within the \gls{vulnerability} determinant are simply called vulnerabilities.}
+Physical elements of the system may be effectively considered as \Glspl{driver} of this \gls{determinant}.
+\begin{example}
+  A tropical storm is a \gls{driver} within the \gls{hazard} \gls{determinant},\cite[15]{2017GIZRiskSupplement} income is a \gls{driver} within the \gls{vulnerability} \gls{determinant},\cite[493]{2021SimpsonAFramework} airport structures (e.g. runways, aprons, terminals) in an airport (i.e. the system) are \glspl{driver} within the \gls{exposure} \gls{determinant}.\cite[551]{2022DeVivoRiskAssessment} More examples are available in the references.
+\end{example}
+The concept of \gls{driver} of \gls{risk} is borrowed from \cite{2021SimpsonAFramework} to allow a smooth extension to methodologies where \gls{risk} is the result of complex interactions within and across \glspl{determinant}.
+
+For a quantitative \gls{CCRA}, numerical values must be associated to \glspl{driver}. These values are called \glspl{indicator} and defined by \gls{ISO} as: \glsdesc{indicator}.%
+\footnote{The definition by \gls{IPCC} is not as general because focuses only on the climate system and there is no specific term for the same concept applied to the other \glspl{determinant}.}
+There can be more than one way to describe numerically the same \gls{driver}, hence the choice is not unique and the resulting risk may be affected by it.
+In the following, the term \gls{indicator} written alone refers to an \gls{indicator} of a \gls{driver} within the \gls{hazard} \gls{determinant}, to relax the lenghty wording. For the other \glspl{determinant} the full qualification is used.
+
+Having introduced the definitions above, the various components of \gls{risk} can be arranged as in figure~\ref{fig:nomenclature}. It sum up the relation between the various components, highlightning the fact that risk depends on drivers from three independent categories and are quantified possibly in multiple ways.
+\begin{figure}[h]
+  \centering
+  \includegraphics*[keepaspectratio=true,width=0.75\textwidth]{nomenclature}
+  \caption{A possibile representation of the components of climate risk. Climate hazards can affect exposed and vulnerable elements of the system and determine a risk for it. Collectively these factors are called drivers and can grouped in the three independent determinants of risk: hazard, exposure and vulnerability. To provide quantitative results, each driver is described by numerical values, i.e. the indicators, each providing a different possible description or measure of the same driver.}
+  \label{fig:nomenclature}
+\end{figure}
+
+
+
+\subsection{Methodology}
+\label{sec:Methodology}
+Restricting the treatise to climate-related applications is not sufficient to fix details on \gls{risk}, e.g. how to evaluate it from its \glspl{determinant}. These implementation details depend on which methodology is chosen to perform the risk assessment, which is presented in this section and is defined operatively in section~\ref{sec:Evaluation of risk}.
+
+The methodology of \gls{CCRA} applied in the present work follows \cite{2017GIZTheVulnerability} and its upgrade \cite{2017GIZRiskSupplement} to the concepts presented in section~\ref{sec:Climate risk}. The latter should be read in parallel with the former and superseds the outdated concepts.
+
+This methodology is split in eight modules, each dependent on the previous ones. The following is an overview of them:
+\begin{enumerate}
+  \item understand the context in which the assessment is framed and identify objectives, scope and resources involved;\cite[39-53]{2017GIZTheVulnerability}
+  \item identify \glspl{risk} and \glspl{impact} affecting the system under study and determine \glspl{driver} of \gls{hazard}, \gls{exposure} and \gls{sensitivity};\cite[26-41]{2017GIZRiskSupplement}
+  \item choose \glspl{indicator} for each \gls{driver} of \gls{hazard}, \gls{exposure} and \gls{sensitivity};\cite[73-84]{2017GIZTheVulnerability}
+  \item collect data and quantify \glspl{indicator};\cite[87-103]{2017GIZTheVulnerability}
+  \item normalise \glspl{indicator} to allow their comparison;\cite[105-119]{2017GIZTheVulnerability}
+  \item for each \gls{determinant}, weight normalised \glspl{indicator} and aggregate them into a single value;\cite[121-131]{2017GIZTheVulnerability}
+  \item aggregate values for individual \glspl{determinant} into a single value for \gls{risk};\cite[133-141]{2017GIZTheVulnerability}
+  \item present the results of the \gls{CCRA}.\cite[143-154]{2017GIZTheVulnerability}
+\end{enumerate}
+Even if a complete application of this methodology does not fall within the purposes of the present study, each module is briefly addressed in section~\ref{sec:Case study} when case studies are treated.
 
 
 
