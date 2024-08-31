@@ -1,0 +1,24 @@
+\appendix
+
+
+
+\section{Min-max normalisation}
+\label{sec:Min-max normalisation}
+When min-max normalisation is applied to a given \gls{indicator}, it is rescaled to the $[0, 1]$ interval, with higher values associated to more negative \glspl{impact}. If multiple temporal periods are involved, one is chosen as reference for the extreme values.\cite[85]{2008OECDHandbookOn}
+
+There is the implicit assumption is that the image of the \gls{indicator} is bounded and its extremes are known. This is not always possible, hence the extremes must be set in alternative ways (e.g. by discussing with experts, by consulting the literature, by analysing the system), see \cite[113-115]{2017GIZTheVulnerability}.
+
+Once the extremes are found, the min-max normalisation of an \gls{indicator} can be evaluated easily. Denote its image as $X \subset \mathbb{R}$ and the extremes as $x_\text{max} = \max X$ and $x_\text{min} = \min X$. Then the min-max normalisation applied to $x \in X$ is
+\begin{equation}
+  \label{eq:min-max}
+  \frac{x - x_\text{min}}{x_\text{max} - x_\text{min}}
+  \quad .
+\end{equation}
+
+This procedure is not chosen because of two downsides:
+\begin{enumerate}
+  \item In the present work a single system at a time is analysed, not multiple ones. This means that a single value representing the system exists for any given \gls{indicator} and trivially it corresponds to its minimum and maximum values, making the outcome of the normalisation undefined.
+  \item In periods different from the reference there may be values of the \gls{indicator} which exceed the extremes. This results in normalised values which fall outside the interval $[0, 1]$, invalidating the purpose of the normalisation.
+\end{enumerate}
+
+Examples where min-max normalisation is applied as suggested by the methodology are: \cite[6]{2023DeVivoApplicationOf}, \cite[6]{2023DeVivoClimate-RiskAssessment} and \cite[74]{2017GIZVulnerabilitySourcebook}.
