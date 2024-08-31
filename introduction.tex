@@ -2,7 +2,7 @@
 Climate risk assessment is becoming central in contemporary activities related in any way to the environment and whose assets could be affected by climate change.
 In particular, climate change risk assessment is a topic more and more organizations are considering in their decisions.
 
-A climate change risk assessment for a given system is the analysis of the impacts of and the responses to climate change regarding that system. Various guidelines are available for these kind of risk assessments (cf. \cite{2021ISO14091,2024EEAExecutiveSummary,2017GIZTheVulnerability}) and slight variations of them are adopted by authors, but they do not specify precisely the practical details of the assessment. In particular, there is no objective method to choose the climate indicators used in the assessment, but they are selected according to their effectiveness in scientific literature and in previous assessments, combined with the personal experience of the authors. The choice of the indicators is far from objective.
+A climate change risk assessment for a given system is the analysis of the impacts of and the responses to climate change regarding that system. Various guidelines are available for these kind of risk assessments (cf. \cite{2021ISO14091,2024EEAExecutiveSummary,2017GIZTheVulnerability,2014BowyerAdaptingTo}) and slight variations of them are adopted by authors, but they do not specify precisely the practical details of the assessment. In particular, there is no objective method to choose the climate indicators used in the assessment, but they are selected according to their effectiveness in scientific literature and in previous assessments, combined with the personal experience of the authors. The choice of the indicators is far from objective.
 
 
 
@@ -38,7 +38,7 @@ The \gls{exposure} of a system is determined by \glsdesc{exposure}.
 The \gls{vulnerability} of a system is \glsdesc{vulnerability}. Properties of the system which determine its \gls{vulnerability} may be classified further in \gls{sensitivity}, i.e. \glsdesc{sensitivity}, and \gls{adaptive_capacity}, i.e. \glsdesc{adaptive_capacity}. This classification in general helps the analysis of the system and the identification of responses, e.g. \gls{adaptation} measures may increase the \gls{adaptive_capacity} of some elements of the system.
 
 Each \gls{determinant} may be viewed as a collection of elements, which are of different nature depending on the \gls{determinant} they belong to, but are addressed generically as \glspl{driver}.%
-\footnote{When this terminology has not been applied, it is common to refer to \glspl{driver} with the name of the \glspl{determinant} they belong to, e.g. drivers within the \gls{vulnerability} determinant are simply called vulnerabilities.}
+\footnote{When this terminology is not applied, it is common to refer to \glspl{driver} with the name of the \glspl{determinant} they belong to, e.g. drivers within the \gls{vulnerability} determinant are simply called vulnerabilities.}
 Physical elements of the system may be effectively considered as \Glspl{driver} of this \gls{determinant}.
 \begin{example}
   A tropical storm is a \gls{driver} within the \gls{hazard} \gls{determinant},\cite[15]{2017GIZRiskSupplement} income is a \gls{driver} within the \gls{vulnerability} \gls{determinant},\cite[493]{2021SimpsonAFramework} airport structures (e.g. runways, aprons, terminals) in an airport (i.e. the system) are \glspl{driver} within the \gls{exposure} \gls{determinant}.\cite[551]{2022DeVivoRiskAssessment} More examples are available in the references.
@@ -50,7 +50,7 @@ For a quantitative \gls{CCRA}, numerical values must be associated to \glspl{dri
 There can be more than one way to describe numerically the same \gls{driver}, hence the choice is not unique and the resulting risk may be affected by it.
 In the following, the term \gls{indicator} written alone refers to an \gls{indicator} of a \gls{driver} within the \gls{hazard} \gls{determinant}, to relax the lenghty wording. For the other \glspl{determinant} the full qualification is used.
 
-Having introduced the definitions above, the various components of \gls{risk} can be arranged as in figure~\ref{fig:nomenclature}. It sum up the relation between the various components, highlightning the fact that risk depends on drivers from three independent categories and are quantified possibly in multiple ways.
+Having introduced the definitions above, the various components of \gls{risk} can be arranged as in figure~\ref{fig:nomenclature}. It sums up the relation between the various components, highlightning the fact that risk depends on drivers from three independent categories and are quantified possibly in multiple ways.
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=0.75\textwidth]{nomenclature}
@@ -62,21 +62,23 @@ Having introduced the definitions above, the various components of \gls{risk} ca
 
 \subsection{Methodology}
 \label{sec:Methodology}
-Restricting the treatise to climate-related applications is not sufficient to fix details on \gls{risk}, e.g. how to evaluate it from its \glspl{determinant}. These implementation details depend on which methodology is chosen to perform the risk assessment, which is presented in this section and is defined operatively in section~\ref{sec:Evaluation of risk}.
+Restricting the treatise to climate-related applications is not sufficient to fix details on \gls{risk}, e.g. how to evaluate it from its \glspl{determinant}. These implementation details depend on which methodology is chosen to perform the risk assessment, which is presented in this section and is defined operatively in section~\ref{sec:Methods}.
 
 The methodology of \gls{CCRA} applied in the present work follows \cite{2017GIZTheVulnerability} and its upgrade \cite{2017GIZRiskSupplement} to the concepts presented in section~\ref{sec:Climate risk}. The latter should be read in parallel with the former and superseds the outdated concepts.
 
 This methodology is split in eight modules, each dependent on the previous ones. The following is an overview of them:
 \begin{enumerate}
   \item understand the context in which the assessment is framed and identify objectives, scope and resources involved;\cite[39-53]{2017GIZTheVulnerability}
-  \item identify \glspl{risk} and \glspl{impact} affecting the system under study and determine \glspl{driver} of \gls{hazard}, \gls{exposure} and \gls{sensitivity};\cite[26-41]{2017GIZRiskSupplement}
-  \item choose \glspl{indicator} for each \gls{driver} of \gls{hazard}, \gls{exposure} and \gls{sensitivity};\cite[73-84]{2017GIZTheVulnerability}
-  \item collect data and quantify \glspl{indicator};\cite[87-103]{2017GIZTheVulnerability}
-  \item normalise \glspl{indicator} to allow their comparison;\cite[105-119]{2017GIZTheVulnerability}
-  \item for each \gls{determinant}, weight normalised \glspl{indicator} and aggregate them into a single value;\cite[121-131]{2017GIZTheVulnerability}
-  \item aggregate values for individual \glspl{determinant} into a single value for \gls{risk};\cite[133-141]{2017GIZTheVulnerability}
+  \item \label{itm:module_2} identify \glspl{risk} and \glspl{impact} affecting the system under study and determine \glspl{driver} of \gls{hazard}, \gls{exposure} and \gls{vulnerability};\cite[26-41]{2017GIZRiskSupplement}
+  \item \label{itm:module_3} choose \glspl{indicator} for each \gls{driver} of \gls{hazard}, \gls{exposure} and \gls{vulnerability};\cite[73-84]{2017GIZTheVulnerability}
+  \item \label{itm:module_4} collect data and quantify \glspl{indicator};\cite[87-103]{2017GIZTheVulnerability}
+  \item \label{itm:module_5} normalise \glspl{indicator} to allow their comparison;\cite[105-119]{2017GIZTheVulnerability}
+  \item \label{itm:module_6} for each \gls{determinant}, weight normalised \glspl{indicator} and aggregate them into a single value;\cite[121-131]{2017GIZTheVulnerability}
+  \item \label{itm:module_7} aggregate values for individual \glspl{determinant} into a single value for \gls{risk};\cite[133-141]{2017GIZTheVulnerability}
   \item present the results of the \gls{CCRA}.\cite[143-154]{2017GIZTheVulnerability}
 \end{enumerate}
+When the \gls{vulnerability} of the system is recalled, it is split into \gls{sensitivity} and \gls{adaptive_capacity} if possible.
+
 Even if a complete application of this methodology does not fall within the purposes of the present study, each module is briefly addressed in section~\ref{sec:Case study} when case studies are treated.
 
 

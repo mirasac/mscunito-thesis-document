@@ -2,16 +2,16 @@
 \label{sec:Data}
 Climate data show great complexity in structure and availability (e.g. \glspl{ECV} can be represented as multidimensional objects, some climate datasets are collections of \glspl{ECV}). For these and other properties discussed in \cite{2014FaghmousABig}, climate data can be regarded as big data.
 
-In this work a generic \gls{ECV} $V$ can be represented mathematically as a scalar function
+In this work a generic \gls{ECV} $T$ can be represented mathematically as a scalar function
 \begin{equation}
   \label{eq:math_variable}
-  V : S_\text{lat} \times S_\text{lon} \times S_\text{time} \to \mathbb{R}
+  T : S_\text{lat} \times S_\text{lon} \times S_\text{time} \to \mathbb{R}
 \end{equation}
 where $S_\text{lat}$, $S_\text{lon}$ and $S_\text{time}$ are domains of latitude, longitude and time dimensions, respectively.%
 \footnote{In contexts related to Machine Learning these objects are called tensors. Since they may not satisfy the mathematical definition of a tensor, in particular the map may not be multilinear and the numerical sets may not be vector spaces, no reference to such objects is made in this work.}
 Every numerical value is equipped with proper units of measurement, to represent physical quantities correctly. As a consequence, the codomain in equation~\eqref{eq:math_variable} is partially wrong: with an abuse of notation, it represents only the magnitude of the \gls{ECV} and does not consider the unit of measurement. This is a small exception to simplify the notation and in the remainder of this document units of measurement are always addressed explicitly.
 
-A more practical representation of $V$ is a multidimensional array, where values in the domain are coordinates associated to each dimension and each entry of the array is the result of $V$ evaluated on those coordinates. Figure~\ref{fig:multidimensional} shows this representation visually. In the following, this representation is used to simplify the discussion and same \gls{ECV} name is used both for the function and the multidimensional array.
+A more practical representation of $T$ is a multidimensional array, where values in the domain are coordinates associated to each dimension and each entry of the array is the result of $T$ evaluated on those coordinates. Figure~\ref{fig:multidimensional} shows this representation visually. In the following, this representation is used to simplify the discussion and same \gls{ECV} name is used both for the function and the multidimensional array.
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=0.75\textwidth]{multidimensional}
@@ -26,19 +26,21 @@ A more practical representation of $V$ is a multidimensional array, where values
 \Glspl{normal} used as reference depends only on spatial coordinates, hence they are functions
 \begin{equation}
   \label{eq:math_normal}
-  \bar{V} : S_\text{lat} \times S_\text{lon} \to \mathbb{R}
+  \bar{T} : S_\text{lat} \times S_\text{lon} \to \mathbb{R}
 \end{equation}
 or equivalently, multidimensional arrays with spatial coordinates only.
-\Glspl{normal} are evaluated as explained in \cite[6]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines} using an averaging period specific to each case study (cf. section~\ref{sec:Case study}).
+\Glspl{normal} are evaluated as explained in \cite[6]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines} using an averaging period $S_\text{clim}$ specific to each case study (cf. section~\ref{sec:Case study}).
 
-\Glspl{indicator} of \glspl{driver} within the \gls{hazard} \gls{determinant} are functions of \glspl{ECV} and additional parameters. In general they are aggregated over the temporal dimension and in this work their evaluation is performed for each year, i.e. the \gls{indicator} has yearly resolution or is evaluated with yearly frequency.
-In this work an \gls{indicator} $I$ can be defined mathematically as
+\Glspl{indicator} of \glspl{driver} within the \gls{hazard} \gls{determinant} are functions of \glspl{ECV} and additional parameters. In general they are aggregated over the temporal dimension and are non-linear functions of their arguments.
+An \gls{indicator} $I$ can be defined mathematically as
 \begin{equation}
   \label{eq:math_indicator}
   I : S_\text{lat} \times S_\text{lon} \times S_\text{y} \times \prod_{p \in P_I} S_p \to \mathbb{R}
 \end{equation}
 where $S_\text{y}$ is a set of the years considered during the analysis, $P_I$ is the set of parameters for that indicator and $S_p$ is the set of values available for each parameter $p \in P_I$.%
-\footnote{As a symbolic shortcut, if $P_I = \emptyset$ then the indicator is defined only over $S_\text{lat} \times S_\text{lon} \times S_\text{y}$.}
+\footnote{As a symbolic shortcut, if $P_I = \varnothing$ then the indicator is defined only over $S_\text{lat} \times S_\text{lon} \times S_\text{y}$.}
+In this work their evaluation is performed for each year, i.e. the \gls{indicator} has yearly resolution or is evaluated with yearly frequency. As a consequence, the elements of set $S_\text{y}$ are references to the years taken into account during calculations.
+
 An \gls{indicator} can be represented as a multidimensional array, similarly to \glspl{ECV}.
 The dependence of an \gls{indicator} on \glspl{ECV} is not clear in the definition given by equation~\eqref{eq:math_indicator}, but in the following this is made explicit by the context or by the definition of the \gls{indicator}.
 
@@ -51,13 +53,13 @@ The dependence of an \gls{indicator} on \glspl{ECV} is not clear in the definiti
         \quad ;
       \end{equation*}
     \item spatial dimensions are not specified, hence the evaluation is performed for each point of an arbitrary set $S_\text{lat} \times S_\text{lon}$;
-    \item no additional parameters are required, $P_\mathrm{TX_x} = \emptyset$;
+    \item no additional parameters are required, $P_\mathrm{TX_x} = \varnothing$;
     \item the outcome is a scalar value for each year in the period,
       \begin{equation*}
         S_\text{y} = \{ 1991, 1992, \dots, 2020 \}
         \quad ;
       \end{equation*}
-    \item the multidimensional array representation of the \gls{indicator} is in the following figure, where each entry is a real value in \unit{\kelvin}:
+    \item the multidimensional array representation of the \gls{indicator} is in the following figure, where each entry is a real value with unit \unit{\kelvin}:
       \begin{center}
         \includegraphics*[keepaspectratio=true,width=0.50\linewidth]{indicator_climatological_standard_normal}
       \end{center}

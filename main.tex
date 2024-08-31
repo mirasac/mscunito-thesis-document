@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc}  % Load first.
 
 \usepackage{amssymb}
+\newcommand{\dottedbox}{\diamondsuit}
 
 \usepackage[tableposition=top,figureposition=bottom,font=footnotesize]{caption}
 
@@ -16,27 +17,34 @@
 \usepackage{graphicx}
 \graphicspath{{./figures/}{./presentation/figures/}}
 
+\usepackage[bb=dsserif]{mathalpha}  % Get mathbb of 1.
+
 \usepackage{mathtools}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiterXPP{\condition}[1]{\mathbb{1}}{[}{]}{}{#1}
 
 \usepackage[group-digits=integer,separate-uncertainty,per-mode=symbol]{siunitx}
 
 \usepackage[breakable,skins]{tcolorbox}
 
-\usepackage{verbatim}
+\usepackage{verbatim}  % Redefine \comment to ignore LaTeX code.
 
 \usepackage[hidelinks]{hyperref}  % Load last.
 
-\usepackage[acronym]{glossaries}  % Load after some packages, check its documentation.
+\usepackage[acronym,indexonlyfirst]{glossaries}  % Load after some packages, check its documentation.
 \setacronymstyle{long-short}
 \makenoidxglossaries  % Put before any new glossary term.
 
-% Glossary acronym created by package option.
+% Glossary for acronyms created by package option.
 \loadglsentries{./glossaries/acronyms.tex}
 
-\newglossary*{definition}{Definitions}
-\setglossarypreamble[definition]{\label{gls:definitions}}
-\loadglsentries[definition]{./glossaries/definitions.tex}
+\newglossary*{definitions}{Definitions}
+\setglossarypreamble[definitions]{\label{gls:definitions}}
+\loadglsentries[definitions]{./glossaries/definitions.tex}
+
+\newglossary*{symbols}{Symbols}
+\setglossarypreamble[symbols]{\label{gls:symbols}}
+\loadglsentries[symbols]{./glossaries/symbols.tex}
 
 %%%%%%%%% Other %%%%%%%%%
 \newcommand{\tasmax}{\mathrm{tasmax}}
@@ -61,6 +69,9 @@
 \begin{document}
 \input{introduction.tex}
 \input{data.tex}
-\printnoidxglossary[type=definition,sort=word]
-\printnoidxglossary[type=acronym,sort=word]
+\input{methods.tex}
+\printnoidxglossary[type=definitions,sort=word]
+\printnoidxglossary[type=\acronymtype,sort=word,nonumberlist]
+\printnoidxglossary[type=symbols,nonumberlist]
+\glsaddallunused[symbols]
 \end{document}

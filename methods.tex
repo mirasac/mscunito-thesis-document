@@ -1,0 +1,127 @@
+\section{Methods}
+\label{sec:Methods}
+
+
+
+\subsection{Evaluation of indicators}
+This section explains the process to obtain a scalar value for each \gls{determinant}, following the methodology presented in section~\ref{sec:Methodology}. Modules~\ref{itm:module_3}, \ref{itm:module_4}, \ref{itm:module_5} and~\ref{itm:module_6} are recalled.
+Suppose a set of \glspl{driver} is chosen. The selection of \glspl{driver} for the actual case studies, i.e. module~\ref{itm:module_2}, is performed and argued in section~\ref{sec:Case study}.
+
+Module~\ref{itm:module_3} may be stated symbolically as follow. For each \gls{driver} within the \gls{hazard} \gls{determinant}, a set $\mathcal{H}_j$ of \glspl{indicator} is obtained. A similar procedure is carried out for \glspl{driver} of \gls{exposure} and \gls{vulnerability}, resulting in sets $\mathcal{E}_i$ and $\mathcal{V}_k$, respectively. Indices $i$, $j$ and $k$ are present to clarify that each set is related to a different \gls{driver} and the way these sets are indexed is not important (e.g. each of them can be a sequence of integers where each one refers to a different \gls{driver}, they can be the names of the \glspl{driver} they refer to).
+If the distinction between \glspl{driver} of \gls{sensitivity} and \gls{adaptive_capacity} is made, then it is not explicit in the indices. The reason is that these \glspl{driver} are treated mathematically the same way, as explained below.
+
+Note that in module~\ref{itm:module_3} no evaluation is performed yet, hence the elements of each set are just scalar functions. In other words, they are just descriptions of how they quantify the \gls{driver}.
+
+The methodology suggests to avoid double counting of \glspl{driver} by allocating each of them in one \gls{determinant} only.\cite[29]{2017GIZRiskSupplement} This implies to have different \glspl{indicator}, even if they are defined in a similar way.
+\begin{example}
+  The risk of water scarcity affecting a location is assessed. This example is inspired by \cite[46]{2017GIZRiskSupplement}. The system is the location under study.
+  
+  One \gls{driver} of \gls{exposure} and two of \gls{vulnerability} are chosen, they are respectively:
+  \begin{description}
+    \item[e1] presence of farmers in the region;
+    \item[v1] insufficient know-how about irrigation systems;
+    \item[v2] weak institutional setting for water management.
+  \end{description}
+  Both \glspl{driver} of \gls{vulnerability} describe the \gls{adaptive_capacity} of the system. All \glspl{driver} are conveniently identified by lables.
+  
+  An \gls{indicator} for each \gls{driver} is chosen, the resulting sets are:
+  \begin{align*}
+    \mathcal{E}_\text{e1} & = \left\{ \parbox{0.45\linewidth}{``number of farmers in the region''} \right\}
+    \quad , \\
+    \mathcal{V}_\text{v1} & = \left\{ \parbox{0.45\linewidth}{``number of farmers trained in improved irrigation techniques''} \right\}
+    \quad , \\
+    \mathcal{V}_\text{v2} & = \left\{ \parbox{0.45\linewidth}{``number of local water co-operations''} \right\}
+    \quad .
+  \end{align*}
+  Note that all \glspl{indicator} consist in counting some elements of the system. Nevertheless, they are different from each other since they refer to different elements.
+\end{example}
+
+In module~\ref{itm:module_4} the evaluation of \glspl{indicator} on climate and system data occurs. Concerning the system, the data collection step is explained in section~\ref{sec:System-dependent data} and scalar values are readily obtained for the elements in sets $\mathcal{E}_i$ and $\mathcal{V}_k$ for any \gls{driver} $i$ or $k$. See paragraphs about data in section~\ref{sec:Case study} for the definition of the \glspl{indicator} of \gls{exposure} and \gls{vulnerability} used to describe each system.
+
+A more convoluted path is needed to evaluate \glspl{indicator} of \gls{hazard}. They are functions defined by equation~\eqref{eq:math_indicator}, hence they depend on climate data and additional parameters. The former are presented in section~\ref{sec:Data}, the latter are chosen as explained in the following paragraphs.
+
+For each \gls{indicator}, a set of values of its parameters is defined. Ideally these sets would be continuous, to explore the whole space of possible configurations of parameters. However, for limitations intrinsic to the analysis tools, only a finite and small number of values can be considered (in the following these discrete sets are called intervals to preserve generality).
+How values in these intervals are selected depends on the nature of the parameters. The selection is ultimately arbitrary, to allow greater control, e.g. remove values which are not interesting for the analysis, and to apply a form of non-parametric sampling.
+
+To simply the explanation, consider \gls{driver} $j$ and an \gls{indicator} $I \in \mathcal{H}_j$. This \gls{indicator} depends on some parameters, which are collected in set $P_I$, and on some \glspl{ECV}. The chosen interval for a parameter $p \in P_I$ is a set of scalar values, possibly with units, denoted by $S_p$.
+
+If parameter $p$ is related to a \gls{ECV} (e.g. threshold on $\tas$), its values are sampled from the distribution of the \gls{ECV}. First all data available for the \gls{ECV} of interest are collected in a single sample, with the following conditions:
+\begin{itemize}
+  \item temporal coordinates belong to the averaging period $S_\text{clim}$ chosen for the \glspl{normal};
+  \item spatial coordinates are ignored.
+\end{itemize}
+This procedure has the side effects of removing the dependence of parameter values from spatial and temporal coordinates and to increase the sample size. The sampling is not affected by existing spatial correlation between data, because it is non parametric and regards only the possible values of the \gls{ECV} and not their spatial distribution. In fact, the probability of having any value $v$ for the \gls{ECV} $T$ in the sample is
+\begin{equation}
+  \label{eq:variable_probability}
+  \mathcal{P}(v) = \frac{1}{\abs{S_\text{lat}} \abs{S_\text{lon}} \abs{S_\text{clim}}} \sum_{y \in S_\text{lat}} \sum_{x \in S_\text{lon}} \sum_{t \in S_\text{clim}} \condition{T(y, x, t) = v}
+\end{equation}
+This is a frequentist probability and gets more accurate the larger the sample size is, by definition. %This probability is different from the conditional probability
+%\begin{equation}
+%  \label{eq:variable_probability_space}
+%  \mathcal{P}(v \vert y,x) = \frac{1}{\abs{S_\text{clim}}} \sum_{t \in S_\text{clim}} \condition{T(y, x, t) = v}
+%\end{equation}
+%where the dependence on the spatial coordinates is retained.
+Second, the empirical \gls{QF} of data is built from the sample, to acknowledge the shape of their true probability distribution. Minimum and maximum values are treated as the first and last quantiles, respectively. Since the number of data is large but limited, this curve is an approximation of the inverse function of the \gls{CDF} and missing data are interpolated linearly.
+Third, values are chosen with the aim to sample the true probability distribution uniformly. The density of points may be increased where needed to have a better description of the shape of the distribution.%
+\footnote{Why do not use derivative-based methods to set the density of points? The reason is again greater control on the selected values: there is no need to evaluate the derivative of the \gls{QF} in every point, just within the subintervals which are interesting for the analysis. Note that the \gls{QF} is obtained by linear interpolation between existent data points, hence the slope is already evaluated internally and the derivative is a piecewise constant function.}
+
+If parameter $p$ is not related to a \gls{ECV} (e.g. window size for moving averages), some heuristic is applied and explained case by case where values are presented in section~\ref{sec:Case study}.
+
+After $S_p$ is defined for every $p \in P_I$, the \gls{indicator} $I$ is finally evaluated. This results in elements of set $\mathcal{H}_j$ being multidimensional arrays given by equation~\eqref{eq:math_indicator}, for every \gls{driver} $j$ of the \gls{hazard}. Different \glspl{indicator} may have different parameters, but they depend on \glspl{ECV} which same spatial and temporal coordinates $S_\text{lat} \times S_\text{lon} \times S_\text{clim}$, hence they have same temporal frequency, i.e. same $S_\text{y}$.
+
+These results need further elaboration. In fact, for every \gls{driver} $i$ and $k$, $\mathcal{E}_i$ and $\mathcal{V}_k$ contain scalar values which encapsulate information about the system for the chosen temporal and spatial coordinates. To obtain an analogous result for \glspl{driver} of \gls{hazard}, \glspl{indicator} are aggregated over spatial and temporal dimensions.
+The spatial aggregation is performed by using \gls{EOF} analysis as a dimensionality reduction technique.
+\footnote{Terminology is varied. Here the eigenvectors, i.e. spatial patterns, are referred to as \glspl{EOF} and their coefficients, i.e. temporal patterns, are the \glspl{PC}. The object containig data is called design matrix with samples, i.e. observations, organised in rows and their features, i.e. variables which describe them, in columns. For further clarification on the terminology see \cite[626-627]{2019WilksStatisticalMethods} and for a recap on \gls{EOF} analysis see \cite[6502-6503]{2009MonahanEmpiricalOrthogonal} and \cite[1121-1122]{2007HannachiEmpiricalOrthogonal}.}
+Consider any \gls{indicator} $I$ in its multidimensional array representation, then the following procedure is applied for each element in $\prod_{p \in P_I} S_p$:%
+\begin{enumerate}
+  \item assign $S_\text{lat} \times S_\text{lon}$ as the feature dimension of the design matrix;
+  \item assign $S_\text{y}$ as the sample dimension of the design matrix;
+  \item apply the \gls{EOF} analysis to the design matrix;
+  \item keep the first \gls{PC} only, i.e. the coefficients corresponding to the \gls{EOF} which maximises the variance in the sample dimension.
+\end{enumerate}
+This procedure returns a time series for each combination of parameter values in $\prod_{p \in P_I} S_p$, effectively mapping $I$ to a multidimensional array with coordinates in $S_\text{y} \times \prod_{p \in P_I} S_p$.
+%Each time series has same domain $S_\text{y}$ and its values are scalar values.
+Next, the temporal aggregation is performed. It consists in averaging the multidimensional array over the temporal dimension with a sample average.
+After these aggregations, for every $j$ each element $I \in \mathcal{H}_j$ depends only on parameter values in $\prod_{p \in P_I} S_p$.
+
+To execute module~\ref{itm:module_5}, first the scale of each \gls{indicator} is defined. In this work all \glspl{indicator} are numeric values and may have both metric or categorical scales (i.e. values are distributed uniformly or not, respectively, cf. \cite[109]{2017GIZTheVulnerability}).
+When metric scales are involved, the methodology suggests to apply the min-max normalisation. Instead, in the present work \glspl{indicator} which are scalar values are not transformed,%
+\footnote{Formally they are divided by a unit value of their quantity to obtain dimensionless values, which are trivially compatible and easily used as arguments in mathematical functions.}
+while \glspl{indicator} which depend on parameters are standardised, i.e. substituted by their z-score. More in detail, for any \glspl{indicator} $I$ undergoing normalisation, the new value is
+\begin{equation}
+  \label{eq:z-score}
+  \frac{I - \mu_I}{\sigma_I}
+\end{equation}
+where the sample mean
+\begin{equation}
+  \label{eq:sample_mean}
+  \mu_I = \frac{1}{\prod_{p \in P_I} \abs{S_p}} \sum_{\underline{x} \in \prod_{p \in P_I} S_p} I(\underline{x})
+\end{equation}
+and the sample standard deviation
+\begin{equation}
+  \label{eq:sample_standard_deviation}
+  \sigma_I = \sqrt{\frac{1}{\prod_{p \in P_I} \abs{S_p} - 1} \sum_{\underline{x} \in \prod_{p \in P_I} S_p} (I(\underline{x}) - \mu_I)^2}
+\end{equation}
+are calculated using values obtained for the reference period $S_\text{clim}$.\cite[84]{2008OECDHandbookOn} To simplify the notation, $\underline{x}$ represents the set of arguments passed to the \gls{indicator}, in other words the coordinates of $I$ as multidimensional array. The advantage of equation~\eqref{eq:z-score} with respect to min-max normalisation is to be flexible when new values are introduced, in fact they are measured in terms of statistics of the reference period without breaking the normalisation. See section~\ref{sec:Min-max normalisation} for further insight on the exclusion of min-max normalisation.
+To normalise categorical scales, the methodology suggests first to group the values in five classes first, then replace them with specific values in the range $[0, 1]$, see \cite[115-116]{2017GIZTheVulnerability}. Higher normalised values are associated to more negative impacts. However, this case does not occur in the present study since every \gls{indicator} with categorical scale is a constant value. Not normalising some \glspl{indicator} may seem wrong since normalisation is a requisite to compare them, but the reason is explained in the next paragraphs.
+
+For module~\ref{itm:module_6}, the weight $w_I$ of each \gls{indicator} $I$ is set to 1, because no particular influence on the final \gls{risk} is known a priori. Since \glspl{indicator} are unique, there is not ambiguity to identify their weights with their names as labels. This choice of weighting has not effects on the final \gls{risk} value, as explained in section~\ref{sec:Evaluation of risk}.
+Then, for each \gls{determinant} the weighted mean of its \glspl{indicator} is computed. Since all \glspl{indicator} are weighted equally, the result equals the arithmetic mean. In \cite[51]{2017GIZRiskSupplement} this process is represented graphically with a single \gls{indicator} for each \gls{driver}.
+The results are a scalar value for \gls{exposure}
+\begin{equation}
+  \label{eq:exposure_aggregated}
+  E = \frac{1}{\sum_i \sum_{I \in \mathcal{E}_i} w_I} \sum_i \sum_{I \in \mathcal{E}_i} w_I I
+  \quad ,
+\end{equation}
+a scalar value for \gls{vulnerability}
+\begin{equation}
+  \label{eq:vulnerability_aggregated}
+  V = \frac{1}{\sum_k \sum_{I \in \mathcal{V}_k} w_I} \sum_k \sum_{I \in \mathcal{V}_k} w_I I
+\end{equation}
+and a scalar function for \gls{hazard} $H : \prod_j \prod_{I \in \mathcal{H}_j} \prod_{p \in P_I} S_p \to \mathbb{R}$, which depends on all parameters, defined as
+\begin{equation}
+  \label{eq:hazard_aggregated}
+  H(\underline{x}) = \frac{1}{\sum_j \sum_{I \in \mathcal{H}_j} w_I} \sum_j \sum_{I \in \mathcal{H}_j} w_I I(\underline{x}_I)
+\end{equation}
+where $\underline{x}_I$ is the sequence of values for parameters which are arguments of $I$.
+Note that the there is no need to treat \glspl{driver} of \gls{adaptive_capacity} and \gls{sensitivity} separately because the aggregation procedure is applied equally to them.
