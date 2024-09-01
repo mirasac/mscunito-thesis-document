@@ -6,7 +6,7 @@
 \label{sec:Min-max normalisation}
 When min-max normalisation is applied to a given \gls{indicator}, it is rescaled to the $[0, 1]$ interval, with higher values associated to more negative \glspl{impact}. If multiple temporal periods are involved, one is chosen as reference for the extreme values.\cite[85]{2008OECDHandbookOn}
 
-There is the implicit assumption is that the image of the \gls{indicator} is bounded and its extremes are known. This is not always possible, hence the extremes must be set in alternative ways (e.g. by discussing with experts, by consulting the literature, by analysing the system), see \cite[113-115]{2017GIZTheVulnerability}.
+There is the implicit assumption is that the image of the \gls{indicator} is bounded and its extremes are known. This is not always true, hence the extremes must be set in alternative ways (e.g. by discussing with experts, by consulting the literature, by analysing the system), see \cite[113-115]{2017GIZTheVulnerability}.
 
 Once the extremes are found, the min-max normalisation of an \gls{indicator} can be evaluated easily. Denote its image as $X \subset \mathbb{R}$ and the extremes as $x_\text{max} = \max X$ and $x_\text{min} = \min X$. Then the min-max normalisation applied to $x \in X$ is
 \begin{equation}
@@ -22,3 +22,35 @@ This procedure is not chosen because of two downsides:
 \end{enumerate}
 
 Examples where min-max normalisation is applied as suggested by the methodology are: \cite[6]{2023DeVivoApplicationOf}, \cite[6]{2023DeVivoClimate-RiskAssessment} and \cite[74]{2017GIZVulnerabilitySourcebook}.
+
+
+
+\section{Alternative aggregation for risk}
+Some methodologies suggest to evaluate \gls{risk} as product of the aggregated values of \gls{exposure}, \gls{hazard} and \gls{vulnerability}:
+\begin{equation}
+  \label{eq:risk_product_aggregated}
+  R = E \, H \, V
+  \quad .
+\end{equation}
+This procedure is used in contexts preceding the concept of \gls{risk} introduced in \cite{2012FieldManagingThe} and it is still used in later articles (see \cite[7]{2023DeVivoApplicationOf} and \cite[6]{2023DeVivoClimate-RiskAssessment}).
+
+This procedure is used because it admits a null \gls{risk} value, i.e. negligible \glspl{impact}, when either of the values for its \gls{determinant} is null. This reasoning is intuitive, but hides the request that values for \glspl{determinant} have exactly value zero when their \glspl{impact} are negligible or balance out, which depends on the aggregation procedure used to evaluate them from their \glspl{indicator}. Moreover, it neglects the possibility to weight each \gls{determinant} differently.
+
+With respect to how \gls{risk} is evaluated in the present work (see section~\ref{sec:Evaluation of risk} and equation~\eqref{eq:risk_product_aggregated}), two considerations can be made on this procedure.
+First, it is possible to rewrite equation~\eqref{eq:risk_aggregated} as equation~\eqref{eq:risk_product_aggregated} through a continuous transformation,
+\begin{equation}
+  \label{eq:risk_equivalence}
+  \begin{split}
+    R'(\underline{x}) & = \exp{\big( R(\underline{x}) \big)} = \\
+    & = \exp{\bigg( \frac{w_E E}{w_E + w_H + w_V} \bigg)} \exp{\bigg( \frac{w_H H(\underline{x})}{w_E + w_H + w_V} \bigg)} \exp{\bigg( \frac{w_V V}{w_E + w_H + w_V} \bigg)} = \\
+    & = E' \, H'(\underline{x}) \, V'
+    \quad .
+  \end{split}
+\end{equation}
+This allows to apply the considerations of the present study to \glspl{CCRA} which evaluate \gls{risk} as in equation~\eqref{eq:risk_product_aggregated}. Note that an exact value of $R'(\underline{x}) = 0$ can not be obtained if real data and functions are used in the methodology.
+Second, in equation~\eqref{eq:risk_product_aggregated} $R$ is linear with respect to $H$. As a consequence, if equation~\eqref{eq:risk_product_aggregated} is used instead of equation~\eqref{eq:risk_aggregated} and every other detail of the methodology follows section~\ref{sec:Evaluation of risk}, then the \gls{risk} value $R$ is still a linear function of normalised \gls{hazard} \glspl{indicator}:
+\begin{equation}
+  \label{eq:risk_product_linearity}
+  R(\underline{x}) = E \, V \sum_j \sum_{I \in \mathcal{H}_j} w_I I(\underline{x}_I)
+  \quad .
+\end{equation}
