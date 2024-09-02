@@ -6,6 +6,9 @@
 \usepackage{amssymb}
 \newcommand{\dottedbox}{\diamondsuit}
 
+\usepackage[backend=biber]{biblatex}
+\addbibresource{./bibliography.bib}
+
 \usepackage[tableposition=top,figureposition=bottom,font=footnotesize]{caption}
 
 \usepackage[useregional]{datetime2}
@@ -31,7 +34,7 @@
 
 \usepackage[hidelinks]{hyperref}  % Load last.
 
-\usepackage[acronym,indexonlyfirst]{glossaries}  % Load after some packages, check its documentation.
+\usepackage[acronym,indexonlyfirst,toc]{glossaries}  % Load after some packages, check its documentation.
 \setacronymstyle{long-short}
 \makenoidxglossaries  % Put before any new glossary term.
 
@@ -88,6 +91,7 @@
 \input{appendix.tex}
 
 \backmatter
+\printbibliography[heading=bibintoc]
 \printnoidxglossary[type=definitions,sort=word]
 \printnoidxglossary[type=\acronymtype,sort=word,nonumberlist]
 \printnoidxglossary[type=symbols,nonumberlist]
