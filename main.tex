@@ -73,12 +73,21 @@
 %%%%%%%%% Document %%%%%%%%%
 \begin{document}
 \frontmatter
+\input{frontispiece.tex}
+\tableofcontents
+
 \mainmatter
+\chapter{The necessary background}
 \input{introduction.tex}
 \input{data.tex}
+\chapter{The math behind risk}
 \input{methods.tex}
-\backmatter
+
+\appendix
+\chapter{The supplementary information}
 \input{appendix.tex}
+
+\backmatter
 \printnoidxglossary[type=definitions,sort=word]
 \printnoidxglossary[type=\acronymtype,sort=word,nonumberlist]
 \printnoidxglossary[type=symbols,nonumberlist]
