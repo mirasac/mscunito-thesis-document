@@ -30,7 +30,7 @@ Henceforth, terms climate \gls{risk} and \gls{risk} are used interchangeably.
 To make the assessment easily extensible and modular, \gls{risk} is defined as the result of the interaction of three elements, i.e. its \glspl{determinant}, namely \gls{hazard}, \gls{exposure} and \gls{vulnerability}. \Gls{response} is considered the fourth \gls{determinant} of \gls{risk}, when the adopted methodology includes it in the assessment.
 Definitions of \glspl{determinant} were introduced in \cite[69-70]{2012FieldManagingThe} and offer a change of direction from previous methodologies centered on the concept of \gls{vulnerability} of the system instead of the overall \gls{risk} (cf. \cite{2017GIZTheVulnerability} and \cite{2017GIZRiskSupplement}).
 
-The \gls{hazard} is defined by \gls{ISO} as \glsdesc{hazard} and is elaborated further by \gls{IPCC}. In the following the term \gls{hazard} is used to address to climate-related \glspl{hazard} without further specification.
+The \gls{hazard} is defined by \gls{ISO} as \glsdesc{hazard} and is elaborated further by \gls{IPCC}. In the following the term \gls{hazard} is used to address to climate-related \glspl{hazard} for brevity.
 In \cite[2224]{2021MatthewsAnnexVII} \gls{IPCC} provides the term \gls{CID} to address to climate-related physical phenomena with neutral effects (cf. \cite[10]{2020ReisingerTheConcept} or \cite[1871]{2021RanasingheClimateChange}). In other words, among the \glspl{CID} which can affect the system, only some may be regarded as \glspl{hazard}, depending on the \gls{risk} assessed.
 Hazards used in the present work are selected among the taxonomy provided by European Union for \gls{CCRA}, to have a well-known and authoritative reference in the field.\cite[177]{2024EU20212139}
 
@@ -88,13 +88,14 @@ Even if a complete application of this methodology does not fall into the purpos
 \label{sec:Complex risk}
 Unlike other types of risk assessment, e.g. probabilistic risk assessment, \gls{CCRA} focuses on interactions between \glspl{driver} instead of estimating their likelihood.\cite[20-21]{2017GIZRiskSupplement} However, it is common to study each \gls{determinant} in isolation. Instead, an integrated risk assessment which is able to relate \glspl{driver} within and across \glspl{determinant} would be able to describe the overall \gls{risk} more accurately.\cite[145-147]{2023IPCCClimateChange}
 
-Interacting elements are not considered mainly because it is more difficult to formalise the interactions. In \cite{2021SimpsonAFramework} three categories of complex \gls{risk} are proposed to build a framework which helps to address to complex interactions more easily, thus helping their adoption in \glspl{CCRA}. Depending on what is the origin of \gls{risk}, the categories are:\cite[493]{2021SimpsonAFramework}
+Interacting elements are not considered mainly because it is more difficult to formalise the interactions. In \cite{2021SimpsonAFramework} the list of complex \gls{risk} adopted by \gls{IPCC} in \gls{AR6} is extended, to allow more granularity in the assessment, and three categories of complex \gls{risk} are proposed. The objective is to build a framework which helps to address to complex interactions more easily, thus helping their adoption in \glspl{CCRA}. \Gls{response} is included in the \glspl{determinant}, e.g. to introduce negative effects on \gls{vulnerability} due to maladaptation.
+Depending on what is the origin of \gls{risk}, the categories are:\cite[493]{2021SimpsonAFramework}
 \begin{enumerate}
   \item \label{itm:category_1} interacting \glspl{driver} within the same \gls{determinant};
   \item \label{itm:category_2} interacting \glspl{driver} across different \glspl{determinant};
   \item \label{itm:category_3} interacting \glspl{risk}.
 \end{enumerate}
-\Gls{response} is taken into consideration, e.g. to introduce negative effects on \gls{vulnerability} due to maladaptation. The list of complex \gls{risk} adopted by \Gls{IPCC} in \gls{AR6} is extended, to allow more granularity in the assessment.
+In general, category~\ref{itm:category_1} is considered as long as the methodology admits an aggregation of \glspl{driver} to obtain each \gls{determinant}.
 \begin{example}
   Flood \gls{risk} in a geographical area is assessed. First, only artificial constructions are considered as system.
   The change in time of precipitation and temperature, i.e. \glspl{driver} of \gls{risk} within the \gls{hazard} \gls{determinant}, are aggregated to give a measure of the \gls{hazard}. With this value and the analogous values of the other \glspl{determinant}, a category~\ref{itm:category_1} \gls{risk} can be evaluated, which measures the interaction of its \glspl{determinant} only defined by the methodology and lacking a particular meaning.
@@ -104,8 +105,9 @@ Interacting elements are not considered mainly because it is more difficult to f
   A second iteration of the \gls{CCRA} moves the focus to human activities in the area under study. When the corrispondent \gls{risk} is evaluated, it can be merged with the \gls{risk} value found previously to summarise the overall flood \gls{risk}, which becomes a category~\ref{itm:category_3} complex \gls{risk}.
 \end{example}
 
-The methodology adopted in this work falls into category~\ref{itm:category_1}, as there is no particular relation between \glspl{driver} within different \glspl{determinant}, except for the usual aggregation defined in module~\ref{itm:module_7} needed to obtain a value for \gls{risk}.
-Nevertheless, extending the current study by introducing complexity throught the other categories may be interesting to test the robustness of the results.
+All three categories of complex \gls{risk} are present in the methodology. In module~\ref{itm:module_6} \glspl{indicator} are aggregated within the same \gls{determinant} (i.e. category~\ref{itm:category_1} complex \gls{hazard}). Moreover, the concept of intermediate impact, which mediates \glspl{driver} of \gls{hazard} and \gls{vulnerability}, are a form of category~\ref{itm:category_2} complex \gls{hazard}.\cite[33]{2017GIZRiskSupplement} Sub-risks addressed in module~\ref{itm:module_7} may fall into category~\ref{itm:category_3}.
+
+In the present work only category~\ref{itm:category_1} is considered, as there is no particular relation between \glspl{driver} within different \glspl{determinant}, except for the usual aggregation defined in module~\ref{itm:module_7} needed to obtain the final \gls{risk}. Nevertheless, extending the current study by introducing complexity throught the other categories may be interesting to test the robustness of the results.
 
 From a mathematical point of view, complex interactions between \glspl{driver} translate to mathematical functions which relate \glspl{indicator}. They may be treated as additional \glspl{indicator} to consider in the aggregation of \glspl{determinant}.\cite[39-40]{2008OECDHandbookOn}
 In the methodology used in this work, no particular interaction is considered between \glspl{driver} across \glspl{determinant}. \Glspl{indicator} are related only by the functions which are chosen in the aggregation procedures of modules~\ref{itm:module_6} and~\ref{itm:module_7}.
