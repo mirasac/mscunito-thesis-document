@@ -37,16 +37,16 @@ First, it is possible to rewrite equation~\eqref{eq:risk_aggregated} as equation
 \begin{equation}
   \label{eq:risk_equivalence}
   \begin{split}
-    R'(\underline{x}) & = \exp{\big( R(\underline{x}) \big)} = \\
-    & = \exp{\bigg( \frac{w_E E}{w_E + w_H + w_V} \bigg)} \exp{\bigg( \frac{w_H H(\underline{x})}{w_E + w_H + w_V} \bigg)} \exp{\bigg( \frac{w_V V}{w_E + w_H + w_V} \bigg)} = \\
-    & = E' \, H'(\underline{x}) \, V'
+    R'(\underline{z}) & = \exp{\big( R(\underline{z}) \big)} = \\
+    & = \exp{\bigg( \frac{w_E E}{w_E + w_H + w_V} \bigg)} \exp{\bigg( \frac{w_H H(\underline{z})}{w_E + w_H + w_V} \bigg)} \exp{\bigg( \frac{w_V V}{w_E + w_H + w_V} \bigg)} = \\
+    & = E' \, H'(\underline{z}) \, V'
     \quad .
   \end{split}
 \end{equation}
-This allows to apply the considerations of the present study to \glspl{CCRA} which evaluate \gls{risk} as in equation~\eqref{eq:risk_product_aggregated}. Note that an exact value of $R'(\underline{x}) = 0$ can not be obtained if real data and functions are used in the methodology.
+This allows to apply the considerations of the present study to \glspl{CCRA} which evaluate \gls{risk} as in equation~\eqref{eq:risk_product_aggregated}. Note that an exact value of $R'(\underline{z}) = 0$ can not be obtained if real data and functions are used in the methodology.
 Second, in equation~\eqref{eq:risk_product_aggregated} $R$ is linear with respect to $H$. As a consequence, if equation~\eqref{eq:risk_product_aggregated} is used instead of equation~\eqref{eq:risk_aggregated} and every other detail of the methodology follows section~\ref{sec:Evaluation of risk}, then the \gls{risk} value $R$ is still a linear function of normalised \gls{hazard} \glspl{indicator}:
 \begin{equation}
   \label{eq:risk_product_linearity}
-  R(\underline{x}) = E \, V \sum_j \sum_{I \in \mathcal{H}_j} w_I I(\underline{x}_I)
+  R(\underline{z}) = E \, V \sum_j \sum_{I \in \mathcal{H}_j} w_I I(\underline{z}_I)
   \quad .
 \end{equation}

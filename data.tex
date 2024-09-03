@@ -41,7 +41,8 @@ An \gls{indicator} $I$ can be defined mathematically as
 \end{equation}
 where $S_\text{y}$ is a set of the years considered during the analysis, $P_I$ is the set of parameters for that indicator and $S_p$ is the set of values available for each parameter $p \in P_I$.%
 \footnote{As a symbolic shortcut, if $P_I = \varnothing$ then the indicator is defined only over $S_\text{lat} \times S_\text{lon} \times S_\text{y}$.}
-In this work their evaluation is performed for each year, i.e. the \gls{indicator} has yearly resolution or is evaluated with yearly frequency. As a consequence, the elements of set $S_\text{y}$ are references to the years taken into account during calculations.
+In the following, $\underline{z} in \prod_{p \in P_I} S_p$ represents the set of arguments passed to the \gls{indicator}, in other words the coordinates of $I$ as multidimensional array.
+Evaluation is performed for each year, i.e. the \gls{indicator} has yearly resolution or is evaluated with yearly frequency. As a consequence, the elements of set $S_\text{y}$ are references to the years taken into account during calculations.
 
 An \gls{indicator} can be represented as a multidimensional array, similarly to \glspl{ECV}.
 The dependence of an \gls{indicator} on \glspl{ECV} is not clear in the definition given by equation~\eqref{eq:math_indicator}, but in the following this is made explicit by the context or by the definition of the \gls{indicator}.
