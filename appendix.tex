@@ -11,13 +11,11 @@ Once the extremes are found, the min-max normalisation of an \gls{indicator} can
   \quad .
 \end{equation}
 
-This procedure is not chosen because of two downsides:
+In literature the min-max normalisation is frequently applied as suggested by the methodology (cf. \cite[6]{2023DeVivoApplicationOf}, \cite[6]{2023DeVivoClimate-RiskAssessment} and \cite[74]{2017GIZVulnerabilitySourcebook}). In the present work it is not chosen because of two downsides:
 \begin{enumerate}
-  \item In the present work a single system at a time is analysed, not multiple ones. This means that a single value representing the system exists for any given \gls{indicator} and trivially it corresponds to its minimum and maximum values, making the outcome of the normalisation undefined.
-  \item In periods different from the reference there may be values of the \gls{indicator} which exceed the extremes. This results in normalised values which fall outside the interval $[0, 1]$, invalidating the purpose of the normalisation.
+  \item The methodology is applied to a single system and the ranges of \glspl{indicator} are not known. This means that a single value representing the system exists for any given \gls{indicator} and trivially it corresponds to its minimum and maximum values, making the outcome of the normalisation undefined. In literature this problem is avoided by considering a set of systems, which results in an ensemble of values for each \gls{indicator} which is assumed to be its image.
+  \item In periods different from the reference there may be values of the \gls{indicator} which exceed the extremes. They result in normalised values which fall outside the interval $[0, 1]$, invalidating the purpose of the normalisation. In literature this is issue is solved by clipping the exceeding values to the corresponding extremes of the interval.
 \end{enumerate}
-
-Examples where min-max normalisation is applied as suggested by the methodology are: \cite[6]{2023DeVivoApplicationOf}, \cite[6]{2023DeVivoClimate-RiskAssessment} and \cite[74]{2017GIZVulnerabilitySourcebook}.
 
 
 
