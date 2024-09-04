@@ -135,7 +135,7 @@ and a scalar function for \gls{hazard} $H : \prod_j \prod_{I \in \mathcal{H}_j} 
   \label{eq:hazard_aggregated}
   H(\underline{z}) = \frac{1}{\sum_j \sum_{I \in \mathcal{H}_j} w_I} \sum_j \sum_{I \in \mathcal{H}_j} w_I I(\underline{z}_I)
 \end{equation}
-where $\underline{z}_I$ is the sequence of values for parameters which are arguments of $I$.
+where $\underline{z}_I \in \prod_{p \in P_I} S_p$ is the sequence of values for parameters which are arguments of $I$.
 Note that the there is no need to treat \glspl{driver} of \gls{adaptive_capacity} and \gls{sensitivity} separately because the aggregation procedure is applied equally to them.
 
 
