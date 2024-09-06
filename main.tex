@@ -23,6 +23,7 @@
 \usepackage{mathtools}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \DeclarePairedDelimiterXPP{\condition}[1]{\mathbb{I}}{[}{]}{}{#1}
+\DeclarePairedDelimiterXPP{\clim}[1]{}{}{\rvert}{_\text{clim}}{#1}
 
 \usepackage[group-digits=integer,separate-uncertainty,per-mode=symbol]{siunitx}
 
@@ -32,7 +33,7 @@
 
 \usepackage[hidelinks]{hyperref}  % Load last.
 
-\usepackage[acronym,indexonlyfirst,toc]{glossaries}  % Load after some packages, check its documentation.
+\usepackage[nomain,symbols,acronyms,indexonlyfirst,toc,nohypertypes={symbols,definitions}]{glossaries}  % Load after some packages, check its documentation.
 \setacronymstyle{long-short}
 \makenoidxglossaries  % Put before any new glossary term.
 
@@ -43,7 +44,7 @@
 \setglossarypreamble[definitions]{\label{gls:definitions}}
 \loadglsentries[definitions]{./glossaries/definitions.tex}
 
-\newglossary*{symbols}{Symbols}
+% Glossary for symbols created by package option.
 \setglossarypreamble[symbols]{\label{gls:symbols}}
 \loadglsentries[symbols]{./glossaries/symbols.tex}
 
