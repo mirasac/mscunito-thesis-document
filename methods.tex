@@ -73,13 +73,13 @@ These results need further elaboration. In fact, for every \gls{driver} $i$ and 
 First, the temporal aggregation is performed. It consists in averaging the multidimensional array over the temporal dimension with a sample average. The outcome is multidimensional arrays depending on spatial coordinates and parameters:
 \begin{equation}
   \label{eq:temporal_aggregation}
-  I(y, x, \underline{z}) = \frac{1}{\abs{S_\text{y}}} \sum_{t \in S_\text{y}} (y, x, t, \underline{z})
+  I(y, x, t, \underline{z}) \mapsto I(y, x, \underline{z}) = \frac{1}{\abs{S_\text{y}}} \sum_{t \in S_\text{y}} I(y, x, t, \underline{z})
   \quad .
 \end{equation}
 Due to the spatial resolution of data, they may contain bias with respect to the reference period, e.g. orography may influence differently the variation of some \glspl{ECV}. Therefore, for every \glspl{indicator} $I$, its relative variation with respect to the reference period is used,
 \begin{equation}
   \label{eq:spatial_bias}
-  \frac{I - I_\text{clim}}{I_\text{clim}}
+  I(y, x, \underline{z}) \mapsto I(y, x, \underline{z}) = \frac{I(y, x, \underline{z}) - I_\text{clim}(y, x, \underline{z})}{I_\text{clim}(y, x, \underline{z})}
   \quad ,
 \end{equation}
 where symbol $I_\text{clim}$ is used to refer to $I$ evaluated for the reference period, i.e. equation~\eqref{eq:temporal_aggregation} with $S_\text{y} = S_\text{clim}$. This is analogous to evaluate \glspl{anomaly} for \glspl{indicator} instead of \glspl{ECV} and rescale them on the respective value of the reference period.
@@ -92,7 +92,12 @@ The following procedure is applied to every \gls{indicator} $I$ in its multidime
   \item apply the \gls{EOF} analysis to the design matrix;
   \item keep the first \gls{PC} only, i.e. the coefficients corresponding to the \gls{EOF} which maximises the variance in the sample dimension.
 \end{enumerate}
-In point~\ref{itm:sample_dimension} of the procedure, a bijective relations between the sample dimension of the design matrix and $\prod_{p \in P_I} S_p$ is established, hence the first \gls{PC} effectively maps $I$ to a multidimensional array with coordinates in $\prod_{p \in P_I} S_p$.
+In point~\ref{itm:sample_dimension} of the procedure, a bijective relations between the sample dimension of the design matrix and $\prod_{p \in P_I} S_p$ is established, hence the first \gls{PC} effectively maps $I$ to a multidimensional array with coordinates in $\prod_{p \in P_I} S_p$:
+\begin{equation}
+  \label{eq:spatial_aggregation}
+  I(y, x, \underline{z}) \mapsto I(\underline{z})% = \EOF{I(y, x, \underline{z})}  % If the commented notation is used, then add to main.tex: \DeclarePairedDelimiterXPP{\EOF}[1]{\mathrm{EOF}}{[}{]}{}{#1}.
+  \quad .
+\end{equation}
 After the spatial and temporal aggregations, for every \gls{driver} $j$ each element $I \in \mathcal{H}_j$ depends only on parameter values in $\prod_{p \in P_I} S_p$.
 
 To execute module~\ref{itm:module_5}, first the scale of each \gls{indicator} is defined. In this work all \glspl{indicator} are numeric values and may have both metric or categorical scales (i.e. values are distributed uniformly or not, respectively, cf. \cite[109]{2017GIZTheVulnerability}).
@@ -101,7 +106,7 @@ When metric scales are involved, the methodology suggests to apply the min-max n
 while \glspl{indicator} which depend on parameters are standardised, i.e. substituted by their z-score. More in detail, for any \gls{indicator} $I$ undergoing normalisation, the new value is
 \begin{equation}
   \label{eq:z-score}
-  \frac{I - \mu_I}{\sigma_I}
+  I(\underline{z}) \mapsto I(\underline{z}) = \frac{I(\underline{z}) - \mu_I}{\sigma_I}
 \end{equation}
 where the sample mean
 \begin{equation}
