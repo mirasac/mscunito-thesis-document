@@ -1,8 +1,18 @@
 \section{Data}
 \label{sec:Data}
-Climate data show great complexity in structure and availability (e.g. \glspl{ECV} can be represented as multidimensional objects, some climate datasets are collections of \glspl{ECV}). For these and other properties discussed in \cite{2014FaghmousABig}, climate data can be regarded as big data.
 
-In this work a generic \gls{ECV} $T$ can be represented mathematically as a scalar function
+
+
+\subsection{Climate data}
+Climate is a complex system, composed by many elements which interact in non-trivial (i.e. non-linear) ways. Therefore, to have a satisfying description of climate, many variables are needed.
+Climate data are data which can be used to provide a direct or indirect description of climate, e.g. in situ observations, measures from remote sensing or weather stations, outputs from numerical models.%
+\footnote{A note on nomenclature: the adjective \emph{climatological} is used in some sources instead of \emph{climate}. They are generally equivalent to refer to climate data, but the latter is preferred here because it replicates the alternative term for \gls{normal} specified by \cite[1]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}.}
+By reflection, climate data show great complexity in structure (e.g. they can be represented as multidimensional objects and collected in climate datasets) and availability. For these and other properties discussed in \cite{2014FaghmousABig}, climate data can be regarded as big data.
+
+To identify a subset of variables which efficiently describe the climate, the concept of \gls{ECV} is defined.\cite{2014BojinskiTheConcept} The updated list of \glspl{ECV} and their requirements are mantained by the \gls{WMO} in \cite[14-17]{2022WorldMeteorologicalOrganizationWMOThe2022}.
+Climate data necessary for this study are among the present \glspl{ECV}. In this section they are characterised mathematically, while the actual data are shown in section~\ref{sec:Case study}.
+
+In the following, a generic \gls{ECV} $T$ can be represented mathematically as a scalar function
 \begin{equation}
   \label{eq:math_variable}
   T : S_\text{lat} \times S_\text{lon} \times S_\text{time} \to \mathbb{R}
@@ -25,14 +35,37 @@ In the following, this representation is used to simplify the discussion and sam
 
 As a visual aid when generic symbols are used, capital letters represent both functions and multidimensional arrays, the former being followed by the arguments in parentheses when there is an explicit reference to their values. Instead, lowercase letters are used for functions and values which are one dimensional.
 
-\Glspl{normal} used as reference depends only on spatial coordinates, hence they are functions
-\begin{equation}
-  \label{eq:math_normal}
-  \bar{T} : S_\text{lat} \times S_\text{lon} \to \mathbb{R}
-\end{equation}
-or equivalently, multidimensional arrays with spatial coordinates only.
-\Glspl{normal} are evaluated as explained in \cite[6]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines} using an averaging period $S_\text{clim}$ specific to each case study (cf. section~\ref{sec:Case study}).
+\subsection{Climate normals}
+The temporal evolution of climate is described by climate data which can be represented as time series. To quantify changes in the state of climate it is useful to define a reference period and climate data related to it.
 
+The concept of climate \gls{normal} is introduced for this purpose, the \gls{WMO} defines it as: \glsdesc{normal}. Terms \Gls{period_average} and \gls{average} apply to monthly values of climate data, see definitions and how \glspl{normal} are evaluated in \cite[5-6]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}. However, the mean of values with other temporal domains may also be useful (e.g. multimonth \glspl{normal}, normal for each day of year of the wind speed at a given location), in the following \glspl{anomaly} are characterised clearly.
+To quantify changes in the state of climate, \glspl{anomaly} are used, which are \glsdesc{anomaly}. The avarage value for \glspl{anomaly} is usually \gls{normal}.
+
+In this work the reference period is identified by the symbol $\clim{S_\text{time}}$ and it is a period of 30 years starting on 1st January of a year ending with the digit 1. This specification satisfies the definition of averaging period for climate \glspl{normal}.
+Instead, the boundaries are specific to the case study. They are chosen such that the reference period precedes the start of the formation of the system. This arbitrary criterion is chosen to compensate the natural deteriotation of materials, with artifical buildings in mind. In fact, the methodology implicitly assumes that exposure and vulnerability values are either constant in time or their change is negligible within the period they refer to. This hypothesis and the definition of $\clim{S_\text{time}}$ together guarantee that there is no correlation in time between quantities referring to different temporal periods considered in the \gls{CCRA}. Moreover, the reference period 
+\begin{example}
+  Suppose the system under study is the Eiffel Tower. The works started in 1887 and lasted two years, hence
+  \begin{equation*}
+    \clim{S_\text{time}} = \{ t : \text{$t$ day from \DTMdisplaydate{1851}{1}{1}{-1} to \DTMdisplaydate{1880}{12}{31}{-1}} \}
+  \end{equation*}
+  is chosen as reference period. \Glspl{normal} can be evaluated for the climate data referred to $\clim{S_\text{time}}$ and data related to the system describe it as if it would not be affected by the passing of time.
+  
+  If the period from \DTMdisplaydate{1861}{1}{1}{-1} to \DTMdisplaydate{1890}{12}{31}{-1} were chosen instead, no assessments could be produced for the years soon after the end of works.
+\end{example}
+
+In contrast to the reference period, averaging periods for future climate span 20 years and are fixed. Values referred to these periods describe the system or the climate at future time horizons. The lower number of years in these periods do not affect negatively the prediction skill of statistics related to them.\cite[17]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}
+Three time horizons are chosen:
+\begin{description}
+  \item[near] from \DTMdisplaydate{2024}{1}{1}{-1} to \DTMdisplaydate{2043}{12}{31}{-1};
+  \item[medium] from \DTMdisplaydate{2044}{1}{1}{-1} to \DTMdisplaydate{2063}{12}{31}{-1};
+  \item[long] from \DTMdisplaydate{2081}{1}{1}{-1} to \DTMdisplaydate{2100}{12}{31}{-1}.
+\end{description}
+Near and medium-term time horizons are chosen to be as close as possible to the present (at time of writing). This way it is more reasonable to find adaptation plans and strategies for the system at risk.
+Long-term time horizons are affected by greater uncertainty for different reasons, e.g. lower confidence on outputs from climate projections, exposure is subject to change. Nevertheless, the long period is chosen to show the differences between scenarios, which are usually more evident at the end of the century.
+
+
+
+\subsection{Indicators}
 \Glspl{indicator} of \glspl{driver} within the \gls{hazard} \gls{determinant} are functions of \glspl{ECV} and additional parameters. In general they are aggregated over the temporal dimension and are non-linear functions of their arguments.
 An \gls{indicator} $I$ can be defined mathematically as
 \begin{equation}
@@ -41,7 +74,7 @@ An \gls{indicator} $I$ can be defined mathematically as
 \end{equation}
 where $S_\text{y}$ is a set of the years considered during the analysis, $P_I$ is the set of parameters for that indicator and $S_p$ is the set of values available for each parameter $p \in P_I$.%
 \footnote{As a symbolic shortcut, if $P_I = \varnothing$ then the indicator is defined only over $S_\text{lat} \times S_\text{lon} \times S_\text{y}$.}
-In the following, $\underline{z} in \prod_{p \in P_I} S_p$ represents the set of arguments passed to the \gls{indicator}, in other words the coordinates of $I$ as multidimensional array.
+In the following, $\underline{z} \in \prod_{p \in P_I} S_p$ represents the set of arguments passed to the \gls{indicator}, in other words the coordinates of $I$ as multidimensional array.
 Evaluation is performed for each year, i.e. the \gls{indicator} has yearly resolution or is evaluated with yearly frequency. As a consequence, the elements of set $S_\text{y}$ are references to the years taken into account during calculations.
 
 An \gls{indicator} can be represented as a multidimensional array, similarly to \glspl{ECV}.
