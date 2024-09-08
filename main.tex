@@ -41,16 +41,15 @@
 \loadglsentries{./glossaries/acronyms.tex}
 
 \newglossary*{definitions}{Definitions}
-\setglossarypreamble[definitions]{\label{gls:definitions}}
+\setglossarypreamble[definitions]{\label{sec:definitions}}
 \loadglsentries[definitions]{./glossaries/definitions.tex}
 
 % Glossary for symbols created by package option.
-\setglossarypreamble[symbols]{\label{gls:symbols}}
+\setglossarypreamble[symbols]{\label{sec:symbols}}
 \loadglsentries[symbols]{./glossaries/symbols.tex}
+\loadglsentries[symbols]{./glossaries/ecvs.tex}
 
 %%%%%%%%% Other %%%%%%%%%
-\newcommand{\tasmax}{\mathrm{tasmax}}
-\newcommand{\tas}{\mathrm{tas}}
 \newcommand{\riski}{\text{very low}}
 \newcommand{\riskii}{\text{low}}
 \newcommand{\riskiii}{\text{intermediate}}

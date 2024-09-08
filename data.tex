@@ -19,6 +19,7 @@ In the following, a generic \gls{ECV} $T$ can be represented mathematically as a
 \end{equation}
 where $S_\text{lat}$, $S_\text{lon}$ and $S_\text{time}$ are domains of latitude, longitude and time dimensions, respectively.%
 \footnote{In contexts related to Machine Learning these objects are called tensors. Since they may not satisfy the mathematical definition of a tensor, in particular the map may not be multilinear and the numerical sets may not be vector spaces, no reference to such objects is made in this work.}
+Latitude and longitude are the only spatial dimensions considered, because elevation is specific to each \gls{ECV}. In the following, when spatial dimensions are mentioned, they refer to the horiziontal dimensions of latitude and longitude.
 Every numerical value is equipped with proper units of measurement, to represent physical quantities correctly. As a consequence, the codomain in equation~\eqref{eq:math_variable} is partially wrong: with an abuse of notation, it represents only the magnitude of the \gls{ECV} and does not consider the unit of measurement. This is a small exception to simplify the notation and in the remainder of this document units of measurement are always addressed explicitly.
 
 A more practical representation of $T$ is a multidimensional array, where values in the domain are coordinates associated to each dimension and each entry of the array is the result of $T$ evaluated on those coordinates. Figure~\ref{fig:multidimensional} shows this representation visually.
@@ -28,14 +29,16 @@ A more practical representation of $T$ is a multidimensional array, where values
   \caption{Representation of a generic \gls{ECV} as multidimensional array.}
   \label{fig:multidimensional}
 \end{figure}
-In the following, this representation is used to simplify the discussion and same \gls{ECV} name is used both for the function and the multidimensional array.
+In the following, this representation is used to simplify the discussion and same \gls{ECV} symbol is used both for the function and the multidimensional array.
 \begin{example}
-  Near-Surface Air Temperature, symbol $\tas$, is available for some coordinates and timestamps. It can be seen as the scalar function in equation~\eqref{eq:math_variable}, which associates each value in set $S_\text{lat} \times S_\text{lon} \times S_\text{time}$ to a value with unit \unit{\kelvin}, or it can be represented as the multidimensional array in figure~\ref{fig:multidimensional}, where each entry is function~\eqref{eq:math_variable} evaluated at the corresponding coordinates.
+  \Glsdesc{tas}, symbol \gls{tas}, is available for some coordinates $S_\text{lat} \times S_\text{lon}$ and timestamps $S_\text{time}$. It can be seen as the scalar function in equation~\eqref{eq:math_variable}, which associates each value in set $S_\text{lat} \times S_\text{lon} \times S_\text{time}$ to a scalar value with unit \glssymbol{tas}, or it can be represented as the multidimensional array in figure~\ref{fig:multidimensional}, where each entry is function~\eqref{eq:math_variable} evaluated at the corresponding coordinates.
 \end{example}
 
 As a visual aid when generic symbols are used, capital letters represent both functions and multidimensional arrays, the former being followed by the arguments in parentheses when there is an explicit reference to their values. Instead, lowercase letters are used for functions and values which are one dimensional.
 
-\subsection{Climate normals}
+
+
+\subsubsection{Climate normal}
 The temporal evolution of climate is described by climate data which can be represented as time series. To quantify changes in the state of climate it is useful to define a reference period and climate data related to it.
 
 The concept of climate \gls{normal} is introduced for this purpose, the \gls{WMO} defines it as: \glsdesc{normal}. Terms \Gls{period_average} and \gls{average} apply to monthly values of climate data, see definitions and how \glspl{normal} are evaluated in \cite[5-6]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}. However, the mean of values with other temporal domains may also be useful (e.g. multimonth \glspl{normal}, normal for each day of year of the wind speed at a given location), in the following \glspl{anomaly} are characterised clearly.
@@ -50,7 +53,7 @@ Instead, the boundaries are specific to the case study. They are chosen such tha
   \end{equation*}
   is chosen as reference period. \Glspl{normal} can be evaluated for the climate data referred to $\clim{S_\text{time}}$ and data related to the system describe it as if it would not be affected by the passing of time.
   
-  If the period from \DTMdisplaydate{1861}{1}{1}{-1} to \DTMdisplaydate{1890}{12}{31}{-1} were chosen instead, no assessments could be produced for the years soon after the end of works.
+  If the period from \DTMdisplaydate{1861}{1}{1}{-1} to \DTMdisplaydate{1890}{12}{31}{-1} were chosen instead, no assessments could be produced for the years subsequent to the end of works.
 \end{example}
 
 In contrast to the reference period, averaging periods for future climate span 20 years and are fixed. Values referred to these periods describe the system or the climate at future time horizons. The lower number of years in these periods do not affect negatively the prediction skill of statistics related to them.\cite[17]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}
@@ -61,12 +64,44 @@ Three time horizons are chosen:
   \item[long] from \DTMdisplaydate{2081}{1}{1}{-1} to \DTMdisplaydate{2100}{12}{31}{-1}.
 \end{description}
 Near and medium-term time horizons are chosen to be as close as possible to the present (at time of writing). This way it is more reasonable to find adaptation plans and strategies for the system at risk.
-Long-term time horizons are affected by greater uncertainty for different reasons, e.g. lower confidence on outputs from climate projections, exposure is subject to change. Nevertheless, the long period is chosen to show the differences between scenarios, which are usually more evident at the end of the century.
+Long-term time horizons are affected by greater uncertainty for different reasons, e.g. lower confidence on outputs from climate projections, exposure subject to change. Nevertheless, the long period is chosen to show differences between scenarios, which are more evident at the end of the century for many \glspl{ECV}.
+
+
+
+\subsubsection{Reference dataset}
+The climate dataset used for evaluating reference values is ERA5 by \gls{ECMWF}.\cite{2023HersbachERA5Hourly} ERA5 is a \gls{reanalysis} dataset, which provides gridded data with global coverage and hourly temporal resolution. \Glspl{reanalysis} are observations of climate data interpolated on a spatiotemporal grid throught numerical models, a procedure called \gls{data_assimilation} (see \cite{2020HersbachTheERA5} for technical details).
+The main technical data about ERA5 can be found in table~\ref{tab:technical_ERA5}.
+\begin{table}[h]
+  \centering
+  \caption{Subset of the technical characteristics of ERA5, the complete list can be found in \cite[2003]{2020HersbachTheERA5}.}
+  \label{tab:technical_ERA5}
+  \begin{tabular}[b]{ll}
+    Characteristic        & Value                                            \\
+    \hline
+    Horizontal coverage   & global                                           \\
+    Horizontal resolution & $\qty{0.25}{\degree} \times \qty{0.25}{\degree}$ \\
+    Temporal coverage     & from \DTMdisplaydate{1940}{1}{1}{-1} to present  \\
+    Temporal resolution   & hourly
+  \end{tabular}
+\end{table}
+
+In this work the ERA5 horizontal resolution of \qty{0.25}{\degree}, i.e. about \qty{31}{\kilo\metre}, for both latitude and longitude is used. In the dataset, horizontal coordinates of a grid point natively refer to the upper left angle of the cell. A simple traslation is appliedo to refer these coordinated to the centre of the cell. A square box 3 grid cells wide and centered approximately in the coordinates of the system is chosen for each case study. The systems studied in this work has spatial scale much smaller than the size of a grid cell (see section~\ref{sec:Case study}), hence it is guaranteed that the central grid cell encompasses the systems, even if the coordinates of the centre of the system are not accurate. Although one grid cell is enough to cover the systems under study, an extended area is chosen to increase the predictive skill of aggregation procedures applied to the spatial dimensions. On the other hand, the \gls{CCRA} would lose spatial accuracy in the description of the local events around the system, if too many grid cells are selected.
+
+On the temporal dimension, climate data from \DTMdisplaydate{1950}{1}{1}{-1} to \DTMdisplaydate{2023}{12}{31}{-1} are selected from ERA5 and a further use section~\ref{sec:Bias correction}. They are downsampled to daily resolution with the same aggregation procedures specified by \gls{WMO} for the evaluation of individual monthly values from daily values.\cite[5]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines} In particular:
+\begin{itemize}
+  \item daily \glsdesc{tas} is the mean of hourly \glsdesc{tas} of the same day;
+  \item daily \glsdesc{tasmax} is the maximum of hourly \glsdesc{tasmax} of the same day;
+  \item daily \glsdesc{tasmin} is the minimum of hourly \glsdesc{tasmin} of the same day;
+  \item daily \glsdesc{pr} is the sum of hourly \glsdesc{pr} of the same day.
+\end{itemize}
+Timestamps for daily data are set at \DTMdisplaytime{00}{00}{00}.
 
 
 
 \subsection{Indicators}
-\Glspl{indicator} of \glspl{driver} within the \gls{hazard} \gls{determinant} are functions of \glspl{ECV} and additional parameters. In general they are aggregated over the temporal dimension and are non-linear functions of their arguments.
+\label{sec:Indicators}
+\Glspl{indicator} of \glspl{driver} within the \gls{hazard} \gls{determinant} are functions of climate data and additional parameters. In this work the climate data are \glspl{ECV} and they have a daily frequency.
+During their calculation, generally \glspl{indicator} are aggregated over the temporal dimension and are non-linear functions of their arguments.
 An \gls{indicator} $I$ can be defined mathematically as
 \begin{equation}
   \label{eq:math_indicator}
@@ -83,7 +118,7 @@ The dependence of an \gls{indicator} on \glspl{ECV} is not clear in the definiti
 \begin{example}
   The \gls{indicator} $\mathrm{TX_x}$ is evaluated for the period 1991-2020 with yearly frequency. This \gls{indicator} is the monthly maximum value of daily maximum temperature,\cite{ETCCDIClimate} hence:
   \begin{itemize}
-    \item it depends on \gls{ECV} $\tasmax$ defined at daily frequency over the considered period,
+    \item it depends on \gls{ECV} \glsdesc{tasmax} defined at daily frequency over the considered period,
       \begin{equation*}
         S_\text{time} = \left\{ t : \parbox{0.45\linewidth}{$t$ day from \DTMdisplaydate{1991}{1}{1}{-1} to \DTMdisplaydate{2020}{12}{31}{-1}} \right\}
         \quad ;
