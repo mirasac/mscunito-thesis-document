@@ -1,9 +1,5 @@
-\section{Data}
-\label{sec:Data}
-
-
-
-\subsection{Climate data}
+\section{Climate data}
+\label{sec:Climate data}
 Climate is a complex system, composed by many elements which interact in non-trivial (i.e. non-linear) ways. Therefore, to have a satisfying description of climate, many variables are needed. Climate data are data which can be used to provide a direct or indirect description of climate,%
 \footnote{A note on nomenclature: the adjective \emph{climatological} is used in some sources instead of \emph{climate} to address to climate data. They are equivalent, but the latter is preferred in this work because it replicates the alternative term for \gls{normal} specified by \cite[1]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}.}
 e.g. in situ observations, measures from remote sensing or weather stations, outputs from numerical models.\cite[1537]{2021SeneviratneWeatherAnd} The complexity of climate reflects on the complexity in structure of climate data, e.g. they can be represented as multidimensional objects and collected in climate datasets. This affects also their availability and other properties,\cite{2014FaghmousABig} therefore climate data can be regarded as big data.
@@ -37,7 +33,7 @@ As a visual aid when generic symbols are used, capital letters represent both fu
 
 
 
-\subsubsection{Climate normal}
+\subsection{Climate normals}
 The temporal evolution of climate is described by climate data which can be represented as time series. To quantify changes in the state of climate it is useful to define a reference period and climate data related to it.
 
 The concept of climate \gls{normal} is introduced for this purpose, the \gls{WMO} defines it as: \glsdesc{normal}. Terms \Gls{period_average} and \gls{average} apply to monthly values of climate data, see definitions and how \glspl{normal} are evaluated in \cite[5-6]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}. However, the mean of values with other temporal domains may also be useful (e.g. multimonth \glspl{normal}, normal for each day of year of the wind speed at a given location), in the following \glspl{anomaly} are characterised clearly.
@@ -67,7 +63,7 @@ Long-term time horizons are affected by greater uncertainty for different reason
 
 
 
-\subsubsection{Reference dataset}
+\subsection{Reference dataset}
 The climate dataset used for evaluating reference values is ERA5 by \gls{ECMWF}.\cite{2023HersbachERA5Hourly} ERA5 is a \gls{reanalysis} dataset, which provides gridded data with global coverage and hourly temporal resolution. \Glspl{reanalysis} are observations of climate data interpolated on a spatiotemporal grid throught numerical models, a procedure called \gls{data_assimilation} (see \cite{2020HersbachTheERA5} for technical details).
 The main technical data about ERA5 can be found in table~\ref{tab:technical_ERA5}.
 \begin{table}[h]
@@ -97,7 +93,7 @@ Timestamps for daily data are set at \DTMdisplaytime{00}{00}{00}.
 
 
 
-\subsubsection{Climate projection dataset}
+\subsection{Climate projection dataset}
 Future climate is studied using the NEX-GDDP-CMIP6 dataset provided by \gls{NEX}.\cite{2022ThrasherNASAGlobal,2021ThrasherNEX-GDDP-CMIP6} The dataset is derived from results of \gls{CMIP6} for a subset of \glspl{ECV} and a single variant of 35 models from a selection of historical and ScenarioMIP experiments.\cite{2016EyringOverviewOf} The purpose of having a set of different models is to evaluate the uncertainty on predictions, in fact each model has different characteristics and applying ensemble methods reduces the variance on the outputs given by model-specific characteristics (e.g. different equations describing the same phenomena, different \gls{GCM} modules between models). NEX-GDDP-CMIP6 provide a single variant for each model.
 Data are obtained through statistical downscaling and bias adjustment procedures presented in \cite{2012ThrasherTechnicalNote}. The main technical data about NEX-GDDP-CMIP6 can be found in table~\ref{tab:technical_NEX-GDDP-CMIP6}, while the full description of the dataset is in \cite{2022ThrasherNASAGlobal}.
 \begin{table}[h]
@@ -131,7 +127,7 @@ In each model the historical experiment is extended up to \DTMdisplaydate{2023}{
 
 
 
-\subsection{Indicators}
+\section{Indicators}
 \label{sec:Indicators}
 \Glspl{indicator} of \glspl{driver} within the \gls{hazard} \gls{determinant} are functions of climate data and additional parameters. In this work the climate data are \glspl{ECV} and they have a daily frequency.
 During their calculation, generally \glspl{indicator} are aggregated over the temporal dimension and are non-linear functions of their arguments.
