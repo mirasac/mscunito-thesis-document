@@ -2,7 +2,7 @@
 \label{sec:Introduction}
 Climate change is shaping ecosystems and human activities and is becoming a central topic of discussion across all fields.\cite{2022PortnerClimateChange,2022PortnerTechnicalSummary} Effects of climate change have different severity, often changing with time and with the evolution of contexts they occur.\cite{2024EEAExecutiveSummary} These impacts may depend also on the spatial scale of the systems affected.\cite{2021Doblas-ReyesLinkingGlobal}
 
-The knowledge of present and future impacts of climate change becomes essential to reduce adverse outcomes, as well as to leverage potential benefits. Even more relevant is the concept of risk which moves the focus from the impacts to their potential occurence, broadening the possibilities for related studies and actions.
+The knowledge of present and future impacts of climate change becomes essential to reduce adverse outcomes, as well as to leverage potential benefits. Even more relevant is the concept of risk which moves the focus from the impacts to their potential occurrence, broadening the possibilities for related studies and actions.
 In fact, an increasing number of organisations are incorporating \glspl{CCRA} into their decision processes.\cite{2024Carlin2024Climate} A definition of \gls{risk_assessment} is given by \gls{IPCC} as \glsdesc{risk_assessment}, and \gls{CCRA} is its restriction to climate-related \glspl{risk}.%
 \footnote{Terms \emph{climate change risk assessment} and \emph{climate risk assessment} are used equivalently in literature (cf. \cite[11]{2017GIZRiskSupplement} and \cite[20]{2017GIZTheVulnerability}, also \cite{2024LoyerInventoryOf}). In this document the former is used, to highlight the focus on risks arising from climate change.}
 Other authorities employ similar definitions of \gls{risk_assessment} and remark its usefulness.\cite{2021ISO14091,2019UNDRRGlobalAssessment}
@@ -13,7 +13,8 @@ More generally, a \gls{risk_assessment} is essential part of the process of \gls
 
 Various regulations, standards and guidelines for \gls{CCRA} are available, but very few specify in detail the methodology to follow.\cite{2024LoyerInventoryOf} Methodologies differ by various means, e.g. the steps required to gather preliminar information on impacts and risks, the analysis of the system exposed, the evaluation of risk and its components, the presentation of outcomes (cf. \cite{2021ISO14091,2024EEAExecutiveSummary,2017GIZTheVulnerability,2014BowyerAdaptingTo,2024EU20212139}, also see \cite[10-11]{2024LoyerInventoryOf} and \cite[9]{2017GIZRiskSupplement}). This variety hinders the comparison of \gls{CCRA} outcomes, diminishing their credibility and interoperability.
 
-A single methodology may be chosen to perform the \gls{CCRA}, but the issue presents once again since the methodology may not define operational details, e.g. functions and procedures to evaluate risk.
+A single methodology may be chosen to perform the \gls{CCRA}, but the issue presents once again since the methodology may not define operational details, e.g. functions and procedures involved. Implementation details are left to the authors of the \gls{CCRA}, who base the choice on their experience and on scientific literature, according to the directives of \glspl{climate_service}.
+To evaluate the dependence of \gls{risk} on the functional representation of its components is the objective of this work.
 
 
 
@@ -74,7 +75,7 @@ Having introduced the definitions above, the various components of \gls{risk} ca
 
 \subsection{Methodology of risk assessment}
 \label{sec:Methodology of risk assessment}
-Restricting the \gls{risk_assessment} to climate-related applications is not sufficient to fix every detail, e.g. how to evaluate \gls{risk} from its \glspl{determinant}. These implementation details depend on which methodology is chosen to perform the risk assessment, which is presented in this section and is defined operatively in section~\ref{sec:Methods}.
+Restricting the \gls{risk_assessment} to climate-related applications is not sufficient to fix every detail, e.g. how to evaluate \gls{risk} from its \glspl{determinant}. These implementation details are often expressed in the methodology chosen to perform the risk assessment. The methodology employed in this study is presented conceptually in this section and is defined operatively in section~\ref{sec:Methods}.
 
 The methodology of \gls{CCRA} applied in the present work follows \cite{2017GIZTheVulnerability} and its upgrade \cite{2017GIZRiskSupplement} to the concepts presented in section~\ref{sec:Climate risk}. The latter should be read in parallel with the former and supersedes the outdated concepts.
 
@@ -123,7 +124,20 @@ All three categories of complex \gls{risk} are present in the methodology. In mo
 In the present work only category~\ref{itm:category_1} is considered, as there is no particular relation between \glspl{driver} within different \glspl{determinant}, except for the usual aggregation defined in module~\ref{itm:module_7} needed to obtain the final \gls{risk}. Nevertheless, extending the current study by introducing complexity throught the other categories may be interesting to test the robustness of the results.
 
 From a mathematical point of view, complex interactions between \glspl{driver} translate to mathematical functions which relate \glspl{indicator}. They may be treated as additional \glspl{indicator} to consider in the aggregation of \glspl{determinant}.\cite[39-40]{2008OECDHandbookOn}
-In the methodology used in this work, no particular interaction is considered between \glspl{driver} across \glspl{determinant}. \Glspl{indicator} are related only by the functions which are chosen in the aggregation procedures of modules~\ref{itm:module_6} and~\ref{itm:module_7}.
+In the methodology used in this work, no specific interaction is considered between \glspl{driver} across \glspl{determinant}. \Glspl{indicator} are related only by the functions which are chosen in the aggregation procedures of modules~\ref{itm:module_6} and~\ref{itm:module_7}.
+
+
+
+\subsection{Problem statement}
+The objective of this work is to show how the \gls{risk} evaluated following a given methodology depends on the choice of \glspl{indicator}. In particular, the study is restricted to indicators of \gls{hazard} and their definitions are modified by varying the parameters they depend on.
+
+Technically this study resembles a \gls{SA}: the effects on the outcome of a system by varying its input factors are assessed and attributed to specific input factors.\cite[627-632]{2015DeanHandbookOf} In this case the system is the \gls{CCRA} and the methodology which implements it, its outcome is the \gls{risk} value and the input factors are the parameters.
+More in detail, this work adopts a global approach to \gls{SA}, since the space of all possible parameters, or a significative subset of it, is explored. This is essential for a significative \gls{SA}, because \glspl{indicator} are generally non-linear functions of their parameters, hence the relation of the system on the input space is highly non linear.\cite[31-32]{2019SaltelliWhySo}
+
+A \gls{SA} is normally preceded by an \gls{UA}, which quantifies the uncertainty on the output of the system by exploring the statistical properties of the system and its inputs.\cite[29-30]{2019SaltelliWhySo} The present study does not employ strictly an \gls{UA}, because probability distributions of parameters and their uncertainties are not considered explicitly, a non-parametric space-filling approach is adopted instead.
+An estimation of uncertainties would be possible by employing multiple instances of the input space (e.g. bootstrapping, Monte Carlo methods). Additionally, uncertainties on climate data are considered only for projections, where a model ensemble is employed.
+
+Results from this work highlight the importance of \glspl{indicator} parameters in a \gls{CCRA}. The methods may be useful to authors of \glspl{CCRA} to address the arbitrariness of parameters selection and to support the outcomes of the assessment. In this regard, the present study may found an application in \glspl{climate_service}.
 
 
 

@@ -41,9 +41,9 @@ In module~\ref{itm:module_4} the evaluation of \glspl{indicator} on climate and 
 A more convoluted path is needed to evaluate \glspl{indicator} of \gls{hazard}. They are functions defined by equation~\eqref{eq:math_indicator}, hence they depend on climate data and additional parameters. The former are presented in section~\ref{sec:Data}, the latter are chosen as explained in the following paragraphs.
 
 For each \gls{indicator}, a set of values of its parameters is defined. Ideally these sets would be continuous, to explore the whole space of possible configurations of parameters. However, for limitations intrinsic to the analysis tools, only a finite and small number of values can be considered (in the following these discrete sets are called intervals to preserve generality).
-How values in these intervals are selected depends on the nature of the parameters. The selection is ultimately arbitrary, to allow greater control, e.g. remove values which are not interesting for the analysis, and to apply a form of non-parametric sampling.
+How values in these intervals are selected depends on the nature of the parameters. The selection is ultimately arbitrary, to allow greater control, e.g. remove values which are not interesting for the analysis, and to apply a form of non-parametric sampling of the input space. This is a form of space-filling design for \gls{SA}.\cite[593-594]{2015DeanHandbookOf}
 
-To simply the explanation, consider \gls{driver} $j$ and an \gls{indicator} $I \in \mathcal{H}_j$. This \gls{indicator} depends on some parameters, which are collected in set $P_I$, and on some \glspl{ECV}. The chosen interval for a parameter $p \in P_I$ is a set of scalar values, possibly with units, denoted by $S_p$.
+To simplify the explanation, consider \gls{driver} $j$ and an \gls{indicator} $I \in \mathcal{H}_j$. This \gls{indicator} depends on some parameters, which are collected in set $P_I$, and on some \glspl{ECV}. The chosen interval for a parameter $p \in P_I$ is a set of scalar values, possibly with units, denoted by $S_p$.
 
 If parameter $p$ is related to a \gls{ECV} (e.g. threshold on \gls{tas}), its values are sampled from the distribution of the \gls{ECV}. First all data available for the \gls{ECV} of interest are collected in a single sample, with the following conditions:
 \begin{itemize}
