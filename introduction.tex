@@ -13,15 +13,17 @@ More generally, a \gls{risk_assessment} is essential part of the process of \gls
 
 Various regulations, standards and guidelines for \gls{CCRA} are available, but very few specify in detail the methodology to follow.\cite{2024LoyerInventoryOf} Methodologies differ by various means, e.g. the steps required to gather preliminar information on impacts and risks, the analysis of the system exposed, the evaluation of risk and its components, the presentation of outcomes (cf. \cite{2021ISO14091,2024EEAExecutiveSummary,2017GIZTheVulnerability,2014BowyerAdaptingTo,2024EU20212139}, also see \cite[10-11]{2024LoyerInventoryOf} and \cite[9]{2017GIZRiskSupplement}). This variety hinders the comparison of \gls{CCRA} outcomes, diminishing their credibility and interoperability.
 
-A single methodology may be chosen to perform the \gls{CCRA}, but the issue presents once again since the methodology may not define operational details, e.g. functions and procedures involved. Implementation details are left to the authors of the \gls{CCRA}, who base the choice on their experience and on scientific literature, according to the directives of \glspl{climate_service}.
+A single methodology may be chosen to perform the \gls{CCRA}, but the issue presents once again since the methodology may not define operational details, e.g. functions and procedures involved. Implementation details are left to the authors of the \gls{CCRA}, who base the choice on their experience and on scientific literature, according to the principles of \glspl{climate_service}.
 To evaluate the dependence of \gls{risk} on the functional representation of its components is the objective of this work.
+
+The methodology of \gls{CCRA} applied in the present work follows \cite{2017GIZTheVulnerability} and its upgrade \cite{2017GIZRiskSupplement}. The latter should be read in parallel with the former and supersedes outdated concepts.
 
 
 
 \subsection{Climate risk}
 \label{sec:Climate risk}
-Before introducing the methodology adopted to evaluate risk in the present work, first it is convenient to introduce a proper terminology.
-In this work definitions by \gls{ISO} are used for their concision. When some terms are not available, they are taken from \gls{IPCC}. Both sources have similar definitions for the same terms.
+Before stating the objective of the present study, first it is convenient to introduce a proper terminology.
+Definitions by \gls{ISO} are used for their concision. When some terms are not available, they are taken from \gls{IPCC}. Both sources have similar definitions for the same terms.
 
 \Gls{risk} is a general term which can be tailored to different contexts and applications as a measure of uncertain consequences on a system of interest.%
 \footnote{Without delving into Philosophy, a source of change is needed to have consequences and it is specified by the definitions in use.}
@@ -73,36 +75,11 @@ Having introduced the definitions above, the various components of \gls{risk} ca
 
 
 
-\subsection{Methodology of risk assessment}
-\label{sec:Methodology of risk assessment}
-Restricting the \gls{risk_assessment} to climate-related applications is not sufficient to fix every detail, e.g. how to evaluate \gls{risk} from its \glspl{determinant}. These implementation details are often expressed in the methodology chosen to perform the risk assessment. The methodology employed in this study is presented conceptually in this section and is defined operatively in section~\ref{sec:Implementation of methodology}.
-
-The methodology of \gls{CCRA} applied in the present work follows \cite{2017GIZTheVulnerability} and its upgrade \cite{2017GIZRiskSupplement} to the concepts presented in section~\ref{sec:Climate risk}. The latter should be read in parallel with the former and supersedes the outdated concepts.
-
-This methodology is split in eight modules, each dependent on the previous ones. The following is an overview:
-\begin{enumerate}
-  \item understand the context in which the assessment is framed and identify objectives, scope and resources involved;\cite[39-53]{2017GIZTheVulnerability}
-  \item \label{itm:module_2} identify \glspl{risk} and \glspl{impact} affecting the system under study and determine \glspl{driver} of \gls{hazard}, \gls{exposure} and \gls{vulnerability};\cite[26-41]{2017GIZRiskSupplement}
-  \item \label{itm:module_3} choose \glspl{indicator} for each \gls{driver} of \gls{hazard}, \gls{exposure} and \gls{vulnerability};\cite[73-84]{2017GIZTheVulnerability}
-  \item \label{itm:module_4} collect data and quantify \glspl{indicator};\cite[87-103]{2017GIZTheVulnerability}
-  \item \label{itm:module_5} normalise \glspl{indicator} to allow their comparison;\cite[105-119]{2017GIZTheVulnerability}
-  \item \label{itm:module_6} for each \gls{determinant}, weight normalised \glspl{indicator} and aggregate them into a single value;\cite[121-131]{2017GIZTheVulnerability}
-  \item \label{itm:module_7} aggregate values for individual \glspl{determinant} into a single value for \gls{risk};\cite[133-141]{2017GIZTheVulnerability}
-  \item \label{itm:module_8} present the results of the \gls{CCRA}.\cite[143-154]{2017GIZTheVulnerability}
-\end{enumerate}
-When the \gls{vulnerability} of the system is recalled, it is split into \gls{sensitivity} and \gls{adaptive_capacity} if possible.
-
-All modules are connected by the concept of \gls{impact_chain}, which is an \glsdesc{impact_chain}. This concept helps to develop the \gls{CCRA} as a narrative and to guide it smoothly through its various steps, see \cite[217-224]{2022KondrupClimateAdaptation} for a review of the concept.
-
-Although a complete application of this methodology does not fall into the purposes of the present study, each module is briefly addressed in section~\ref{sec:Results} where case studies are treated.
-
-
-
 \subsection{Complex risk}
 \label{sec:Complex risk}
 Unlike other types of risk assessment, e.g. probabilistic risk assessment, \gls{CCRA} focuses on interactions between \glspl{driver} instead of estimating their likelihood.\cite[20-21]{2017GIZRiskSupplement} However, it is common to study each \gls{determinant} in isolation. Instead, an integrated risk assessment which is able to relate \glspl{driver} within and across \glspl{determinant} would be able to describe the overall \gls{risk} more accurately.\cite[145-147]{2022BegumPointOf}
 
-Interacting elements are not considered mainly because it is more difficult to formalise the interactions. In \cite{2021SimpsonAFramework} the list of complex \gls{risk} adopted by \gls{IPCC} in \gls{AR6} is extended, to allow more granularity in the assessment, and three categories of complex \gls{risk} are proposed. The objective is to build a framework which helps to address to complex interactions more easily, thus helping their adoption in \glspl{CCRA}. \Gls{response} is included in the \glspl{determinant}, e.g. to introduce negative effects on \gls{vulnerability} due to \gls{maladaptation}.
+Interacting elements are not considered mainly because a proper formalisation of the interactions is difficult and rarely clear. In \cite{2021SimpsonAFramework} the list of complex \gls{risk} adopted by \gls{IPCC} in \gls{AR6} is extended, to allow more granularity in the assessment, and three categories of complex \gls{risk} are proposed. The objective is to build a framework which helps to address to complex interactions more easily, thus helping their adoption in \glspl{CCRA}. \Gls{response} is included in the \glspl{determinant}, e.g. to introduce negative effects on \gls{vulnerability} due to \gls{maladaptation}.
 Depending on what is the origin of \gls{risk}, the categories are:\cite[493]{2021SimpsonAFramework}
 \begin{enumerate}
   \item \label{itm:category_1} interacting \glspl{driver} within the same \gls{determinant};
@@ -119,12 +96,11 @@ In general, category~\ref{itm:category_1} is considered as long as the methodolo
   A second iteration of the \gls{CCRA} moves the focus to human activities in the area under study. When the corrispondent \gls{risk} is evaluated, it can be merged with the \gls{risk} value found previously to summarise the overall flood \gls{risk}, which becomes a category~\ref{itm:category_3} complex \gls{risk}.
 \end{example}
 
-All three categories of complex \gls{risk} are present in the methodology. In module~\ref{itm:module_6} \glspl{indicator} are aggregated within the same \gls{determinant} (i.e. category~\ref{itm:category_1} complex \gls{hazard}). Moreover, the concept of intermediate impact, which mediates \glspl{driver} of \gls{hazard} and \gls{vulnerability}, are a form of category~\ref{itm:category_2} complex \gls{hazard}.\cite[33]{2017GIZRiskSupplement} Sub-risks addressed in module~\ref{itm:module_7} may fall into category~\ref{itm:category_3}.
-
-In the present work only category~\ref{itm:category_1} is considered, as there is no particular relation between \glspl{driver} within different \glspl{determinant}, except for the usual aggregation defined in module~\ref{itm:module_7} needed to obtain the final \gls{risk}. Nevertheless, extending the current study by introducing complexity throught the other categories may be interesting to test the robustness of the results.
+All three categories of complex \gls{risk} may be found in the methodology (see section~\ref{sec:Methodology of risk assessment} for details), but in the present work only category~\ref{itm:category_1} is considered, as there is no particular relation between \glspl{driver} within different \glspl{determinant}, except for the aggregation into the final \gls{risk} value.
+Nevertheless, extending the current study by introducing complexity throught the other categories may be interesting to test the robustness of the results.
 
 From a mathematical point of view, complex interactions between \glspl{driver} translate to mathematical functions which relate \glspl{indicator}. They may be treated as additional \glspl{indicator} to consider in the aggregation of \glspl{determinant}.\cite[39-40]{2008OECDHandbookOn}
-In the methodology used in this work, no specific interaction is considered between \glspl{driver} across \glspl{determinant}. \Glspl{indicator} are related only by the functions which are chosen in the aggregation procedures of modules~\ref{itm:module_6} and~\ref{itm:module_7}.
+In the chosen methodology, no specific interaction is considered between drivers across determinants. This translates into linear relations between indicators when they are aggregated.
 
 
 
@@ -144,7 +120,7 @@ Results from this work highlight the importance of \glspl{indicator} parameters 
 \section{Structure of the document}
 Each section of the document treats a different aspect of the analysis.
 A general understanding of the concept of \gls{risk} and the associated terms are useful to frame the problem, they are presented in section~\ref{sec:Conceptual overview}.
-Given the relevance of data, the whole section~\ref{sec:Data} is dedicated to them. Climate datasets and system-dependent data are described, along with any elaboration applied. The problem and the methodology of \gls{CCRA} are described mathematically in section~\ref{sec:Implementation of methodology}.
+Given the relevance of data, the whole section~\ref{sec:Data} is dedicated to them. Climate datasets and system-dependent data are described, along with any elaboration applied. The problem and the methodology of \gls{CCRA} are described mathematically in section~\ref{sec:Methodology of risk assessment}.
 The methodology is then applied to two case studies in section~\ref{sec:Results}, where system-specific data and results are analysed and the actual \gls{SA} is performed.
 In section~\ref{sec:Discussion} the effectiveness of the methods is assessed.
 Finally in section~\ref{sec:Conclusion} the final considerations on the study and its applicability are summarised.
