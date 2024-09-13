@@ -1,11 +1,11 @@
-\section{Methods}
-\label{sec:Methods}
+\section{Implementation of methodology}
+\label{sec:Implementation of methodology}
 
 
 
 \subsection{Evaluation of indicators}
 This section explains the process to obtain a scalar value for each \gls{determinant}, following the methodology presented in section~\ref{sec:Methodology of risk assessment}. Modules~\ref{itm:module_3}, \ref{itm:module_4}, \ref{itm:module_5} and~\ref{itm:module_6} are recalled.
-Suppose a set of \glspl{driver} is chosen. The selection of \glspl{driver} for the actual case studies, i.e. module~\ref{itm:module_2}, is performed and argued in section~\ref{sec:Case study}.
+Suppose a set of \glspl{driver} is chosen. The selection of \glspl{driver} for the actual case studies, i.e. module~\ref{itm:module_2}, is performed and argued in section~\ref{sec:Results}.
 
 Module~\ref{itm:module_3} may be stated symbolically as follow. For each \gls{driver} within the \gls{hazard} \gls{determinant}, a set $\mathcal{H}_j$ of \glspl{indicator} is obtained. A similar procedure is carried out for \glspl{driver} of \gls{exposure} and \gls{vulnerability}, resulting in sets $\mathcal{E}_i$ and $\mathcal{V}_k$, respectively. Indices $i$, $j$ and $k$ are present to clarify that each set is related to a different \gls{driver} and the way these sets are indexed is not important (e.g. each of them can be a sequence of integers where each one refers to a different \gls{driver}, they can be the names of the \glspl{driver} they refer to).
 If the distinction between \glspl{driver} of \gls{sensitivity} and \gls{adaptive_capacity} is made, then it is not explicit in the indices. The reason is that these \glspl{driver} are treated mathematically the same way, as explained below.
@@ -36,7 +36,7 @@ The methodology suggests to avoid double counting of \glspl{driver} by allocatin
   Note that all \glspl{indicator} consist in counting some elements of the system. Nevertheless, they are different from each other since they refer to different elements.
 \end{example}
 
-In module~\ref{itm:module_4} the evaluation of \glspl{indicator} on climate and system data occurs. Concerning the system, the data collection step is explained in section~\ref{sec:System-dependent data} and scalar values are readily obtained for the elements in sets $\mathcal{E}_i$ and $\mathcal{V}_k$ for any \gls{driver} $i$ or $k$. See paragraphs about data in section~\ref{sec:Case study} for the definition of the \glspl{indicator} of \gls{exposure} and \gls{vulnerability} used to describe each system.
+In module~\ref{itm:module_4} the evaluation of \glspl{indicator} on climate and system data occurs. Concerning the system, the data collection step is explained in section~\ref{sec:System-dependent data} and scalar values are readily obtained for the elements in sets $\mathcal{E}_i$ and $\mathcal{V}_k$ for any \gls{driver} $i$ or $k$. See paragraphs about data in section~\ref{sec:Results} for the definition of the \glspl{indicator} of \gls{exposure} and \gls{vulnerability} used to describe each system.
 
 A more convoluted path is needed to evaluate \glspl{indicator} of \gls{hazard}. They are functions defined by equation~\eqref{eq:math_indicator}, hence they depend on climate data and additional parameters. The former are presented in section~\ref{sec:Data}, the latter are chosen as explained in the following paragraphs.
 
@@ -65,7 +65,7 @@ Second, the empirical \gls{QF} of data is built from the sample, to acknowledge 
 Third, values are chosen with the aim to sample the true probability distribution uniformly. The density of points may be increased where needed to have a better description of the shape of the distribution.%
 \footnote{Why do not use derivative-based methods to set the density of points? The reason is again greater control on the selected values: there is no need to evaluate the derivative of the \gls{QF} in every point, just within the subintervals which are interesting for the analysis. Note that the \gls{QF} is obtained by linear interpolation between existent data points, hence the slope is already evaluated internally and the derivative is a piecewise constant function.}
 
-If parameter $p$ is not related to a \gls{ECV} (e.g. window size for moving averages), some heuristic is applied and explained case by case where values are presented in section~\ref{sec:Case study}.
+If parameter $p$ is not related to a \gls{ECV} (e.g. window size for moving averages), some heuristic is applied and explained case by case where values are presented in section~\ref{sec:Results}.
 
 After $S_p$ is defined for every $p \in P_I$, the \gls{indicator} $I$ is finally evaluated. This results in elements of set $\mathcal{H}_j$ being multidimensional arrays given by equation~\eqref{eq:math_indicator}, for every \gls{driver} $j$ of the \gls{hazard}. Different \glspl{indicator} may have different parameters, but they depend on \glspl{ECV} which same spatial and temporal coordinates $S_\text{lat} \times S_\text{lon} \times S_\text{clim}$, hence they have same temporal frequency, i.e. same $S_\text{y}$.
 
