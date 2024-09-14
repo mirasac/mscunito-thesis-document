@@ -64,11 +64,11 @@ Long-term time horizons are affected by greater uncertainty for different reason
 
 
 \subsection{Reference dataset}
-The climate dataset used for evaluating reference values is ERA5 by \gls{ECMWF}.\cite{2023HersbachERA5Hourly} ERA5 is a \gls{reanalysis} dataset, which provides gridded data with global coverage and hourly temporal resolution. \Glspl{reanalysis} are observations of climate data interpolated on a spatiotemporal grid throught numerical models, a procedure called \gls{data_assimilation} (see \cite{2020HersbachTheERA5} for technical details).
-The main technical data about ERA5 can be found in table~\ref{tab:technical_ERA5}.
+The climate dataset used for evaluating reference values is \ERA by \gls{ECMWF}.\cite{2023HersbachERA5Hourly} \ERA is a \gls{reanalysis} dataset, which provides gridded data with global coverage and hourly temporal resolution. \Glspl{reanalysis} are observations of climate data interpolated on a spatiotemporal grid throught numerical models, a procedure called \gls{data_assimilation} (see \cite{2020HersbachTheERA5} for technical details).
+The main technical data about \ERA can be found in table~\ref{tab:technical_ERA5}.
 \begin{table}[h]
   \centering
-  \caption{Subset of the technical characteristics of ERA5, the complete list can be found in \cite[2003]{2020HersbachTheERA5}.}
+  \caption{Subset of the technical characteristics of \ERA, the complete list can be found in \cite[2003]{2020HersbachTheERA5}.}
   \label{tab:technical_ERA5}
   \begin{tabular}[b]{ll}
     Characteristic        & Value                                            \\
@@ -80,9 +80,9 @@ The main technical data about ERA5 can be found in table~\ref{tab:technical_ERA5
   \end{tabular}
 \end{table}
 
-In this work the ERA5 horizontal resolution of \qty{0.25}{\degree}, i.e. about \qty{31}{\kilo\metre}, is used for both latitude and longitude. In the dataset, horizontal coordinates of a grid point natively refer to the upper left angle of the cell. A traslation is applied to refer these coordinated to the centre of the cell. A square box 3 grid cells wide and centered approximately in the coordinates of the system is chosen for each case study. The systems studied in this work has spatial scale much smaller than the size of a grid cell (see section~\ref{sec:Results}), hence it is guaranteed that the central grid cell encompasses the systems, even if the coordinates of the centre of the system are not accurate. Although one grid cell is enough to cover the systems under study, an extended area is chosen to increase the predictive skill of aggregation procedures applied to the spatial dimensions. On the other hand, the \gls{CCRA} would lose spatial accuracy in the description of the local events around the system, if too many grid cells are selected.
+In this work the \ERA horizontal resolution of \qty{0.25}{\degree}, i.e. about \qty{31}{\kilo\metre}, is used for both latitude and longitude. In the dataset, horizontal coordinates of a grid point natively refer to the upper left angle of the cell. A traslation is applied to refer these coordinated to the centre of the cell. A square box 3 grid cells wide and centered approximately in the coordinates of the system is chosen for each case study. The systems studied in this work has spatial scale much smaller than the size of a grid cell (see section~\ref{sec:Results}), hence it is guaranteed that the central grid cell encompasses the systems, even if the coordinates of the centre of the system are not accurate. Although one grid cell is enough to cover the systems under study, an extended area is chosen to increase the predictive skill of aggregation procedures applied to the spatial dimensions. On the other hand, the \gls{CCRA} would lose spatial accuracy in the description of the local events around the system, if too many grid cells are selected.
 
-On the temporal dimension, climate data from \DTMdisplaydate{1950}{1}{1}{-1} to \DTMdisplaydate{2023}{12}{31}{-1} are selected from ERA5. First, data are converted to a calendar with 365 days by removing 29th February in leap years. Then they are downsampled to daily resolution with the same aggregation procedures specified by \gls{WMO} for the evaluation of individual monthly values from daily values.\cite[5]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines} In particular:
+On the temporal dimension, climate data from \DTMdisplaydate{1950}{1}{1}{-1} to \DTMdisplaydate{2023}{12}{31}{-1} are selected from \ERA. First, data are converted to a calendar with 365 days by removing 29th February in leap years. Then they are downsampled to daily resolution with the same aggregation procedures specified by \gls{WMO} for the evaluation of individual monthly values from daily values.\cite[5]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines} In particular:
 \begin{itemize}
   \item daily \glsdesc{tas} is the mean of hourly \glsdesc{tas} of the same day;
   \item daily \glsdesc{tasmax} is the maximum of hourly \glsdesc{tasmax} of the same day;
@@ -94,11 +94,11 @@ Timestamps for daily data are set at \DTMdisplaytime{00}{00}{00}.
 
 
 \subsection{Climate projection dataset}
-Future climate is studied using the NEX-GDDP-CMIP6 dataset provided by \gls{NEX}.\cite{2022ThrasherNASAGlobal,2021ThrasherNEX-GDDP-CMIP6} The dataset is derived from results of \gls{CMIP6} for a subset of \glspl{ECV} and a single variant of 35 models from a selection of historical and ScenarioMIP experiments.\cite{2016EyringOverviewOf} The purpose of having a set of different models is to evaluate the uncertainty on predictions, in fact each model has different characteristics and applying ensemble methods reduces the variance on the outputs given by model-specific characteristics (e.g. different equations describing the same phenomena, different \gls{GCM} modules between models). NEX-GDDP-CMIP6 provide a single variant for each model.
-Data are obtained through statistical downscaling and bias adjustment procedures presented in \cite{2012ThrasherTechnicalNote}. The main technical data about NEX-GDDP-CMIP6 can be found in table~\ref{tab:technical_NEX-GDDP-CMIP6}, while the full description of the dataset is in \cite{2022ThrasherNASAGlobal}.
+Future climate is studied using the \NEX dataset provided by \gls{NEX}.\cite{2022ThrasherNASAGlobal,2021ThrasherNEX-GDDP-CMIP6} The dataset is derived from results of \gls{CMIP6} for a subset of \glspl{ECV} and a single variant of 35 models from a selection of historical and ScenarioMIP experiments.\cite{2016EyringOverviewOf} The purpose of having a set of different models is to evaluate the uncertainty on predictions, in fact each model has different characteristics and applying ensemble methods reduces the variance on the outputs given by model-specific characteristics (e.g. different equations describing the same phenomena, different \gls{GCM} modules between models). \NEX provides a single variant for each model.
+Data are obtained through statistical downscaling and bias adjustment procedures presented in \cite{2012ThrasherTechnicalNote}. The main technical data about \NEX can be found in table~\ref{tab:technical_NEX-GDDP-CMIP6}, while the full description of the dataset is in \cite{2022ThrasherNASAGlobal}.
 \begin{table}[h]
   \centering
-  \caption{Subset of the technical characteristics of NEX-GDDP-CMIP6, see \cite{2022ThrasherNASAGlobal} for the full specifications.}
+  \caption{Subset of the technical characteristics of \NEX, see \cite{2022ThrasherNASAGlobal} for the full specifications.}
   \label{tab:technical_NEX-GDDP-CMIP6}
   \begin{tabular}[b]{ll}
     Characteristic        & Value                                                                     \\
@@ -110,9 +110,9 @@ Data are obtained through statistical downscaling and bias adjustment procedures
   \end{tabular}
 \end{table}
 
-The spatial resolution of this dataset matches the resolution of ERA5 and horizontal coordinates identify the centre of grid points, hence no further rescaling is required. Same spatial coordinates of the reference data are used.
+The spatial resolution of this dataset matches the resolution of \ERA and horizontal coordinates identify the centre of grid points, hence no further rescaling is required. Same spatial coordinates of the reference data are used.
 
-Data of NEX-GDDP-CMIP6 have daily resolution but timestamps are referred to \DTMdisplaytime{12}{00}{00} of the coordinate. This does not raise problems when operations are applied to data aggregate at lower frequencies, e.g. monthly averages, but may create contradictions in pointwise calculations. Therefore, timestamps in NEX-GDDP-CMIP6 are redefined to match the timestamps or ERA5, i.e. \DTMdisplaytime{00}{00}{00}.
+Data of \NEX have daily resolution but timestamps are referred to \DTMdisplaytime{12}{00}{00} of the coordinate. This does not raise problems when operations are applied to data aggregate at lower frequencies, e.g. monthly averages, but may create contradictions in pointwise calculations. Therefore, timestamps in \NEX are redefined to match the timestamps or \ERA, i.e. \DTMdisplaytime{00}{00}{00}.
 The temporal coverage is split between historical and future experiments. The historical simulation starts at \DTMdisplaydate{1950}{1}{1}{-1} and ends at \DTMdisplaydate{2014}{12}{31}{-1}, while the projections are from \DTMdisplaydate{2015}{1}{1}{-1} to \DTMdisplaydate{2100}{12}{31}{-1}.
 
 In this work some models are excluded, reasons for exclusion are in appendix~\ref{sec:Selection of CMIP6 models} along with the list of used models. For each model, the following experiments are considered:
@@ -128,7 +128,7 @@ In each model the historical experiment is extended up to \DTMdisplaydate{2023}{
 
 
 \subsubsection{Non-physical temperature extremes}
-At the time of writing, NEX-GDDP-CMIP6 dataset contains some values of \glsdesc{tasmin} and \glsdesc{tasmax} which are not accettable from a physical perspective, i.e. $\gls{tasmin} > \gls{tasmax}$, for the same days and some models.%
+At the time of writing, \NEX dataset contains some values of \glsdesc{tasmin} and \glsdesc{tasmax} which are not accettable from a physical perspective, i.e. $\gls{tasmin} > \gls{tasmax}$, for the same days and some models.%
 \footnote{Also \glsdesc{tas} occurs to have non-physical values, i.e. $\gls{tas} < \gls{tasmin}$ or $\gls{tas} > \gls{tasmax}$. However, this issue is not addressed explicitly, since every chosen indicator having temperature variables as inputs does not require \gls{tasmin} or \gls{tasmax} to be used together with \gls{tas}.}
 
 The issue appears as a rare by-product of the bias adjustment algorithm employed in the dataset creation, see \cite{2012ThrasherTechnicalNote}. This issue doesnot affect calculations on \glspl{normal} since they are monthly means, but for resolutions on the order of days may be conditioned negatively by the non-physical value.
@@ -152,8 +152,8 @@ As explained in \cite[6941-6942]{2015CannonBiasCorrection}, \gls{QDM} estimates 
 The mapping between the empirical \glspl{QF} in the common period may be interpreted as the training step of the \gls{BA} algorithm. Moreover, the procedure requires to invert the \glspl{QF}, i.e. to evaluate the corresponding empirical \glspl{CDF} of data, to map quantiles to their probabilities.%
 \footnote{More properly they are sample frequencies instead of probabilities, but for clarity the latter term is used.}
 
-Concerning this study, the reference distribution is built on ERA5. The period from \DTMdisplaydate{1950}{1}{1}{-1} to \DTMdisplaydate{1993}{12}{31}{-1} is chosen to extract the information needed for \gls{BA}. Then the 30-years period from \DTMdisplaydate{1994}{1}{1}{-1} to \DTMdisplaydate{2023}{12}{31}{-1} is used to test the accuracy of the \gls{BA} procedure.
-The \gls{BA} is applied to \glspl{ECV} of each model in NEX-GDDP-CMIP6. A q-q plot is made to compare the adjusted data against the reference data.
+Concerning this study, the reference distribution is built on \ERA. The period from \DTMdisplaydate{1950}{1}{1}{-1} to \DTMdisplaydate{1993}{12}{31}{-1} is chosen to extract the information needed for \gls{BA}. Then the 30-years period from \DTMdisplaydate{1994}{1}{1}{-1} to \DTMdisplaydate{2023}{12}{31}{-1} is used to test the accuracy of the \gls{BA} procedure.
+The \gls{BA} is applied to \glspl{ECV} of each model in \NEX. A q-q plot is made to compare the adjusted data against the reference data.
 
 
 
