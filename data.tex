@@ -13,7 +13,7 @@ In the following, a generic \gls{ECV} $T$ can be represented mathematically as a
   T : S_\text{lat} \times S_\text{lon} \times S_\text{time} \to \mathbb{R}
 \end{equation}
 where $S_\text{lat}$, $S_\text{lon}$ and $S_\text{time}$ are domains of latitude, longitude and time dimensions, respectively.%
-\footnote{In contexts related to Machine Learning these objects are called tensors. Since they may not satisfy the mathematical definition of a tensor, in particular the map may not be multilinear and the numerical sets may not be vector spaces, no reference to such objects is made in this work.}
+\footnote{In contexts related to \gls{ML} these objects are called tensors. Since they may not satisfy the mathematical definition of a tensor, in particular the map may not be multilinear and the numerical sets may not be vector spaces, no reference to such objects is made in this work.}
 Latitude and longitude are the only spatial dimensions considered, because elevation is specific to each \gls{ECV}. In the following, when spatial dimensions are mentioned, they refer to the horiziontal dimensions of latitude and longitude.
 Every numerical value is equipped with proper units of measurement, to represent physical quantities correctly. As a consequence, the codomain in equation~\eqref{eq:math_variable} is partially wrong: with an abuse of notation, it represents only the magnitude of the \gls{ECV} and does not consider the unit of measurement. This is a small exception to simplify the notation and in the remainder of this document units of measurement are always addressed explicitly.
 
@@ -124,6 +124,25 @@ In this work some models are excluded, reasons for exclusion are in appendix~\re
 \end{description}
 More details on the narratives of each \gls{SSP} are found in \cite{2017ONeillTheRoads}. The use of SSP scenarios allows to account for the evolution of socioeconomic elements which may affect indirectly the system.
 In each model the historical experiment is extended up to \DTMdisplaydate{2023}{12}{31}{-1} using data from the SSP2-4.5 experiment. This procedure is suggested by \cite[1954]{2016EyringOverviewOf} and allows to compare historical data from models with the reference dataset, in what can be considered the \emph{past} of the study, while the \emph{future} starts at \DTMdisplaydate{2024}{1}{1}{-1}.
+
+
+
+\subsection{Bias adjustment}
+Outputs of \glspl{GCM} and the more advanced \glspl{ESM} have intrinsic biases related to their functioning (e.g. implementation, physical equations, parametrisations) which need to be adjusted to convey physically accurate values, essential for studies like \glspl{CCRA}.%
+\footnote{In many resources on the topic, the term \emph{bias correction} is used instead. Here \gls{BA} is preferred since a correction requires a true value as reference, which is not always possible to assume.}
+A moltitude of \gls{BA} methods are available, e.g. deviations from reference data, statistical analysis, \gls{ML} models.\cite{2015CannonBiasCorrection,2010PianiStatisticalBias12,2023NiazkarBiasCorrection}
+
+When \gls{BA} is performed on climate data, a reference is chosen. The reference data are assumed to be a representative sample of the population, hence the sample distribution of reference data describes the probability distribution of the climate data accurately. The \gls{BA} procedure extracts information on statistics of reference data and modifies the climate data to reproduce those statistics. In fact, biases are considered alterations of the true probability distribution induced by the models and \gls{BA} aims to remove them.
+Moreover, climate change affects the probability distributions making them non stationary. This means that statistical information in a given temporal period may not be accurate to describe data in future periods, even if they are extracted from the reference data. Some \gls{BA} procedures address this issue.
+
+In this study the \gls{BA} algorithm known as \gls{QDM} is adopted.\cite{2015CannonBiasCorrection} It belongs to the family of \gls{QM} algorithms for \gls{BA}, which use statistical information from quantiles of reference data to remove the bias. \Gls{QDM} is able to preserve trends of climate change detected by the \glspl{GCM}, by storing the difference by quantile of future periods with respect to an historical period. Depending on the climate data, the relative change may be stored instead of the absolute difference.
+
+As explained in \cite[6941-6942]{2015CannonBiasCorrection}, \gls{QDM} estimates three empirical \glspl{QF}: one for the climate data to adjust, one for the reference data and one for the climate data in the same period of reference data. Then differences between same quantiles of climate data at different temporal periods are stored. The actual adjustment consists in replacing target climate data with the corresponding quantiles from the reference data and adding back the differences stored previously.
+
+The mapping between the empirical \glspl{QF} in the common period may be interpreted as the training step of the \gls{BA} algorithm. Moreover, the procedure requires to invert the \glspl{QF}, i.e. to evaluate the corresponding empirical \glspl{CDF} of data, to map quantiles to their probabilities.%
+\footnote{More properly they are sample frequencies instead of probabilities, but for clarity the latter term is used.}
+
+Concerning this study, the reference distribution is built on ERA5. The period from \DTMdisplaydate{1950}{1}{1}{-1} to \DTMdisplaydate{1993}{12}{31}{-1} is chosen to extract the information needed for \gls{BA}. Then the 30-years period from \DTMdisplaydate{1994}{1}{1}{-1} to \DTMdisplaydate{2023}{12}{31}{-1} is used to test the accuracy of the \gls{BA} procedure.
 
 
 
