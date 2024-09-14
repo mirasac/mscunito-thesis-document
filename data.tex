@@ -131,7 +131,7 @@ In each model the historical experiment is extended up to \DTMdisplaydate{2023}{
 At the time of writing, NEX-GDDP-CMIP6 dataset contains some values of \glsdesc{tasmin} and \glsdesc{tasmax} which are not accettable from a physical perspective, i.e. $\gls{tasmin} > \gls{tasmax}$, for the same days and some models.%
 \footnote{Also \glsdesc{tas} occurs to have non-physical values, i.e. $\gls{tas} < \gls{tasmin}$ or $\gls{tas} > \gls{tasmax}$. However, this issue is not addressed explicitly, since every chosen indicator having temperature variables as inputs does not require \gls{tasmin} or \gls{tasmax} to be used together with \gls{tas}.}
 
-The issue appears as a rare byproduct of the bias adjustment algorithm employed in the dataset creation, see \cite{2012ThrasherTechnicalNote}. This issue doesnot affect calculations on \glspl{normal} since they are monthly means, but for resolutions on the order of days may be conditioned negatively by the non-physical value.
+The issue appears as a rare by-product of the bias adjustment algorithm employed in the dataset creation, see \cite{2012ThrasherTechnicalNote}. This issue doesnot affect calculations on \glspl{normal} since they are monthly means, but for resolutions on the order of days may be conditioned negatively by the non-physical value.
 From a discussion with the providers of the dataset, the suggested course of action is to swap \gls{tasmin} and \gls{tasmax} values for data presenting the problem.
 %This operation changes the statistical distribution of the time series, but the resulting error on its statistical properties (e.g. mean, trend) is negligible with respect to its noise.
 
@@ -153,7 +153,28 @@ The mapping between the empirical \glspl{QF} in the common period may be interpr
 \footnote{More properly they are sample frequencies instead of probabilities, but for clarity the latter term is used.}
 
 Concerning this study, the reference distribution is built on ERA5. The period from \DTMdisplaydate{1950}{1}{1}{-1} to \DTMdisplaydate{1993}{12}{31}{-1} is chosen to extract the information needed for \gls{BA}. Then the 30-years period from \DTMdisplaydate{1994}{1}{1}{-1} to \DTMdisplaydate{2023}{12}{31}{-1} is used to test the accuracy of the \gls{BA} procedure.
-The \gls{BA} is applied to \glspl{ECV} of each model in NEX-GDDP-CMIP6.
+The \gls{BA} is applied to \glspl{ECV} of each model in NEX-GDDP-CMIP6. A q-q plot is made to compare the adjusted data against the reference data.
+
+
+
+\subsubsection{Temperature}
+\Gls{QDM} is applied additively to temperature data. This means that to conserve trends between projections and historical data, the absolute difference between quantiles is stored.
+
+Temperature data subject to adjustment are \glspl{ECV} \gls{tas}, \gls{tasmin} and \gls{tasmax}. In particular, first \gls{tasmax} and the \glsdesc{DTR}
+\begin{equation}
+  \label{eq:DTR}
+  \gls{DTR} = \gls{tasmax} - \gls{tasmin}
+\end{equation}
+are adjusted, then the adjusted \gls{tasmin} is derived by inverting equation~\eqref{eq:DTR}. This procedure is suggested in \cite[3313]{2012ThrasherTechnicalNote}. By definition \gls{DTR} is always non negative, hence this procedure should ensure physical values for the extremes \gls{tasmin} and \gls{tasmax}.
+
+
+
+\subsubsection{Precipitation}
+For precipitation data, trends are preserved by storing the ratio of projected data with respect to historical data, i.e. multiplicative \gls{QDM} is applied.
+The adjustment is applied to \glsdesc{pr} \gls{pr}. However, null values are present in the datasets, which correspond to days without any kind of precipitation, i.e. dry days. When they appear in the historical data, the trend-preserving ratio diverges to infinity, resulting in a non-physical infinite value of the adjusted \gls{pr}.
+
+The procedure suggested in \cite[6945]{2015CannonBiasCorrection} is followed to solve the issue: values lower than the threshold \qty{0.05}{\milli\metre\per\day} are randomised uniformly in the interval $(\qty{0}{\milli\metre\per\day}, \qty{0.05}{\milli\metre\per\day})$, then after the \gls{BA} the values which are below the threshold are considered dry days, hence they are set to \qty{0}{\milli\metre\per\day}. No correction in the seasonal cycle is applied since only daily data are needed for the evaluation of \glspl{indicator}.
+%The randomised values may be mapped to quantiles above the threshold, but this is unlikely if the threshold is low enough.
 
 
 

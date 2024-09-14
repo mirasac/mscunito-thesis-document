@@ -36,6 +36,7 @@
 \usepackage[nomain,symbols,acronyms,indexonlyfirst,toc,nohypertypes={symbols,definitions}]{glossaries}  % Load after some packages, check its documentation.
 \setacronymstyle{long-short}
 \makenoidxglossaries  % Put before any new glossary term.
+\glssetnoexpandfield{useri}  % Make user1 key work as description key.
 
 % Glossary for acronyms created by package option.
 \loadglsentries{./glossaries/acronyms.tex}
