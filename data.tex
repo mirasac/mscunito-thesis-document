@@ -136,7 +136,8 @@ In each model the historical experiment is extended up to \DTMdisplaydate{2023}{
 At the time of writing, NEX-GDDP-CMIP6 dataset contains some values of \glsdesc{tasmin} and \glsdesc{tasmax} which are not accettable from a physical perspective, i.e. $\gls{tasmin} > \gls{tasmax}$, for the same days and some models.%
 \footnote{Also \glsdesc{tas} occurs to have non-physical values, i.e. $\gls{tas} < \gls{tasmin}$ or $\gls{tas} > \gls{tasmax}$. However, this issue is not addressed explicitly, since every chosen indicator having temperature variables as inputs does not require \gls{tasmin} or \gls{tasmax} to be used together with \gls{tas}.}
 
-The issue appears as a rare by-product of the bias adjustment algorithm employed in the dataset creation, see \cite{2012ThrasherTechnicalNote}. This issue doesnot affect calculations on \glspl{normal} since they are monthly means, but for resolutions on the order of days may be conditioned negatively by the non-physical value.
+The issue appears as a rare by-product of the bias adjustment algorithm employed in the dataset creation, see \cite{2012ThrasherTechnicalNote}. It does not affect calculations on \glspl{normal} since they are monthly means, but for resolutions on the order of days may be conditioned negatively by the non-physical value. To be able to recover those data helps to maintain accurate information on the distribution of extremes and its evolution due to climate change, see \cite[1536-1537]{2021SeneviratneWeatherAnd} and \cite[40-42]{2012FieldManagingThe}.
+
 From a discussion with the providers of the dataset, the suggested course of action is to swap \gls{tasmin} and \gls{tasmax} values for data presenting the problem.
 %This operation changes the statistical distribution of the time series, but the resulting error on its statistical properties (e.g. mean, trend) is negligible with respect to its noise.
 
