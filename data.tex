@@ -94,7 +94,12 @@ Timestamps for daily data are set at \DTMdisplaytime{00}{00}{00}.
 
 
 \subsection{Climate projection dataset}
-Future climate is studied using the \NEX dataset provided by \gls{NEX}.\cite{2022ThrasherNASAGlobal,2021ThrasherNEX-GDDP-CMIP6} The dataset is derived from results of \gls{CMIP6} for a subset of \glspl{ECV} and a single variant of 35 models from a selection of historical and ScenarioMIP experiments.\cite{2016EyringOverviewOf} The purpose of having a set of different models is to evaluate the uncertainty on predictions, in fact each model has different characteristics and applying ensemble methods reduces the variance on the outputs given by model-specific characteristics (e.g. different equations describing the same phenomena, different \gls{GCM} modules between models). \NEX provides a single variant for each model.
+Future climate is studied using the \NEX dataset provided by \gls{NEX}.\cite{2022ThrasherNASAGlobal,2021ThrasherNEX-GDDP-CMIP6} The dataset is derived from results of \gls{CMIP6} for a subset of \glspl{ECV} and a single variant of 35 models from a selection of historical and ScenarioMIP experiments.\cite{2016EyringOverviewOf}
+
+Models are numerical representations of the climate and in general are called \glspl{GCM} or \glspl{ESM} when advanced processes of Earth are included (e.g. biological processes and feedbacks in EC-Earth3, see \cite{2022DoscherTheEC-Earth3}).
+Models working at smaller scales are available: they can be used to dynamically downscale the projections, but they propagate existing systematic errors from the \glspl{GCM} and introduce new ones. Methods to correct these errors are available but with the disadvantage to lose information on global processes given by \glspl{GCM} and the physical interpretation of outputs.\cite{2012EhretHESSOpinions} Therefore only models at the global scale are used in this work.
+
+The purpose of having a set of different models from \NEX is to evaluate the uncertainty on predictions, in fact each model has different characteristics and applying ensemble methods reduces the variance on the outputs given by model-specific characteristics (e.g. different equations describing the same phenomena, different modules between models). \NEX provides a single variant for each model.
 Data are obtained through statistical downscaling and bias adjustment procedures presented in \cite{2012ThrasherTechnicalNote}. The main technical data about \NEX can be found in table~\ref{tab:technical_NEX-GDDP-CMIP6}, while the full description of the dataset is in \cite{2022ThrasherNASAGlobal}.
 \begin{table}[h]
   \centering
