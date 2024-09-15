@@ -33,7 +33,7 @@
 
 \usepackage[hidelinks]{hyperref}  % Load last.
 
-\usepackage[nomain,symbols,acronyms,indexonlyfirst,toc,nohypertypes={symbols,definitions}]{glossaries}  % Load after some packages, check its documentation.
+\usepackage[sort=standard,order=word,nomain,symbols,acronyms,indexonlyfirst,toc,nohypertypes={symbols,definitions}]{glossaries}  % Load after some packages, check its documentation.
 \setacronymstyle{long-short}
 \makenoidxglossaries  % Put before any new glossary term.
 \glssetnoexpandfield{useri}  % Make user1 key work as description key.
@@ -93,8 +93,8 @@
 
 \backmatter
 \printbibliography[heading=bibintoc]
-\printnoidxglossary[type=definitions,sort=word]
-\printnoidxglossary[type=\acronymtype,sort=word,nonumberlist]
+\printnoidxglossary[type=definitions]
+\printnoidxglossary[type=\acronymtype,nonumberlist]
 \printnoidxglossary[type=symbols,nonumberlist]
 \glsaddallunused[symbols]
 \end{document}
