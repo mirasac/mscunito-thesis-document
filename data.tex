@@ -34,13 +34,14 @@ As a visual aid when generic symbols are used, capital letters represent both fu
 
 
 \subsection{Climate normals}
+\label{sec:Climate normals}
 The temporal evolution of climate is described by climate data which can be represented as time series. To quantify changes in the state of climate it is useful to define a reference period and climate data related to it.
 
 The concept of climate \gls{normal} is introduced for this purpose, the \gls{WMO} defines it as: \glsdesc{normal}. Terms \Gls{period_average} and \gls{average} apply to monthly values of climate data, see definitions and how \glspl{normal} are evaluated in \cite[5-6]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}. However, the mean of values with other temporal domains may also be useful (e.g. multimonth \glspl{normal}, normal for each day of year of the wind speed at a given location), in the following \glspl{anomaly} are characterised clearly.
 To quantify changes in the state of climate, \glspl{anomaly} are used, which are \glsdesc{anomaly}. The avarage value for \glspl{anomaly} is usually \gls{normal}.
 
 In this work the reference period is identified by the symbol $\clim{S_\text{time}}$ and it is a period of 30 years starting on 1st January of a year ending with the digit 1. This specification satisfies the definition of averaging period for climate \glspl{normal}.
-Instead, the boundaries are specific to the case study. They are chosen such that the reference period precedes the start of the formation of the system. This arbitrary criterion is chosen to compensate the natural deteriotation of materials, with artifical buildings in mind. In fact, the methodology implicitly assumes that exposure and vulnerability values are either constant in time or their change is negligible within the period they refer to. This hypothesis and the definition of $\clim{S_\text{time}}$ together guarantee that there is no correlation in time between quantities referring to different temporal periods considered in the \gls{CCRA}. Moreover, the reference period 
+Instead, the boundaries are specific to the case study. They are chosen such that the reference period precedes the start of the formation of the system or anticipates major changes to its structure. This arbitrary criterion is chosen to compensate the natural deteriotation of materials, with artifical buildings in mind. In fact, the methodology implicitly assumes that exposure and vulnerability values are either constant in time or their change is negligible within the period they refer to. This hypothesis and the definition of $\clim{S_\text{time}}$ together guarantee that there is no correlation in time between quantities referring to different temporal periods considered in the \gls{CCRA}. Moreover, the reference period 
 \begin{example}
   Suppose the system under study is the Eiffel Tower. The works started in 1887 and lasted two years, hence
   \begin{equation*}
@@ -133,6 +134,7 @@ In each model the historical experiment is extended up to \DTMdisplaydate{2023}{
 
 
 \subsubsection{Non-physical temperature extremes}
+\label{sec:Non-physical temperature extremes}
 At the time of writing, NEX-GDDP-CMIP6 dataset contains some values of \glsdesc{tasmin} and \glsdesc{tasmax} which are not accettable from a physical perspective, i.e. $\gls{tasmin} > \gls{tasmax}$, for the same days and some models.%
 \footnote{Also \glsdesc{tas} occurs to have non-physical values, i.e. $\gls{tas} < \gls{tasmin}$ or $\gls{tas} > \gls{tasmax}$. However, this issue is not addressed explicitly, since every chosen indicator having temperature variables as inputs does not require \gls{tasmin} or \gls{tasmax} to be used together with \gls{tas}.}
 
@@ -171,7 +173,8 @@ Temperature data subject to adjustment are \glspl{ECV} \gls{tas}, \gls{tasmin} a
   \label{eq:DTR}
   \gls{DTR} = \gls{tasmax} - \gls{tasmin}
 \end{equation}
-are adjusted, then the adjusted \gls{tasmin} is derived by inverting equation~\eqref{eq:DTR}. This procedure is suggested in \cite[3313]{2012ThrasherTechnicalNote}. By definition \gls{DTR} is always non negative, hence this procedure should ensure physical values for the extremes \gls{tasmin} and \gls{tasmax}.
+are adjusted, then the adjusted \gls{tasmin} is derived by inverting equation~\eqref{eq:DTR}. Since the reason of the non-physical extremes problem is not addressed yet (cf. section~\ref{sec:Non-physical temperature extremes}), the absolute value of the adjusted \gls{DTR} is considered. This is equivalent to swap the adjusted \gls{tasmin} and \gls{tasmax} when $\gls{tasmin} > \gls{tasmax}$.
+This procedure is suggested in \cite[3313]{2012ThrasherTechnicalNote} with the addition of the swap of non-physical extremes.
 
 
 
