@@ -2,9 +2,9 @@
 \label{sec:Climate data}
 Climate is a complex system, composed by many elements which interact in non-trivial (i.e. non-linear) ways. Therefore, to have a satisfying description of climate, many variables are needed. Climate data are data which can be used to provide a direct or indirect description of climate,%
 \footnote{A note on nomenclature: the adjective \emph{climatological} is used in some sources instead of \emph{climate} to address to climate data. They are equivalent, but the latter is preferred in this work because it replicates the alternative term for \gls{normal} specified by \cite[1]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}.}
-e.g. in situ observations, measures from remote sensing or weather stations, outputs from numerical models.\cite[1537]{2021SeneviratneWeatherAnd} The complexity of climate reflects on the complexity in structure of climate data, e.g. they can be represented as multidimensional objects and collected in climate datasets. This affects also their availability and other properties,\cite{2014FaghmousABig} therefore climate data can be regarded as big data.
+e.g. in situ observations, measures from remote sensing or weather stations, outputs from numerical models \cite[1537]{2021SeneviratneWeatherAnd}. The complexity of climate reflects on the complexity in structure of climate data, e.g. they can be represented as multidimensional objects and collected in climate datasets. This affects also their availability and other properties \cite{2014FaghmousABig}, therefore climate data can be regarded as big data.
 
-To identify a subset of variables which efficiently describe the climate, the concept of \gls{ECV} is defined.\cite{2014BojinskiTheConcept} The updated list of \glspl{ECV} and their requirements are mantained by the \gls{WMO} in \cite[14-17]{2022WorldMeteorologicalOrganizationWMOThe2022}.
+To identify a subset of variables which efficiently describe the climate, the concept of \gls{ECV} is defined \cite{2014BojinskiTheConcept}. The updated list of \glspl{ECV} and their requirements are mantained by the \gls{WMO} in \cite[14-17]{2022WorldMeteorologicalOrganizationWMOThe2022}.
 Climate data necessary for this study are among the present \glspl{ECV}. In this section they are characterised mathematically, while the actual data are shown in section~\ref{sec:Results}.
 
 In the following, a generic \gls{ECV} $T$ can be represented mathematically as a scalar function
@@ -52,7 +52,7 @@ Instead, the boundaries are specific to the case study. They are chosen such tha
   If the period from \DTMdisplaydate{1861}{1}{1}{-1} to \DTMdisplaydate{1890}{12}{31}{-1} were chosen instead, no assessments could be produced for the years subsequent to the end of works.
 \end{example}
 
-In contrast to the reference period, averaging periods for future climate span 20 years and are fixed. Values referred to these periods describe the system or the climate at future time horizons, which is an useful information for any planning involving the system.\cite[23]{2023CarlinThe2023} The lower number of years in these periods do not affect negatively the prediction skill of statistics related to them.\cite[17]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}
+In contrast to the reference period, averaging periods for future climate span 20 years and are fixed. Values referred to these periods describe the system or the climate at future time horizons, which is an useful information for any planning involving the system \cite[23]{2023CarlinThe2023}. The lower number of years in these periods do not affect negatively the prediction skill of statistics related to them \cite[17]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}.
 Three time horizons are chosen:
 \begin{description}
   \item[near] from \DTMdisplaydate{2024}{1}{1}{-1} to \DTMdisplaydate{2043}{12}{31}{-1};
@@ -65,7 +65,7 @@ Long-term time horizons are affected by greater uncertainty for different reason
 
 
 \subsection{Reference dataset}
-The climate dataset used for evaluating reference values is ERA5 by \gls{ECMWF}.\cite{2023HersbachERA5Hourly} ERA5 is a \gls{reanalysis} dataset, which provides gridded data with global coverage and hourly temporal resolution. \Glspl{reanalysis} are observations of climate data interpolated on a spatiotemporal grid throught numerical models, a procedure called \gls{data_assimilation} (see \cite{2020HersbachTheERA5} for technical details).
+The climate dataset used for evaluating reference values is ERA5 by \gls{ECMWF} \cite{2023HersbachERA5Hourly}. ERA5 is a \gls{reanalysis} dataset, which provides gridded data with global coverage and hourly temporal resolution. \Glspl{reanalysis} are observations of climate data interpolated on a spatiotemporal grid throught numerical models, a procedure called \gls{data_assimilation} (see \cite{2020HersbachTheERA5} for technical details).
 The main technical data about ERA5 can be found in table~\ref{tab:technical_ERA5}.
 \begin{table}[h]
   \centering
@@ -83,7 +83,7 @@ The main technical data about ERA5 can be found in table~\ref{tab:technical_ERA5
 
 In this work the ERA5 horizontal resolution of \qty{0.25}{\degree}, i.e. about \qty{31}{\kilo\metre}, is used for both latitude and longitude. In the dataset, horizontal coordinates of a grid point natively refer to the upper left angle of the cell. A traslation is applied to refer these coordinated to the centre of the cell. A square box 3 grid cells wide and centered approximately in the coordinates of the system is chosen for each case study. The systems studied in this work has spatial scale much smaller than the size of a grid cell (see section~\ref{sec:Results}), hence it is guaranteed that the central grid cell encompasses the systems, even if the coordinates of the centre of the system are not accurate. Although one grid cell is enough to cover the systems under study, an extended area is chosen to increase the predictive skill of aggregation procedures applied to the spatial dimensions. On the other hand, the \gls{CCRA} would lose spatial accuracy in the description of the local events around the system, if too many grid cells are selected.
 
-On the temporal dimension, climate data from \DTMdisplaydate{1950}{1}{1}{-1} to \DTMdisplaydate{2023}{12}{31}{-1} are selected from ERA5. First, data are converted to a calendar with 365 days by removing 29th February in leap years. Then they are downsampled to daily resolution with the same aggregation procedures specified by \gls{WMO} for the evaluation of individual monthly values from daily values.\cite[5]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines} In particular:
+On the temporal dimension, climate data from \DTMdisplaydate{1950}{1}{1}{-1} to \DTMdisplaydate{2023}{12}{31}{-1} are selected from ERA5. First, data are converted to a calendar with 365 days by removing 29th February in leap years. Then they are downsampled to daily resolution with the same aggregation procedures specified by \gls{WMO} for the evaluation of individual monthly values from daily values \cite[5]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}. In particular:
 \begin{itemize}
   \item daily \glsdesc{tas} is the mean of hourly \glsdesc{tas} of the same day;
   \item daily \glsdesc{tasmax} is the maximum of hourly \glsdesc{tasmax} of the same day;
@@ -95,10 +95,10 @@ Timestamps for daily data are set at \DTMdisplaytime{00}{00}{00}.
 
 
 \subsection{Climate projection dataset}
-Future climate is studied using the NEX-GDDP-CMIP6 dataset provided by \gls{NEX}.\cite{2022ThrasherNASAGlobal,2021ThrasherNEX-GDDP-CMIP6} The dataset is derived from results of \gls{CMIP6} for a subset of \glspl{ECV} and a single variant of 35 models from a selection of historical and ScenarioMIP experiments.\cite{2016EyringOverviewOf}
+Future climate is studied using the NEX-GDDP-CMIP6 dataset provided by \gls{NEX} \cite{2022ThrasherNASAGlobal,2021ThrasherNEX-GDDP-CMIP6}. The dataset is derived from results of \gls{CMIP6} for a subset of \glspl{ECV} and a single variant of 35 models from a selection of historical and ScenarioMIP experiments \cite{2016EyringOverviewOf}.
 
 Models are numerical representations of the climate and in general are called \glspl{GCM} or \glspl{ESM} when advanced processes of Earth are included (e.g. biological processes and feedbacks in EC-Earth3, see \cite{2022DoscherTheEC-Earth3}).
-Models working at smaller scales are available: they can be used to dynamically downscale the projections, but they propagate existing systematic errors from the \glspl{GCM} and introduce new ones. Methods to correct these errors are available but with the disadvantage to lose information on global processes given by \glspl{GCM} and the physical interpretation of outputs.\cite{2012EhretHESSOpinions} Therefore only models at the global scale are used in this work.
+Models working at smaller scales are available: they can be used to dynamically downscale the projections, but they propagate existing systematic errors from the \glspl{GCM} and introduce new ones. Methods to correct these errors are available but with the disadvantage to lose information on global processes given by \glspl{GCM} and the physical interpretation of outputs \cite{2012EhretHESSOpinions}. Therefore only models at the global scale are used in this work.
 
 The purpose of having a set of different models from NEX-GDDP-CMIP6 is to evaluate the uncertainty on predictions, in fact each model has different characteristics and applying ensemble methods reduces the variance on the outputs given by model-specific characteristics (e.g. different equations describing the same phenomena, different modules between models). NEX-GDDP-CMIP6 provides a single variant for each model.
 Data are obtained through statistical downscaling and bias adjustment procedures presented in \cite{2012ThrasherTechnicalNote}. The main technical data about NEX-GDDP-CMIP6 can be found in table~\ref{tab:technical_NEX-GDDP-CMIP6}, while the full description of the dataset is in \cite{2022ThrasherNASAGlobal}.
@@ -148,12 +148,12 @@ From a discussion with the providers of the dataset, the suggested course of act
 \subsection{Bias adjustment}
 Outputs of \glspl{GCM} and the more advanced \glspl{ESM} have intrinsic biases related to their functioning (e.g. implementation, physical equations, parametrisations) which need to be adjusted to convey physically accurate values, essential for studies like \glspl{CCRA}.%
 \footnote{In many resources on the topic, the term \emph{bias correction} is used instead. Here \gls{BA} is preferred since a correction requires a true value as reference, which is not always possible to assume.}
-A moltitude of \gls{BA} methods are available, e.g. deviations from reference data, statistical analysis, \gls{ML} models.\cite{2015CannonBiasCorrection,2010PianiStatisticalBias12,2023NiazkarBiasCorrection}
+A moltitude of \gls{BA} methods are available, e.g. deviations from reference data, statistical analysis, \gls{ML} models \cite{2015CannonBiasCorrection,2010PianiStatisticalBias12,2023NiazkarBiasCorrection}.
 
 When \gls{BA} is performed on climate data, a reference is chosen. The reference data are assumed to be a representative sample of the population, hence the sample distribution of reference data describes the probability distribution of the climate data accurately. The \gls{BA} procedure extracts information on statistics of reference data and modifies the climate data to reproduce those statistics. In fact, biases are considered alterations of the true probability distribution induced by the models and \gls{BA} aims to remove them.
 Moreover, climate change affects the probability distributions making them non stationary. This means that statistical information in a given temporal period may not be accurate to describe data in future periods, even if they are extracted from the reference data. Some \gls{BA} procedures address this issue.
 
-In this study the \gls{BA} algorithm known as \gls{QDM} is adopted.\cite{2015CannonBiasCorrection} It belongs to the family of \gls{QM} algorithms for \gls{BA}, which use statistical information from quantiles of reference data to remove the bias. \Gls{QDM} is able to preserve trends of climate change detected by the \glspl{GCM}, by storing the difference by quantile of future periods with respect to an historical period. Depending on the climate data, the relative change may be stored instead of the absolute difference.
+In this study the \gls{BA} algorithm known as \gls{QDM} is adopted \cite{2015CannonBiasCorrection}. It belongs to the family of \gls{QM} algorithms for \gls{BA}, which use statistical information from quantiles of reference data to remove the bias. \Gls{QDM} is able to preserve trends of climate change detected by the \glspl{GCM}, by storing the difference by quantile of future periods with respect to an historical period. Depending on the climate data, the relative change may be stored instead of the absolute difference.
 
 As explained in \cite[6941-6942]{2015CannonBiasCorrection}, \gls{QDM} estimates three empirical \glspl{QF}: one for the climate data to adjust, one for the reference data and one for the climate data in the same period of reference data. Then differences between same quantiles of climate data at different temporal periods are stored. The actual adjustment consists in replacing target climate data with the corresponding quantiles from the reference data and adding back the differences stored previously.
 
@@ -205,7 +205,7 @@ An \gls{indicator} can be represented as a multidimensional array, similarly to 
 The dependence of an \gls{indicator} on \glspl{ECV} is not clear in the definition given by equation~\eqref{eq:math_indicator}, but in the following this is made explicit by the context or by the definition of the \gls{indicator}.
 
 \begin{example}
-  The \gls{indicator} $\mathrm{TX_x}$ is evaluated for the period 1991-2020 with yearly frequency. This \gls{indicator} is the monthly maximum value of daily maximum temperature,\cite{ETCCDIClimate} hence:
+  The \gls{indicator} $\mathrm{TX_x}$ is evaluated for the period 1991-2020 with yearly frequency. This \gls{indicator} is the monthly maximum value of daily maximum temperature \cite{ETCCDIClimate}, hence:
   \begin{itemize}
     \item it depends on \gls{ECV} \glsdesc{tasmax} defined at daily frequency over the considered period,
       \begin{equation*}

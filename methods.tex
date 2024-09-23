@@ -5,14 +5,14 @@ The methodology employed in this study is presented conceptually in these paragr
 
 The methodology is split into eight modules, each dependent on the previous ones. The following is an overview:
 \begin{enumerate}
-  \item understand the context in which the assessment is framed and identify objectives, scope and resources involved;\cite[39-53]{2017GIZTheVulnerability}
-  \item \label{itm:module_2} identify \glspl{risk} and \glspl{impact} affecting the system under study and determine \glspl{driver} of \gls{hazard}, \gls{exposure} and \gls{vulnerability};\cite[26-41]{2017GIZRiskSupplement}
-  \item \label{itm:module_3} choose \glspl{indicator} for each \gls{driver} of \gls{hazard}, \gls{exposure} and \gls{vulnerability};\cite[73-84]{2017GIZTheVulnerability}
-  \item \label{itm:module_4} collect data and quantify \glspl{indicator};\cite[87-103]{2017GIZTheVulnerability}
-  \item \label{itm:module_5} normalise \glspl{indicator} to allow their comparison;\cite[105-119]{2017GIZTheVulnerability}
-  \item \label{itm:module_6} for each \gls{determinant}, weight normalised \glspl{indicator} and aggregate them into a single value;\cite[121-131]{2017GIZTheVulnerability}
-  \item \label{itm:module_7} aggregate values for individual \glspl{determinant} into a single value for \gls{risk};\cite[133-141]{2017GIZTheVulnerability}
-  \item \label{itm:module_8} present the results of the \gls{CCRA}.\cite[143-154]{2017GIZTheVulnerability}
+  \item understand the context in which the assessment is framed and identify objectives, scope and resources involved \cite[39-53]{2017GIZTheVulnerability};
+  \item \label{itm:module_2} identify \glspl{risk} and \glspl{impact} affecting the system under study and determine \glspl{driver} of \gls{hazard}, \gls{exposure} and \gls{vulnerability} \cite[26-41]{2017GIZRiskSupplement};
+  \item \label{itm:module_3} choose \glspl{indicator} for each \gls{driver} of \gls{hazard}, \gls{exposure} and \gls{vulnerability} \cite[73-84]{2017GIZTheVulnerability};
+  \item \label{itm:module_4} collect data and quantify \glspl{indicator} \cite[87-103]{2017GIZTheVulnerability};
+  \item \label{itm:module_5} normalise \glspl{indicator} to allow their comparison \cite[105-119]{2017GIZTheVulnerability};
+  \item \label{itm:module_6} for each \gls{determinant}, weight normalised \glspl{indicator} and aggregate them into a single value \cite[121-131]{2017GIZTheVulnerability};
+  \item \label{itm:module_7} aggregate values for individual \glspl{determinant} into a single value for \gls{risk} \cite[133-141]{2017GIZTheVulnerability};
+  \item \label{itm:module_8} present the results of the \gls{CCRA} \cite[143-154]{2017GIZTheVulnerability}.
 \end{enumerate}
 When the \gls{vulnerability} of the system is recalled, it is split into \gls{sensitivity} and \gls{adaptive_capacity} if possible.
 
@@ -25,14 +25,14 @@ Although a complete application of this methodology does not fall into the purpo
 \subsection{Evaluation of indicators}
 \label{sec:Evaluation of indicators}
 This section explains the process to obtain a scalar value for each \gls{determinant}, following the methodology presented in section~\ref{sec:Methodology of risk assessment}. Modules~\ref{itm:module_3}, \ref{itm:module_4}, \ref{itm:module_5} and~\ref{itm:module_6} are recalled.
-Suppose a set of \glspl{driver} is chosen. The selection of \glspl{driver} for the actual case studies, i.e. module~\ref{itm:module_2}, is performed and argued in section~\ref{sec:Results}.
+Suppose a set of \glspl{driver} is chosen. The selection of \glspl{driver} for the actual case studies, i.e. module~\ref{itm:module_2}, is performed and argued in section~\ref{sec:Case study}.
 
 Module~\ref{itm:module_3} may be stated symbolically as follow. For each \gls{driver} within the \gls{hazard} \gls{determinant}, a set $\mathcal{H}_j$ of \glspl{indicator} is obtained. A similar procedure is carried out for \glspl{driver} of \gls{exposure} and \gls{vulnerability}, resulting in sets $\mathcal{E}_i$ and $\mathcal{V}_k$, respectively. Indices $i$, $j$ and $k$ are present to clarify that each set is related to a different \gls{driver} and the way these sets are indexed is not important (e.g. each of them can be a sequence of integers where each one refers to a different \gls{driver}, they can be the names of the \glspl{driver} they refer to).
 If the distinction between \glspl{driver} of \gls{sensitivity} and \gls{adaptive_capacity} is made, then it is not explicit in the indices. The reason is that these \glspl{driver} are treated mathematically the same way, as explained below.
 
 Note that in module~\ref{itm:module_3} no evaluation is performed yet, hence the elements of each set are just scalar functions. In other words, they are just descriptions of how they quantify the \gls{driver}.
 
-The methodology suggests to avoid double counting of \glspl{driver} by allocating each of them in one \gls{determinant} only.\cite[29]{2017GIZRiskSupplement} This implies to have different \glspl{indicator}, even if they are defined in a similar way.
+The methodology suggests to avoid double counting of \glspl{driver} by allocating each of them in one \gls{determinant} only \cite[29]{2017GIZRiskSupplement}. This implies to have different \glspl{indicator}, even if they are defined in a similar way.
 \begin{example}
   The risk of water scarcity affecting a location is assessed. This example is inspired by \cite[46]{2017GIZRiskSupplement}. The system is the location under study.
   
@@ -61,7 +61,7 @@ In module~\ref{itm:module_4} the evaluation of \glspl{indicator} on climate and 
 A more convoluted path is needed to evaluate \glspl{indicator} of \gls{hazard}. They are functions defined by equation~\eqref{eq:math_indicator}, hence they depend on climate data and additional parameters. The former are presented in section~\ref{sec:Climate data}, the latter are chosen as explained in the following paragraphs.
 
 For each \gls{indicator}, a set of values of its parameters is defined. Ideally these sets would be continuous, to explore the whole space of possible configurations of parameters. However, for limitations intrinsic to the analysis tools, only a finite and small number of values can be considered (in the following these discrete sets are called intervals to preserve generality).
-How values in these intervals are selected depends on the nature of the parameters. The selection is ultimately arbitrary, to allow greater control, e.g. remove values which are not interesting for the analysis, and to apply a form of non-parametric sampling of the input space. This is a form of space-filling design for \gls{SA}.\cite[593-594]{2015DeanHandbookOf}
+How values in these intervals are selected depends on the nature of the parameters. The selection is ultimately arbitrary, to allow greater control, e.g. remove values which are not interesting for the analysis, and to apply a form of non-parametric sampling of the input space. This is a form of space-filling design for \gls{SA} \cite[593-594]{2015DeanHandbookOf}.
 
 To simplify the explanation, consider \gls{driver} $j$ and an \gls{indicator} $I \in \mathcal{H}_j$. This \gls{indicator} depends on some parameters, which are collected in set $P_I$, and on some \glspl{ECV}. The chosen interval for a parameter $p \in P_I$ is a set of scalar values, possibly with units, denoted by $S_p$.
 
@@ -138,7 +138,7 @@ and the sample standard deviation
   \label{eq:sample_standard_deviation}
   \sigma_I = \sqrt{\frac{1}{\prod_{p \in P_I} \abs{S_p} - 1} \sum_{\underline{z} \in \prod_{p \in P_I} S_p} \big( I_\text{clim}(\underline{z}) - \mu_I \big)^2}
 \end{equation}
-are calculated using values obtained for the reference period $S_\text{clim}$.\cite[84]{2008OECDHandbookOn} The advantage of equation~\eqref{eq:z-score} with respect to min-max normalisation is to be flexible when new values are introduced, in fact they are measured in terms of statistics of the reference period without breaking the normalisation.%
+are calculated using values obtained for the reference period $S_\text{clim}$ \cite[84]{2008OECDHandbookOn}. The advantage of equation~\eqref{eq:z-score} with respect to min-max normalisation is to be flexible when new values are introduced, in fact they are measured in terms of statistics of the reference period without breaking the normalisation.%
 \footnote{See section~\ref{sec:Min-max normalisation} for further insight on why min-max normalisation is not used.}
 To normalise categorical scales, the methodology suggests first to group the values in five classes, then replace them with specific values in the range $[0, 1]$, see \cite[115-116]{2017GIZTheVulnerability}. Higher normalised values are associated to more negative impacts. However, this case does not occur in the present study since every \gls{indicator} with categorical scale is a constant value. Not normalising some \glspl{indicator} may seem wrong since normalisation is a requisite to compare them, but the reason is supported mathematically in the next paragraphs.
 
@@ -164,7 +164,7 @@ where $\underline{z}_I \in \prod_{p \in P_I} S_p$ is the sequence of values for 
 Note that the there is no need to treat \glspl{driver} of \gls{adaptive_capacity} and \gls{sensitivity} separately because the aggregation procedure is applied equally to them.
 
 Note that in module~\ref{itm:module_6} a relation between \glspl{indicator} within the same \gls{determinant} is established through the aggregation procedure, hence the results may be regarded as category~\ref{itm:category_1} complex \glspl{hazard}.
-Moreover, the concept of intermediate impact, which mediates \glspl{driver} of hazard and \gls{vulnerability}, are a form of category~\ref{itm:category_2} complex \gls{hazard}.\cite[33]{2017GIZRiskSupplement}
+Moreover, the concept of intermediate impact, which mediates \glspl{driver} of hazard and \gls{vulnerability}, are a form of category~\ref{itm:category_2} complex \gls{hazard} \cite[33]{2017GIZRiskSupplement}.
 
 
 
@@ -215,5 +215,5 @@ This transformation can be formalised as a piecewise function $r : \prod_j \prod
 \end{equation}
 Thresholds $q_1$, $q_2$, $q_3$ and $q_4$ are calculated from \gls{risk} values of the reference period because \gls{hazard} \glspl{driver} are supposed to change \gls{risk} and \glspl{impact} with time. Moreover, the pieces of the function reflect the fact that the image of $R$ is not bounded, due to the aggregated values of \glspl{determinant} being not bounded by the chosen normalisation. This allows to account for extreme values of \gls{risk} in periods different from the reference.
 
-Module~\ref{itm:module_7} addresses the possible aggregation of multiple sub-risks into an overall \gls{risk} value.\cite[54]{2017GIZRiskSupplement} According to section~\ref{sec:Complex risk}, the outcome would be a complex risk belonging to category~\ref{itm:category_3}.
+Module~\ref{itm:module_7} addresses the possible aggregation of multiple sub-risks into an overall \gls{risk} value \cite[54]{2017GIZRiskSupplement}. According to section~\ref{sec:Complex risk}, the outcome would be a complex risk belonging to category~\ref{itm:category_3}.
 This additional elaboration is not implemented in the present work because an individual \gls{risk} is studied, i.e. the climate risk.
