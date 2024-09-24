@@ -36,9 +36,25 @@ An \gls{heat_wave} is defined by \gls{IPCC} as \glsdesc{heat_wave}. \Gls{WMO} pr
 
 For \gls{IPCC} \glsdesc{heavy_precipitation}, where the term \emph{precipitation} refers to water in every state, e.g. rain, snow, ice. Further details on the characterisation of heavy precipitation are provided by \gls{WMO} in \cite[6-7]{2023WorldMeteorologicalOrganizationWMOGuidelinesOn}. Climate change shifts local and global distributions of rainfall \cite[1605]{2021SeneviratneWeatherAnd}. These impacts are likely to occure in the near future and the one affecting airports are local in nature, e.g. flooding due to failures in drainage systems, but they may propagate throughout the aviation network depending on their severity \cite[28-34]{2018ICAOClimateAdaptation}.
 
-% MC add time scale.
+The reference period covered by the \gls{CCRA} of this study is chosen such that it precedes the start of the formation of the system or anticipates major changes to its structure. This arbitrary criterion is chosen to compensate the natural deteriotation of materials, with artifical buildings in mind. In fact, the methodology implicitly assumes that exposure and vulnerability values are either constant in time or their change is negligible within the period they refer to. This hypothesis and the definition of $\clim{S_\text{time}}$ together guarantee that there is no correlation in time between quantities referring to different temporal periods considered in the \gls{CCRA}.
+\begin{example}
+  Suppose the system under study is the Eiffel Tower. The works started in 1887 and lasted two years, hence
+  \begin{equation*}
+    \clim{S_\text{time}} = \{ t : \text{$t$ day from \DTMdisplaydate{1851}{1}{1}{-1} to \DTMdisplaydate{1880}{12}{31}{-1}} \}
+  \end{equation*}
+  is chosen as reference period. \Glspl{normal} can be evaluated for the climate data referred to $\clim{S_\text{time}}$ and data related to the system describe it as if it would not be affected by the passing of time.
+  
+  If the period from \DTMdisplaydate{1861}{1}{1}{-1} to \DTMdisplaydate{1890}{12}{31}{-1} were chosen instead, no assessments could be produced for the years subsequent to the end of works.
+\end{example}
 
-% MC describe indicators and the ecv ivolved.
+The future climate is described for three time horizons:
+\begin{description}
+  \item[near] from \DTMdisplaydate{2024}{1}{1}{-1} to \DTMdisplaydate{2043}{12}{31}{-1};
+  \item[medium] from \DTMdisplaydate{2044}{1}{1}{-1} to \DTMdisplaydate{2063}{12}{31}{-1};
+  \item[long] from \DTMdisplaydate{2081}{1}{1}{-1} to \DTMdisplaydate{2100}{12}{31}{-1}.
+\end{description}
+Near and medium-term time horizons are chosen to be as close as possible to the present (at time of writing). This way it is more reasonable to find adaptation plans and strategies for the system at risk.
+Long-term time horizons are affected by greater uncertainty for different reasons, e.g. lower confidence on outputs from climate projections, exposure subject to change. Nevertheless, the long period is chosen to show differences between scenarios, which are more evident at the end of the century for many \glspl{ECV}.
 
 
 
