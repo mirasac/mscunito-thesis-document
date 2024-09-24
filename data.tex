@@ -48,6 +48,7 @@ In contrast to the reference period, averaging periods for future climate span 2
 
 
 \subsection{Reference dataset}
+\label{sec:Reference dataset}
 The climate dataset used for evaluating reference values is ERA5 by \gls{ECMWF} \cite{2023HersbachERA5Hourly}. ERA5 is a \gls{reanalysis} dataset, which provides gridded data with global coverage and hourly temporal resolution. \Glspl{reanalysis} are observations of climate data interpolated on a spatiotemporal grid throught numerical models, a procedure called \gls{data_assimilation} (see \cite{2020HersbachTheERA5} for technical details).
 The main technical data about ERA5 can be found in table~\ref{tab:technical_ERA5}.
 \begin{table}[h]
@@ -64,7 +65,7 @@ The main technical data about ERA5 can be found in table~\ref{tab:technical_ERA5
   \end{tabular}
 \end{table}
 
-In this work the ERA5 horizontal resolution of \qty{0.25}{\degree}, i.e. about \qty{31}{\kilo\metre}, is used for both latitude and longitude. In the dataset, horizontal coordinates of a grid point natively refer to the upper left angle of the cell. A traslation is applied to refer these coordinated to the centre of the cell. A square box 3 grid cells wide and centered approximately in the coordinates of the system is chosen for each case study. The systems studied in this work has spatial scale much smaller than the size of a grid cell (see section~\ref{sec:Results}), hence it is guaranteed that the central grid cell encompasses the systems, even if the coordinates of the centre of the system are not accurate. Although one grid cell is enough to cover the systems under study, an extended area is chosen to increase the predictive skill of aggregation procedures applied to the spatial dimensions. On the other hand, the \gls{CCRA} would lose spatial accuracy in the description of the local events around the system, if too many grid cells are selected.
+In this work the ERA5 horizontal resolution of \qty{0.25}{\degree}, i.e. about \qty{31}{\kilo\metre}, is used for both latitude and longitude. In the dataset, horizontal coordinates of a grid point natively refer to the upper left angle of the cell. A traslation is applied to refer these coordinated to the centre of the cell.
 
 On the temporal dimension, climate data from \DTMdisplaydate{1950}{1}{1}{-1} to \DTMdisplaydate{2023}{12}{31}{-1} are selected from ERA5. First, data are converted to a calendar with 365 days by removing 29th February in leap years. Then they are downsampled to daily resolution with the same aggregation procedures specified by \gls{WMO} for the evaluation of individual monthly values from daily values \cite[5]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}. In particular:
 \begin{itemize}
@@ -78,6 +79,7 @@ Timestamps for daily data are set at \DTMdisplaytime{00}{00}{00}.
 
 
 \subsection{Climate projection dataset}
+\label{sec:Climate projection dataset}
 Future climate is studied using the NEX-GDDP-CMIP6 dataset provided by \gls{NEX} \cite{2022ThrasherNASAGlobal,2021ThrasherNEX-GDDP-CMIP6}. The dataset is derived from results of \gls{CMIP6} for a subset of \glspl{ECV} and a single variant of 35 models from a selection of historical and ScenarioMIP experiments \cite{2016EyringOverviewOf}.
 
 Models are numerical representations of the climate and in general are called \glspl{GCM} or \glspl{ESM} when advanced processes of Earth are included (e.g. biological processes and feedbacks in EC-Earth3, see \cite{2022DoscherTheEC-Earth3}).
@@ -99,7 +101,7 @@ Data are obtained through statistical downscaling and bias adjustment procedures
   \end{tabular}
 \end{table}
 
-The spatial resolution of this dataset matches the resolution of ERA5 and horizontal coordinates identify the centre of grid points, hence no further rescaling is required. Same spatial coordinates of the reference data are used.
+The spatial resolution of this dataset matches the resolution of ERA5 and horizontal coordinates identify the centre of grid points, hence no further rescaling is required.
 
 Data of NEX-GDDP-CMIP6 have daily resolution but timestamps are referred to \DTMdisplaytime{12}{00}{00} of the coordinate. This does not raise problems when operations are applied to data aggregate at lower frequencies, e.g. monthly averages, but may create contradictions in pointwise calculations. Therefore, timestamps in NEX-GDDP-CMIP6 are redefined to match the timestamps or ERA5, i.e. \DTMdisplaytime{00}{00}{00}.
 The temporal coverage is split between historical and future experiments. The historical simulation starts at \DTMdisplaydate{1950}{1}{1}{-1} and ends at \DTMdisplaydate{2014}{12}{31}{-1}, while the projections are from \DTMdisplaydate{2015}{1}{1}{-1} to \DTMdisplaydate{2100}{12}{31}{-1}.
