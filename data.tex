@@ -103,7 +103,7 @@ Data are obtained through statistical downscaling and bias adjustment procedures
 
 The spatial resolution of this dataset matches the resolution of ERA5 and horizontal coordinates identify the centre of grid points, hence no further rescaling is required.
 
-Data of NEX-GDDP-CMIP6 have daily resolution but timestamps are referred to \DTMdisplaytime{12}{00}{00} of the coordinate. This does not raise problems when operations are applied to data aggregate at lower frequencies, e.g. monthly averages, but may create contradictions in pointwise calculations. Therefore, timestamps in NEX-GDDP-CMIP6 are redefined to match the timestamps or ERA5, i.e. \DTMdisplaytime{00}{00}{00}.
+Data of NEX-GDDP-CMIP6 have daily resolution but timestamps are referred to \DTMdisplaytime{12}{00}{00} of the coordinate. This does not raise problems when operations are applied to data aggregate at lower frequencies, e.g. monthly averages, but may create contradictions in pointwise calculation. Therefore, timestamps in NEX-GDDP-CMIP6 are redefined to match the timestamps or ERA5, i.e. \DTMdisplaytime{00}{00}{00}.
 The temporal coverage is split between historical and future experiments. The historical simulation starts at \DTMdisplaydate{1950}{1}{1}{-1} and ends at \DTMdisplaydate{2014}{12}{31}{-1}, while the projections are from \DTMdisplaydate{2015}{1}{1}{-1} to \DTMdisplaydate{2100}{12}{31}{-1}.
 
 In this work some models are excluded, reasons for exclusion are in appendix~\ref{sec:Selection of CMIP6 models} along with the list of used models. For each model, the following experiments are considered:
@@ -123,7 +123,7 @@ In each model the historical experiment is extended up to \DTMdisplaydate{2023}{
 At the time of writing, NEX-GDDP-CMIP6 dataset contains some values of \glsdesc{tasmin} and \glsdesc{tasmax} which are not accettable from a physical perspective, i.e. $\gls{tasmin} > \gls{tasmax}$, for the same days and some models.%
 \footnote{Also \glsdesc{tas} occurs to have non-physical values, i.e. $\gls{tas} < \gls{tasmin}$ or $\gls{tas} > \gls{tasmax}$. However, this issue is not addressed explicitly, since every chosen indicator having temperature variables as inputs does not require \gls{tasmin} or \gls{tasmax} to be used together with \gls{tas}.}
 
-The issue appears as a rare by-product of the bias adjustment algorithm employed in the dataset creation, see \cite{2012ThrasherTechnicalNote}. It does not affect calculations on \glspl{normal} since they are monthly means, but for resolutions on the order of days may be conditioned negatively by the non-physical value. To be able to recover those data helps to maintain accurate information on the distribution of extremes and its evolution due to climate change, see \cite[1536-1537]{2021SeneviratneWeatherAnd} and \cite[40-42]{2012FieldManagingThe}.
+The issue appears as a rare by-product of the bias adjustment algorithm employed in the dataset creation, see \cite{2012ThrasherTechnicalNote}. It does not affect calculation on \glspl{normal} since they are monthly means, but for resolutions on the order of days may be conditioned negatively by the non-physical value. To be able to recover those data helps to maintain accurate information on the distribution of extremes and its evolution due to climate change, see \cite[1536-1537]{2021SeneviratneWeatherAnd} and \cite[40-42]{2012FieldManagingThe}.
 
 From a discussion with the providers of the dataset, the suggested course of action is to swap \gls{tasmin} and \gls{tasmax} values for data presenting the problem.
 %This operation changes the statistical distribution of the time series, but the resulting error on its statistical properties (e.g. mean, trend) is negligible with respect to its noise.
@@ -184,7 +184,7 @@ An \gls{indicator} $I$ can be defined mathematically as
 where $S_\text{y}$ is a set of the years considered during the analysis, $P_I$ is the set of parameters for that indicator and $S_p$ is the set of values available for each parameter $p \in P_I$.%
 \footnote{As a symbolic shortcut, if $P_I = \varnothing$ then the indicator is defined only over $S_\text{lat} \times S_\text{lon} \times S_\text{y}$.}
 In the following, $\underline{z} \in \prod_{p \in P_I} S_p$ represents the set of arguments passed to the \gls{indicator}, in other words the coordinates of $I$ as multidimensional array.
-Evaluation is performed for each year, i.e. the \gls{indicator} has yearly resolution or is evaluated with yearly frequency. As a consequence, the elements of set $S_\text{y}$ are references to the years taken into account during calculations.
+Evaluation is performed for each year, i.e. the \gls{indicator} has yearly resolution or is evaluated with yearly frequency. As a consequence, the elements of set $S_\text{y}$ are references to the years taken into account during calculation.
 
 An \gls{indicator} can be represented as a multidimensional array, similarly to \glspl{ECV}.
 The dependence of an \gls{indicator} on \glspl{ECV} is not clear in the definition given by equation~\eqref{eq:math_indicator}, but in the following this is made explicit by the context or by the definition of the \gls{indicator}.
