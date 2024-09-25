@@ -32,14 +32,48 @@ The aviation sector is a complete test case for responses to climate change: it 
 \Glspl{impact} from extreme temperatures and precipitation are studied, as they are among the biggest challenges to address in the aviation sector. Both \Gls{ICAO} and \gls{WMO} collected opinions and experiences from stakeholders through surveys \cite[62]{2018ICAOClimateAdaptation} and \cite[34]{2020WorldMeteorologicalOrganizationWMOOutcomesOf}, respectively.
 More in detail, the two \gls{hazard} \glspl{driver} \gls{heat_wave} and \gls{heavy_precipitation} are considered. They are selected from the taxonomy provided by European Union for \gls{CCRA}, to have a well-known and authoritative reference in the field \cite[177]{2024EU20212139}. Both drivers are associated to acute physical risks.
 
-An \gls{heat_wave} is defined by \gls{IPCC} as \glsdesc{heat_wave}. \Gls{WMO} presents a similar definition, highlighting the lack of a universally accepted definition, which is replaced by local criteria, although it would facilitate the exchange of information between actors \cite[5]{2023WorldMeteorologicalOrganizationWMOGuidelinesOn}. Heat waves have a wide range of impacts, particularly at the regional scale for airports, e.g. higher temperatures may damage runaways or decrease the efficiency of cooling systems, changes in air density affect the runaway length required for airside operations, increased humidity translates in more fog in earlier hours of the day \cite[23-28]{2018ICAOClimateAdaptation}.
+An \gls{heat_wave} is defined by \gls{IPCC} as \glsdesc{heat_wave}. \Gls{WMO} presents a similar definition, highlighting the lack of a universally accepted definition, which is replaced by local criteria, although it would facilitate the exchange of information between actors \cite[5]{2023WorldMeteorologicalOrganizationWMOGuidelinesOn}. Heat waves have a wide range of impacts, particularly at the regional scale for airports, e.g. higher temperatures may damage runways or decrease the efficiency of cooling systems, changes in air density affect the runway length required for airside operations, increased humidity translates in more fog in earlier hours of the day \cite[23-28]{2018ICAOClimateAdaptation}.
 
-For \gls{IPCC} \glsdesc{heavy_precipitation}, where the term \emph{precipitation} refers to water in every state, e.g. rain, snow, ice. Further details on the characterisation of heavy precipitation are provided by \gls{WMO} in \cite[6-7]{2023WorldMeteorologicalOrganizationWMOGuidelinesOn}. Climate change shifts local and global distributions of rainfall \cite[1605]{2021SeneviratneWeatherAnd}. These impacts are likely to occure in the near future and the one affecting airports are local in nature, e.g. flooding due to failures in drainage systems, but they may propagate throughout the aviation network depending on their severity \cite[28-34]{2018ICAOClimateAdaptation}.
+For \gls{IPCC} \glsdesc{heavy_precipitation}, where the term \emph{precipitation} refers to water in every state, e.g. rain, snow, ice. Further details on the characterisation of heavy precipitation are provided by \gls{WMO} in \cite[6-7]{2023WorldMeteorologicalOrganizationWMOGuidelinesOn}. Climate change shifts local and global distributions of rainfall \cite[1605]{2021SeneviratneWeatherAnd}. These impacts are likely to occur in the near future and the one affecting airports are local in nature, e.g. flooding due to failures in drainage systems, but they may propagate throughout the aviation network depending on their severity \cite[28-34]{2018ICAOClimateAdaptation}.
 
 \Gls{exposure} \glspl{driver} in airports are the physical components of the airport. They can be subject to \glspl{impact} of climate change at various levels, hence their presence determines \glspl{risk}. Normally the components of airports are divided in air side and land side, the former regarding all components which interact with aircraft operations and the latter for the public areas \cite[553]{2022DeVivoRiskAssessment}. This distinction is made for helping the collection of data on drivers.
 In this study the considered drivers are listed in table~\ref{tab:drivers_exposure}. They are taken from \cite[554]{2022DeVivoRiskAssessment}.
+\begin{table}[h]
+  \centering
+  \caption{Drivers of exposure considered in the study and associated indicators. The part of the table above the line shows the air-side components, below the line there are the land-side components.}
+  \label{tab:drivers_exposure}
+  \begin{tabular}{p{0.33\textwidth}llll}
+    Driver                      & Symbol        & Indicator & Units                & Torino-Caselle \\
+    \hline
+    Runways                     & $\mathrm{e1}$ & area      & \unit{\square\metre} & 198000         \\
+    \hline
+    Terminals                   & $\mathrm{e2}$ & area      & \unit{\square\metre} & 51150          \\
+    Offices and other buildings & $\mathrm{e3}$ & area      & \unit{\square\metre} & 4245           \\
+    Carparks                    & $\mathrm{e4}$ & number    &                      & 3000           \\
+  \end{tabular}
+\end{table}
 
-\Gls{vulnerability} data are divided in \gls{adaptive_capacity} and \gls{sensitivity}. Under adaptive capacity are gathered measures which are active, planned or not present for the system in order to contain negative \glspl{impact} of climate. They are listed in table~\ref{tab:drivers_adaptive_capacity} and derived from \cite[558]{2022DeVivoRiskAssessment}. \Glspl{driver} of sensitivity are elements of the system subject directly to the realisation of risks. They are collected from \cite[555-556]{2022DeVivoRiskAssessment} and presented in table~\ref{tab:drivers_sensitivity}.
+\Gls{vulnerability} data are divided in \gls{adaptive_capacity} and \gls{sensitivity}. Under adaptive capacity are gathered measures which are active, planned or not present for the system in order to contain negative \glspl{impact} of climate. Instead, \glspl{driver} of sensitivity are elements of the system subject directly to the realisation of risks. Drivers are derived from \cite[555-556,558]{2022DeVivoRiskAssessment} and are listed in table~\ref{tab:drivers_vulnerability}.
+\begin{table}[h]
+  \centering
+  \caption{Drivers of vulnerability and their indicators. Specifically, drivers of adaptive capacity are above the line, while drivers of sensitivity are below.}
+  \label{tab:drivers_vulnerability}
+  \begin{tabular}{p{0.33\textwidth}llll}
+    Driver                                           & Symbol         & Indicator & Units                & Torino-Caselle \\
+    \hline
+    Risk awareness                                   & $\mathrm{v1}$  & level     &                      & 0.9            \\
+    Guidelines for adaptation plan to climate change & $\mathrm{v2}$  & presence  &                      & 0.5            \\
+    Efficient drainage system                        & $\mathrm{v3}$  & presence  &                      & 0.9            \\
+    Monitoring and alarm system                      & $\mathrm{v4}$  & presence  &                      & 0.1            \\
+    Bioinfiltration and permeable pavements          & $\mathrm{v5}$  & presence  &                      & 0.9            \\
+    \hline
+    Soil sealing                                     & $\mathrm{v6}$  & area      & \unit{\square\metre} & 2450000        \\
+    Passengers                                       & $\mathrm{v7}$  & number    &                      & 3219317        \\
+    Age buildings                                    & $\mathrm{v8}$  & number    &                      & 52             \\
+    Air traffic                                      & $\mathrm{v9}$  & number    &                      & 53169          \\
+    Underground infrastructures                      & $\mathrm{v10}$ & area      & \unit{\square\metre} & 0              \\
+    \end{tabular}
+\end{table}
 
 The \gls{CCRA} analyses a square box 3 grid cells wide centered approximately at the coordinates of the system. The systems studied in this work have spatial scale much smaller than the size of a grid cell, hence it is guaranteed that the central grid cell encompasses the systems, even if the coordinates of the centre of the system are not accurate.
 Although one grid cell is enough to cover the systems under study, an extended area is chosen to increase the predictive skill of aggregation procedures applied to the spatial dimensions. On the other hand, the \gls{CCRA} would lose spatial accuracy in the description of the local events around the system, if too many grid cells are selected.
