@@ -173,32 +173,14 @@ All indicators are generalised versions of indicators and indices frequently use
   \end{tabular}
 \end{table}
 
-% MC finire, then commit, then mini commit, then sleep.
-The parameters the indicators depend on are collected in table~\ref{tab:indicators_parameters}. Note that despite the definition of heat wave lasting two or more day, a window of one day is considered, i.e. $\mathrm{p1} = 1$, simply to count the number of days with extreme temperatures in a year. In particular, indicator $\mathrm{HWI}$ becomes $\mathrm{TXnn}$, see \cite[2209]{2021GutierrezAnnexVI}.
-\begin{table}[h]
-  \centering
-  \caption{Parameters present in the definitions of hazard indicators.}
-  \label{tab:indicators_parameters}
-  \begin{tabular}{p{0.33\textwidth}llp{0.33\textwidth}}
-    Parameter                                  & Symbol        & Unit                        & Interval                                                                               \\
-    \hline
-    Consecutive days of extreme heat           & $\mathrm{p1}$ & \unit{\day}                 & Integer numbers from 1 to 31 in steps of 3                                             \\  %Interval in symbols: $\{ v \in \mathbb{N} : v = 3n + 1 \wedge n \in \mathbb{N} \wedge 0 \leq n \leq 10 \}$.
-    Threshold of \gls{tasmax}                  & $\mathrm{p2}$ & \unit{\degreeCelsius}       & Quantiles 0.90, 0.97, 0.99, 0.999, 0.9999 of \gls{tasmax} in the historical experiment \\
-    Threshold of \gls{tasmin}                  & $\mathrm{p3}$ & \unit{\degreeCelsius}       & Quantiles 0.90, 0.97, 0.99, 0.999, 0.9999 of \gls{tasmin} in the historical experiment \\
-    Consecutive days of extreme precipitation  & $\mathrm{p4}$ & \unit{\day}                 & Integer numbers from 1 to 31                                                           \\  %Interval in symbols: $\{ v \in \mathbb{N} : 1 \leq v \leq 31 \}$.
-    Threshold of \gls{pr}                      & $\mathrm{p5}$ & \unit{\milli\metre\per\day} & Quantiles 0.90, 0.97, 0.99, 0.999, 0.9999 of \gls{pr} in the historical experiment     \\
-  \end{tabular}
-\end{table}
+In module~\ref{itm:module_4} the evaluation of \glspl{indicator} on climate and system data occurs. Concerning the system, the data collection step is explained in section~\ref{sec:Impact chain} and scalar values are readily obtained for the elements in sets $\mathcal{E}_i$ and $\mathcal{V}_k$ for any \gls{driver} $i$ or $k$. See paragraphs about data in section~\ref{sec:Impact chain} for the definition of the \glspl{indicator} of \gls{exposure} and \gls{vulnerability} used to describe each system and section~\ref{sec:Results} for their values.
 
-In module~\ref{itm:module_4} the evaluation of \glspl{indicator} on climate and system data occurs. Concerning the system, the data collection step is explained in section~\ref{sec:Impact chain} and scalar values are readily obtained for the elements in sets $\mathcal{E}_i$ and $\mathcal{V}_k$ for any \gls{driver} $i$ or $k$. See paragraphs about data in section~\ref{sec:Results} for the definition of the \glspl{indicator} of \gls{exposure} and \gls{vulnerability} used to describe each system.
-
-A more convoluted path is needed to evaluate \glspl{indicator} of \gls{hazard}. They are functions defined by equation~\eqref{eq:math_indicator}, hence they depend on climate data and additional parameters. The former are presented in section~\ref{sec:Climate data}, the latter are defined as explained in the following paragraphs.
+A more convoluted path is needed to evaluate \glspl{indicator} of \gls{hazard}. They are functions defined by equation~\eqref{eq:math_indicator}, hence they depend on climate data and additional parameters. In tables~\ref{tab:indicators_heat_wave} and~\ref{tab:indicators_heavy_precipitation} parameters are addressed to explain the definition of indicators, but in the following their choice is detailed.
 
 For each \gls{indicator}, a set of values of its parameters is defined. Ideally these sets would be continuous, to explore the whole space of possible configurations of parameters. However, for limitations intrinsic to the analysis tools, only a finite and small number of values can be considered (in the following these discrete sets are called intervals to preserve generality).
 How values in these intervals are selected depends on the nature of the parameters. The selection is ultimately arbitrary, to allow greater control, e.g. remove values which are not interesting for the analysis, and to apply a form of non-parametric sampling of the input space. This is a form of space-filling design for \gls{SA} \cite[593-594]{2015DeanHandbookOf}.
 
 To simplify the explanation, consider \gls{driver} $j$ and an \gls{indicator} $I \in \mathcal{H}_j$. This \gls{indicator} depends on some parameters, which are collected in set $P_I$, and on some \glspl{ECV}. The chosen interval for a parameter $p \in P_I$ is a set of scalar values, possibly with units, denoted by $S_p$.
-Parameters chosen for this work and their definitions are listeds in table~\ref{tab:indicators_parameters}.
 
 If parameter $p$ is related to a \gls{ECV} (e.g. threshold on \gls{tas}), its values are sampled from the distribution of the \gls{ECV}. First all data available for the \gls{ECV} of interest are collected in a single sample, with the following conditions:
 \begin{itemize}
@@ -223,7 +205,35 @@ Third, values are chosen with the aim to sample the true probability distributio
 
 If parameter $p$ is not related to a \gls{ECV} (e.g. window size for moving averages), some heuristic is applied and explained case by case where values are presented in section~\ref{sec:Results}.
 
+The parameters indicators chosen for this study depend on are collected in table~\ref{tab:indicators_parameters}. Note that despite the definition of heat wave lasting two or more day, a window of one day is considered, i.e. $\mathrm{p1} = 1$, simply to count the number of days with extreme temperatures in a year. In particular, indicator $\mathrm{HWI}$ becomes $\mathrm{TXnn}$, see \cite[2209]{2021GutierrezAnnexVI}.
+\begin{table}[h]
+  \centering
+  \caption{Parameters present in the definitions of hazard indicators.}
+  \label{tab:indicators_parameters}
+  \begin{tabular}{p{0.33\textwidth}llp{0.33\textwidth}}
+    Parameter                                  & Symbol        & Unit                        & Interval                                                                               \\
+    \hline
+    Consecutive days of extreme heat           & $\mathrm{p1}$ & \unit{\day}                 & Integer numbers from 1 to 31 in steps of 3                                             \\  %Interval in symbols: $\{ v \in \mathbb{N} : v = 3n + 1 \wedge n \in \mathbb{N} \wedge 0 \leq n \leq 10 \}$.
+    Threshold of \gls{tasmax}                  & $\mathrm{p2}$ & \unit{\degreeCelsius}       & Quantiles 0.90, 0.97, 0.99, 0.999, 0.9999 of \gls{tasmax} in the historical experiment \\
+    Threshold of \gls{tasmin}                  & $\mathrm{p3}$ & \unit{\degreeCelsius}       & Quantiles 0.90, 0.97, 0.99, 0.999, 0.9999 of \gls{tasmin} in the historical experiment \\
+    Consecutive days of extreme precipitation  & $\mathrm{p4}$ & \unit{\day}                 & Integer numbers from 1 to 31                                                           \\  %Interval in symbols: $\{ v \in \mathbb{N} : 1 \leq v \leq 31 \}$.
+    Threshold of \gls{pr}                      & $\mathrm{p5}$ & \unit{\milli\metre\per\day} & Quantiles 0.90, 0.97, 0.99, 0.999, 0.9999 of \gls{pr} in the historical experiment     \\
+  \end{tabular}
+\end{table}
+
 After $S_p$ is defined for every $p \in P_I$, the \gls{indicator} $I$ is finally evaluated. This results in elements of set $\mathcal{H}_j$ being multidimensional arrays given by equation~\eqref{eq:math_indicator}, for every \gls{driver} $j$ of the \gls{hazard}. Different \glspl{indicator} may have different parameters, but they depend on \glspl{ECV} which same spatial and temporal coordinates $S_\text{lat} \times S_\text{lon} \times S_\text{clim}$, hence they have same temporal frequency, i.e. same $S_\text{y}$.
+
+From a computational perspective, the time complexity for the evaluation of an \gls{hazard} \gls{indicator} $I$ is a particular function $f$ of the number $\abs{S_\text{time}}$ of temporal coordinates of climate data.%
+\footnote{Here time complexity is intended as number of steps of an algorithm, which can be related to physical time when executed on a calculator.}
+The evaluation is then repeated for every spatial coordinate in $S_\text{lat} \times S_\text{lon}$, year in $S_\text{y}$ and combination of parameters $\underline{z} \in \prod_{p \in P_I} S_p$. In symbols the time complexity is
+\begin{equation}
+  \label{eq:complexity_parameters}
+  O \bigg( f \big( \abs{S_\text{time}} \big) \abs{S_\text{lat}} \abs{S_\text{lon}} \abs{S_\text{y}} \prod_{p \in P_I} \abs{S_p} \bigg)
+  \quad .
+\end{equation}
+For indicators in table~\ref{tab:indicators_parameters}, the evaluation time of an indicator for a single choice of its arguments can be always bounded by polynomial functions, $f \big( \abs{S_\text{time}} \big) = \big( \abs{S_\text{time}} \big)^a $, with $a \in \mathbb{R}$ specific to the indicator being evaluated. This means that the computation of indictors benefits from a parallel setup.
+
+\Glspl{indicator} are also evaluated for each model available (see table~\ref{tab:CMIP6_models}). A different model may have different values for an \gls{ECV} at the same coordinates. Moreover, these differences reflect on the procedures of evaluation of parameters values. Therefore, parameters defined as quantiles of \glspl{ECV} are expressed by their probability rather than their value.
 
 These results need further elaboration. In fact, for every \gls{driver} $i$ and $k$, $\mathcal{E}_i$ and $\mathcal{V}_k$ contain scalar values which encapsulate information about the system for the chosen time period and system without reference to spatial coordinates. To obtain an analogous result for \glspl{driver} of \gls{hazard}, \glspl{indicator} are aggregated over spatial and temporal dimensions. For simplicity intermediate results are identified with the same variable $I$.
 First, the temporal aggregation is performed. It consists in averaging the multidimensional array over the temporal dimension with a sample average. The outcome is multidimensional arrays depending on spatial coordinates and parameters:
