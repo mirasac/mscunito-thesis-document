@@ -115,7 +115,7 @@ Long-term time horizons are affected by greater uncertainty for different reason
 \subsection{Evaluation of indicators}
 \label{sec:Evaluation of indicators}
 This section explains the process to obtain a scalar value for each \gls{determinant}, following the methodology presented in section~\ref{sec:Methodology of risk assessment}. Modules~\ref{itm:module_3}, \ref{itm:module_4}, \ref{itm:module_5} and~\ref{itm:module_6} are recalled.
-Suppose a set of \glspl{driver} is chosen. The selection of \glspl{driver} for the actual case studies, i.e. module~\ref{itm:module_2}, is performed and argued in section~\ref{sec:Impact chain}.
+Although the selection of \glspl{driver} for the actual case studies is presented in section~\ref{sec:Impact chain}, formulae involving \glspl{driver} and \glspl{indicator} are kept general.
 
 Module~\ref{itm:module_3} may be stated symbolically as follow. For each \gls{driver} within the \gls{hazard} \gls{determinant}, a set $\mathcal{H}_j$ of \glspl{indicator} is obtained. A similar procedure is carried out for \glspl{driver} of \gls{exposure} and \gls{vulnerability}, resulting in sets $\mathcal{E}_i$ and $\mathcal{V}_k$, respectively. Indices $i$, $j$ and $k$ are present to clarify that each set is related to a different \gls{driver} and the way these sets are indexed is not important (e.g. each of them can be a sequence of integers where each one refers to a different \gls{driver}, they can be the names of the \glspl{driver} they refer to).
 If the distinction between \glspl{driver} of \gls{sensitivity} and \gls{adaptive_capacity} is made, then it is not explicit in the indices. The reason is that these \glspl{driver} are treated mathematically the same way, as explained below.
@@ -146,14 +146,59 @@ The methodology suggests to avoid double counting of \glspl{driver} by allocatin
   Note that all \glspl{indicator} consist in counting some elements of the system. Nevertheless, they are different from each other since they refer to different elements.
 \end{example}
 
-In module~\ref{itm:module_4} the evaluation of \glspl{indicator} on climate and system data occurs. Concerning the system, the data collection step is explained in section~\ref{sec:System-dependent data} and scalar values are readily obtained for the elements in sets $\mathcal{E}_i$ and $\mathcal{V}_k$ for any \gls{driver} $i$ or $k$. See paragraphs about data in section~\ref{sec:Results} for the definition of the \glspl{indicator} of \gls{exposure} and \gls{vulnerability} used to describe each system.
+In particular for this study, an heat wave is described mathematically by \glspl{indicator} in table~\ref{tab:indicators_heat_wave}. Heat waves are described both in frequency and duration, through $\mathrm{HWI}$ and $\mathrm{HWML}$, respectively.
+Indicators in table~\ref{tab:indicators_heavy_precipitation} are chosen to describe an heavy precipitation event. Other than duration and frequency, estimated by $\mathrm{CWD}$ and $\mathrm{Rp5mm}$, respectively, also the intensity of the event is quantified by $\mathrm{Rxp4day}$.
+All indicators are generalised versions of indicators and indices frequently used in literature, e.g. \cite[2208]{2021GutierrezAnnexVI}. They are provided by \cite{2023BourgaultXclimXarray-based} and are evaluated at yearly resolution.
+\begin{table}
+  \centering
+  \caption{Indicators describing heat wave events. They have yearly resolution.}
+  \label{tab:indicators_heat_wave}
+  \begin{tabular}{p{0.25\textwidth}lllp{0.25\textwidth}}
+    Indicator            & Symbol          & Unit        & Parameters                                  & Definition                                                                                                                                        \\
+    \hline
+    Heat wave index      & $\mathrm{HWI}$  & \unit{\day} & $\mathrm{p1}$, $\mathrm{p2}$                & Total number of days in sequences of at least $\mathrm{p1}$ consecutive days with $\gls{tasmax} > \mathrm{p2}$                                    \\
+    Heat wave max length & $\mathrm{HWML}$ & \unit{\day} & $\mathrm{p1}$, $\mathrm{p2}$, $\mathrm{p3}$ & Maximum number of days in sequences of at least $\mathrm{p1}$ consecutive days with $\gls{tasmax} > \mathrm{p2}$ and $\gls{tasmin} > \mathrm{p3}$ \\
+  \end{tabular}
+\end{table}
+\begin{table}
+  \centering
+  \caption{Indicators describing heavy precipitation events. They have yearly resolution.}
+  \label{tab:indicators_heavy_precipitation}
+  \begin{tabular}{p{0.25\textwidth}lllp{0.25\textwidth}}
+    Indicator                                           & Symbol             & Unit                & Parameters    & Definition                                                                               \\
+    \hline
+    Maximum consecutive $\mathrm{p4}$-day precipitation & $\mathrm{Rxp4day}$ & \unit{\milli\metre} & $\mathrm{p4}$ & Maximum cumulative precipitation in sequences of at least $\mathrm{p4}$ consecutive days \\
+    Wet days                                            & $\mathrm{Rp5mm}$   & \unit{\day}         & $\mathrm{p5}$ & Total number of days with $\gls{pr} \geq \mathrm{p5}$                                    \\
+    Maximum length of wet spell                         & $\mathrm{CWD}$     & \unit{\day}         & $\mathrm{p5}$ & Maximum number of consecutive days with $\gls{pr} \geq \mathrm{p5}$                      \\
+  \end{tabular}
+\end{table}
 
-A more convoluted path is needed to evaluate \glspl{indicator} of \gls{hazard}. They are functions defined by equation~\eqref{eq:math_indicator}, hence they depend on climate data and additional parameters. The former are presented in section~\ref{sec:Climate data}, the latter are chosen as explained in the following paragraphs.
+% MC finire, then commit, then mini commit, then sleep.
+The parameters the indicators depend on are collected in table~\ref{tab:indicators_parameters}. Note that despite the definition of heat wave lasting two or more day, a window of one day is considered, i.e. $\mathrm{p1} = 1$, simply to count the number of days with extreme temperatures in a year. In particular, indicator $\mathrm{HWI}$ becomes $\mathrm{TXnn}$, see \cite[2209]{2021GutierrezAnnexVI}.
+\begin{table}[h]
+  \centering
+  \caption{Parameters present in the definitions of hazard indicators.}
+  \label{tab:indicators_parameters}
+  \begin{tabular}{p{0.33\textwidth}llp{0.33\textwidth}}
+    Parameter                                  & Symbol        & Unit                        & Interval                                                                               \\
+    \hline
+    Consecutive days of extreme heat           & $\mathrm{p1}$ & \unit{\day}                 & Integer numbers from 1 to 31 in steps of 3                                             \\
+    Threshold of \gls{tasmax}                  & $\mathrm{p2}$ & \unit{\degreeCelsius}       & Quantiles 0.90, 0.97, 0.99, 0.999, 0.9999 of \gls{tasmax} in the historical experiment \\
+    Threshold of \gls{tasmin}                  & $\mathrm{p3}$ & \unit{\degreeCelsius}       & Quantiles 0.90, 0.97, 0.99, 0.999, 0.9999 of \gls{tasmin} in the historical experiment \\
+    Consecutive days of extreme precipitation  & $\mathrm{p4}$ & \unit{\day}                 & Integer numbers from 1 to 31                                                           \\
+    Threshold of \gls{pr}                      & $\mathrm{p5}$ & \unit{\milli\metre\per\day} & Quantiles 0.90, 0.97, 0.99, 0.999, 0.9999 of \gls{pr} in the historical experiment     \\
+  \end{tabular}
+\end{table}
+
+In module~\ref{itm:module_4} the evaluation of \glspl{indicator} on climate and system data occurs. Concerning the system, the data collection step is explained in section~\ref{sec:Impact chain} and scalar values are readily obtained for the elements in sets $\mathcal{E}_i$ and $\mathcal{V}_k$ for any \gls{driver} $i$ or $k$. See paragraphs about data in section~\ref{sec:Results} for the definition of the \glspl{indicator} of \gls{exposure} and \gls{vulnerability} used to describe each system.
+
+A more convoluted path is needed to evaluate \glspl{indicator} of \gls{hazard}. They are functions defined by equation~\eqref{eq:math_indicator}, hence they depend on climate data and additional parameters. The former are presented in section~\ref{sec:Climate data}, the latter are defined as explained in the following paragraphs.
 
 For each \gls{indicator}, a set of values of its parameters is defined. Ideally these sets would be continuous, to explore the whole space of possible configurations of parameters. However, for limitations intrinsic to the analysis tools, only a finite and small number of values can be considered (in the following these discrete sets are called intervals to preserve generality).
 How values in these intervals are selected depends on the nature of the parameters. The selection is ultimately arbitrary, to allow greater control, e.g. remove values which are not interesting for the analysis, and to apply a form of non-parametric sampling of the input space. This is a form of space-filling design for \gls{SA} \cite[593-594]{2015DeanHandbookOf}.
 
 To simplify the explanation, consider \gls{driver} $j$ and an \gls{indicator} $I \in \mathcal{H}_j$. This \gls{indicator} depends on some parameters, which are collected in set $P_I$, and on some \glspl{ECV}. The chosen interval for a parameter $p \in P_I$ is a set of scalar values, possibly with units, denoted by $S_p$.
+Parameters chosen for this work and their definitions are listeds in table~\ref{tab:indicators_parameters}.
 
 If parameter $p$ is related to a \gls{ECV} (e.g. threshold on \gls{tas}), its values are sampled from the distribution of the \gls{ECV}. First all data available for the \gls{ECV} of interest are collected in a single sample, with the following conditions:
 \begin{itemize}
