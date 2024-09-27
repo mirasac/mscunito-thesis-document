@@ -238,7 +238,7 @@ The evaluation is then repeated for every spatial coordinate in $S_\text{lat} \t
   O \bigg( f \big( \abs{S_\text{time}} \big) \abs{S_\text{lat}} \abs{S_\text{lon}} \abs{S_\text{y}} \prod_{p \in P_I} \abs{S_p} \bigg)
   \quad .
 \end{equation}
-For indicators in table~\ref{tab:indicators_parameters}, the evaluation time of an indicator for a single choice of its arguments can be always bounded by polynomial functions, $f \big( \abs{S_\text{time}} \big) = \big( \abs{S_\text{time}} \big)^a $, with $a \in \mathbb{R}$ specific to the indicator being evaluated. This means that the computation of indictors benefits from a parallel setup.
+For indicators in table~\ref{tab:indicators_parameters}, the evaluation time of an indicator for a single choice of its arguments can be always bounded by polynomial functions, $f \big( \abs{S_\text{time}} \big) = \big( \abs{S_\text{time}} \big)^a $, with $a \in \mathbb{R}$ specific to the indicator being evaluated. This means that the computation benefit from a parallel setup.
 
 \Glspl{indicator} are also evaluated for each model available (see table~\ref{tab:CMIP6_models}). A different model may have different values for an \gls{ECV} at the same coordinates. Moreover, these differences reflect on the procedures of evaluation of parameters values. Therefore, parameters defined as quantiles of \glspl{ECV} are expressed by their probability rather than their value.
 
@@ -252,10 +252,10 @@ First, the temporal aggregation is performed. It consists in averaging the multi
 Due to the spatial resolution of data, they may contain bias with respect to the reference period, e.g. orography may influence differently the variation of some \glspl{ECV}. Therefore, for every \glspl{indicator} $I$, its relative variation with respect to the reference period is used,
 \begin{equation}
   \label{eq:spatial_bias}
-  I(y, x, \underline{z}) \mapsto I(y, x, \underline{z}) = \frac{I(y, x, \underline{z}) - I_\text{clim}(y, x, \underline{z})}{I_\text{clim}(y, x, \underline{z})}
+  I(y, x, \underline{z}) \mapsto I(y, x, \underline{z}) = I(y, x, \underline{z}) - I_\text{clim}(y, x, \underline{z})
   \quad ,
 \end{equation}
-where symbol $I_\text{clim}$ is used to refer to $I$ evaluated for the reference period, i.e. equation~\eqref{eq:temporal_aggregation} with $S_\text{y} = S_\text{clim}$. This is analogous to evaluate \glspl{anomaly} for \glspl{indicator} instead of \glspl{ECV} and rescale them on the respective value of the reference period.
+where symbol $I_\text{clim}$ is used to refer to $I$ evaluated for the reference period, i.e. equation~\eqref{eq:temporal_aggregation} with $S_\text{y} = S_\text{clim}$. This is analogous to evaluate \glspl{anomaly} for \glspl{indicator} instead of \glspl{ECV}.
 Then, the spatial aggregation is performed by using \gls{EOF} analysis as a dimensionality reduction technique.%
 \footnote{Terminology is varied. Here the eigenvectors, i.e. spatial patterns, are referred to as \glspl{EOF} and their coefficients, i.e. temporal patterns, are the \glspl{PC}. The object containig data is called design matrix with samples, i.e. observations, organised in rows and their features, i.e. variables which describe them, in columns. For further clarification on the terminology see \cite[626-627]{2019WilksStatisticalMethods} and for a recap on \gls{EOF} analysis see \cite[6502-6503]{2009MonahanEmpiricalOrthogonal} and \cite[1121-1122]{2007HannachiEmpiricalOrthogonal}.}
 The following procedure is applied to every \gls{indicator} $I$ in its multidimensional array representation:
