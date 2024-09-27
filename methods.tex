@@ -48,7 +48,7 @@ An \gls{heat_wave} is defined by \gls{IPCC} as \glsdesc{heat_wave}. \Gls{WMO} pr
 For \gls{IPCC} \glsdesc{heavy_precipitation}, where the term \emph{precipitation} refers to water in every state, e.g. rain, snow, ice. Further details on the characterisation of heavy precipitation are provided by \gls{WMO} in \cite[6-7]{2023WorldMeteorologicalOrganizationWMOGuidelinesOn}. Climate change shifts local and global distributions of rainfall \cite[1605]{2021SeneviratneWeatherAnd}. These impacts are likely to occur in the near future and the one affecting airports are local in nature, e.g. flooding due to failures in drainage systems, but they may propagate throughout the aviation network depending on their severity \cite[28-34]{2018ICAOClimateAdaptation}.
 
 \Gls{exposure} \glspl{driver} in airports are the physical components of the airport. They can be subject to \glspl{impact} of climate change at various levels, hence their presence determines \glspl{risk}. Normally the components of airports are divided in air side and land side, the former regarding all components which interact with aircraft operations and the latter for the public areas \cite[553]{2022DeVivoRiskAssessment}. This distinction is made for helping the collection of data on drivers.
-In this study the considered drivers are listed in table~\ref{tab:drivers_exposure}. They are taken from \cite[554]{2022DeVivoRiskAssessment}.
+In this study the considered drivers are listed in table~\ref{tab:drivers_exposure} and they are taken from \cite[554]{2022DeVivoRiskAssessment}. A single \gls{indicator} is chosen for every driver, they are listed in the same table and are identified with the same symbol, for ease.
 \begin{table}[h]
   \centering
   \caption{Drivers of exposure considered in the study and associated indicators. The part of the table above the line shows the air-side components, below the line there are the land-side components. Dimensionless quantities have an empy cell in the Units column.}
@@ -64,23 +64,23 @@ In this study the considered drivers are listed in table~\ref{tab:drivers_exposu
   \end{tabular}
 \end{table}
 
-\Gls{vulnerability} data are divided in \gls{adaptive_capacity} and \gls{sensitivity}. Under adaptive capacity are gathered measures which are active, planned or not present for the system in order to contain negative \glspl{impact} of climate. Instead, \glspl{driver} of sensitivity are elements of the system subject directly to the realisation of risks. Drivers are derived from \cite[555-556,558]{2022DeVivoRiskAssessment} and are listed in table~\ref{tab:drivers_vulnerability}.
+\Gls{vulnerability} data are divided in \gls{adaptive_capacity} and \gls{sensitivity}. Under adaptive capacity are gathered measures which are active, planned or not present for the system in order to contain negative \glspl{impact} of climate. Instead, \glspl{driver} of sensitivity are elements of the system subject directly to the realisation of risks. Drivers are derived from \cite[555-556,558]{2022DeVivoRiskAssessment} and are listed in table~\ref{tab:drivers_vulnerability}. Similarly to the \gls{exposure} \gls{determinant}, the table shows also vulnerability \glspl{indicator}, because a single indicator is chosen for every driver and they use the same symbol.
 \begin{table}[h]
   \centering
-  \caption{Drivers of vulnerability and their indicators. Specifically, drivers of adaptive capacity are above the line, while drivers of sensitivity are below. Dimensionless quantities have an empy cell in the Units column.}
+  \caption{Drivers of vulnerability and their indicators. Specifically, drivers of adaptive capacity are above the line, while drivers of sensitivity are below. Dimensionless quantities have an empty cell in the Units column.}
   \label{tab:drivers_vulnerability}
   \begin{tabular}{p{0.33\textwidth}llll}
     Driver                                           & Symbol         & Indicator & Units                & Torino-Caselle \\
     \hline
-    Risk awareness                                   & $\mathrm{v1}$  & level     &                      & 0.9            \\
+    Risk awareness                                   & $\mathrm{v1}$  & level     &                      & 0.3            \\
     Guidelines for adaptation plan to climate change & $\mathrm{v2}$  & presence  &                      & 0.5            \\
-    Efficient drainage system                        & $\mathrm{v3}$  & presence  &                      & 0.9            \\
-    Monitoring and alarm system                      & $\mathrm{v4}$  & presence  &                      & 0.1            \\
-    Bioinfiltration and permeable pavements          & $\mathrm{v5}$  & presence  &                      & 0.9            \\
+    Efficient drainage system                        & $\mathrm{v3}$  & presence  &                      & 0.1            \\
+    Monitoring and alarm system                      & $\mathrm{v4}$  & presence  &                      & 0.9            \\
+    Bioinfiltration and permeable pavements          & $\mathrm{v5}$  & presence  &                      & 0.1            \\
     \hline
     Soil sealing                                     & $\mathrm{v6}$  & area      & \unit{\square\metre} & 2450000        \\
     Passengers                                       & $\mathrm{v7}$  & number    &                      & 3219317        \\
-    Age buildings                                    & $\mathrm{v8}$  & number    &                      & 52             \\
+    Age buildings                                    & $\mathrm{v8}$  & number    &                      & 57             \\
     Air traffic                                      & $\mathrm{v9}$  & number    &                      & 53169          \\
     Underground infrastructures                      & $\mathrm{v10}$ & area      & \unit{\square\metre} & 0              \\
     \end{tabular}
@@ -200,7 +200,7 @@ It his is a frequentist probability and gets more accurate the larger the sample
 %\end{equation}
 %where the dependence on the spatial coordinates is retained.
 Second, the empirical \gls{QF} of data is built from the sample, to acknowledge the shape of their true probability distribution. Minimum and maximum values are treated as the first and last quantiles, respectively. Since the number of data is large but limited, this curve is an approximation of the inverse function of the \gls{CDF} and missing data are interpolated linearly.
-Third, values are chosen with the aim to sample the true probability distribution uniformly, starting from the quantile corresponding to frequency 90\%. This allows to focus the analysis on the side of the distribution which have higher values. The density of points may be increased where needed to have a better description of the shape of the distribution.%
+Third, values are chosen with the aim to sample the true probability distribution uniformly, starting from the quantile corresponding to frequency 90\%. This allows to focus the analysis on the side of the distribution which have higher values, related to extreme \glspl{risk}. The density of points may be increased where needed to have a better description of the shape of the distribution.%
 \footnote{Why do not use derivative-based methods to set the density of points? The reason is again greater control on the selected values: there is no need to evaluate the derivative of the \gls{QF} in every point, just within the subintervals which are interesting for the analysis. Note that the \gls{QF} is obtained by linear interpolation between existent data values, hence the slope is already evaluated internally and the derivative is a piecewise constant function.}
 
 If parameter $p$ is not related to a \gls{ECV} (e.g. window size for moving averages), some heuristic is applied and explained case by case where values are presented in section~\ref{sec:Results}.
