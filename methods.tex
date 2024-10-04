@@ -191,19 +191,19 @@ To simplify the explanation, consider \gls{driver} $j$ and an \gls{indicator} $I
 
 If parameter $p$ is related to a \gls{ECV} (e.g. threshold on \gls{tas}), its values are sampled from the distribution of the \gls{ECV}. First all data available for the \gls{ECV} of interest are collected in a single sample, with the following conditions:
 \begin{itemize}
-  \item temporal coordinates belong to the averaging period $S_\text{clim}$ chosen for the \glspl{normal};
+  \item temporal coordinates belong to the averaging period $\prd{S_\text{time}}{ref}$ chosen for the \glspl{normal};
   \item spatial coordinates are ignored.
 \end{itemize}
 This procedure has the side effects of removing the dependence of parameter values from spatial and temporal coordinates and to increase the sample size. The sampling is not affected by existing spatial correlation between data, because it is non parametric and regards only the possible values of the \gls{ECV} and not their spatial distribution. In fact, the probability of having any value $v$ for the \gls{ECV} $T$ in the sample is
 \begin{equation}
   \label{eq:variable_probability}
-  \mathcal{P}(v) = \frac{1}{\abs{S_\text{lat}} \abs{S_\text{lon}} \abs{S_\text{clim}}} \sum_{y \in S_\text{lat}} \sum_{x \in S_\text{lon}} \sum_{t \in S_\text{clim}} \condition{T(y, x, t) = v}
+  \mathcal{P}(v) = \frac{1}{\abs{S_\text{lat}} \abs{S_\text{lon}} \abs{\prd{S_\text{time}}{ref}}} \sum_{y \in S_\text{lat}} \sum_{x \in S_\text{lon}} \sum_{t \in \prd{S_\text{time}}{ref}} \condition{T(y, x, t) = v}
   \quad .
 \end{equation}
 It is a frequentist probability and gets more accurate the larger the sample size is, by definition. %This probability is different from the conditional probability
 %\begin{equation}
 %  \label{eq:variable_probability_space}
-%  \mathcal{P}(v \vert y,x) = \frac{1}{\abs{S_\text{clim}}} \sum_{t \in S_\text{clim}} \condition{T(y, x, t) = v}
+%  \mathcal{P}(v \vert y,x) = \frac{1}{\abs{\prd{S_\text{time}}{ref}}} \sum_{t \in \prd{S_\text{time}}{ref}} \condition{T(y, x, t) = v}
 %\end{equation}
 %where the dependence on the spatial coordinates is retained.
 Second, the empirical \gls{QF} of data is built from the sample, to acknowledge the shape of their true probability distribution. Minimum and maximum values are treated as the first and last quantiles, respectively. Since the number of data is large but limited, this curve is an approximation of the inverse function of the \gls{CDF} and missing data are interpolated linearly.
@@ -228,7 +228,7 @@ The parameters indicators chosen for this study depend on are collected in table
   \end{tabular}
 \end{table}
 
-After $S_p$ is defined for every $p \in P_I$, the \gls{indicator} $I$ is finally evaluated. This results in elements of set $\mathcal{H}_j$ being multidimensional arrays given by equation~\eqref{eq:math_indicator}, for every \gls{driver} $j$ of the \gls{hazard}. Different \glspl{indicator} may have different parameters, but they depend on \glspl{ECV} which same spatial and temporal coordinates $S_\text{lat} \times S_\text{lon} \times S_\text{clim}$, hence they have same temporal frequency, i.e. same $S_\text{y}$.
+After $S_p$ is defined for every $p \in P_I$, the \gls{indicator} $I$ is finally evaluated. This results in elements of set $\mathcal{H}_j$ being multidimensional arrays given by equation~\eqref{eq:math_indicator}, for every \gls{driver} $j$ of the \gls{hazard}. Different \glspl{indicator} may have different parameters, but they depend on \glspl{ECV} which same spatial and temporal coordinates $S_\text{lat} \times S_\text{lon} \times S_\text{time}$, hence they have same temporal frequency, i.e. same $S_\text{y}$.
 
 From a computational perspective, the time complexity for the evaluation of an \gls{hazard} \gls{indicator} $I$ is a particular function $f$ of the number $\abs{S_\text{time}}$ of temporal coordinates of climate data.%
 \footnote{Here time complexity is intended as number of steps of an algorithm, which can be related to physical time when executed on a calculator.}
@@ -262,11 +262,11 @@ Due to the spatial resolution of data, they may contain bias with respect to the
 Therefore, for every \glspl{indicator} $I$, its variation with respect to the reference period is used,
 \begin{equation}
   \label{eq:spatial_bias}
-  I(y, x, \underline{z}) \mapsto I(y, x, \underline{z}) = I(y, x, \underline{z}) - I_\text{clim}(y, x, \underline{z})
+  I(y, x, \underline{z}) \mapsto I(y, x, \underline{z}) = I(y, x, \underline{z}) - \prd{I}{ref}(y, x, \underline{z})
   \quad ,
 \end{equation}
-where symbol $I_\text{clim}$ is used to refer to $I$ evaluated for the reference period, i.e. equation~\eqref{eq:temporal_aggregation} with $S_\text{y} = S_\text{clim}$.%
-\footnote{Another analogous quantity is the relative difference with respect to the reference period, i.e. the anomaly divided by $I_\text{clim}(y, x, \underline{z})$. This is not chosen because some indicator values are exactly 0, e.g. for integer-valued indicators, resulting in mathematically undefined quantities which have no meaning.}
+where symbol $\prd{I}{ref}$ is used to refer to $I$ evaluated for the reference period, i.e. equation~\eqref{eq:temporal_aggregation} with average over set $\prd{S_\text{y}}{ref}$.%
+\footnote{Another analogous quantity is the relative difference with respect to the reference period, i.e. the anomaly divided by $\prd{I}{ref}(y, x, \underline{z})$. This is not chosen because some indicator values are exactly 0, e.g. for integer-valued indicators, resulting in mathematically undefined quantities which have no meaning.}
 This is analogous to evaluate \glspl{anomaly} for \glspl{indicator} instead of \glspl{ECV}.
 An example of indicator anomaly is shown in figure~\ref{fig:spatial_bias_EC-Earth3_heat_wave_max_length} for scenario SSP2-4.5 and the chosen time horizons. Values of $\mathrm{HWML}$ are displayed as spatial distribution by constraining parameters of the indicator with the same values used for figure~\ref{fig:temporal_aggregation_EC-Earth3_heat_wave_max_length}, to allow comparison. For all time horizons there is an increase in the number of heat wave events and the spatial differences observed in the reference period are accentuated with time. The spatial distribution of \gls{indicator} anomalies is useful to assess the spatial dependency of indicators, e.g. in figure~\ref{fig:spatial_bias_EC-Earth3_heat_wave_max_length} differences between the reference point of the studied system and the are clearly visible. These information can be useful in \glspl{CCRA} which have a local spatial extension. The main disadvantage is on the study of effects of varying parameters: only a single combination of values can be considered at a time and this limits the visual analysis on the impacts of these values on the indicator.
 \begin{figure}[h]
@@ -309,14 +309,14 @@ while \glspl{indicator} which depend on parameters are standardised, i.e. substi
 where the sample mean
 \begin{equation}
   \label{eq:sample_mean}
-  \mu_I = \frac{1}{\prod_{p \in P_I} \abs{S_p}} \sum_{\underline{z} \in \prod_{p \in P_I} S_p} I_\text{clim}(\underline{z})
+  \mu_I = \frac{1}{\prod_{p \in P_I} \abs{S_p}} \sum_{\underline{z} \in \prod_{p \in P_I} S_p} \prd{I}{ref}(\underline{z})
 \end{equation}
 and the sample standard deviation
 \begin{equation}
   \label{eq:sample_standard_deviation}
-  \sigma_I = \sqrt{\frac{1}{\prod_{p \in P_I} \abs{S_p} - 1} \sum_{\underline{z} \in \prod_{p \in P_I} S_p} \big( I_\text{clim}(\underline{z}) - \mu_I \big)^2}
+  \sigma_I = \sqrt{\frac{1}{\prod_{p \in P_I} \abs{S_p} - 1} \sum_{\underline{z} \in \prod_{p \in P_I} S_p} \big( \prd{I}{ref}(\underline{z}) - \mu_I \big)^2}
 \end{equation}
-are calculated using values obtained for the reference period $S_\text{clim}$ \cite[84]{2008OECDHandbookOn}. The advantage of equation~\eqref{eq:z-score} with respect to min-max normalisation is to be flexible when new values are introduced, in fact they are measured in terms of statistics of the reference period without breaking the normalisation.%
+are calculated using values obtained for the reference period $\prd{S_\text{y}}{ref}$ \cite[84]{2008OECDHandbookOn}. The advantage of equation~\eqref{eq:z-score} with respect to min-max normalisation is to be flexible when new values are introduced, in fact they are measured in terms of statistics of the reference period without breaking the normalisation.%
 \footnote{See section~\ref{sec:Min-max normalisation} for further insight on why min-max normalisation is not used.}
 To normalise categorical scales, the methodology suggests first to group the values in five classes, then replace them with specific values in the range $[0, 1]$, see \cite[115-116]{2017GIZTheVulnerability}. Higher normalised values are associated to more negative impacts. However, this case does not occur in the present study since every \gls{indicator} with categorical scale is a constant value. Not normalising some \glspl{indicator} may seem wrong since normalisation is a requisite to compare them, but the reason is supported mathematically in the next paragraphs.
 
