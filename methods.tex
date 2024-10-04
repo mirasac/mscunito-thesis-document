@@ -35,7 +35,7 @@ More in detail, the two \gls{hazard} \glspl{driver} \gls{heat_wave} and \gls{hea
   \centering
   \caption{Drivers of hazard with their symbols.}
   \label{tab:drivers_hazard}
-  \begin{tabular}{p{0.33\textwidth}ll}
+  \begin{tabular}{lc}
     Driver              & Symbol        \\
     \hline
     Heat wave           & $\mathrm{HW}$ \\
@@ -53,7 +53,7 @@ In this study the considered drivers are listed in table~\ref{tab:drivers_exposu
   \centering
   \caption{Drivers of exposure considered in the study and associated indicators. The part of the table above the line shows the air-side components, below the line there are the land-side components. Dimensionless quantities have an empy cell in the Units column.}
   \label{tab:drivers_exposure}
-  \begin{tabular}{p{0.33\textwidth}llll}
+  \begin{tabular}{p{0.20\textwidth}cccc}
     Driver                      & Symbol        & Indicator & Units                & Torino-Caselle \\
     \hline
     Runways                     & $\mathrm{e1}$ & area      & \unit{\square\metre} & 198000         \\
@@ -69,7 +69,7 @@ In this study the considered drivers are listed in table~\ref{tab:drivers_exposu
   \centering
   \caption{Drivers of vulnerability and their indicators. Specifically, drivers of adaptive capacity are above the line, while drivers of sensitivity are below. Dimensionless quantities have an empty cell in the Units column.}
   \label{tab:drivers_vulnerability}
-  \begin{tabular}{p{0.33\textwidth}llll}
+  \begin{tabular}{p{0.20\textwidth}cccc}
     Driver                                           & Symbol         & Indicator & Units                & Torino-Caselle \\
     \hline
     Risk awareness                                   & $\mathrm{v1}$  & level     &                      & 0.3            \\
@@ -90,13 +90,13 @@ The \gls{CCRA} analyses a square box 3 grid cells wide centered approximately at
 Although one grid cell is enough to cover the systems under study, an extended area is chosen to increase the predictive skill of aggregation procedures applied to the spatial dimensions. On the other hand, the \gls{CCRA} would lose spatial accuracy in the description of the local events around the system, if too many grid cells are selected.
 Since reference and projections datasets have same spatial resolution and coordinates (cf. sections~\ref{sec:Reference dataset} and~\ref{sec:Climate projection dataset}), same coordinates are considered for the system under study.
 
-The reference period covered by the \gls{CCRA} of this study is chosen such that it precedes the start of the formation of the system or anticipates major changes to its structure. This arbitrary criterion is chosen to compensate the natural deteriotation of materials, with artifical buildings in mind. In fact, the methodology implicitly assumes that exposure and vulnerability values are either constant in time or their change is negligible within the period they refer to. This hypothesis and the definition of $\clim{S_\text{time}}$ together guarantee that there is no correlation in time between quantities referring to different temporal periods considered in the \gls{CCRA}.
+The reference period covered by the \gls{CCRA} of this study is chosen such that it precedes the start of the formation of the system or anticipates major changes to its structure. This arbitrary criterion is chosen to compensate the natural deteriotation of materials, with artifical buildings in mind. In fact, the methodology implicitly assumes that exposure and vulnerability values are either constant in time or their change is negligible within the period they refer to. This hypothesis and the definition of the reference period together guarantee that there is no correlation in time between quantities referring to different temporal periods considered in the \gls{CCRA}.
 \begin{example}
   Suppose the system under study is the Eiffel Tower. The works started in 1887 and lasted two years, hence
   \begin{equation*}
-    \clim{S_\text{time}} = \{ t : \text{$t$ day from \DTMdisplaydate{1851}{1}{1}{-1} to \DTMdisplaydate{1880}{12}{31}{-1}} \}
+    \prd{S_\text{time}}{ref} = \{ t : \text{$t$ day from \DTMdisplaydate{1851}{1}{1}{-1} to \DTMdisplaydate{1880}{12}{31}{-1}} \}
   \end{equation*}
-  is chosen as reference period. \Glspl{normal} can be evaluated for the climate data referred to $\clim{S_\text{time}}$ and data related to the system describe it as if it would not be affected by the passing of time.
+  is chosen as reference period. \Glspl{normal} can be evaluated for the climate data referred to $\prd{S_\text{time}}{ref}$ and data related to the system describe it as if it would not be affected by the passing of time.
   
   If the period from \DTMdisplaydate{1861}{1}{1}{-1} to \DTMdisplaydate{1890}{12}{31}{-1} were chosen instead, no assessments could be produced for the years subsequent to the end of works.
 \end{example}
@@ -108,12 +108,12 @@ Long-term time horizons are affected by greater uncertainty for different reason
   \centering
   \caption{Time periods used in the analysis to describe future climate and the evolution of risk.}
   \label{tab:time_horizons}
-  \begin{tabular}{llll}
-    Time horizon & Start                           & End                               \\
+  \begin{tabular}{lccc}
+    Time horizon & Symbol & Start                           & End                               \\
     \hline
-    near         & \DTMdisplaydate{2024}{1}{1}{-1} & \DTMdisplaydate{2043}{12}{31}{-1} \\
-    medium       & \DTMdisplaydate{2044}{1}{1}{-1} & \DTMdisplaydate{2063}{12}{31}{-1} \\
-    long         & \DTMdisplaydate{2081}{1}{1}{-1} & \DTMdisplaydate{2100}{12}{31}{-1} \\
+    Near         & near   & \DTMdisplaydate{2024}{1}{1}{-1} & \DTMdisplaydate{2043}{12}{31}{-1} \\
+    Medium       & mid    & \DTMdisplaydate{2044}{1}{1}{-1} & \DTMdisplaydate{2063}{12}{31}{-1} \\
+    Long         & long   & \DTMdisplaydate{2081}{1}{1}{-1} & \DTMdisplaydate{2100}{12}{31}{-1} \\
   \end{tabular}
 \end{table}
 
@@ -160,23 +160,23 @@ All indicators are generalised versions of indicators and indices frequently use
   \centering
   \caption{Indicators describing heat wave events. They have yearly resolution.}
   \label{tab:indicators_heat_wave}
-  \begin{tabular}{p{0.25\textwidth}lllp{0.25\textwidth}}
-    Indicator            & Symbol          & Unit        & Parameters                                  & Definition                                                                                                                                        \\
+  \begin{tabular}{p{0.15\textwidth}ccp{0.15\textwidth}p{0.33\textwidth}}
+    Indicator            & Symbol          & Unit        & Arguments                                                               & Definition                                                                                                                                        \\
     \hline
-    Heat wave index      & $\mathrm{HWI}$  & \unit{\day} & $\mathrm{p1}$, $\mathrm{p2}$                & Total number of days in sequences of at least $\mathrm{p1}$ consecutive days with $\gls{tasmax} > \mathrm{p2}$                                    \\
-    Heat wave max length & $\mathrm{HWML}$ & \unit{\day} & $\mathrm{p1}$, $\mathrm{p2}$, $\mathrm{p3}$ & Maximum number of days in sequences of at least $\mathrm{p1}$ consecutive days with $\gls{tasmax} > \mathrm{p2}$ and $\gls{tasmin} > \mathrm{p3}$ \\
+    Heat wave index      & $\mathrm{HWI}$  & \unit{\day} & \gls{tasmax}, $\mathrm{p1}$, $\mathrm{p2}$                              & Total number of days in sequences of at least $\mathrm{p1}$ consecutive days with $\gls{tasmax} > \mathrm{p2}$                                    \\
+    Heat wave max length & $\mathrm{HWML}$ & \unit{\day} & \gls{tasmin}, \gls{tasmax}, $\mathrm{p1}$, $\mathrm{p2}$, $\mathrm{p3}$ & Maximum number of days in sequences of at least $\mathrm{p1}$ consecutive days with $\gls{tasmax} > \mathrm{p2}$ and $\gls{tasmin} > \mathrm{p3}$ \\
   \end{tabular}
 \end{table}
 \begin{table}
   \centering
   \caption{Indicators describing heavy precipitation events. They have yearly resolution.}
   \label{tab:indicators_heavy_precipitation}
-  \begin{tabular}{p{0.25\textwidth}lllp{0.25\textwidth}}
-    Indicator                                           & Symbol             & Unit                & Parameters    & Definition                                                                               \\
+  \begin{tabular}{p{0.15\textwidth}cccp{0.33\textwidth}}
+    Indicator                                           & Symbol             & Unit                & Arguments               & Definition                                                                               \\
     \hline
-    Maximum consecutive $\mathrm{p4}$-day precipitation & $\mathrm{Rxp4day}$ & \unit{\milli\metre} & $\mathrm{p4}$ & Maximum cumulative precipitation in sequences of at least $\mathrm{p4}$ consecutive days \\
-    Wet days                                            & $\mathrm{Rp5mm}$   & \unit{\day}         & $\mathrm{p5}$ & Total number of days with $\gls{pr} \geq \mathrm{p5}$                                    \\
-    Maximum length of wet spell                         & $\mathrm{CWD}$     & \unit{\day}         & $\mathrm{p5}$ & Maximum number of consecutive days with $\gls{pr} \geq \mathrm{p5}$                      \\
+    Maximum consecutive $\mathrm{p4}$-day precipitation & $\mathrm{Rxp4day}$ & \unit{\milli\metre} & \gls{pr}, $\mathrm{p4}$ & Maximum cumulative precipitation in sequences of at least $\mathrm{p4}$ consecutive days \\
+    Wet days                                            & $\mathrm{Rp5mm}$   & \unit{\day}         & \gls{pr}, $\mathrm{p5}$ & Total number of days with $\gls{pr} \geq \mathrm{p5}$                                    \\
+    Maximum length of wet spell                         & $\mathrm{CWD}$     & \unit{\day}         & \gls{pr}, $\mathrm{p5}$ & Maximum number of consecutive days with $\gls{pr} \geq \mathrm{p5}$                      \\
   \end{tabular}
 \end{table}
 
@@ -217,7 +217,7 @@ The parameters indicators chosen for this study depend on are collected in table
   \centering
   \caption{Parameters present in the definitions of hazard indicators.}
   \label{tab:indicators_parameters}
-  \begin{tabular}{p{0.33\textwidth}llp{0.33\textwidth}}
+  \begin{tabular}{p{0.20\textwidth}ccp{0.33\textwidth}}
     Parameter                                  & Symbol        & Unit                        & Interval                                                                               \\
     \hline
     Consecutive days of extreme heat           & $\mathrm{p1}$ & \unit{\day}                 & Integer numbers from 1 to 31 in steps of 3                                             \\  %Interval in symbols: $\{ v \in \mathbb{N} : v = 3n + 1 \wedge n \in \mathbb{N} \wedge 0 \leq n \leq 10 \}$.
