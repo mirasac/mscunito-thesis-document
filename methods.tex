@@ -280,13 +280,40 @@ To compress information on spatial dependency, the spatial aggregation is perfor
 \footnote{Terminology is varied. Here the eigenvectors, i.e. spatial patterns, are referred to as \glspl{EOF} and their coefficients, i.e. temporal patterns, are the \glspl{PC}. The object containig data is called design matrix with samples, i.e. observations, organised in rows and their features, i.e. variables which describe them, in columns. For further clarification on the terminology see \cite[626-627]{2019WilksStatisticalMethods} and for a recap on \gls{EOF} analysis see \cite[6502-6503]{2009MonahanEmpiricalOrthogonal} and \cite[1121-1122]{2007HannachiEmpiricalOrthogonal}.}
 The following procedure is applied to every \gls{indicator} anomaly $I$ from equation~\eqref{eq:spatial_bias}.
 First remap the multidimensional array to a bidimensional matrix, i.e. the design matrix, which is needed to perform the \gls{EOF} analysis. The procedure can be summarised in: assign $S_\text{lat} \times S_\text{lon}$ as the feature dimension of the design matrix and assign $\prod_{p \in P_I} S_p$ as the sample dimension of the design matrix. This second step establish a bijective relation between the sample dimension of the design matrix and $\prod_{p \in P_I} S_p$, hence each \gls{PC} effectively maps $I$ to a multidimensional array with coordinates in $\prod_{p \in P_I} S_p$.
-Then the \gls{EOF} analysis is applied to the design matrix of the reference period. A spatial weighting considering the curvature of Earth is applied, to avoid losing geographic information contained in data \cite{2009BaldwinSpatialWeighting}: each grid cell is multiplied by $\sqrt{\cos{(y)}}$ where $y \in S_\text{lat}$ is its latitude.
-Once the orthogonal basis for the reference period is evaluated, every indicator for the future time horizons is projected on the first vector of the basis. The result is used as new indicator, depending only on its parameters:
+Then the \gls{EOF} analysis is applied to the design matrix of the reference period. Data are centred on the sample mean and a spatial weighting considering the curvature of Earth is applied, to avoid losing geographic information \cite{2009BaldwinSpatialWeighting}: each grid cell is multiplied by $\sqrt{\cos{(y)}}$ where $y \in S_\text{lat}$ is its latitude.
+Figure~\ref{fig:explained_EC-Earth3} shows the cumulative explained variance resulting from the \gls{EOF} analysis of all indicators for model EC-Earth3. A full decomposition is performed but to have plots easier to read it is truncated to the first five \glspl{PC}. However, the first one collects most of the variance in the sample dimension and this is valid for all models,%
+\footnote{Analogous plots for the other models are available at \url{https://github.com/mirasac/mscunito-thesis-document/tree/main/figures/torino/indicators/historical/reference/hazard/explained}.}
+ensuring that most of the underlying information related to the spatial dimensions are compressed in the first \gls{PC}.
+\begin{figure}[h]
+  \centering
+  \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/historical/reference/hazard/explained/EC-Earth3}
+  \caption{Cumulative explained variance resulting from the decomposition in \glspl{EOF} of all indicators for model EC-Earth3. The dashed line represents the threshold of 95\% and only the first five components are displayed for clarity.}
+  \label{fig:explained_EC-Earth3}
+\end{figure}
+
+Vector components of the first two \glspl{EOF} are shown as spatial fields in figure~\ref{fig:EOF_EC-Earth3_heat_wave_max_length} for indicator $\mathrm{HWML}$ and model EC-Earth3. This plot shows which features have larger weight in the decomposition, since the first two \glspl{PC} together account for the 99\% of the explained variance. Values are normalised with the $L^2$ norm to compare between various models and indicators. Same normalisation is applied in figure~\ref{fig:PC_EC-Earth3} where data for each indicator for model EC-Earth3 in the reference period are projected on the first two \glspl{EOF}.%
+\footnote{Both plots for other models and indicators are available at \url{https://github.com/mirasac/mscunito-thesis-document/tree/main/figures/torino/indicators/historical/reference/hazard/EOF} and \url{https://github.com/mirasac/mscunito-thesis-document/tree/main/figures/torino/indicators/historical/reference/hazard/PC}, respectively.}
+Indicators $\mathrm{HWI}$, $\mathrm{HWML}$ and $\mathrm{Rxp4day}$ present distribution which are not ascribable to linear correlations, hence other tools may be suitable to study their correlations, e.g. mutual information.
+\begin{figure}[h]
+  \centering
+  \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/historical/reference/hazard/EOF/EC-Earth3_heat_wave_max_length}
+  \caption{}
+  \label{fig:EOF_EC-Earth3_heat_wave_max_length}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/historical/reference/hazard/PC/EC-Earth3}
+  \caption{First two \glspl{PC} of indicators for model EC-Earth3 in the reference period. Values are normalised with $L^2$ norm. Non-linear correlations are visible for $\mathrm{HWI}$, $\mathrm{HWML}$ and $\mathrm{Rxp4day}$ indicators.}
+  \label{fig:PC_EC-Earth3}
+\end{figure}
+
+Once the orthogonal basis for the reference period is evaluated, every indicator for the future time horizons is projected on the first vector of the basis. The result is used as new indicator, depending only on its parameters $\underline{z} \in \prod_{p \in P_I} S_p$:
 \begin{equation}
   \label{eq:spatial_aggregation}
   I(y, x, \underline{z}) \mapsto I(\underline{z})% = \EOF{I(y, x, \underline{z})}  % If the commented notation is used, then add to main.tex: \DeclarePairedDelimiterXPP{\EOF}[1]{\mathrm{EOF}}{[}{]}{}{#1}.
   \quad .
 \end{equation}
+The procedure is repeated for each indicator $I \in \mathcal{H}_j$ of each \gls{driver} $j$ with data from models in each scenario and time horizon.
 
 The projection corresponds to a rotation in the space of all spatial coordinates and this is geometrically possible because feature and sample dimensions are equal for all periods, since parameters obtained from the reference period are used for the indicator in same scenario and model. A side effect of the rotation is to possibly obtain negative values which the original indicator was not allowed to get. This is an outcome of the mathematical treatment of quantities and the physical meaning of scalar quantities after the rotation is seldom preserved.
 
@@ -295,8 +322,6 @@ The first \gls{EOF} is the direction in the feature dimension which maximises th
 On the contrary, applying an \gls{EOF} analysis to every period and using the first \gls{PC} invalids the comparison of relevant spatial information across different periods. In other words, the direction of maximum variance is not guaranteed to be the same across periods.
 
 Although it is common to use \gls{EOF} analysis to decouple the temporal dimension from the spatial ones \cite{2007HannachiEmpiricalOrthogonal}, this procedure is not applied in the present study because each analysed function depends on additional arguments. If spatial aggregation were performed first, either it is applied independently to each combination of parameter values or every dimension which is not s spatial one is included the sample dimension. In both cases, the resulting \gls{indicator} would be function $I(t, \underline{z})$, however the resulting orthogonal basis would not allow the comparison between different time horizons. In fact, in the first case there is no guarantee that the direction of maximum variance of the indicator on the sample dimension $S_\text{y}$ is the same for every combination of parameter values. In the second case the sample dimension is $S_\text{y} \times \prod_{p \in P_I} S_p$, hence any known interpretation of the results of \gls{EOF} analysis in terms of time and space is not applicable.
-
-After the spatial and temporal aggregations, for every \gls{driver} $j$ each element $I \in \mathcal{H}_j$ depends only on parameter values in $\prod_{p \in P_I} S_p$.
 
 To execute module~\ref{itm:module_5}, first the scale of each \gls{indicator} is defined. In this work all \glspl{indicator} are numeric values and may have both metric or categorical scales (i.e. values are distributed uniformly or not, respectively, cf. \cite[109]{2017GIZTheVulnerability}).
 When metric scales are involved, the methodology suggests to apply the min-max normalisation. Instead, in the present work \glspl{indicator} which are scalar values are not transformed,%
