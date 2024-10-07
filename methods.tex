@@ -297,7 +297,7 @@ Indicators $\mathrm{HWI}$, $\mathrm{HWML}$ and $\mathrm{Rxp4day}$ present distri
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/historical/reference/hazard/EOF/EC-Earth3_heat_wave_max_length}
-  \caption{}
+  \caption{First two \glspl{EOF} of indicator $\mathrm{HWML}$ for model EC-Earth3 in the reference period. Values are normalised with $L^2$ norm, they are visualised as spatial distribution and represent the weight of each grid cell on the indicator.}
   \label{fig:EOF_EC-Earth3_heat_wave_max_length}
 \end{figure}
 \begin{figure}[h]
@@ -341,7 +341,7 @@ and the sample standard deviation
   \label{eq:sample_standard_deviation}
   \sigma_I = \sqrt{\frac{1}{\prod_{p \in P_I} \abs{S_p} - 1} \sum_{\underline{z} \in \prod_{p \in P_I} S_p} \big( \prd{I}{ref}(\underline{z}) - \mu_I \big)^2}
 \end{equation}
-are calculated using values obtained for the reference period $\prd{S_\text{y}}{ref}$ \cite[84]{2008OECDHandbookOn}. The advantage of equation~\eqref{eq:z-score} with respect to min-max normalisation is to be flexible when new values are introduced, in fact they are measured in terms of statistics of the reference period without breaking the normalisation.%
+are calculated using values obtained for the reference period $\prd{S_\text{y}}{ref}$ \cite[84]{2008OECDHandbookOn}. Note that the spatial aggregation procedure used above implies that $\mu_I = 0$. The advantage of equation~\eqref{eq:z-score} with respect to min-max normalisation is to be flexible when new values are introduced, in fact they are measured in terms of statistics of the reference period without breaking the normalisation.%
 \footnote{See section~\ref{sec:Min-max normalisation} for further insight on why min-max normalisation is not used.}
 To normalise categorical scales, the methodology suggests first to group the values in five classes, then replace them with specific values in the range $[0, 1]$, see \cite[115-116]{2017GIZTheVulnerability}. Higher normalised values are associated to more negative impacts. However, this case does not occur in the present study since every \gls{indicator} with categorical scale is a constant value. Not normalising some \glspl{indicator} may seem wrong since normalisation is a requisite to compare them, but the reason is supported mathematically in the next paragraphs.
 
@@ -366,7 +366,7 @@ and a scalar function for \gls{hazard} $H : \prod_j \prod_{I \in \mathcal{H}_j} 
 where $\underline{z}_I \in \prod_{p \in P_I} S_p$ is the sequence of values for parameters which are arguments of $I$.
 Note that the there is no need to treat \glspl{driver} of \gls{adaptive_capacity} and \gls{sensitivity} separately because the aggregation procedure is applied equally to them.
 
-Note that in module~\ref{itm:module_6} a relation between \glspl{indicator} within the same \gls{determinant} is established through the aggregation procedure, hence the results may be regarded as category~\ref{itm:category_1} complex \glspl{hazard}.
+In module~\ref{itm:module_6} a relation between \glspl{indicator} within the same \gls{determinant} is established through the aggregation procedure, therefore the results may be regarded as category~\ref{itm:category_1} complex \glspl{hazard}.
 Moreover, the concept of intermediate impact, which mediates \glspl{driver} of hazard and \gls{vulnerability}, are a form of category~\ref{itm:category_2} complex \gls{hazard} \cite[33]{2017GIZRiskSupplement}.
 
 
