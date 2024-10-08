@@ -403,7 +403,8 @@ Values obtained from all the combinations of parameters are classified according
   \item $\riskiv$;
   \item $\riskv$.
 \end{enumerate}
-This transformation can be formalised as a piecewise function $r : \prod_j \prod_{I \in \mathcal{H}_j} \prod_{p \in P_I} S_p \to \{ \riski, \riskii, \riskiii, \riskiv, \riskv \}$, where the thresholds for each piece are the quantiles of the image of $\prod_j \prod_{I \in \mathcal{H}_j} \prod_{p \in P_I} S_p$ through function $R$ for the reference period:
+This transformation can be formalised as a piecewise function $r : \prod_j \prod_{I \in \mathcal{H}_j} \prod_{p \in P_I} S_p \to \{ 1, 2, 3, 4, 5 \}$, where the thresholds for each interval identify five equally spaces intervals in the set of risk values of the reference period, i.e. the image of $\prod_j \prod_{I \in \mathcal{H}_j} \prod_{p \in P_I} S_p$ through function $\prd{R}{ref}$:%
+\footnote{This is equivalent to apply the min-max normalisation and divide the interval $[0, 1]$ in five parts, as hinted by \cite[74]{2017GIZVulnerabilitySourcebook}.}
 \begin{equation}
   \label{eq:risk_categorical}
   r(\underline{z}) =
@@ -416,7 +417,7 @@ This transformation can be formalised as a piecewise function $r : \prod_j \prod
   \end{cases}
   \quad .
 \end{equation}
-Thresholds $q_1$, $q_2$, $q_3$ and $q_4$ are calculated from \gls{risk} values of the reference period because \gls{hazard} \glspl{driver} are supposed to change \gls{risk} and \glspl{impact} with time. Moreover, the pieces of the function reflect the fact that the image of $R$ is not bounded, due to the aggregated values of \glspl{determinant} being not bounded by the chosen normalisation. This allows to account for extreme values of \gls{risk} in periods different from the reference.
+Thresholds $q_1$, $q_2$, $q_3$ and $q_4$ are calculated from risk values of the reference period because \gls{hazard} \glspl{driver} are supposed to change risk and \glspl{impact} with time. Moreover, the pieces of the function reflect the fact that the image of $R$ is not bounded, due to the aggregated values of \glspl{determinant} being not bounded by the chosen normalisation. This allows to account for extreme values of risk in periods different from the reference.
 
 Module~\ref{itm:module_7} addresses the possible aggregation of multiple sub-risks into an overall \gls{risk} value \cite[54]{2017GIZRiskSupplement}. According to section~\ref{sec:Complex risk}, the outcome would be a complex risk belonging to category~\ref{itm:category_3}.
 This additional elaboration is not implemented in the present work because an individual \gls{risk} is studied, i.e. the climate risk.
