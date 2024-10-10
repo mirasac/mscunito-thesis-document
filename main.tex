@@ -28,6 +28,7 @@
 \usepackage[group-digits=integer,separate-uncertainty,per-mode=symbol]{siunitx}
 \DeclareSIUnit[number-unit-product={}]{\degreeNorth}{\SIUnitSymbolDegree~N}
 \DeclareSIUnit[number-unit-product={}]{\degreeEast}{\SIUnitSymbolDegree~E}
+\DeclareSIUnit{\day}{day}
 
 \usepackage[breakable,skins]{tcolorbox}
 
@@ -62,7 +63,6 @@
 \iftoggle{toggle_example}{
   \newtcolorbox{example}{
     enhanced,
-    breakable,
     title=Example,
     coltitle=black,
     colbacktitle=white,
@@ -85,7 +85,7 @@
 \chapter{Introduction}
 \label{sec:Introduction}
 \input{introduction.tex}
-\chapter{Methods}
+\chapter{Data and Methods}
 \label{sec:Methods}
 \input{data.tex}
 \input{methods.tex}

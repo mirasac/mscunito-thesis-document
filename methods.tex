@@ -50,6 +50,7 @@ For \gls{IPCC} \glsdesc{heavy_precipitation}, where the term \emph{precipitation
 \Gls{exposure} \glspl{driver} in airports are the physical components of the airport. They can be subject to \glspl{impact} of climate change at various levels, hence their presence determines \glspl{risk}. Normally the components of airports are divided in air side and land side, the former regarding all components which interact with aircraft operations and the latter for the public areas \cite[553]{2022DeVivoRiskAssessment}. This distinction is made for helping the collection of data on drivers.
 In this study the considered drivers are listed in table~\ref{tab:drivers_exposure} and they are taken from \cite[554]{2022DeVivoRiskAssessment}. A single \gls{indicator} is chosen for every driver, they are listed in the same table and are identified with the same symbol, for ease.
 \begin{table}[h]
+  \renewcommand*{\arraystretch}{1.5}
   \centering
   \caption{Drivers of exposure considered in the study and associated indicators. The part of the table above the line shows the air-side components, below the line there are the land-side components. Dimensionless quantities have an empy cell in the Units column.}
   \label{tab:drivers_exposure}
@@ -66,6 +67,7 @@ In this study the considered drivers are listed in table~\ref{tab:drivers_exposu
 
 \Gls{vulnerability} data are divided in \gls{adaptive_capacity} and \gls{sensitivity}. Under adaptive capacity are gathered measures which are active, planned or not present for the system in order to contain negative \glspl{impact} of climate. Instead, \glspl{driver} of sensitivity are elements of the system subject directly to the realisation of risks. Drivers are derived from \cite[555-556,558]{2022DeVivoRiskAssessment} and are listed in table~\ref{tab:drivers_vulnerability}. Similarly to the \gls{exposure} \gls{determinant}, the table shows also vulnerability \glspl{indicator}, because a single indicator is chosen for every driver and they use the same symbol.
 \begin{table}[h]
+  \renewcommand*{\arraystretch}{1.5}
   \centering
   \caption{Drivers of vulnerability and their indicators. Specifically, drivers of adaptive capacity are above the line, while drivers of sensitivity are below. Dimensionless quantities have an empty cell in the Units column.}
   \label{tab:drivers_vulnerability}
@@ -112,7 +114,7 @@ Long-term time horizons are affected by greater uncertainty for different reason
     Time horizon & Symbol & Start                           & End                               \\
     \hline
     Near         & near   & \DTMdisplaydate{2024}{1}{1}{-1} & \DTMdisplaydate{2043}{12}{31}{-1} \\
-    Medium       & mid    & \DTMdisplaydate{2044}{1}{1}{-1} & \DTMdisplaydate{2063}{12}{31}{-1} \\
+    Medium       & medium & \DTMdisplaydate{2044}{1}{1}{-1} & \DTMdisplaydate{2063}{12}{31}{-1} \\
     Long         & long   & \DTMdisplaydate{2081}{1}{1}{-1} & \DTMdisplaydate{2100}{12}{31}{-1} \\
   \end{tabular}
 \end{table}
@@ -157,6 +159,7 @@ In particular for this study, an heat wave is described mathematically by \glspl
 Indicators in table~\ref{tab:indicators_heavy_precipitation} are chosen to describe an heavy precipitation event. Other than duration and frequency, estimated by $\mathrm{CWD}$ and $\mathrm{Rp5mm}$, respectively, also the intensity of the event is quantified by $\mathrm{Rxp4day}$.
 All indicators are generalised versions of indicators and indices frequently used in literature, e.g. \cite[2208]{2021GutierrezAnnexVI}. They are provided by \cite{2023BourgaultXclimXarray-based} and are evaluated at yearly resolution.
 \begin{table}
+  \renewcommand*{\arraystretch}{1.5}
   \centering
   \caption{Indicators describing heat wave events. They have yearly resolution.}
   \label{tab:indicators_heat_wave}
@@ -168,6 +171,7 @@ All indicators are generalised versions of indicators and indices frequently use
   \end{tabular}
 \end{table}
 \begin{table}
+  \renewcommand*{\arraystretch}{1.5}
   \centering
   \caption{Indicators describing heavy precipitation events. They have yearly resolution.}
   \label{tab:indicators_heavy_precipitation}
@@ -214,6 +218,7 @@ If parameter $p$ is not related to a \gls{ECV}, e.g. window size for moving aver
 
 The parameters indicators chosen for this study depend on are collected in table~\ref{tab:indicators_parameters}. Note that despite the definition of heat wave lasting two or more days, a window of one day is considered, i.e. $\mathrm{p1} = 1$, simply to count the number of days with extreme temperatures in a year. In particular, indicator $\mathrm{HWI}$ becomes $\mathrm{TXnn}$, see \cite[2209]{2021GutierrezAnnexVI}.
 \begin{table}[h]
+  \renewcommand*{\arraystretch}{1.5}
   \centering
   \caption{Parameters present in the definitions of hazard indicators.}
   \label{tab:indicators_parameters}
@@ -254,7 +259,7 @@ Figure~\ref{fig:historical_reference_field_EC-Earth3_heat_wave_max_length} shows
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/historical/reference/field/EC-Earth3_heat_wave_max_length/1}
-  \caption{$\mathrm{HWML}$ indicator temporally aggregated on the reference period for the EC-Earth3 model. Sample average and sample standard deviations are shown as spatial distributions with fixed parameters $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p2} = \qty{24.67}{\degreeCelsius}$ and $\mathrm{p3} = \qty{15.32}{\degreeCelsius}$, both thresholds of temperature are the 90th percentile. The black dot is the reference point of the case study. Effects of orography are visible, reducing daily \gls{tas} in grid cells covering mountain ranges.}
+  \caption{Heat wave max length (symbol $\mathrm{HWML}$, unit \unit{\day}) indicator temporally aggregated on the reference period for the EC-Earth3 model. Sample average and sample standard deviations are shown as spatial distributions with fixed parameters $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p2} = \qty{24.67}{\degreeCelsius}$ and $\mathrm{p3} = \qty{15.32}{\degreeCelsius}$, both thresholds of temperature are the 90th percentile. The black dot is the reference point of the case study. Effects of orography are visible, reducing daily \gls{tas} in grid cells covering mountain ranges.}
   \label{fig:historical_reference_field_EC-Earth3_heat_wave_max_length}
 \end{figure}
 
@@ -272,7 +277,7 @@ An example of indicator anomaly is shown in figure~\ref{fig:spatial_bias_EC-Eart
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/spatial_bias/EC-Earth3_heat_wave_max_length/1}
-  \caption{Anomalies of $\mathrm{HWML}$ for each time horizon with respect to the reference period. The spatial distributions are result of the temporal aggregation of indicators. Data refer to the case study and are from the SSP2-4.5 scenario experiment of the EC-Earth3 model. Parameters have values $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p2} = \qty{24.67}{\degreeCelsius}$ and $\mathrm{p3} = \qty{15.32}{\degreeCelsius}$, both thresholds of temperature correspond to the 90th percentile. In general the number of heat wave events increases and spatial differences caused by orography are accentuated with time.}
+  \caption{Anomalies of heat wave max length (symbol $\mathrm{HWML}$, unit \unit{\day}) indicator for each time horizon with respect to period 1971-2000, i.e. the reference period selected for the use case. The spatial distributions are result of the temporal aggregation of indicators. Data refer to the case study and are from the SSP2-4.5 scenario experiment of the EC-Earth3 model. Parameters have values $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p2} = \qty{24.67}{\degreeCelsius}$ and $\mathrm{p3} = \qty{15.32}{\degreeCelsius}$, both thresholds of temperature correspond to the 90th percentile. In general the number of heat wave events increases and spatial differences caused by orography are accentuated with time.}
   \label{fig:spatial_bias_EC-Earth3_heat_wave_max_length}
 \end{figure}
 
@@ -297,13 +302,13 @@ Indicators $\mathrm{HWI}$, $\mathrm{HWML}$ and $\mathrm{Rxp4day}$ present distri
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/historical/reference/hazard/EOF/EC-Earth3_heat_wave_max_length}
-  \caption{First two \glspl{EOF} of indicator $\mathrm{HWML}$ for model EC-Earth3 in the reference period. Values are normalised with $L^2$ norm, they are visualised as spatial distribution and represent the weight of each grid cell on the indicator.}
+  \caption{First two \glspl{EOF} of indicator heat wave max length (symbol $\mathrm{HWML}$, unit \unit{\day}) for model EC-Earth3 in the reference period. Values are normalised with $L^2$ norm, they are visualised as spatial distribution and represent the weight of each grid cell on the indicator.}
   \label{fig:EOF_EC-Earth3_heat_wave_max_length}
 \end{figure}
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/historical/reference/hazard/PC/EC-Earth3}
-  \caption{First two \glspl{PC} of indicators for model EC-Earth3 in the reference period. Values are normalised with $L^2$ norm. Non-linear correlations are visible for $\mathrm{HWI}$, $\mathrm{HWML}$ and $\mathrm{Rxp4day}$ indicators.}
+  \caption{First two \glspl{PC} of indicators for model EC-Earth3 in the reference period of the use case, i.e. from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}. Values are normalised with $L^2$ norm. Non-linear correlations are visible for heat wave index (symbol $\mathrm{HWI}$), heat wave indicator (symbol $\mathrm{HWML}$) and maximum consecutive $\mathrm{p4}$-day precipitation (symbol $\mathrm{Rxp4day}$).}
   \label{fig:PC_EC-Earth3}
 \end{figure}
 
