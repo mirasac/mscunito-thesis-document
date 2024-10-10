@@ -21,16 +21,12 @@ figures/torino/indicators/historical/reference/field/*
 figures/torino/indicators/historical/reference/field/EC-Earth3_heat_wave_max_length/*
 !figures/torino/indicators/historical/reference/field/EC-Earth3_heat_wave_max_length/1.pdf
 
-figures/torino/indicators/ssp126/*
-!figures/torino/indicators/ssp126/parameters.txt
+figures/torino/indicators/ssp126/*/field/
 
-figures/torino/indicators/ssp245/*
-!figures/torino/indicators/ssp245/parameters.txt
-!figures/torino/indicators/ssp245/spatial_bias
+figures/torino/indicators/ssp245/*/field/
 figures/torino/indicators/ssp245/spatial_bias/*
 !figures/torino/indicators/ssp245/spatial_bias/EC-Earth3_heat_wave_max_length
 figures/torino/indicators/ssp245/spatial_bias/EC-Earth3_heat_wave_max_length/*
 !figures/torino/indicators/ssp245/spatial_bias/EC-Earth3_heat_wave_max_length/1.pdf
 
-figures/torino/indicators/ssp370/*
-!figures/torino/indicators/ssp370/parameters.txt
+figures/torino/indicators/ssp370/*/field/
