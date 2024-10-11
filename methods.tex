@@ -18,7 +18,7 @@ When the \gls{vulnerability} of the system is recalled, it is split into \gls{se
 
 All modules are connected by the concept of \gls{impact_chain}, which is an \glsdesc{impact_chain}. This concept helps to develop the \gls{CCRA} as a narrative and to guide it smoothly through its various steps, see \cite[217-224]{2022KondrupClimateAdaptation} for a review of the concept.
 
-Although a complete application of this methodology does not fall into the purposes of this study, each module is briefly addressed in the following sections and results of evaluations are presented in section~\ref{sec:Results} where case studies are treated.
+Although a complete application of this methodology does not fall into the purposes of this study, each module is briefly addressed in the following sections and results of evaluations are presented in section~\ref{sec:Case study} where case studies are treated.
 
 
 
@@ -31,6 +31,7 @@ The aviation sector is a complete test case for responses to climate change: it 
 
 \Glspl{impact} from extreme temperatures and precipitation are studied, as they are among the biggest challenges to address in the aviation sector. Both \Gls{ICAO} and \gls{WMO} collected opinions and experiences from stakeholders through surveys \cite[62]{2018ICAOClimateAdaptation} and \cite[34]{2020WorldMeteorologicalOrganizationWMOOutcomesOf}, respectively.
 More in detail, the two \gls{hazard} \glspl{driver} \gls{heat_wave} and \gls{heavy_precipitation} are considered. They are selected from the taxonomy provided by European Union for \gls{CCRA}, to have a well-known and authoritative reference in the field \cite[177]{2024EU20212139}, and both drivers are associated to acute physical risks. A symbol is associated to each \gls{driver} to track their use in the calculation, see table~\ref{tab:drivers_hazard}.
+
 \begin{table}[h]
   \centering
   \caption{Drivers of hazard with their symbols.}
@@ -48,43 +49,45 @@ An \gls{heat_wave} is defined by \gls{IPCC} as \glsdesc{heat_wave}. \Gls{WMO} pr
 For \gls{IPCC} \glsdesc{heavy_precipitation}, where the term \emph{precipitation} refers to water in every state, e.g. rain, snow, ice. Further details on the characterisation of heavy precipitation are provided by \gls{WMO} in \cite[6-7]{2023WorldMeteorologicalOrganizationWMOGuidelinesOn}. Climate change shifts local and global distributions of rainfall \cite[1605]{2021SeneviratneWeatherAnd}. These impacts are likely to occur in the near future and the one affecting airports are local in nature, e.g. flooding due to failures in drainage systems, but they may propagate throughout the aviation network depending on their severity \cite[28-34]{2018ICAOClimateAdaptation}.
 
 \Gls{exposure} \glspl{driver} in airports are the physical components of the airport. They can be subject to \glspl{impact} of climate change at various levels, hence their presence determines \glspl{risk}. Normally the components of airports are divided in air side and land side, the former regarding all components which interact with aircraft operations and the latter for the public areas \cite[553]{2022DeVivoRiskAssessment}. This distinction is made for helping the collection of data on drivers.
-In this study the considered drivers are listed in table~\ref{tab:drivers_exposure} and they are taken from \cite[554]{2022DeVivoRiskAssessment}. A single \gls{indicator} is chosen for every driver, they are listed in the same table and are identified with the same symbol, for ease.
+In this study the considered drivers are listed in table~\ref{tab:drivers_exposure} and they are taken from \cite[554]{2022DeVivoRiskAssessment}. A single \gls{indicator} is chosen for every driver, they are listed in the same table and are identified with the same symbol to simplify the notation.
+
 \begin{table}[h]
   \renewcommand*{\arraystretch}{1.5}
   \centering
-  \caption{Drivers of exposure considered in the study and associated indicators. The part of the table above the line shows the air-side components, below the line there are the land-side components. Dimensionless quantities have an empy cell in the Units column.}
+  \caption{Drivers of exposure considered in the study and associated indicators. The part of the table above the line shows the air-side components, below the line there are the land-side components. Dimensionless quantities have an empy cell in the Unit column.}
   \label{tab:drivers_exposure}
-  \begin{tabular}{p{0.20\textwidth}cccc}
-    Driver                      & Symbol        & Indicator & Units                & Torino-Caselle \\
+  \begin{tabular}{p{0.33\textwidth}cccc}
+    Driver                      & Symbol        & Indicator & Unit                 \\
     \hline
-    Runways                     & $\mathrm{e1}$ & area      & \unit{\square\metre} & 198000         \\
+    Runways                     & $\mathrm{e1}$ & area      & \unit{\square\metre} \\
     \hline
-    Terminals                   & $\mathrm{e2}$ & area      & \unit{\square\metre} & 51150          \\
-    Offices and other buildings & $\mathrm{e3}$ & area      & \unit{\square\metre} & 4245           \\
-    Carparks                    & $\mathrm{e4}$ & number    &                      & 3000           \\
+    Terminals                   & $\mathrm{e2}$ & area      & \unit{\square\metre} \\
+    Offices and other buildings & $\mathrm{e3}$ & area      & \unit{\square\metre} \\
+    Carparks                    & $\mathrm{e4}$ & number    &                      \\
   \end{tabular}
 \end{table}
 
-\Gls{vulnerability} data are divided in \gls{adaptive_capacity} and \gls{sensitivity}. Under adaptive capacity are gathered measures which are active, planned or not present for the system in order to contain negative \glspl{impact} of climate. Instead, \glspl{driver} of sensitivity are elements of the system subject directly to the realisation of risks. Drivers are derived from \cite[555-556,558]{2022DeVivoRiskAssessment} and are listed in table~\ref{tab:drivers_vulnerability}. Similarly to the \gls{exposure} \gls{determinant}, the table shows also vulnerability \glspl{indicator}, because a single indicator is chosen for every driver and they use the same symbol.
+\Gls{vulnerability} data are divided in \gls{adaptive_capacity} and \gls{sensitivity}. Under adaptive capacity are gathered measures which are active, planned or not present for the system in order to contain negative \glspl{impact} of climate. Instead, \glspl{driver} of sensitivity are elements of the system subject directly to the realisation of risks. Drivers are derived from \cite[555-556,558]{2022DeVivoRiskAssessment} and are listed in table~\ref{tab:drivers_vulnerability}. Similarly to the \gls{exposure} \gls{determinant}, the table shows also vulnerability \glspl{indicator} because a single indicator is chosen for every driver, hence they can be identified by the same symbol, for ease.
+
 \begin{table}[h]
   \renewcommand*{\arraystretch}{1.5}
   \centering
-  \caption{Drivers of vulnerability and their indicators. Specifically, drivers of adaptive capacity are above the line, while drivers of sensitivity are below. Dimensionless quantities have an empty cell in the Units column.}
+  \caption{Drivers of vulnerability and their indicators. Specifically, drivers of adaptive capacity are above the line, while drivers of sensitivity are below. Dimensionless quantities have an empty cell in the Unit column.}
   \label{tab:drivers_vulnerability}
-  \begin{tabular}{p{0.20\textwidth}cccc}
-    Driver                                           & Symbol         & Indicator & Units                & Torino-Caselle \\
+  \begin{tabular}{p{0.33\textwidth}cccc}
+    Driver                                           & Symbol         & Indicator & Unit                 \\
     \hline
-    Risk awareness                                   & $\mathrm{v1}$  & level     &                      & 0.3            \\
-    Guidelines for adaptation plan to climate change & $\mathrm{v2}$  & presence  &                      & 0.5            \\
-    Efficient drainage system                        & $\mathrm{v3}$  & presence  &                      & 0.1            \\
-    Monitoring and alarm system                      & $\mathrm{v4}$  & presence  &                      & 0.9            \\
-    Bioinfiltration and permeable pavements          & $\mathrm{v5}$  & presence  &                      & 0.1            \\
+    Risk awareness                                   & $\mathrm{v1}$  & level     &                      \\
+    Guidelines for adaptation plan to climate change & $\mathrm{v2}$  & presence  &                      \\
+    Efficient drainage system                        & $\mathrm{v3}$  & presence  &                      \\
+    Monitoring and alarm system                      & $\mathrm{v4}$  & presence  &                      \\
+    Bioinfiltration and permeable pavements          & $\mathrm{v5}$  & presence  &                      \\
     \hline
-    Soil sealing                                     & $\mathrm{v6}$  & area      & \unit{\square\metre} & 2450000        \\
-    Passengers                                       & $\mathrm{v7}$  & number    &                      & 3219317        \\
-    Age buildings                                    & $\mathrm{v8}$  & number    &                      & 57             \\
-    Air traffic                                      & $\mathrm{v9}$  & number    &                      & 53169          \\
-    Underground infrastructures                      & $\mathrm{v10}$ & area      & \unit{\square\metre} & 0              \\
+    Soil sealing                                     & $\mathrm{v6}$  & area      & \unit{\square\metre} \\
+    Passengers                                       & $\mathrm{v7}$  & number    &                      \\
+    Age buildings                                    & $\mathrm{v8}$  & number    &                      \\
+    Air traffic                                      & $\mathrm{v9}$  & number    &                      \\
+    Underground infrastructures                      & $\mathrm{v10}$ & area      & \unit{\square\metre} \\
     \end{tabular}
 \end{table}
 
@@ -106,6 +109,7 @@ The reference period covered by the \gls{CCRA} of this study is chosen such that
 The future climate is described for three time horizons, they are summarised in table~\ref{tab:time_horizons}.
 Near and medium-term time horizons are chosen to be as close as possible to the present (at time of writing). This way it is more reasonable to find adaptation plans and strategies for the system at risk.
 Long-term time horizons are affected by greater uncertainty for different reasons, e.g. lower confidence on outputs from climate projections, exposure subject to change. Nevertheless, the long period is chosen to show differences between scenarios, which are more evident at the end of the century for many \glspl{ECV}.
+
 \begin{table}[h]
   \centering
   \caption{Time periods used in the analysis to describe future climate and the evolution of risk.}
@@ -137,19 +141,19 @@ The methodology suggests to avoid double counting of \glspl{driver} by allocatin
   
   One \gls{driver} of \gls{exposure} and two of \gls{vulnerability} are chosen, they are respectively:
   \begin{description}
-    \item[e1] presence of farmers in the region;
-    \item[v1] insufficient know-how about irrigation systems;
-    \item[v2] weak institutional setting for water management.
+    \item[exp1] presence of farmers in the region;
+    \item[vul1] insufficient know-how about irrigation systems;
+    \item[vul2] weak institutional setting for water management.
   \end{description}
   Both \glspl{driver} of \gls{vulnerability} describe the \gls{adaptive_capacity} of the system. All \glspl{driver} are conveniently identified by lables.
   
   An \gls{indicator} for each \gls{driver} is chosen, the resulting sets are:
   \begin{align*}
-    \mathcal{E}_\text{e1} & = \left\{ \parbox{0.45\linewidth}{``number of farmers in the region''} \right\}
+    \mathcal{E}_\text{exp1} & = \left\{ \parbox{0.45\linewidth}{``number of farmers in the region''} \right\}
     \quad , \\
-    \mathcal{V}_\text{v1} & = \left\{ \parbox{0.45\linewidth}{``number of farmers trained in improved irrigation techniques''} \right\}
+    \mathcal{V}_\text{vul1} & = \left\{ \parbox{0.45\linewidth}{``number of farmers trained in improved irrigation techniques''} \right\}
     \quad , \\
-    \mathcal{V}_\text{v2} & = \left\{ \parbox{0.45\linewidth}{``number of local water co-operations''} \right\}
+    \mathcal{V}_\text{vul2} & = \left\{ \parbox{0.45\linewidth}{``number of local water co-operations''} \right\}
     \quad .
   \end{align*}
   Note that all \glspl{indicator} consist in counting some elements of the system. Nevertheless, they are different from each other since they refer to different elements.
@@ -158,6 +162,7 @@ The methodology suggests to avoid double counting of \glspl{driver} by allocatin
 In particular for this study, an heat wave is described mathematically by \glspl{indicator} in table~\ref{tab:indicators_heat_wave}. Heat waves are described both in frequency and duration, through $\mathrm{HWI}$ and $\mathrm{HWML}$, respectively.
 Indicators in table~\ref{tab:indicators_heavy_precipitation} are chosen to describe an heavy precipitation event. Other than duration and frequency, estimated by $\mathrm{CWD}$ and $\mathrm{Rp5mm}$, respectively, also the intensity of the event is quantified by $\mathrm{Rxp4day}$.
 All indicators are generalised versions of indicators and indices frequently used in literature, e.g. \cite[2208]{2021GutierrezAnnexVI}. They are provided by \cite{2023BourgaultXclimXarray-based} and are evaluated at yearly resolution.
+
 \begin{table}
   \renewcommand*{\arraystretch}{1.5}
   \centering
@@ -184,14 +189,14 @@ All indicators are generalised versions of indicators and indices frequently use
   \end{tabular}
 \end{table}
 
-In module~\ref{itm:module_4} the evaluation of \glspl{indicator} on climate and system data occurs. Concerning the system, the data collection step is explained in section~\ref{sec:Impact chain} and scalar values are readily obtained for the elements in sets $\mathcal{E}_i$ and $\mathcal{V}_k$ for any \gls{driver} $i$ or $k$. See paragraphs about data in section~\ref{sec:Impact chain} for the definition of the \glspl{indicator} of \gls{exposure} and \gls{vulnerability} used to describe each system and section~\ref{sec:Results} for their values.
+In module~\ref{itm:module_4} the evaluation of \glspl{indicator} on climate and system data occurs. Concerning the system, the data collection step is explained in section~\ref{sec:Impact chain} and scalar values are readily obtained for the elements in sets $\mathcal{E}_i$ and $\mathcal{V}_k$ for any \gls{driver} $i$ or $k$. See paragraphs about data in section~\ref{sec:Impact chain} for the definition of the \glspl{indicator} of \gls{exposure} and \gls{vulnerability} used to describe each system and section~\ref{sec:Case study} for their values.
 
 A more convoluted path is needed to evaluate \glspl{indicator} of \gls{hazard}. They are functions defined by equation~\eqref{eq:math_indicator}, hence they depend on climate data and additional parameters. In tables~\ref{tab:indicators_heat_wave} and~\ref{tab:indicators_heavy_precipitation} parameters are listed to complete the definition of indicators, but they are detailed in the following paragraphs.
 
 For each \gls{indicator}, a set of values of its parameters is defined. Ideally these sets would be continuous, to explore the whole space of possible configurations of parameters. However, for limitations intrinsic to the analysis tools, only a finite and small number of values can be considered. In the following these discrete sets are called intervals to preserve generality.
 How values in these intervals are selected depends on the nature of the parameters. The selection is ultimately arbitrary, to allow greater control, e.g. remove values which are not interesting for the analysis, and to apply a form of non-parametric sampling of the input space. This is a form of space-filling design for \gls{SA} \cite[593-594]{2015DeanHandbookOf}.
 
-To simplify the explanation, consider \gls{driver} $j$ and an \gls{indicator} $I \in \mathcal{H}_j$. This \gls{indicator} depends on some parameters, which are collected in set $P_I$, and on some \glspl{ECV}. The chosen interval for a parameter $p \in P_I$ is a set of scalar values, possibly with units, denoted by $S_p$.
+To simplify the explanation, consider \gls{driver} $j$ and an \gls{indicator} $I \in \mathcal{H}_j$. This \gls{indicator} depends on some parameters, which are collected in set $P_I$, and on some \glspl{ECV}. The chosen interval for a parameter $p \in P_I$ is a set of scalar values, possibly with units of measurement, denoted by $S_p$.
 
 If parameter $p$ is related to a \gls{ECV} (e.g. threshold on \gls{tas}), its values are sampled from the distribution of the \gls{ECV}. First all data available for the \gls{ECV} of interest are collected in a single sample, with the following conditions:
 \begin{itemize}
@@ -214,22 +219,23 @@ Second, the empirical \gls{QF} of data is built from the sample, to acknowledge 
 Third, values are chosen with the aim to sample the true probability distribution uniformly, starting from the quantile corresponding to frequency 90\%. This allows to focus the analysis on the side of the distribution which have higher values, related to extreme \glspl{risk}. The density of points may be increased where needed to have a better description of the shape of the distribution.%
 \footnote{Why do not use derivative-based methods to set the density of points? The reason is again greater control on the selected values: there is no need to evaluate the derivative of the \gls{QF} in every point, just within the subintervals which are interesting for the analysis. Note that the \gls{QF} is obtained by linear interpolation between existent data values, hence the slope is already evaluated internally and the derivative is a piecewise constant function.}
 
-If parameter $p$ is not related to a \gls{ECV}, e.g. window size for moving averages, some heuristic is applied and explained case by case where values are presented in section~\ref{sec:Results}.
+If parameter $p$ is not related to a \gls{ECV}, e.g. window size for moving averages, some heuristic is applied and explained case by case where values are presented in section~\ref{sec:Case study}.
 
 The parameters indicators chosen for this study depend on are collected in table~\ref{tab:indicators_parameters}. Note that despite the definition of heat wave lasting two or more days, a window of one day is considered, i.e. $\mathrm{p1} = 1$, simply to count the number of days with extreme temperatures in a year. In particular, indicator $\mathrm{HWI}$ becomes $\mathrm{TXnn}$, see \cite[2209]{2021GutierrezAnnexVI}.
+
 \begin{table}[h]
   \renewcommand*{\arraystretch}{1.5}
   \centering
   \caption{Parameters present in the definitions of hazard indicators.}
   \label{tab:indicators_parameters}
   \begin{tabular}{p{0.20\textwidth}ccp{0.33\textwidth}}
-    Parameter                                  & Symbol        & Unit                        & Interval                                                                               \\
+    Parameter                                  & Symbol        & Unit                        & Interval                                                                                     \\
     \hline
-    Consecutive days of extreme heat           & $\mathrm{p1}$ & \unit{\day}                 & Integer numbers from 1 to 31 in steps of 3                                             \\  %Interval in symbols: $\{ v \in \mathbb{N} : v = 3n + 1 \wedge n \in \mathbb{N} \wedge 0 \leq n \leq 10 \}$.
-    Threshold of \gls{tasmax}                  & $\mathrm{p2}$ & \unit{\degreeCelsius}       & Quantiles 0.90, 0.97, 0.99, 0.999, 1.0 of \gls{tasmax} in the historical experiment    \\
-    Threshold of \gls{tasmin}                  & $\mathrm{p3}$ & \unit{\degreeCelsius}       & Quantiles 0.90, 0.97, 0.99, 0.999, 1.0 of \gls{tasmin} in the historical experiment    \\
-    Consecutive days of extreme precipitation  & $\mathrm{p4}$ & \unit{\day}                 & Integer numbers from 1 to 31                                                           \\  %Interval in symbols: $\{ v \in \mathbb{N} : 1 \leq v \leq 31 \}$.
-    Threshold of \gls{pr}                      & $\mathrm{p5}$ & \unit{\milli\metre\per\day} & Quantiles 0.90, 0.97, 0.99, 0.999, 0.9999 of \gls{pr} in the historical experiment     \\
+    Consecutive days of extreme heat           & $\mathrm{p1}$ & \unit{\day}                 & Integer numbers from 1 to 31 in steps of 3                                                   \\  %Interval in symbols: $\{ v \in \mathbb{N} : v = 3n + 1 \wedge n \in \mathbb{N} \wedge 0 \leq n \leq 10 \}$.
+    Threshold of \gls{tasmax}                  & $\mathrm{p2}$ & \unit{\degreeCelsius}       & Quantiles of order 0.90, 0.97, 0.99, 0.999, 1.0 of \gls{tasmax} in the historical experiment \\
+    Threshold of \gls{tasmin}                  & $\mathrm{p3}$ & \unit{\degreeCelsius}       & Quantiles of order 0.90, 0.97, 0.99, 0.999, 1.0 of \gls{tasmin} in the historical experiment \\
+    Consecutive days of extreme precipitation  & $\mathrm{p4}$ & \unit{\day}                 & Integer numbers from 1 to 31                                                                 \\  %Interval in symbols: $\{ v \in \mathbb{N} : 1 \leq v \leq 31 \}$.
+    Threshold of \gls{pr}                      & $\mathrm{p5}$ & \unit{\milli\metre\per\day} & Quantiles of order 0.90, 0.97, 0.99, 0.999, 0.9999 of \gls{pr} in the historical experiment  \\
   \end{tabular}
 \end{table}
 
@@ -259,7 +265,7 @@ Figure~\ref{fig:historical_reference_field_EC-Earth3_heat_wave_max_length} shows
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/historical/reference/field/EC-Earth3_heat_wave_max_length/1}
-  \caption{Heat wave max length (symbol $\mathrm{HWML}$, unit \unit{\day}) indicator temporally aggregated on the reference period for the EC-Earth3 model. Sample average and sample standard deviations are shown as spatial distributions with fixed parameters $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p2} = \qty{24.67}{\degreeCelsius}$ and $\mathrm{p3} = \qty{15.32}{\degreeCelsius}$, both thresholds of temperature are the 90th percentile. The black dot is the reference point of the case study. Effects of orography are visible, reducing daily \gls{tas} in grid cells covering mountain ranges.}
+  \caption{{Heat wave max length} (symbol $\mathrm{HWML}$, unit \unit{\day}) indicator temporally aggregated on the reference period for the EC-Earth3 model. Sample average and sample standard deviations are shown as spatial distributions with fixed parameters $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p2} = \qty{24.67}{\degreeCelsius}$ and $\mathrm{p3} = \qty{15.32}{\degreeCelsius}$, both thresholds of temperature are the 90th percentile. The black dot is the reference point of the case study. Effects of orography are visible, reducing daily \gls{tas} in grid cells covering mountain ranges.}
   \label{fig:historical_reference_field_EC-Earth3_heat_wave_max_length}
 \end{figure}
 
@@ -277,7 +283,7 @@ An example of indicator anomaly is shown in figure~\ref{fig:spatial_bias_EC-Eart
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/spatial_bias/EC-Earth3_heat_wave_max_length/1}
-  \caption{Anomalies of heat wave max length (symbol $\mathrm{HWML}$, unit \unit{\day}) indicator for each time horizon with respect to period 1971-2000, i.e. the reference period selected for the use case. The spatial distributions are result of the temporal aggregation of indicators. Data refer to the case study and are from the SSP2-4.5 scenario experiment of the EC-Earth3 model. Parameters have values $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p2} = \qty{24.67}{\degreeCelsius}$ and $\mathrm{p3} = \qty{15.32}{\degreeCelsius}$, both thresholds of temperature correspond to the 90th percentile. In general the number of heat wave events increases and spatial differences caused by orography are accentuated with time.}
+  \caption{Anomalies of {Heat wave max length} (symbol $\mathrm{HWML}$, unit \unit{\day}) indicator for each time horizon with respect to period 1971-2000, i.e. the reference period selected for the use case. The spatial distributions are result of the temporal aggregation of indicators. Data refer to the case study and are from the SSP2-4.5 scenario experiment of the EC-Earth3 model. Parameters have values $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p2} = \qty{24.67}{\degreeCelsius}$ and $\mathrm{p3} = \qty{15.32}{\degreeCelsius}$, both thresholds of temperature correspond to the 90th percentile. In general the number of heat wave events increases and spatial differences caused by orography are accentuated with time.}
   \label{fig:spatial_bias_EC-Earth3_heat_wave_max_length}
 \end{figure}
 
@@ -302,13 +308,13 @@ Indicators $\mathrm{HWI}$, $\mathrm{HWML}$ and $\mathrm{Rxp4day}$ present distri
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/historical/reference/hazard/EOF/EC-Earth3_heat_wave_max_length}
-  \caption{First two \glspl{EOF} of indicator heat wave max length (symbol $\mathrm{HWML}$, unit \unit{\day}) for model EC-Earth3 in the reference period. Values are normalised with $L^2$ norm, they are visualised as spatial distribution and represent the weight of each grid cell on the indicator.}
+  \caption{First two \glspl{EOF} of indicator {Heat wave max length} (symbol $\mathrm{HWML}$, unit \unit{\day}) for model EC-Earth3 in the reference period. Values are normalised with $L^2$ norm, they are visualised as spatial distribution and represent the weight of each grid cell on the indicator.}
   \label{fig:EOF_EC-Earth3_heat_wave_max_length}
 \end{figure}
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/historical/reference/hazard/PC/EC-Earth3}
-  \caption{First two \glspl{PC} of indicators for model EC-Earth3 in the reference period of the use case, i.e. from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}. Values are normalised with $L^2$ norm. Non-linear correlations are visible for heat wave index (symbol $\mathrm{HWI}$), heat wave indicator (symbol $\mathrm{HWML}$) and maximum consecutive $\mathrm{p4}$-day precipitation (symbol $\mathrm{Rxp4day}$).}
+  \caption{First two \glspl{PC} of indicators for model EC-Earth3 in the reference period of the use case, i.e. from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}. Values are normalised with $L^2$ norm. Non-linear correlations are visible for {Heat wave index} (symbol $\mathrm{HWI}$), heat wave indicator (symbol $\mathrm{HWML}$) and maximum consecutive $\mathrm{p4}$-day precipitation (symbol $\mathrm{Rxp4day}$).}
   \label{fig:PC_EC-Earth3}
 \end{figure}
 
@@ -330,7 +336,7 @@ Although it is common to use \gls{EOF} analysis to decouple the temporal dimensi
 
 To execute module~\ref{itm:module_5}, first the scale of each \gls{indicator} is defined. In this work all \glspl{indicator} are numeric values and may have both metric or categorical scales (i.e. values are distributed uniformly or not, respectively, cf. \cite[109]{2017GIZTheVulnerability}).
 When metric scales are involved, the methodology suggests to apply the min-max normalisation. Instead, in the present work \glspl{indicator} which are scalar values are not transformed,%
-\footnote{Formally they are divided by a unit value of their quantity to obtain dimensionless values, which are trivially compatible and easily used as arguments in mathematical functions.}
+\footnote{Formally they are divided by a unitary value of their quantity to obtain dimensionless values, which are trivially compatible and easily used as arguments in mathematical functions.}
 while \glspl{indicator} which depend on parameters are standardised, i.e. substituted by their z-score. More in detail, for any \gls{indicator} $I$ undergoing normalisation, the new value is
 \begin{equation}
   \label{eq:z-score}
@@ -400,7 +406,7 @@ One of the problems which justifies this work can be stated using equation~\eqre
 \end{example}
 
 A final non-linear transformation is performed on \gls{risk} value $R$, to simplify the presentation and comparison of results.
-Values obtained from all the combinations of parameters are classified accordingly to five categories, in increasing order of severity:\cite[53]{2017GIZRiskSupplement}
+Values obtained from all the combinations of parameters are classified accordingly to five categories \cite[53]{2017GIZRiskSupplement}, in increasing order of severity:
 \begin{enumerate}
   \item $\riski$;
   \item $\riskii$;
@@ -408,7 +414,7 @@ Values obtained from all the combinations of parameters are classified according
   \item $\riskiv$;
   \item $\riskv$.
 \end{enumerate}
-This transformation can be formalised as a piecewise function $r : \prod_j \prod_{I \in \mathcal{H}_j} \prod_{p \in P_I} S_p \to \{ 1, 2, 3, 4, 5 \}$, where the thresholds for each interval identify five equally spaces intervals in the set of risk values of the reference period, i.e. the image of $\prod_j \prod_{I \in \mathcal{H}_j} \prod_{p \in P_I} S_p$ through function $\prd{R}{ref}$:%
+This transformation can be formalised as a piecewise function $r : \prod_j \prod_{I \in \mathcal{H}_j} \prod_{p \in P_I} S_p \to \{ 1, 2, 3, 4, 5 \}$, where the thresholds for each piece identify five equally spaces intervals in the set of risk values of the reference period, i.e. the image of $\prod_j \prod_{I \in \mathcal{H}_j} \prod_{p \in P_I} S_p$ through function $\prd{R}{ref}$:%
 \footnote{This is equivalent to apply the min-max normalisation and divide the interval $[0, 1]$ in five parts, as hinted by \cite[74]{2017GIZVulnerabilitySourcebook}.}
 \begin{equation}
   \label{eq:risk_categorical}

@@ -5,7 +5,7 @@ Climate is a complex system, composed by many elements which interact in non-tri
 e.g. in situ observations, measures from remote sensing or weather stations, outputs from numerical models \cite[1537]{2021SeneviratneWeatherAnd}. The complexity of climate reflects on the complexity in structure of climate data, e.g. they can be represented as multidimensional objects and collected in climate datasets. This affects also their availability and other properties \cite{2014FaghmousABig}, therefore climate data can be regarded as big data.
 
 To identify a subset of variables which efficiently describe the climate, the concept of \gls{ECV} is defined \cite{2014BojinskiTheConcept}. The updated list of \glspl{ECV} and their requirements are mantained by the \gls{WMO} in \cite[14-17]{2022WorldMeteorologicalOrganizationWMOThe2022}.
-Climate data necessary for this study are among the present \glspl{ECV}. In this section they are characterised mathematically, while the actual data are shown in section~\ref{sec:Results}.
+Climate data necessary for this study are among the present \glspl{ECV}. In this section they are characterised mathematically, while the actual data are shown in section~\ref{sec:Case study}.
 
 In the following, a generic \gls{ECV} $T$ can be represented mathematically as a scalar function
 \begin{equation}
@@ -15,7 +15,7 @@ In the following, a generic \gls{ECV} $T$ can be represented mathematically as a
 where $S_\text{lat}$, $S_\text{lon}$ and $S_\text{time}$ are domains of latitude, longitude and time dimensions, respectively.%
 \footnote{In contexts related to \gls{ML} these objects are called tensors. Since they may not satisfy the mathematical definition of a tensor, in particular the map may not be multilinear and the numerical sets may not be vector spaces, no reference to such objects is made in this work.}
 Latitude and longitude are the only spatial dimensions considered, because elevation is specific to each \gls{ECV}. In the following, when spatial dimensions are mentioned, they refer to the horiziontal dimensions of latitude and longitude.
-Every numerical value is equipped with proper units of measurement, to represent physical quantities correctly. As a consequence, the codomain in equation~\eqref{eq:math_variable} is partially wrong: with an abuse of notation, it represents only the magnitude of the \gls{ECV} and does not consider the unit of measurement. This is a small exception to simplify the notation and in the remainder of this document units of measurement are always addressed explicitly.
+Every numerical value is equipped with proper unit of measurement, to represent physical quantities correctly. As a consequence, the codomain in equation~\eqref{eq:math_variable} is partially wrong: with an abuse of notation, it represents only the magnitude of the \gls{ECV} and does not consider the unit of measurement. This is a small exception to simplify the notation and in the remainder of this document units of measurement are always addressed explicitly.
 
 A more practical representation of $T$ is a multidimensional array, where values in the domain are coordinates associated to each dimension and each entry of the array is the result of $T$ evaluated on those coordinates. Figure~\ref{fig:multidimensional} shows this representation visually.
 \begin{figure}[h]
@@ -53,6 +53,7 @@ In contrast to the reference period, averaging periods for future climate span 2
 \label{sec:Reference dataset}
 The climate dataset used for evaluating reference values is ERA5 by \gls{ECMWF} \cite{2023HersbachERA5Hourly}. ERA5 is a \gls{reanalysis} dataset, which provides gridded data with global coverage and hourly temporal resolution. \Glspl{reanalysis} are observations of climate data interpolated on a spatiotemporal grid throught numerical models, a procedure called \gls{data_assimilation} (see \cite{2020HersbachTheERA5} for technical details).
 The main technical data about ERA5 can be found in table~\ref{tab:technical_ERA5}.
+
 \begin{table}[h]
   \centering
   \caption{Subset of the technical characteristics of ERA5, the complete list can be found in \cite[2003]{2020HersbachTheERA5}.}
@@ -89,6 +90,7 @@ Models working at smaller scales are available: they can be used to dynamically 
 
 The purpose of having a set of different models from NEX-GDDP-CMIP6 is to evaluate the uncertainty on predictions, in fact each model has different characteristics and applying ensemble methods reduces the variance on the outputs given by model-specific characteristics (e.g. different equations describing the same phenomena, different modules between models). NEX-GDDP-CMIP6 provides a single variant for each model.
 Data are obtained through statistical downscaling and bias adjustment procedures presented in \cite{2012ThrasherTechnicalNote}. The main technical data about NEX-GDDP-CMIP6 can be found in table~\ref{tab:technical_NEX-GDDP-CMIP6}, while the full description of the dataset is in \cite{2022ThrasherNASAGlobal}.
+
 \begin{table}[h]
   \centering
   \caption{Subset of the technical characteristics of NEX-GDDP-CMIP6, see \cite{2022ThrasherNASAGlobal} for the full specifications.}
