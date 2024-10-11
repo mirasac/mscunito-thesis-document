@@ -262,6 +262,7 @@ First, the temporal aggregation is performed. It consists in averaging the multi
   \quad .
 \end{equation}
 Figure~\ref{fig:historical_reference_field_EC-Earth3_heat_wave_max_length} shows one of the results of the aggregation for \gls{indicator} $\mathrm{HWML}$. Climate data for coordinates related to the case study are used and the aggregation is performed over the reference period. To display the spatial distribution, indicator parameters are fixed to specific values. This representation of data is useful to focus on spatial characteristics of climate data which could affect indicators. The sample standard deviation over time, i.e. evaluated with respect to the sample mean and normalised with $\abs{S_ text{y}} - 1$, is displayed to give more information on the temporal distribution of data at each grid cell. It is not used further because it may not consider uncertainties specific to the models, which are taken into account with an ensemble average at the final steps of the analysis instead.
+
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/historical/reference/field/EC-Earth3_heat_wave_max_length/1}
@@ -280,6 +281,7 @@ where symbol $\prd{I}{ref}$ is used to refer to $I$ evaluated for the reference 
 \footnote{Another similar quantity is the relative difference with respect to the reference period, i.e. the anomaly divided by $\prd{I}{ref}(y, x, \underline{z})$. This is not chosen because some indicator values are exactly 0, e.g. for integer-valued indicators, resulting in mathematically undefined quantities which have no meaning.}
 This is analogous to evaluate \glspl{anomaly} for indicators instead of \glspl{ECV}.
 An example of indicator anomaly is shown in figure~\ref{fig:spatial_bias_EC-Earth3_heat_wave_max_length} for scenario SSP2-4.5 and the chosen time horizons. Values of $\mathrm{HWML}$ are displayed as spatial distribution by constraining parameters of the indicator with the same values used for figure~\ref{fig:historical_reference_field_EC-Earth3_heat_wave_max_length}, to allow comparison. For all time horizons there is an increase in the number of heat wave events and the spatial differences observed in the reference period are accentuated with time. The spatial distribution of indicator anomalies is useful to assess the spatial dependency of indicators, e.g. in figure~\ref{fig:spatial_bias_EC-Earth3_heat_wave_max_length} differences between the reference point of the studied system and the are clearly visible. These information can be useful in \glspl{CCRA} which have a local spatial extension. The main disadvantage is on the study of effects of varying parameters: only a single combination of values can be considered at a time and this limits the visual analysis on the impacts of these values on the indicator.
+
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/spatial_bias/EC-Earth3_heat_wave_max_length/1}
@@ -295,6 +297,7 @@ Then the \gls{EOF} analysis is applied to the design matrix of the reference per
 Figure~\ref{fig:explained_EC-Earth3} shows the cumulative explained variance resulting from the \gls{EOF} analysis of all indicators for model EC-Earth3. A full decomposition is performed but to have plots easier to read it is truncated to the first five \glspl{PC}. However, the first one collects most of the variance in the sample dimension and this is valid for all models,%
 \footnote{Analogous plots for the other models are available at \url{https://github.com/mirasac/mscunito-thesis-document/tree/main/figures/torino/indicators/historical/reference/hazard/explained}.}
 ensuring that most of the underlying information related to the spatial dimensions are compressed in the first \gls{PC}.
+
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/historical/reference/hazard/explained/EC-Earth3}
@@ -305,6 +308,7 @@ ensuring that most of the underlying information related to the spatial dimensio
 Vector components of the first two \glspl{EOF} are shown as spatial fields in figure~\ref{fig:EOF_EC-Earth3_heat_wave_max_length} for indicator $\mathrm{HWML}$ and model EC-Earth3. This plot shows which features have larger weight in the decomposition, since the first two \glspl{PC} together account for the 99\% of the total explained variance. Values are normalised with the $L^2$ norm to compare between various models and indicators. Same normalisation is applied in figure~\ref{fig:PC_EC-Earth3} where data for each indicator for model EC-Earth3 in the reference period are projected on the first two \glspl{EOF}.%
 \footnote{Both plots for other models and indicators are available at \url{https://github.com/mirasac/mscunito-thesis-document/tree/main/figures/torino/indicators/historical/reference/hazard/EOF} and \url{https://github.com/mirasac/mscunito-thesis-document/tree/main/figures/torino/indicators/historical/reference/hazard/PC}, respectively.}
 Indicators $\mathrm{HWI}$, $\mathrm{HWML}$ and $\mathrm{Rxp4day}$ present distribution which are not ascribable to linear correlations, hence other tools may be suitable to study their correlations, e.g. mutual information.
+
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/historical/reference/hazard/EOF/EC-Earth3_heat_wave_max_length}

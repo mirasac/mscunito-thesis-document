@@ -58,3 +58,47 @@ A more dynamic \gls{CCRA} methodology may be an interesting extension of the pre
     Underground infrastructures                      & $\mathrm{v10}$ & \unit{\square\metre} & 0       \\
     \end{tabular}
 \end{table}
+
+
+
+\section{Outcome of the risk assessment}
+Once the \gls{CCRA} methodology presented in section~\ref{sec:Methodology of risk assessment} is applied to the Torino-Caselle airport, different \gls{risk} values are obtained for different combinations of parameters values.
+The sensitivity of risk on parameters then can be studied. In the following subsections the \gls{SA} is performed with the help of plots and for some possible applications.
+
+
+
+\subsection{Temporal evolution of risk}
+The first information which can be drawn is the evolution of \gls{risk} across the selected time horizons, for a given scenario. Figure~\ref{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax} shows the change of risk for scenario SSP2-4.5 and how varying the threshold on \gls{tasmax} $\mathrm{p2}$ affects the outcome.
+The remaining parameters are fixed to obtain the bidimensional plots displayed in the figure: all values are set to the 99th percentile except for $\mathrm{p1} = \qty{4}{\day}$, to include window spans used in definitions of extreme temperature event, and $\mathrm{p4} = \qty{5}{\day}$ as commonly used in similar indicators, e.g. $\mathrm{Rx5day}$ \cite[2208]{2021GutierrezAnnexVI}.
+Quantiles at lower order correspond to lower temperature thresholds in each model. This allows more days each year being classified as heat wave events, therefore increasing the total risk value.
+
+Overall, risk is higher for more distant time horizons, in accordance with the observations and predictions on climate change. Standard deviation of risk values increases as well, due to the differences between models, decreasing the accuracy on risk prediction.
+
+In the near future risk values are limited to categories $\riski$, $\riskii$ $\riskiii$ and $\riskiv$. The medium-term future period presents a similar situation, with the exception of the $\riskv$ category being compatible only for the lowest value of $\mathrm{p2}$. From the point of view of the analyst, common choices of the threshold between the 90th and the 99th percentiles result in negligible difference on the \gls{CCRA} outcome.
+
+The long-term period has a more dramatic outcome because the highest category of risk is more frequent, despite the increased uncertainties. In this case the selection of threshold value is critical, because it results in very different risk categories.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/risk/heat_wave_index_thresh}
+  \caption{Outcome of the \gls{CCRA} for scenario SSP2-4.5. The threshold of \gls{tasmax} is varied and the other parameters are fixed to values $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p4} = \qty{5}{\day}$ and quantiles of order 0.99 for $\mathrm{p3}$ and $\mathrm{p5}$. The risk value is rescaled with respect to the risk of reference period \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
+  \label{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax}
+\end{figure}
+
+The previous considerations are valid for outcomes of scenario SSP3-7.0, see figure~\ref{fig:ssp370_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax}. According to the scenario definition, impacts of climate change are more intense and this is reflected in the long-term period, where threshold values up to 99th quantile result in risk compatible with the highest category.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp370/risk/heat_wave_index_thresh}
+  \caption{Outcome of the \gls{CCRA} for scenario SSP3-7.0. Same settings of figure~\ref{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax} apply.}
+  \label{fig:ssp370_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax}
+\end{figure}
+
+Risk values for scenario SSP1-2.6 are not affected by climate change, as can be observed in figure~\ref{fig:ssp126_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax}. All values are constant in time within the standard deviation of the model ensemble and the only difference between time horizons is the increase in the uncertainty. For this scenario, it is safe to assume that the choice of the threshold value from data of the reference period is robust for predictions of risk.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp126/risk/heat_wave_index_thresh}
+  \caption{Outcome of the \gls{CCRA} for scenario SSP1-2.6. Same settings of figure~\ref{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax} apply.}
+  \label{fig:ssp126_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax}
+\end{figure}
