@@ -1,9 +1,9 @@
 \section{Temporal evolution of risk}
 Once the \gls{CCRA} methodology presented in section~\ref{sec:Methodology of risk assessment} is applied to the Torino-Caselle airport, different \gls{risk} values are obtained for different combinations of parameters values.
-The sensitivity of risk on parameters then can be studied. In the following subsections the \gls{SA} is performed with the help of plots and for some possible applications.
+The sensitivity of risk on parameters then can be studied. In the following paragraphs the \gls{SA} is performed with the help of plots and for some possible applications.
 
 The first information which can be drawn is the evolution of \gls{risk} across the selected time horizons, for a given scenario. Figure~\ref{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax} shows the change of risk for scenario SSP2-4.5 and how varying the threshold on \gls{tasmax} $\mathrm{p2}$ affects the outcome.
-The remaining parameters are fixed to obtain the bidimensional plots displayed in the figure: all values are set to the 99th percentile except for $\mathrm{p1} = \qty{4}{\day}$, to include window spans used in definitions of extreme temperature event, and $\mathrm{p4} = \qty{5}{\day}$ as commonly used in similar indicators, e.g. $\mathrm{Rx5day}$ \cite[2208]{2021GutierrezAnnexVI}.
+The remaining parameters are fixed to obtain the bidimensional plots displayed in the figure: all values are set to the 99th percentile except for $\mathrm{p1} = \qty{4}{\day}$, to include ranges of consecutive days used in definitions of extreme temperature event, and $\mathrm{p4} = \qty{5}{\day}$ as commonly used in similar indicators, e.g. $\mathrm{Rx5day}$ \cite[2208]{2021GutierrezAnnexVI}.
 Quantiles at lower order correspond to lower temperature thresholds in each model. This allows more days each year being classified as heat wave events, therefore increasing the total risk value.
 
 Overall, risk is higher for more distant time horizons, in accordance with the observations and predictions on climate change. Standard deviation of risk values increases as well, due to the differences between models, decreasing the accuracy on risk prediction.
@@ -24,7 +24,7 @@ The previous considerations are valid for outcomes of scenario SSP3-7.0, see fig
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp370/risk/heat_wave_index_thresh}
-  \caption{Outcome of the \gls{CCRA} for scenario SSP3-7.0. Same settings of figure~\ref{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax} apply.}
+  \caption{Outcome of the \gls{CCRA} for scenario SSP3-7.0. Same settings of figure~\ref{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax} apply. The risk value is rescaled with respect to the risk of reference period \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
   \label{fig:ssp370_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax}
 \end{figure}
 
@@ -33,6 +33,18 @@ Risk values for scenario SSP1-2.6 are not affected by climate change, as can be 
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp126/risk/heat_wave_index_thresh}
-  \caption{Outcome of the \gls{CCRA} for scenario SSP1-2.6. Same settings of figure~\ref{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax} apply.}
+  \caption{Outcome of the \gls{CCRA} for scenario SSP1-2.6. Same settings of figure~\ref{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax} apply. The risk value is rescaled with respect to the risk of reference period \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
   \label{fig:ssp126_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax}
+\end{figure}
+
+Another threshold which is considered in the present study is for daily precipitation \gls{pr}. Parameter $\mathrm{p5}$ affects \glspl{indicator} $\mathrm{Rp5mm}$ and $\mathrm{CWD}$, which describe frequency and duration of a heavy precipitation event, respectively (see section~\ref{sec:Evaluation of indicators}). Same considerations of the temperature case above are applied to fix the remaining parameters.
+
+The change of scenario has analogous effects of the temperature case. A difference can be noted in the variability of risk values with respect to threshold values, being smaller than the temperature case, particularly on the long-term horizon. Figure~\ref{fig:ssp245_risk_wetdays_thresh-cwd_thresh} show these results for scenario SSP2-4.5.%
+\footnote{See figures \url{https://github.com/mirasac/mscunito-thesis-document/blob/main/figures/torino/indicators/ssp126/risk/wetdays_thresh-cwd_thresh.pdf} and \url{https://github.com/mirasac/mscunito-thesis-document/blob/main/figures/torino/indicators/ssp370/risk/wetdays_thresh-cwd_thresh.pdf} for results of scenarios SSP1-2.6 and SSP3-7.0, respectively.}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/risk/wetdays_thresh-cwd_thresh}
+  \caption{Outcome of the \gls{CCRA} for scenario SSP2-4.5 varying the threshold on \gls{pr}. Other parameters are fixed to values $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p4} = \qty{5}{\day}$ and quantiles of order 0.99 for $\mathrm{p3}$ and $\mathrm{p2}$. The risk value is rescaled with respect to the risk of reference period \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
+  \label{fig:ssp245_risk_wetdays_thresh-cwd_thresh}
 \end{figure}
