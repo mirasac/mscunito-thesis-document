@@ -18,7 +18,7 @@ When the \gls{vulnerability} of the system is recalled, it is split into \gls{se
 
 All modules are connected by the concept of \gls{impact_chain}, which is an \glsdesc{impact_chain}. This concept helps to develop the \gls{CCRA} as a narrative and to guide it smoothly through its various steps, see \cite[217-224]{2022KondrupClimateAdaptation} for a review of the concept.
 
-Although a complete application of this methodology does not fall into the purposes of this study, each module is briefly addressed in the following sections and results of evaluations are presented in section~\ref{sec:Case study} where case studies are treated.
+Although a complete application of this methodology does not fall into the purposes of this study, each module is briefly addressed in the following sections and results of evaluations are presented in section~\ref{sec:Results and Discussion} where case studies are treated.
 
 
 
@@ -189,7 +189,7 @@ All indicators are generalised versions of indicators and indices frequently use
   \end{tabular}
 \end{table}
 
-In module~\ref{itm:module_4} the evaluation of \glspl{indicator} on climate and system data occurs. Concerning the system, the data collection step is explained in section~\ref{sec:Impact chain} and scalar values are readily obtained for the elements in sets $\mathcal{E}_i$ and $\mathcal{V}_k$ for any \gls{driver} $i$ or $k$. See paragraphs about data in section~\ref{sec:Impact chain} for the definition of the \glspl{indicator} of \gls{exposure} and \gls{vulnerability} used to describe each system and section~\ref{sec:Case study} for their values.
+In module~\ref{itm:module_4} the evaluation of \glspl{indicator} on climate and system data occurs. Concerning the system, the data collection step is explained in section~\ref{sec:Impact chain} and scalar values are readily obtained for the elements in sets $\mathcal{E}_i$ and $\mathcal{V}_k$ for any \gls{driver} $i$ or $k$. See paragraphs about data in section~\ref{sec:Impact chain} for the definition of the \glspl{indicator} of \gls{exposure} and \gls{vulnerability} used to describe each system and section~\ref{sec:Results and Discussion} for their values.
 
 A more convoluted path is needed to evaluate \glspl{indicator} of \gls{hazard}. They are functions defined by equation~\eqref{eq:math_indicator}, hence they depend on climate data and additional parameters. In tables~\ref{tab:indicators_heat_wave} and~\ref{tab:indicators_heavy_precipitation} parameters are listed to complete the definition of indicators, but they are detailed in the following paragraphs.
 
@@ -219,7 +219,7 @@ Second, the empirical \gls{QF} of data is built from the sample, to acknowledge 
 Third, values are chosen with the aim to sample the true probability distribution uniformly, starting from the quantile corresponding to frequency 90\%. This allows to focus the analysis on the side of the distribution which have higher values, related to extreme \glspl{risk}. The density of points may be increased where needed to have a better description of the shape of the distribution.%
 \footnote{Why do not use derivative-based methods to set the density of points? The reason is again greater control on the selected values: there is no need to evaluate the derivative of the \gls{QF} in every point, just within the subintervals which are interesting for the analysis. Note that the \gls{QF} is obtained by linear interpolation between existent data values, hence the slope is already evaluated internally and the derivative is a piecewise constant function.}
 
-If parameter $p$ is not related to a \gls{ECV}, e.g. window size for moving averages, some heuristic is applied and explained case by case where values are presented in section~\ref{sec:Case study}.
+If parameter $p$ is not related to a \gls{ECV}, e.g. window size for moving averages, some heuristic is applied and explained case by case where values are presented in section~\ref{sec:Results and Discussion}.
 
 The parameters indicators chosen for this study depend on are collected in table~\ref{tab:indicators_parameters}. Note that despite the definition of heat wave lasting two or more days, a window of one day is considered, i.e. $\mathrm{p1} = 1$, simply to count the number of days with extreme temperatures in a year. In particular, indicator $\mathrm{HWI}$ becomes $\mathrm{TXnn}$, see \cite[2209]{2021GutierrezAnnexVI}.
 
@@ -436,3 +436,66 @@ Thresholds $q_1$, $q_2$, $q_3$ and $q_4$ are calculated from risk values of the 
 
 Module~\ref{itm:module_7} addresses the possible aggregation of multiple sub-risks into an overall \gls{risk} value \cite[54]{2017GIZRiskSupplement}. According to section~\ref{sec:Complex risk}, the outcome would be a complex risk belonging to category~\ref{itm:category_3}.
 This additional elaboration is not implemented in the present work because an individual \gls{risk} is studied, i.e. the climate risk.
+
+
+
+\section{Case study}
+The methodology of \gls{CCRA} is applied in particular to Torino-Caselle airport, located near the municipality of Caselle Torinese, in the Metropolitan City of Turin, Italy.
+The central coordinates for the grid cells are $(\qty{45.203}{\degreeNorth}, \qty{7.649}{\degreeEast})$ in decimal degrees. These data are derived from \gls{ENAC}, the Italian civil aviation authority \cite{2014ENACTorinoCaselle}.
+
+The construction of the airport in its modern settings started in 1949 and major upgrades to infrastructures happened before 2006 (see \cite[18]{2015PudduCorporateSocial} for a summary on the history of the airport). Therefore, the reference period is
+\begin{equation}
+  \label{eq:period_reference_torino}
+  \prd{S_\text{time}}{ref} = \{ t : \text{$t$ day from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}} \}
+  \quad .
+\end{equation}
+For the present \gls{CCRA}, the airport is considered unaffected by structural changes starting from year 2006. Hence \glspl{indicator} values for that year or closest to it are chosen.
+
+
+
+\subsection{System-dependent data}
+In section~\ref{sec:Impact chain} the reasons behind the selection of \glspl{indicator} are discussed. In this section their values related to Torino-Caselle airport are presented. Values of \gls{exposure} indicators are shown in table~\ref{tab:values_exposure}, values of \gls{vulnerability} are in table~\ref{tab:values_vulnerability}.
+The exposure is quantified using data on the operativity of the airport and they are gathered from \cite[154-179]{2010OneWorksAtlanteDegli}.
+
+\begin{table}[h]
+  \renewcommand*{\arraystretch}{1.5}
+  \centering
+  \caption{Values of exposure indicators. The part of the table above the line shows the air-side components, below the line there are the land-side components. Dimensionless quantities have an empy cell in the Unit column.}
+  \label{tab:values_exposure}
+  \begin{tabular}{p{0.33\textwidth}ccc}
+    Indicator                        & Symbol        & Unit                 & Value  \\
+    \hline
+    Runways area                     & $\mathrm{e1}$ & \unit{\square\metre} & 198000 \\
+    \hline
+    Terminals area                   & $\mathrm{e2}$ & \unit{\square\metre} & 51150  \\
+    Offices and other buildings area & $\mathrm{e3}$ & \unit{\square\metre} & 4245   \\
+    Carparks number                  & $\mathrm{e4}$ &                      & 3000   \\
+  \end{tabular}
+\end{table}
+
+Same source is used for values of \gls{sensitivity}. A note on the {Age buildings} indicator is due: following \cite[5]{2022DeVivoRiskAssessment}, it is the difference in years between the time of writing and the start of the construction of the airport, since the oldest components are supposed to be the most vulnerable. Because Torino-Caselle airport was subject to various changes, dating back before its designation for civil aviation, the year 1949 is approximated as the starting year for all operations and the lifecycle of the airport components. Instead, structural changes are supposed to end in year 2006, hence the age is evaluated between years 1949 and 2006. This is an heavy approximation because {Age buildings} is an indicator which directly states the passing of time. However, for the purposes of this study, this level of accuracy is considered acceptable as the focus is not on obtaining precise \gls{CCRA} results but on assessing how changes in parameters affect those results.
+A more dynamic \gls{CCRA} methodology may be an interesting extension of the present study.
+
+\Glspl{indicator} of \gls{adaptive_capacity} are mainly categorical and they are gathered from \cite[66-79]{2015PudduCorporateSocial}. For use in calculations, categorical values are converted to a numerical scale following \cite[6]{2023DeVivoClimate-RiskAssessment}. The target values are in the interval $[0, 1]$, with lower values indicating lower \gls{risk}. More in detail, the presence of mitigation or adaptation strategies scores \num{0.1}, while their absence scores \num{0.9}. Intermediate values correspond to the existence of plans that have not yet been implemented. For this reason, the values for the indicators {Risk awareness} and {Guidelines for adaptation plan to climate change} are set considering the planning for adaptation and mitigation strategies from the years after 2006.
+
+\begin{table}[h]
+  \renewcommand*{\arraystretch}{1.5}
+  \centering
+  \caption{Values of vulnerability indicators. Adaptive capacity and sensitivity are above and below the line, respectively. Dimensionless quantities have an empty cell in the Unit column.}
+  \label{tab:values_vulnerability}
+  \begin{tabular}{p{0.33\textwidth}ccc}
+    Indicator                                        & Symbol         & Unit                 & Value   \\
+    \hline
+    Risk awareness                                   & $\mathrm{v1}$  &                      & 0.3     \\
+    Guidelines for adaptation plan to climate change & $\mathrm{v2}$  &                      & 0.5     \\
+    Efficient drainage system                        & $\mathrm{v3}$  &                      & 0.1     \\
+    Monitoring and alarm system                      & $\mathrm{v4}$  &                      & 0.9     \\
+    Bioinfiltration and permeable pavements          & $\mathrm{v5}$  &                      & 0.1     \\
+    \hline
+    Soil sealing                                     & $\mathrm{v6}$  & \unit{\square\metre} & 2450000 \\
+    Passengers                                       & $\mathrm{v7}$  &                      & 3219317 \\
+    Age buildings                                    & $\mathrm{v8}$  &                      & 57      \\
+    Air traffic                                      & $\mathrm{v9}$  &                      & 53169   \\
+    Underground infrastructures                      & $\mathrm{v10}$ & \unit{\square\metre} & 0       \\
+    \end{tabular}
+\end{table}

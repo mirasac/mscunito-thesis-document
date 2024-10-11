@@ -1,56 +1,4 @@
-\section{Climate data}
-\label{sec:Climate data}
-Climate is a complex system, composed by many elements which interact in non-trivial (i.e. non-linear) ways. Therefore, to have a satisfying description of climate, many variables are needed. Climate data are data which can be used to provide a direct or indirect description of climate,%
-\footnote{A note on nomenclature: the adjective \emph{climatological} is used in some sources instead of \emph{climate} to address to climate data. They are equivalent, but the latter is preferred in this work because it replicates the alternative term for \gls{normal} specified by \cite[1]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}.}
-e.g. in situ observations, measures from remote sensing or weather stations, outputs from numerical models \cite[1537]{2021SeneviratneWeatherAnd}. The complexity of climate reflects on the complexity in structure of climate data, e.g. they can be represented as multidimensional objects and collected in climate datasets. This affects also their availability and other properties \cite{2014FaghmousABig}, therefore climate data can be regarded as big data.
-
-To identify a subset of variables which efficiently describe the climate, the concept of \gls{ECV} is defined \cite{2014BojinskiTheConcept}. The updated list of \glspl{ECV} and their requirements are mantained by the \gls{WMO} in \cite[14-17]{2022WorldMeteorologicalOrganizationWMOThe2022}.
-Climate data necessary for this study are among the present \glspl{ECV}. In this section they are characterised mathematically, while the actual data are shown in section~\ref{sec:Case study}.
-
-In the following, a generic \gls{ECV} $T$ can be represented mathematically as a scalar function
-\begin{equation}
-  \label{eq:math_variable}
-  T : S_\text{lat} \times S_\text{lon} \times S_\text{time} \to \mathbb{R}
-\end{equation}
-where $S_\text{lat}$, $S_\text{lon}$ and $S_\text{time}$ are domains of latitude, longitude and time dimensions, respectively.%
-\footnote{In contexts related to \gls{ML} these objects are called tensors. Since they may not satisfy the mathematical definition of a tensor, in particular the map may not be multilinear and the numerical sets may not be vector spaces, no reference to such objects is made in this work.}
-Latitude and longitude are the only spatial dimensions considered, because elevation is specific to each \gls{ECV}. In the following, when spatial dimensions are mentioned, they refer to the horiziontal dimensions of latitude and longitude.
-Every numerical value is equipped with proper unit of measurement, to represent physical quantities correctly. As a consequence, the codomain in equation~\eqref{eq:math_variable} is partially wrong: with an abuse of notation, it represents only the magnitude of the \gls{ECV} and does not consider the unit of measurement. This is a small exception to simplify the notation and in the remainder of this document units of measurement are always addressed explicitly.
-
-A more practical representation of $T$ is a multidimensional array, where values in the domain are coordinates associated to each dimension and each entry of the array is the result of $T$ evaluated on those coordinates. Figure~\ref{fig:multidimensional} shows this representation visually.
-
-\begin{figure}[h]
-  \centering
-  \includegraphics*[keepaspectratio=true,width=0.75\textwidth]{multidimensional}
-  \caption{Representation of a generic \gls{ECV} as multidimensional array.}
-  \label{fig:multidimensional}
-\end{figure}
-In the following, this representation is used to simplify the discussion and same \gls{ECV} symbol is used both for the function and the multidimensional array.
-\begin{example}
-  \Glsdesc{tas}, symbol \gls{tas}, is available for some coordinates $S_\text{lat} \times S_\text{lon}$ and timestamps $S_\text{time}$. It can be seen as the scalar function in equation~\eqref{eq:math_variable}, which associates each value in set $S_\text{lat} \times S_\text{lon} \times S_\text{time}$ to a scalar value with unit \glssymbol{tas}, or it can be represented as the multidimensional array in figure~\ref{fig:multidimensional}, where each entry is function~\eqref{eq:math_variable} evaluated at the corresponding coordinates.
-\end{example}
-
-As a visual aid when generic symbols are used, capital letters represent both functions and multidimensional arrays, the former being followed by the arguments in parentheses when there is an explicit reference to their values. Instead, lowercase letters are used for functions and values which are one dimensional.
-
-A note on units of measurement: in atmospheric sciences and engineering applications it is common to use non-SI units because they are closer to everyday experience. Two notable cases in this work are: time expressed in number of days, $\qty{1}{\day} = \qty{86400}{\second}$, and precipitation flux expressed as precipitation rate, with the implicit conversion $\qty{1}{\milli\metre\per\day} = \qty{1}{\kilo\gram\per\square\metre\per\second} \frac{\qty{86400}{\second\per\day}}{\qty{1000}{\kilo\gram\per\cubic\metre}}$ using the density of water.
-
-
-
-\subsection{Climate normals}
-\label{sec:Climate normals}
-The temporal evolution of climate is described by climate data which can be represented as time series. To quantify changes in the state of climate it is useful to define a reference period and climate data related to it.
-
-The concept of climate \gls{normal} is introduced for this purpose, the \gls{WMO} defines it as: \glsdesc{normal}. Terms \gls{period_average} and \gls{average} apply to monthly values of climate data, see definitions and how normals are evaluated in \cite[5-6]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}. However, the mean of values with other temporal domains may also be useful, e.g. multimonth normals, normal for each day of year of the wind speed at a given location. In the following the averaging period is expressed clearly.
-To quantify changes in the state of climate, \glspl{anomaly} are used, which are \glsdesc{anomaly}.
-
-In this work the reference period is a period of 30 years starting on 1st January of a year ending with the digit 1. This specification satisfies the definition of averaging period for climate \glspl{normal}.
-Instead, the boundaries are specific to the case study (see section~\ref{sec:Impact chain}).
-
-In contrast to the reference period, averaging periods for future climate span 20 years and are fixed. Values referred to these periods describe the system or the climate at future time horizons, which is an useful information for any planning involving the system \cite[23]{2023CarlinThe2023}. The lower number of years in these periods do not affect negatively the prediction skill of statistics related to them \cite[17]{2017WorldMeteorologicalOrganizationWMOWMOGuidelines}.
-
-
-
-\subsection{Reference dataset}
+\section{Reference dataset}
 \label{sec:Reference dataset}
 The climate dataset used for evaluating reference values is ERA5 by \gls{ECMWF} \cite{2023HersbachERA5Hourly}. ERA5 is a \gls{reanalysis} dataset, which provides gridded data with global coverage and hourly temporal resolution. \Glspl{reanalysis} are observations of climate data interpolated on a spatiotemporal grid throught numerical models, a procedure called \gls{data_assimilation} (see \cite{2020HersbachTheERA5} for technical details).
 The main technical data about ERA5 can be found in table~\ref{tab:technical_ERA5}.
@@ -82,7 +30,7 @@ Timestamps for daily data are set at \DTMdisplaytime{00}{00}{00}.
 
 
 
-\subsection{Climate projection dataset}
+\section{Climate projection dataset}
 \label{sec:Climate projection dataset}
 Future climate is studied using the NEX-GDDP-CMIP6 dataset provided by \gls{NEX} \cite{2022ThrasherNASAGlobal,2021ThrasherNEX-GDDP-CMIP6}. The dataset is derived from results of \gls{CMIP6} for a subset of \glspl{ECV} and a single variant of 35 models from a selection of historical and ScenarioMIP experiments \cite{2016EyringOverviewOf}.
 
@@ -174,46 +122,3 @@ The adjustment is applied to \glsdesc{pr} \gls{pr}. However, null values are pre
 
 The procedure suggested in \cite[6945]{2015CannonBiasCorrection} is followed to solve the issue: values lower than the threshold \qty{0.05}{\milli\metre\per\day} are randomised uniformly in the interval $(\qty{0}{\milli\metre\per\day}, \qty{0.05}{\milli\metre\per\day})$, then after the \gls{BA} the values which are below the threshold are considered dry days, hence they are set to \qty{0}{\milli\metre\per\day}. No correction in the seasonal cycle is applied since only daily data are needed for the evaluation of \glspl{indicator}.
 %The randomised values may be mapped to quantiles above the threshold, but this is unlikely if the threshold is low enough.
-
-
-
-\section{Indicators}
-\label{sec:Indicators}
-\Glspl{indicator} of \glspl{driver} within the \gls{hazard} \gls{determinant} are functions of climate data and additional parameters. In this work the climate data are \glspl{ECV} and they have a daily frequency.
-During their calculation, generally \glspl{indicator} are aggregated over the temporal dimension and are non-linear functions of their arguments.
-An \gls{indicator} $I$ can be defined mathematically as
-\begin{equation}
-  \label{eq:math_indicator}
-  I : S_\text{lat} \times S_\text{lon} \times S_\text{y} \times \prod_{p \in P_I} S_p \to \mathbb{R}
-\end{equation}
-where $S_\text{y}$ is a set of the years considered during the analysis, $P_I$ is the set of parameters for that indicator and $S_p$ is the set of values available for each parameter $p \in P_I$.%
-\footnote{As a symbolic shortcut, if $P_I = \varnothing$ then the indicator is defined only over $S_\text{lat} \times S_\text{lon} \times S_\text{y}$.}
-In the following, $\underline{z} \in \prod_{p \in P_I} S_p$ represents the set of arguments passed to the \gls{indicator}, in other words the coordinates of $I$ as multidimensional array.
-Evaluation is performed for each year, i.e. the \gls{indicator} has yearly resolution or is evaluated with yearly frequency. As a consequence, the elements of set $S_\text{y}$ are references to the years taken into account during calculation.
-
-An \gls{indicator} can be represented as a multidimensional array, similarly to \glspl{ECV}.
-The dependence of an \gls{indicator} on \glspl{ECV} is not clear in the definition given by equation~\eqref{eq:math_indicator}, but in the following this is made explicit by the context or by the definition of the \gls{indicator}.
-
-\begin{example}
-  The \gls{indicator} $\mathrm{TX_x}$ is evaluated for the period 1991-2020 with yearly frequency. This \gls{indicator} is the monthly maximum value of daily maximum temperature \cite{ETCCDIClimate}, hence:
-  \begin{itemize}
-    \item it depends on \gls{ECV} \glsdesc{tasmax} defined at daily frequency over the considered period,
-      \begin{equation*}
-        S_\text{time} = \left\{ t : \parbox{0.45\linewidth}{$t$ day from \DTMdisplaydate{1991}{1}{1}{-1} to \DTMdisplaydate{2020}{12}{31}{-1}} \right\}
-        \quad ;
-      \end{equation*}
-    \item spatial dimensions are not specified, hence the evaluation is performed for each point of an arbitrary set $S_\text{lat} \times S_\text{lon}$;
-    \item no additional parameters are required, $P_\mathrm{TX_x} = \varnothing$;
-    \item the outcome is a scalar value for each year in the period,
-      \begin{equation*}
-        S_\text{y} = \{ 1991, 1992, \dots, 2020 \}
-        \quad ;
-      \end{equation*}
-    \item the multidimensional array representation of the \gls{indicator} is in the following figure, where each entry is a real value with unit \unit{\kelvin}:
-      \begin{center}
-        \includegraphics*[keepaspectratio=true,width=0.50\linewidth]{indicator_climatological_standard_normal}
-      \end{center}
-  \end{itemize}
-\end{example}
-
-\Glspl{indicator} of \glspl{driver} within \gls{exposure} and \gls{vulnerability} \glspl{determinant} may be defined similarly as the \gls{hazard} \gls{determinant} as scalar functions depending on specific variables characterising the system.

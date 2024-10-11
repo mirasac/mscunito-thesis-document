@@ -1,73 +1,7 @@
-\section{Context and scope}
-The methodology of \gls{CCRA} is applied in particular to Torino-Caselle airport, located near the municipality of Caselle Torinese, in the Metropolitan City of Turin, Italy.
-The central coordinates for the grid cells are $(\qty{45.203}{\degreeNorth}, \qty{7.649}{\degreeEast})$ in decimal degrees. These data are derived from \gls{ENAC}, the Italian civil aviation authority \cite{2014ENACTorinoCaselle}.
-
-The construction of the airport in its modern settings started in 1949 and major upgrades to infrastructures happened before 2006 (see \cite[18]{2015PudduCorporateSocial} for a summary on the history of the airport). Therefore, the reference period is
-\begin{equation}
-  \label{eq:period_reference_torino}
-  \prd{S_\text{time}}{ref} = \{ t : \text{$t$ day from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}} \}
-  \quad .
-\end{equation}
-For the present \gls{CCRA}, the airport is considered unaffected by structural changes starting from year 2006. Hence \glspl{indicator} values for that year or closest to it are chosen.
-
-
-
-\section{System-dependent data}
-In section~\ref{sec:Impact chain} the reasons behind the selection of \glspl{indicator} are discussed. In this section their values related to Torino-Caselle airport are presented. Values of \gls{exposure} indicators are shown in table~\ref{tab:values_exposure}, values of \gls{vulnerability} are in table~\ref{tab:values_vulnerability}.
-The exposure is quantified using data on the operativity of the airport and they are gathered from \cite[154-179]{2010OneWorksAtlanteDegli}.
-
-\begin{table}[h]
-  \renewcommand*{\arraystretch}{1.5}
-  \centering
-  \caption{Values of exposure indicators. The part of the table above the line shows the air-side components, below the line there are the land-side components. Dimensionless quantities have an empy cell in the Unit column.}
-  \label{tab:values_exposure}
-  \begin{tabular}{p{0.33\textwidth}ccc}
-    Indicator                        & Symbol        & Unit                 & Value  \\
-    \hline
-    Runways area                     & $\mathrm{e1}$ & \unit{\square\metre} & 198000 \\
-    \hline
-    Terminals area                   & $\mathrm{e2}$ & \unit{\square\metre} & 51150  \\
-    Offices and other buildings area & $\mathrm{e3}$ & \unit{\square\metre} & 4245   \\
-    Carparks number                  & $\mathrm{e4}$ &                      & 3000   \\
-  \end{tabular}
-\end{table}
-
-Same source is used for values of \gls{sensitivity}. A note on the {Age buildings} indicator is due: following \cite[5]{2022DeVivoRiskAssessment}, it is the difference in years between the time of writing and the start of the construction of the airport, since the oldest components are supposed to be the most vulnerable. Because Torino-Caselle airport was subject to various changes, dating back before its designation for civil aviation, the year 1949 is approximated as the starting year for all operations and the lifecycle of the airport components. Instead, structural changes are supposed to end in year 2006, hence the age is evaluated between years 1949 and 2006. This is an heavy approximation because {Age buildings} is an indicator which directly states the passing of time. However, for the purposes of this study, this level of accuracy is considered acceptable as the focus is not on obtaining precise \gls{CCRA} results but on assessing how changes in parameters affect those results.
-A more dynamic \gls{CCRA} methodology may be an interesting extension of the present study.
-
-\Glspl{indicator} of \gls{adaptive_capacity} are mainly categorical and they are gathered from \cite[66-79]{2015PudduCorporateSocial}. For use in calculations, categorical values are converted to a numerical scale following \cite[6]{2023DeVivoClimate-RiskAssessment}. The target values are in the interval $[0, 1]$, with lower values indicating lower \gls{risk}. More in detail, the presence of mitigation or adaptation strategies scores \num{0.1}, while their absence scores \num{0.9}. Intermediate values correspond to the existence of plans that have not yet been implemented. For this reason, the values for the indicators {Risk awareness} and {Guidelines for adaptation plan to climate change} are set considering the planning for adaptation and mitigation strategies from the years after 2006.
-
-\begin{table}[h]
-  \renewcommand*{\arraystretch}{1.5}
-  \centering
-  \caption{Values of vulnerability indicators. Adaptive capacity and sensitivity are above and below the line, respectively. Dimensionless quantities have an empty cell in the Unit column.}
-  \label{tab:values_vulnerability}
-  \begin{tabular}{p{0.33\textwidth}ccc}
-    Indicator                                        & Symbol         & Unit                 & Value   \\
-    \hline
-    Risk awareness                                   & $\mathrm{v1}$  &                      & 0.3     \\
-    Guidelines for adaptation plan to climate change & $\mathrm{v2}$  &                      & 0.5     \\
-    Efficient drainage system                        & $\mathrm{v3}$  &                      & 0.1     \\
-    Monitoring and alarm system                      & $\mathrm{v4}$  &                      & 0.9     \\
-    Bioinfiltration and permeable pavements          & $\mathrm{v5}$  &                      & 0.1     \\
-    \hline
-    Soil sealing                                     & $\mathrm{v6}$  & \unit{\square\metre} & 2450000 \\
-    Passengers                                       & $\mathrm{v7}$  &                      & 3219317 \\
-    Age buildings                                    & $\mathrm{v8}$  &                      & 57      \\
-    Air traffic                                      & $\mathrm{v9}$  &                      & 53169   \\
-    Underground infrastructures                      & $\mathrm{v10}$ & \unit{\square\metre} & 0       \\
-    \end{tabular}
-\end{table}
-
-
-
-\section{Outcome of the risk assessment}
+\section{Temporal evolution of risk}
 Once the \gls{CCRA} methodology presented in section~\ref{sec:Methodology of risk assessment} is applied to the Torino-Caselle airport, different \gls{risk} values are obtained for different combinations of parameters values.
 The sensitivity of risk on parameters then can be studied. In the following subsections the \gls{SA} is performed with the help of plots and for some possible applications.
 
-
-
-\subsection{Temporal evolution of risk}
 The first information which can be drawn is the evolution of \gls{risk} across the selected time horizons, for a given scenario. Figure~\ref{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax} shows the change of risk for scenario SSP2-4.5 and how varying the threshold on \gls{tasmax} $\mathrm{p2}$ affects the outcome.
 The remaining parameters are fixed to obtain the bidimensional plots displayed in the figure: all values are set to the 99th percentile except for $\mathrm{p1} = \qty{4}{\day}$, to include window spans used in definitions of extreme temperature event, and $\mathrm{p4} = \qty{5}{\day}$ as commonly used in similar indicators, e.g. $\mathrm{Rx5day}$ \cite[2208]{2021GutierrezAnnexVI}.
 Quantiles at lower order correspond to lower temperature thresholds in each model. This allows more days each year being classified as heat wave events, therefore increasing the total risk value.
