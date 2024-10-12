@@ -15,7 +15,7 @@ The long-term period has a more dramatic outcome because the highest category of
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/risk/heat_wave_index_thresh}
-  \caption{Outcome of the \gls{CCRA} for scenario SSP2-4.5. The threshold of \gls{tasmax} is varied and the other parameters are fixed to values $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p4} = \qty{5}{\day}$ and quantiles of order 0.99 for $\mathrm{p3}$ and $\mathrm{p5}$. The risk value is rescaled with respect to the risk of reference period \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
+  \caption{Outcome of the \gls{CCRA} for scenario SSP2-4.5. The threshold of \gls{tasmax} is varied and the other parameters are fixed to values $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p4} = \qty{5}{\day}$ and quantiles of order 0.99 for $\mathrm{p3}$ and $\mathrm{p5}$. The risk value is rescaled with respect to the risk of reference period from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
   \label{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax}
 \end{figure}
 
@@ -24,7 +24,7 @@ The previous considerations are valid for outcomes of scenario SSP3-7.0, see fig
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp370/risk/heat_wave_index_thresh}
-  \caption{Outcome of the \gls{CCRA} for scenario SSP3-7.0. Same settings of figure~\ref{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax} apply. The risk value is rescaled with respect to the risk of reference period \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
+  \caption{Outcome of the \gls{CCRA} for scenario SSP3-7.0. Same settings of figure~\ref{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax} apply. The risk value is rescaled with respect to the risk of reference period from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
   \label{fig:ssp370_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax}
 \end{figure}
 
@@ -33,7 +33,7 @@ Risk values for scenario SSP1-2.6 are not affected by climate change, as can be 
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp126/risk/heat_wave_index_thresh}
-  \caption{Outcome of the \gls{CCRA} for scenario SSP1-2.6. Same settings of figure~\ref{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax} apply. The risk value is rescaled with respect to the risk of reference period \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
+  \caption{Outcome of the \gls{CCRA} for scenario SSP1-2.6. Same settings of figure~\ref{fig:ssp245_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax} apply. The risk value is rescaled with respect to the risk of reference period from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
   \label{fig:ssp126_risk_heat_wave_index_thresh-heat_wave_max_length_thresh_tasmax}
 \end{figure}
 
@@ -45,6 +45,66 @@ The change of scenario has analogous effects of the temperature case. A differen
 \begin{figure}[h]
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/risk/wetdays_thresh-cwd_thresh}
-  \caption{Outcome of the \gls{CCRA} for scenario SSP2-4.5 varying the threshold on \gls{pr}. Other parameters are fixed to values $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p4} = \qty{5}{\day}$ and quantiles of order 0.99 for $\mathrm{p3}$ and $\mathrm{p2}$. The risk value is rescaled with respect to the risk of reference period \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
+  \caption{Outcome of the \gls{CCRA} for scenario SSP2-4.5 varying the threshold on \gls{pr}. Other parameters are fixed to values $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p4} = \qty{5}{\day}$ and quantiles of order 0.99 for $\mathrm{p3}$ and $\mathrm{p2}$. The risk value is rescaled with respect to the risk of reference period from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
   \label{fig:ssp245_risk_wetdays_thresh-cwd_thresh}
 \end{figure}
+
+
+
+\section{Optimal number of consecutive days}
+The \gls{SA} of risk dependent on different values of indicator parameters could be useful to study possible improvements to the \gls{CCRA} methodology currently adopted. In this study a potential application is for the choice of the number of consecutive days, which could be selected objectively instead of adopting any heuristic.
+
+\Glspl{indicator} which depend on the number of consecutive days to define the event they quantify are $\mathrm{HWI}$, $\mathrm{HWML}$ and $\mathrm{Rxp4day}$. More in detail, the involved parameters are $\mathrm{p1}$ for heat wave events and $\mathrm{p4}$ for heavy precipitation events. These two parameters are not supposed to have the same value, since they describe different phenomena. However, a relation can be drawn by observing the plot of risk with respect to these parameters.
+
+In figure~\ref{fig:ssp245_risk_heat_wave_index_window-heat_wave_max_length_window} the risk values for scenario SSP2-4.5 are plotted against parameter $\mathrm{p1}$. Other parameters are fixed to the 99th percentile. A decresing trend can be observed, coherent with the intuition that it is more rare to have $\mathrm{p1}$ consecutive days satisfying the selected temperature ranges when it increases in size. Due to the average increase of temperatures, risk values in the long-term horizon are larger than the ones in the near-term horizon.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/risk/heat_wave_index_window-heat_wave_max_length_window}
+  \caption{Risk values depending on number of consecutive days of extreme heat in scenario SSP2-4.5. Other parameters are set to the percentile of order 0.99. The risk value is rescaled with respect to the risk of reference period from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
+  \label{fig:ssp245_risk_heat_wave_index_window-heat_wave_max_length_window}
+\end{figure}
+
+On the other hand, the curve of risk for precipitation events is increasing, as can be observed in figure~\ref{fig:ssp245_risk_max_n_day_precipitation_amount_window} for scenario SSP2-4.5. Similarly to the temperature case, remaining parameters are set to the 99th percentile to obtain a bidimensional plot. Indicator $\mathrm{Rxp4day}$ searched the maximum of \gls{pr} in samples of $\mathrm{p4}$ days, hence if the parameter is increased, the probability to find a larger value increases as well. These effects are accentuated with time, having larger risk values compatible with the $\riskv$ category.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/risk/max_n_day_precipitation_amount_window}
+  \caption{Risk values depending on number of consecutive days of extreme precipitation in scenario SSP2-4.5. Other parameters are set to the percentile of order 0.99. The risk value is rescaled with respect to the risk of reference period from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
+  \label{fig:ssp245_risk_max_n_day_precipitation_amount_window}
+\end{figure}
+
+The opposite trends of these plots may suggest the presence of an optimum on the multidimensional surface of the risk function. Further insights are obtained by the joint plot of risk with respect to $\mathrm{p1}$ and $\mathrm{p4}$. To simplify the visualisation of data, future time horizons are analysed one at a time, while to guarantee the comparison with the previous results, remaining parameters are set with the same constraints. In figure~\ref{fig:ssp245_risk_window_medium} the 3D plot for scenario SSP2-4.5 and the medium-term horizon is shown. The plot confirms the direction of increment observed in figures~\ref{fig:ssp245_risk_heat_wave_index_window-heat_wave_max_length_window} and~\ref{fig:ssp245_risk_max_n_day_precipitation_amount_window} and does not show a local minimum in the selected domain of parameters. However, by intersecting with the plane formed by the same values of parameters, two extreme values can be identified. This constraint is equivalent to use the same number of successive days to define both heat wave and heavy precipitation events, which may be an useful choice to streamline the \gls{CCRA}.
+
+As observed from the bidimensional projections of the risk surface, the maximum is placed at low values of consecutive days, because it represents the highest effects on risk brought by indicators $\mathrm{HWI}$, $\mathrm{HWML}$ and $\mathrm{Rxp4day}$ combined. For reference, \qty{5}{\day} is the time span suggested for $\mathrm{Rxp4day}$, while temperature-related indicators normally use \qty{6}{\day} \cite[2208]{2021GutierrezAnnexVI}.
+Precise values for the optimal number of consecutive days can not be obtained in the present analysis due to the coarser interval $S_\mathrm{p1}$ for parameter $\mathrm{p1}$. In fact, the point of maximum would become \qty{4}{\day} but there is no information on neighbour values, which could be compatible with the suggestions from literature instead. A further application of the study with denser intervals is needed to identify the optima more precisely.
+
+On the other hand, the constrasting effects of increasing heavy precipitation events and decreasing heat wave events place the minimum to higher parameter values. For this reason, it can be associated with most extreme events, e.g. heat waves with a length of \qty{25}{\day} for the case presented in figure~\ref{fig:ssp245_risk_window_medium}.
+This value could be used in \gls{CCRA} where the risk associated to combined extreme events regarding temperature and precipitation is studied, with the precondition to set the other parameters to suitable values.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/risk/window_medium}
+  \caption{Risk values depending on number of consecutive days of extreme precipitation $\mathrm{p4}$ and number of consecutive days of extreme temperature $\mathrm{p1}$ in scenario SSP2-4.5 and medium-term horizon. Other parameters are set to the percentile of order 0.99. The risk value is rescaled with respect to the risk of reference period from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}. The grey vertical plane in the 3D plot represent the constraint on the same values of $\mathrm{p1}$ and $\mathrm{p4}$. Data projected on this plane are displayed with the error bars and the risk categories on the 2D plot.}
+  \label{fig:ssp245_risk_window_medium}
+\end{figure}
+
+The optimal values discussed above are not guaranteed to exists in different periods, as can be seen in figure~\ref{fig:ssp245_risk_window_long} for the Long future period, where the minimum is not present in the considered domain of values. Extending the domain of the parameters could recover the missing optimum, but the validity of this operation is subject to context and scope of the \gls{CCRA} performed, since the explored parameter values could not be useful.
+In the near-term horizon the minimum is present and associated to lower numbers of consecutive days with respect to the medium-term period, see figure~\ref{fig:ssp245_risk_window_near}. This can be explained with the low number of heat wave events present in the near-term horizon, which lowers the risk curve as seen in figure~\ref{fig:ssp245_risk_heat_wave_index_window-heat_wave_max_length_window}, therefore reducing the value of the intersection in the 3D plot.
+The maxima are equal for all future periods, however they bring different risk outcomes.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/risk/window_long}
+  \caption{Risk values for scenario SSP2-4.5 and Long time horizon. Same settings of figure~\ref{fig:ssp245_risk_window_medium} apply.}
+  \label{fig:ssp245_risk_window_long}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/risk/window_near}
+  \caption{Risk values for scenario SSP2-4.5 and Near time horizon. Same settings of figure~\ref{fig:ssp245_risk_window_medium} apply.}
+  \label{fig:ssp245_risk_window_near}
+\end{figure}
+
+Scenarios SSP1-2.6 and SSP3-7.0 provides similar results, with risk values which are reduced or amplified due to climate change. Plots are available in files \verb|window_near.pdf|, \verb|window_medium.pdf| and \verb|window_long.pdf| for Near, Medium and Long periods, respectively, at \url{https://github.com/mirasac/mscunito-thesis-document/tree/main/figures/torino/indicators/ssp126/risk} for scenario SSP1-2.6 and at \url{https://github.com/mirasac/mscunito-thesis-document/tree/main/figures/torino/indicators/ssp370/risk} for scenario SSP3-7.0.
