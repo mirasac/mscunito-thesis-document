@@ -30,3 +30,8 @@ figures/torino/indicators/ssp245/spatial_bias/EC-Earth3_heat_wave_max_length/*
 !figures/torino/indicators/ssp245/spatial_bias/EC-Earth3_heat_wave_max_length/1.pdf
 
 figures/torino/indicators/ssp370/*/field/
+
+# Licensed material
+titlepage/LogoUniToConvertito.png
+titlepage/tahoma.ttf
+titlepage/tahomabd.ttf
