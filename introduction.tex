@@ -74,7 +74,7 @@ In the following, the term \gls{indicator} written alone refers to an \gls{indic
 
 Having introduced the definitions above, the various components of \gls{risk} can be arranged as in figure~\ref{fig:nomenclature}. It sums up the relation between the various components, highlightning the fact that risk depends on drivers from three independent categories and are quantified possibly in multiple ways.
 
-\begin{figure}[h]
+\begin{figure}
   \centering
   \includegraphics*[keepaspectratio=true,width=0.75\textwidth]{nomenclature}
   \caption{A possibile representation of the components of climate risk. Climate hazards can affect exposed and vulnerable elements of the system and determine a risk for it. Collectively these factors are called drivers and can grouped in the three independent determinants of risk: hazard, exposure and vulnerability. To provide quantitative results, each driver is described by numerical values, i.e. the indicators, each providing a different possible description or measure of the same driver.}
@@ -146,12 +146,13 @@ Every numerical value is equipped with proper unit of measurement, to represent 
 
 A more practical representation of $T$ is a multidimensional array, where values in the domain are coordinates associated to each dimension and each entry of the array is the result of $T$ evaluated on those coordinates. Figure~\ref{fig:multidimensional} shows this representation visually.
 
-\begin{figure}[h]
+\begin{figure}
   \centering
   \includegraphics*[keepaspectratio=true,width=0.75\textwidth]{multidimensional}
   \caption{Representation of a generic \gls{ECV} as multidimensional array.}
   \label{fig:multidimensional}
 \end{figure}
+
 In the following, this representation is used to simplify the discussion and same \gls{ECV} symbol is used both for the function and the multidimensional array.
 \begin{example}
   \Glsdesc{tas}, symbol \gls{tas}, is available for some coordinates $S_\text{lat} \times S_\text{lon}$ and timestamps $S_\text{time}$. It can be seen as the scalar function in equation~\eqref{eq:math_variable}, which associates each value in set $S_\text{lat} \times S_\text{lon} \times S_\text{time}$ to a scalar value with unit \glssymbol{tas}, or it can be represented as the multidimensional array in figure~\ref{fig:multidimensional}, where each entry is function~\eqref{eq:math_variable} evaluated at the corresponding coordinates.

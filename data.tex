@@ -3,7 +3,7 @@
 The climate dataset used for evaluating reference values is ERA5 by \gls{ECMWF} \cite{2023HersbachERA5Hourly}. ERA5 is a \gls{reanalysis} dataset, which provides gridded data with global coverage and hourly temporal resolution. \Glspl{reanalysis} are observations of climate data interpolated on a spatiotemporal grid throught numerical models, a procedure called \gls{data_assimilation} (see \cite{2020HersbachTheERA5} for technical details).
 The main technical data about ERA5 can be found in table~\ref{tab:technical_ERA5}.
 
-\begin{table}[h]
+\begin{table}
   \centering
   \caption{Subset of the technical characteristics of ERA5, the complete list can be found in \cite[2003]{2020HersbachTheERA5}.}
   \label{tab:technical_ERA5}
@@ -40,7 +40,7 @@ Models working at smaller scales are available: they can be used to dynamically 
 The purpose of having a set of different models from NEX-GDDP-CMIP6 is to evaluate the uncertainty on predictions, in fact each model has different characteristics and applying ensemble methods reduces the variance on the outputs given by model-specific characteristics (e.g. different equations describing the same phenomena, different modules between models). NEX-GDDP-CMIP6 provides a single variant for each model.
 Data are obtained through statistical downscaling and bias adjustment procedures presented in \cite{2012ThrasherTechnicalNote}. The main technical data about NEX-GDDP-CMIP6 can be found in table~\ref{tab:technical_NEX-GDDP-CMIP6}, while the full description of the dataset is in \cite{2022ThrasherNASAGlobal}.
 
-\begin{table}[h]
+\begin{table}
   \centering
   \caption{Subset of the technical characteristics of NEX-GDDP-CMIP6, see \cite{2022ThrasherNASAGlobal} for the full specifications.}
   \label{tab:technical_NEX-GDDP-CMIP6}

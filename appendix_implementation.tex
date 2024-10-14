@@ -6,11 +6,11 @@ The most frequent issue is the lack of data for some of the used \glspl{ECV} or 
 
 Finally, two models have temporal coordinates set on a different calendar than the one used in this work, namely a 360-day calendar. Calendars are defined by the \gls{MIP} endorsed \glspl{GCM} but no restriction is imposed on the possibility to convert from one to another.
 
-\begin{table}[h]
+\begin{table}
   \centering
   \caption{Models available in NEX-GDDP-CMIP6. The part of the table above the line shows the models used in the present study, their \gls{CMIP6} variant is specified. Below the line the models which are excluded are listed, along with the reason for their exclusion.}
   \label{tab:CMIP6_models}
-  \begin{tabular}{ll}
+  \begin{tabular}{lc}
     Model            & Notes                          \\
     \hline
     ACCESS-CM2       & Variant r1i1p1f1               \\
@@ -48,6 +48,36 @@ Finally, two models have temporal coordinates set on a different calendar than t
     KACE-1-0-G       & Calendar of 360 days           \\
     KIOST-ESM        & Missing data                   \\
     NESM3            & Missing data                   \\
-    UKESM1-0-LL      & Calendar of 360 days
+    UKESM1-0-LL      & Calendar of 360 days           \\
   \end{tabular}
 \end{table}
+
+
+
+\section{Values of parameters defined by quantiles}
+\label{sec:Values of parameters defined by quantiles}
+Calculations presented in section~\ref{sec:Methodology of risk assessment} are performed separately for each model. This procedure has the advantage to propagate information related to the specific models throughout the methodology and to extract ensemble statistics on the final risk values.
+However, it makes difficult to track the actual values of parameters based on quantiles, e.g. thresholds on temperature, because they are evaluated on data of the reference period, which in principle are different for each model. Using the order of quantiles resolves the issue of tracking quantities but hinders the interpretation of plots.
+
+To give a reference for quantiles used in the document, they are mapped to their order in plots. One line for every model is drawn to show their variability in the ensemble, but no reference to the particular models is made because their comparison is beyond the purpose of this work. Points for the ensemble average and error bars representing the uncertainty estimated through standard deviation are overlapped in the same plot. Figures~\ref{fig:parameters_heat_wave_index_thresh} and~\ref{fig:parameters_heat_wave_max_length_thresh_tasmin} show quantiles of \gls{tasmax} and \gls{tasmin}, respectively, while figure~\ref{fig:parameters_wetdays_thresh} shows quantiles of \gls{pr}. Actual values are available in CSV format at \url{https://github.com/mirasac/mscunito-thesis-code/tree/main/data/torino/indicators/historical/reference/parameters}.
+
+\begin{figure}
+  \centering
+  \includegraphics*[keepaspectratio=true,width=0.9\textwidth]{torino/indicators/historical/reference/parameters/heat_wave_index_thresh}
+  \caption{Quantiles of \gls{tasmax} evaluated in the reference period from data of each model. These values are used for parameter $\mathrm{p2}$ {Threshold of \gls{tasmax}} during calculations. The ensemble average with standard deviation as estimate of uncertainty is displayed for reference.}
+  \label{fig:parameters_heat_wave_index_thresh}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics*[keepaspectratio=true,width=0.9\textwidth]{torino/indicators/historical/reference/parameters/heat_wave_max_length_thresh_tasmin}
+  \caption{Quantiles of \gls{tasmin} evaluated in the reference period from data of each model. These values are used for parameter $\mathrm{p3}$ {Threshold of \gls{tasmin}} during calculations. The ensemble average with standard deviation as estimate of uncertainty is displayed for reference.}
+  \label{fig:parameters_heat_wave_max_length_thresh_tasmin}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics*[keepaspectratio=true,width=0.9\textwidth]{torino/indicators/historical/reference/parameters/wetdays_thresh}
+  \caption{Quantiles of \gls{pr} evaluated in the reference period from data of each model. These values are used for parameter $\mathrm{p5}$ {Threshold of \gls{pr}} during calculations. The ensemble average with standard deviation as estimate of uncertainty is displayed for reference.}
+  \label{fig:parameters_wetdays_thresh}
+\end{figure}
