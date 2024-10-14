@@ -127,9 +127,12 @@ Long-term time horizons are affected by greater uncertainty for different reason
 
 \subsection{Evaluation of indicators}
 \label{sec:Evaluation of indicators}
-This section explains the process to obtain a scalar value for each \gls{determinant}, following the methodology presented in section~\ref{sec:Methodology of risk assessment}. Modules~\ref{itm:module_3}, \ref{itm:module_4}, \ref{itm:module_5} and~\ref{itm:module_6} are recalled.
+This section explains the process to obtain a scalar value for each \gls{determinant}, following the methodology presented in section~\ref{sec:Methodology of risk assessment}. Modules~\ref{itm:module_3}, \ref{itm:module_4}, \ref{itm:module_5} and~\ref{itm:module_6} are recalled. The following paragraphs are further split in logical groups to help to follow the whole process.
 Although the selection of \glspl{driver} for the actual case studies is presented in section~\ref{sec:Impact chain}, formulae involving \glspl{driver} and \glspl{indicator} are kept general.
 
+
+
+\subsubsection{Choose the indicators}
 Module~\ref{itm:module_3} may be stated symbolically as follow. For each \gls{driver} within the \gls{hazard} \gls{determinant}, a set $\mathcal{H}_j$ of \glspl{indicator} is obtained. A similar procedure is carried out for \glspl{driver} of \gls{exposure} and \gls{vulnerability}, resulting in sets $\mathcal{E}_i$ and $\mathcal{V}_k$, respectively. Indices $i$, $j$ and $k$ are present to clarify that each set is related to a different \gls{driver} and the way these sets are indexed is not important (e.g. each of them can be a sequence of integers where each one refers to a different \gls{driver}, they can be the names of the \glspl{driver} they refer to).
 If the distinction between \glspl{driver} of \gls{sensitivity} and \gls{adaptive_capacity} is made, then it is not explicit in the indices. The reason is that these \glspl{driver} are treated mathematically the same way, as explained below.
 
@@ -156,7 +159,7 @@ The methodology suggests to avoid double counting of \glspl{driver} by allocatin
     \mathcal{V}_\text{vul2} & = \left\{ \parbox{0.45\linewidth}{``number of local water co-operations''} \right\}
     \quad .
   \end{align*}
-  Note that all \glspl{indicator} consist in counting some elements of the system. Nevertheless, they are different from each other since they refer to different elements.
+  Note that all \glspl{indicator} consist in counting some elements of the system. Nevertheless, they are different from each other since they refer to different elements, hence the drivers are different.
 \end{example}
 
 In particular for this study, an heat wave is described mathematically by \glspl{indicator} in table~\ref{tab:indicators_heat_wave}. Heat waves are described both in frequency and duration, through $\mathrm{HWI}$ and $\mathrm{HWML}$, respectively.
@@ -193,12 +196,15 @@ In module~\ref{itm:module_4} the evaluation of \glspl{indicator} on climate and 
 
 A more convoluted path is needed to evaluate \glspl{indicator} of \gls{hazard}. They are functions defined by equation~\eqref{eq:math_indicator}, hence they depend on climate data and additional parameters. In tables~\ref{tab:indicators_heat_wave} and~\ref{tab:indicators_heavy_precipitation} parameters are listed to complete the definition of indicators, but they are detailed in the following paragraphs.
 
+
+
+\subsubsection{Choose the values of parameters}
 For each \gls{indicator}, a set of values of its parameters is defined. Ideally these sets would be continuous, to explore the whole space of possible configurations of parameters. However, for limitations intrinsic to the analysis tools, only a finite and small number of values can be considered. In the following these discrete sets are called intervals to preserve generality.
 How values in these intervals are selected depends on the nature of the parameters. The selection is ultimately arbitrary, to allow greater control, e.g. remove values which are not interesting for the analysis, and to apply a form of non-parametric sampling of the input space. This is a form of space-filling design for \gls{SA} \cite[593-594]{2015DeanHandbookOf}.
 
 To simplify the explanation, consider \gls{driver} $j$ and an \gls{indicator} $I \in \mathcal{H}_j$. This \gls{indicator} depends on some parameters, which are collected in set $P_I$, and on some \glspl{ECV}. The chosen interval for a parameter $p \in P_I$ is a set of scalar values, possibly with units of measurement, denoted by $S_p$.
 
-If parameter $p$ is related to a \gls{ECV} (e.g. threshold on \gls{tas}), its values are sampled from the distribution of the \gls{ECV}. First all data available for the \gls{ECV} of interest are collected in a single sample, with the following conditions:
+If parameter $p$ is related to a \gls{ECV} (e.g. {Threshold of \gls{tas}}), its values are sampled from the distribution of the \gls{ECV}. First all data available for the \gls{ECV} of interest are collected in a single sample, with the following conditions:
 \begin{itemize}
   \item temporal coordinates belong to the averaging period $\prd{S_\text{time}}{ref}$ chosen for the \glspl{normal};
   \item spatial coordinates are ignored.
@@ -222,6 +228,7 @@ Third, values are chosen with the aim to sample the true probability distributio
 If parameter $p$ is not related to a \gls{ECV}, e.g. window size for moving averages, some heuristic is applied and explained case by case where values are presented in section~\ref{sec:Results and Discussion}.
 
 The parameters indicators chosen for this study depend on are collected in table~\ref{tab:indicators_parameters}. Note that despite the definition of heat wave lasting two or more days, a window of one day is considered, i.e. $\mathrm{p1} = 1$, simply to count the number of days with extreme temperatures in a year. In particular, indicator $\mathrm{HWI}$ becomes $\mathrm{TXnn}$, see \cite[2209]{2021GutierrezAnnexVI}.
+Actual values displayed with uncertainty from the ensemble average are collected in section~\ref{sec:Values of parameters defined by quantiles}.
 
 \begin{table}
   \renewcommand*{\arraystretch}{1.5}
@@ -232,13 +239,16 @@ The parameters indicators chosen for this study depend on are collected in table
     Parameter                                 & Symbol        & Unit                        & Interval                                                                                     \\
     \hline
     Consecutive days of extreme temperature   & $\mathrm{p1}$ & \unit{\day}                 & Integer numbers from 1 to 31 in steps of 3                                                   \\  %Interval in symbols: $\{ v \in \mathbb{N} : v = 3n + 1 \wedge n \in \mathbb{N} \wedge 0 \leq n \leq 10 \}$.
-    Threshold of \gls{tasmax}                 & $\mathrm{p2}$ & \unit{\degreeCelsius}       & Quantiles of order 0.90, 0.97, 0.99, 0.999, 1.0 of \gls{tasmax} in the historical experiment \\
-    Threshold of \gls{tasmin}                 & $\mathrm{p3}$ & \unit{\degreeCelsius}       & Quantiles of order 0.90, 0.97, 0.99, 0.999, 1.0 of \gls{tasmin} in the historical experiment \\
+    Threshold of \gls{tasmax}                 & $\mathrm{p2}$ & \unit{\degreeCelsius}       & Quantiles of order 0.90, 0.97, 0.99, 0.999, 1.0 of \gls{tasmax} in the reference period      \\
+    Threshold of \gls{tasmin}                 & $\mathrm{p3}$ & \unit{\degreeCelsius}       & Quantiles of order 0.90, 0.97, 0.99, 0.999, 1.0 of \gls{tasmin} in the reference period      \\
     Consecutive days of extreme precipitation & $\mathrm{p4}$ & \unit{\day}                 & Integer numbers from 1 to 31                                                                 \\  %Interval in symbols: $\{ v \in \mathbb{N} : 1 \leq v \leq 31 \}$.
-    Threshold of \gls{pr}                     & $\mathrm{p5}$ & \unit{\milli\metre\per\day} & Quantiles of order 0.90, 0.97, 0.99, 0.999, 0.9999 of \gls{pr} in the historical experiment  \\
+    Threshold of \gls{pr}                     & $\mathrm{p5}$ & \unit{\milli\metre\per\day} & Quantiles of order 0.90, 0.97, 0.99, 0.999, 0.9999 of \gls{pr} in the reference period       \\
   \end{tabular}
 \end{table}
 
+
+
+\subsubsection{Evaluate the indicators}
 After $S_p$ is defined for every $p \in P_I$, the \gls{indicator} $I$ is finally evaluated. This results in elements of set $\mathcal{H}_j$ being multidimensional arrays given by equation~\eqref{eq:math_indicator}, for every \gls{driver} $j$ of the \gls{hazard}. Different \glspl{indicator} may have different parameters, but they depend on \glspl{ECV} which same spatial and temporal coordinates $S_\text{lat} \times S_\text{lon} \times S_\text{time}$, hence they have same temporal frequency, i.e. same $S_\text{y}$.
 
 From a computational perspective, the time complexity for the evaluation of an \gls{hazard} \gls{indicator} $I$ is a particular function $f$ of the number $\abs{S_\text{time}}$ of temporal coordinates of climate data.%
@@ -251,10 +261,17 @@ The evaluation is then repeated for every spatial coordinate in $S_\text{lat} \t
 \end{equation}
 For indicators in table~\ref{tab:indicators_parameters}, the evaluation time of an indicator for a single choice of its arguments can be always bounded by polynomial functions, $f \big( \abs{S_\text{time}} \big) = \big( \abs{S_\text{time}} \big)^a $, with $a \in \mathbb{R}$ specific to the indicator being evaluated. This means that the computation benefit from a parallel setup.
 
-\Glspl{indicator} are also evaluated for each model available (see table~\ref{tab:CMIP6_models}). A different model may have different values for an \gls{ECV} at the same coordinates. Moreover, these differences reflect on the procedures of evaluation of parameters values. Therefore, parameters defined as quantiles of \glspl{ECV} are expressed by their sample frequency rather than their value.
+\Glspl{indicator} are also evaluated for each model available (see table~\ref{tab:CMIP6_models}). A different model may have different values for an \gls{ECV} at the same coordinates. Moreover, these differences reflect on the procedures of evaluation of parameters values. Therefore, it is better to address to quantiles of \glspl{ECV} as their sample frequency rather than their value.
 
-These results need further elaboration. In fact, for every \gls{driver} $i$ and $k$, $\mathcal{E}_i$ and $\mathcal{V}_k$ contain scalar values which encapsulate information about the system for the chosen time period and system without reference to spatial coordinates. To obtain an analogous result for \glspl{driver} of \gls{hazard}, \glspl{indicator} are aggregated over spatial and temporal dimensions. For simplicity intermediate results are identified with the same variable $I$.
+Some combinations of parameter values are excluded from the calculations because they may bring to inconsistent results. Moreover, this issue could be present only for some models, due to their variability. The operation of removing these invalid combinations has the two advantages of reducing the number of calculations and removing values of indicators which may seem plausible but have no physical meaning because derived by unallowed physical conditions.
 
+In this work the combinations having $\mathrm{p3} > \mathrm{p2}$, i.e. the {Threshold of \gls{tasmin}} greater than the {Threshold of \gls{tasmax}} are removed. Although this condition is not problematic per se, it could allow events of heat wave with $\gls{tasmin} > \gls{tasmax}$ and it is not physically acceptable. Among the model considered for this study, six present combinations of this kind. In particular, all these models have the maximum of \gls{tasmin}, i.e. quantile of order \num{1.0}, greater than quantile of order \num{0.9} of \gls{tasmax}. Between the two quantiles, the former is removed, to have more variability over coordinates $S_\mathrm{p2}$: the expectation is to study a wider range of effects on risk, since two indicators depend on {Threshold of \gls{tasmax}} $\mathrm{p2}$ instead of one for $\mathrm{p3}$. See table~\ref{tab:parameters_heat_wave_max_length_thresh_tasmin} for the list of models involved. All the combinations containing the specific value of parameter $\mathrm{p3}$ are deleted, to streamline the following computational procedures.
+
+The results of the initial computation of indicators need further elaboration. In fact, for every \gls{driver} $i$ and $k$, $\mathcal{E}_i$ and $\mathcal{V}_k$ contain scalar values which encapsulate information about the system for the chosen time period and system without reference to spatial coordinates. To obtain an analogous result for \glspl{driver} of \gls{hazard}, \glspl{indicator} are aggregated over spatial and temporal dimensions. For simplicity intermediate results are identified with the same variable $I$.
+
+
+
+\subsubsection{Aggregate the temporal dimension}
 First, the temporal aggregation is performed. It consists in averaging the multidimensional array over the temporal dimension with a sample average. The outcome is multidimensional arrays depending on spatial coordinates and parameters:
 \begin{equation}
   \label{eq:temporal_aggregation}
@@ -269,6 +286,8 @@ Figure~\ref{fig:historical_reference_field_EC-Earth3_heat_wave_max_length} shows
   \caption{{Heat wave max length} (symbol $\mathrm{HWML}$, unit \unit{\day}) indicator temporally aggregated on the reference period for the EC-Earth3 model. Sample average and sample standard deviations are shown as spatial distributions with fixed parameters $\mathrm{p1} = \qty{4}{\day}$, $\mathrm{p2} = \qty{24.67}{\degreeCelsius}$ and $\mathrm{p3} = \qty{15.32}{\degreeCelsius}$, both thresholds of temperature are the 90th percentile. The black dot is the reference point of the case study. Effects of orography are visible, reducing daily \gls{tas} in grid cells covering mountain ranges.}
   \label{fig:historical_reference_field_EC-Earth3_heat_wave_max_length}
 \end{figure}
+
+EC-Earth3 is one of the models being affected by the issue of {Threshold of \gls{tasmin}} being larger than the {Threshold of \gls{tasmax}} for some values. To apply the temporal aggregation in these cases, the missing coordinates are ignored and the sample average is performed on a reduced sample.
 
 Due to the spatial resolution of data, they may contain bias with respect to the reference period, e.g. orography may influence differently the variation of some \glspl{ECV} as can be seen in figure~\ref{fig:historical_reference_field_EC-Earth3_heat_wave_max_length}.
 A useful quantity to study this phenomenon is the variation of any \gls{indicator} $I$ with respect to the reference period,
@@ -289,6 +308,9 @@ An example of indicator anomaly is shown in figure~\ref{fig:spatial_bias_EC-Eart
   \label{fig:spatial_bias_EC-Earth3_heat_wave_max_length}
 \end{figure}
 
+
+
+\subsubsection{Aggregate the spatial dimensions}
 To compress information on spatial dependency, the spatial aggregation is performed by using \gls{EOF} analysis as a dimensionality reduction technique.%
 \footnote{Terminology is varied. Here the eigenvectors, i.e. spatial patterns, are referred to as \glspl{EOF} and their coefficients, i.e. temporal patterns, are the \glspl{PC}. The object containig data is called design matrix with samples, i.e. observations, organised in rows and their features, i.e. variables which describe them, in columns. For further clarification on the terminology see \cite[626-627]{2019WilksStatisticalMethods} and for a recap on \gls{EOF} analysis see \cite[6502-6503]{2009MonahanEmpiricalOrthogonal} and \cite[1121-1122]{2007HannachiEmpiricalOrthogonal}.}
 The following procedure is applied to every \gls{indicator} $I$ from equation~\eqref{eq:temporal_aggregation}.
@@ -331,7 +353,11 @@ Once the orthogonal basis for the reference period is evaluated, every indicator
 \end{equation}
 The procedure is repeated for each indicator $I \in \mathcal{H}_j$ of each \gls{driver} $j$ with data from models in each scenario and time horizon.
 
-The projection corresponds to a rotation in the space of all spatial coordinates and this is geometrically possible because feature and sample dimensions are equal for all periods, since parameters obtained from the reference period are used for the indicator in same scenario and model. A side effect of the rotation is to possibly obtain negative values which the original indicator was not allowed to get. This is an outcome of the mathematical treatment of quantities and the physical meaning of scalar quantities after the rotation is seldom preserved.
+The projection corresponds to a rotation in the space of all spatial coordinates and this is geometrically possible because feature and sample dimensions are equal for all periods. In fact, parameters obtained from the reference period are used for the indicator in same scenario and model.
+
+The issue of $\mathrm{p3}$ {Threshold of \gls{tasmin}} being larger than $\mathrm{p2}$ {Threshold of \gls{tasmax}} for some values does not affect the spatial aggregation. This is the result of removing all combinations having the problematic value of $\mathrm{p3}$, not only the ones having $\mathrm{p3} > \mathrm{p2}$. The removed coordinates translates in a deletion of rows in the design matrix, effectively reducing the sample dimensions but allowing a rotation without undefined values being involved.
+
+A side effect of the rotation is to possibly obtain negative values which the original indicator was not allowed to get. This is an outcome of the mathematical treatment of quantities and the physical meaning of scalar quantities after the rotation is seldom preserved.
 
 The first \gls{EOF} is the direction in the feature dimension which maximises the variance among all values of parameters, i.e. the sample dimension. With the procedure for spatial aggregation presented above, the expectation is that higher variance in the space of all parameters corresponds to greater effects on the final \gls{risk} value. This reasoning extends to the choice of the orthogonal basis: relevant spatial information are gathered in the first \gls{EOF} of the reference period and the projection on this direction allows to compare the same information in future periods, potentially assessing their change.
 
@@ -339,6 +365,9 @@ On the contrary, applying an \gls{EOF} analysis to every period and using the fi
 
 Although it is common to use \gls{EOF} analysis to decouple the temporal dimension from the spatial ones \cite{2007HannachiEmpiricalOrthogonal}, this procedure is not applied in the present study because each analysed function depends on additional arguments. If spatial aggregation were performed first, either it is applied independently to each combination of parameter values or every dimension which is not s spatial one is included the sample dimension. In both cases, the resulting \gls{indicator} would be function $I(t, \underline{z})$, however the resulting orthogonal basis would not allow the comparison between different time horizons. In fact, in the first case there is no guarantee that the direction of maximum variance of the indicator on the sample dimension $S_\text{y}$ is the same for every combination of parameter values. In the second case the sample dimension is $S_\text{y} \times \prod_{p \in P_I} S_p$, hence any known interpretation of the results of \gls{EOF} analysis in terms of time and space is not applicable.
 
+
+
+\subsubsection{Obtain scalar values for the indicators}
 To execute module~\ref{itm:module_5}, first the scale of each \gls{indicator} is defined. In this work all \glspl{indicator} are numeric values and may have both metric or categorical scales (i.e. values are distributed uniformly or not, respectively, cf. \cite[109]{2017GIZTheVulnerability}).
 When metric scales are involved, the methodology suggests to apply the min-max normalisation. Instead, in the present work \glspl{indicator} which are scalar values are not transformed,%
 \footnote{Formally they are divided by a unitary value of their quantity to obtain dimensionless values, which are trivially compatible and easily used as arguments in mathematical functions.}
@@ -410,6 +439,13 @@ One of the problems which justifies this work can be stated using equation~\eqre
   This is the expected outcome, because changing the mathematical description of the physical phenomenon should not change the final \gls{risk}.
 \end{example}
 
+The entire pipeline described up to this point spanning sections~\ref{sec:Evaluation of indicators} and~\ref{sec:Evaluation of risk} is repeated for each model available in the ensemble. The outcome is an ensemble of \gls{risk} values, collected as functions $R$ from equation~\eqref{eq:risk_aggregated} or in the form of multidimensional array. To extract statistical information from these data, an ensemble average is performed to obtain a representative value and the sample standard deviation is associated to it as uncertainty.
+
+However, this procedure poses two issues.
+The first problem is the disalignment of coordinates in the risk outcome of each model. In other words, the parameters values used as coordinates are not guaranteed to be the same between models. This is consequence of the selection of parameters related to \glspl{ECV}: even assuming that every model samples from the same distribution of a given \gls{ECV}, this sample may not be large enough to provide the same statistics across models, e.g. the quantiles used as values for the interested parameter. To circumvent this problem, in the following the values of these parameters are identified by their quantile order. Parameters affected by this issue are {Threshold of \gls{tasmax}} $\mathrm{p2}$, {Threshold of \gls{tasmin}} $\mathrm{p3}$ and {Threshold of \gls{pr}} $\mathrm{p5}$, as specified in table~\ref{tab:indicators_parameters}. Their values for each model are listed in section~\ref{sec:Values of parameters defined by quantiles}, along with their ensemble average and standard deviation, to provide an estimate of practical values to use in \glspl{CCRA}.
+
+A second issue is the propagation of missing combinations of values in some models. When ensemble average is performed on risk values, the same approach of the temporal aggregation is implemented: models with missing combinations are skipped and the sample is reduced in size from 22 members to 16. The reduction of predictive skill of averages on risk occur only for some combinations of coordinates, namely the ones containing the quantile of order \num{1.0} of parameter {Threshold of \gls{tasmin}} $\mathrm{p3}$ (see table~\ref{tab:parameters_heat_wave_max_length_thresh_tasmin} for the affected models).
+
 A final non-linear transformation is performed on \gls{risk} value $R$, to simplify the presentation and comparison of results.
 Values obtained from all the combinations of parameters are classified accordingly to five categories \cite[53]{2017GIZRiskSupplement}, in increasing order of severity:
 \begin{enumerate}
@@ -435,7 +471,9 @@ This transformation can be formalised as a piecewise function $r : \prod_j \prod
 \end{equation}
 Thresholds $q_1$, $q_2$, $q_3$ and $q_4$ are calculated from risk values of the reference period because \gls{hazard} \glspl{driver} are supposed to change risk and \glspl{impact} with time. Moreover, the pieces of the function reflect the fact that the image of $R$ is not bounded, due to the aggregated values of \glspl{determinant} being not bounded by the chosen normalisation. This allows to account for extreme values of risk in periods different from the reference.
 
-Module~\ref{itm:module_7} addresses the possible aggregation of multiple sub-risks into an overall \gls{risk} value \cite[54]{2017GIZRiskSupplement}. According to section~\ref{sec:Complex risk}, the outcome would be a complex risk belonging to category~\ref{itm:category_3}.
+The underlying idea is that in the past, more precisely in the reference period, any risk and impact was well known and being responded to with proper measures. Any variation with respect to that baseline is worth considering for adaptation and mitigation strategies against negative impacts of climate change.
+
+Finally, module~\ref{itm:module_7} addresses the possible aggregation of multiple sub-risks into an overall \gls{risk} value \cite[54]{2017GIZRiskSupplement}. According to section~\ref{sec:Complex risk}, the outcome would be a complex risk belonging to category~\ref{itm:category_3}.
 This additional elaboration is not implemented in the present work because an individual \gls{risk} is studied, i.e. the climate risk.
 
 

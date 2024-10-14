@@ -59,25 +59,112 @@ Finally, two models have temporal coordinates set on a different calendar than t
 Calculations presented in section~\ref{sec:Methodology of risk assessment} are performed separately for each model. This procedure has the advantage to propagate information related to the specific models throughout the methodology and to extract ensemble statistics on the final risk values.
 However, it makes difficult to track the actual values of parameters based on quantiles, e.g. thresholds on temperature, because they are evaluated on data of the reference period, which in principle are different for each model. Using the order of quantiles resolves the issue of tracking quantities but hinders the interpretation of plots.
 
-To give a reference for quantiles used in the document, they are mapped to their order in plots. One line for every model is drawn to show their variability in the ensemble, but no reference to the particular models is made because their comparison is beyond the purpose of this work. Points for the ensemble average and error bars representing the uncertainty estimated through standard deviation are overlapped in the same plot. Figures~\ref{fig:parameters_heat_wave_index_thresh} and~\ref{fig:parameters_heat_wave_max_length_thresh_tasmin} show quantiles of \gls{tasmax} and \gls{tasmin}, respectively, while figure~\ref{fig:parameters_wetdays_thresh} shows quantiles of \gls{pr}. Actual values are available in CSV format at \url{https://github.com/mirasac/mscunito-thesis-code/tree/main/data/torino/indicators/historical/reference/parameters}.
+To give a reference for quantiles used in the document, they are mapped to their order in plots. One line for every model is drawn to show their variability in the ensemble, but no reference to the particular models is made because their comparison is beyond the purpose of this work. Points for the ensemble average and error bars representing the uncertainty estimated through standard deviation are overlapped in the same plot. Figures~\ref{fig:parameters_heat_wave_index_thresh} and~\ref{fig:parameters_heat_wave_max_length_thresh_tasmin} show quantiles of \gls{tasmax} and \gls{tasmin}, respectively, while figure~\ref{fig:parameters_wetdays_thresh} shows quantiles of \gls{pr}. Raw values are available in CSV format at \url{https://github.com/mirasac/mscunito-thesis-code/tree/main/data/torino/indicators/historical/reference/parameters}, but they are displayed with associated uncertainty given by the standard deviation in tables~\ref{tab:parameters_heat_wave_index_thresh}, \ref{tab:parameters_heat_wave_max_length_thresh_tasmin} and~\ref{tab:parameters_wetdays_thresh} for easier access.
 
-\begin{figure}
+\begin{table}
   \centering
-  \includegraphics*[keepaspectratio=true,width=0.9\textwidth]{torino/indicators/historical/reference/parameters/heat_wave_index_thresh}
-  \caption{Quantiles of \gls{tasmax} evaluated in the reference period from data of each model. These values are used for parameter $\mathrm{p2}$ {Threshold of \gls{tasmax}} during calculations. The ensemble average with standard deviation as estimate of uncertainty is displayed for reference.}
-  \label{fig:parameters_heat_wave_index_thresh}
-\end{figure}
+  \caption{Quantiles of parameter $\mathrm{p2}$ {Threshold of \gls{tasmax}} for each model used in the evaluation of indicators. Ensemble average and standard deviation are shown at the bottom of the table.}
+  \label{tab:parameters_heat_wave_max_length_thresh_tasmin}
+  \begin{tabular}{lccccc}
+    Model              & Order 0.9                    & Order 0.97                   & Order 0.99                   & Order 0.999                  & Order 1.0                    \\
+                       & \unit{\degreeCelsius}        & \unit{\degreeCelsius}        & \unit{\degreeCelsius}        & \unit{\degreeCelsius}        & \unit{\degreeCelsius}        \\
+    \hline
+    ACCESS-CM2         & 24.6                         & 28.2                         & 30.0                         & 32.2                         & 35.5                         \\
+    ACCESS-ESM1-5      & 24.6                         & 28.0                         & 30.0                         & 32.5                         & 34.5                         \\
+    BCC-CSM2-MR        & 24.9                         & 28.4                         & 30.4                         & 33.3                         & 36.1                         \\
+    CanESM5            & 24.8                         & 28.2                         & 30.1                         & 32.8                         & 35.8                         \\
+    CMCC-ESM2          & 24.8                         & 28.2                         & 30.2                         & 32.6                         & 35.2                         \\
+    CNRM-CM6-1         & 24.9                         & 28.3                         & 30.4                         & 33.2                         & 36.7                         \\
+    CNRM-ESM2-1        & 24.7                         & 28.1                         & 30.1                         & 33.2                         & 36.8                         \\
+    EC-Earth3          & 24.7                         & 28.0                         & 29.8                         & 31.4                         & 35.9                         \\
+    EC-Earth3-Veg-LR   & 24.7                         & 28.1                         & 29.9                         & 32.0                         & 35.5                         \\
+    FGOALS-g3          & 24.7                         & 28.2                         & 30.1                         & 32.8                         & 35.9                         \\
+    GFDL-ESM4          & 24.5                         & 28.0                         & 29.9                         & 31.5                         & 35.4                         \\
+    INM-CM4-8          & 24.9                         & 28.4                         & 30.4                         & 32.8                         & 35.6                         \\
+    INM-CM5-0          & 24.5                         & 28.0                         & 30.0                         & 32.5                         & 35.4                         \\
+    IPSL-CM6A-LR       & 24.8                         & 28.3                         & 30.2                         & 32.2                         & 35.0                         \\
+    MIROC-ES2L         & 24.4                         & 27.9                         & 30.0                         & 32.8                         & 35.6                         \\
+    MIROC6             & 24.6                         & 28.1                         & 30.2                         & 32.8                         & 35.6                         \\
+    MPI-ESM1-2-HR      & 24.5                         & 28.2                         & 30.1                         & 32.7                         & 35.6                         \\
+    MPI-ESM1-2-LR      & 24.9                         & 28.3                         & 30.3                         & 33.2                         & 35.8                         \\
+    MRI-ESM2-0         & 24.7                         & 28.2                         & 30.3                         & 32.6                         & 35.6                         \\
+    NorESM2-LM         & 24.7                         & 28.3                         & 30.3                         & 32.9                         & 35.5                         \\
+    NorESM2-MM         & 24.6                         & 28.2                         & 30.1                         & 31.8                         & 35.5                         \\
+    TaiESM1            & 24.7                         & 28.3                         & 30.0                         & 31.8                         & 35.5                         \\
+    \hline
+    Mean               & 24.7                         & 28.2                         & 30.1                         & 32.5                         & 35.6                         \\
+    Standard deviation & 0.1                          & 0.1                          & 0.2                          & 0.6                          & 0.5                          \\
+  \end{tabular}
+\end{table}
 
-\begin{figure}
+\begin{table}
   \centering
-  \includegraphics*[keepaspectratio=true,width=0.9\textwidth]{torino/indicators/historical/reference/parameters/heat_wave_max_length_thresh_tasmin}
-  \caption{Quantiles of \gls{tasmin} evaluated in the reference period from data of each model. These values are used for parameter $\mathrm{p3}$ {Threshold of \gls{tasmin}} during calculations. The ensemble average with standard deviation as estimate of uncertainty is displayed for reference.}
-  \label{fig:parameters_heat_wave_max_length_thresh_tasmin}
-\end{figure}
+  \caption{Quantiles of parameter $\mathrm{p3}$ {Threshold of \gls{tasmin}} for each model used in the evaluation of indicators. Ensemble average and standard deviation are shown at the bottom of the table. Missing values are identified with NA and are skipped during the evaluation of statistics, hence reducing the sample size and the predictive skill of the estimators.}
+  \label{tab:parameters_heat_wave_index_thresh}
+  \begin{tabular}{lccccc}
+    Model              & Order 0.9                    & Order 0.97                   & Order 0.99                   & Order 0.999                  & Order 1.0                    \\
+                       & \unit{\degreeCelsius}        & \unit{\degreeCelsius}        & \unit{\degreeCelsius}        & \unit{\degreeCelsius}        & \unit{\degreeCelsius}        \\
+    \hline
+    ACCESS-CM2         & 14.9                         & 17.5                         & 19.0                         & 20.9                         & 23.4                         \\
+    ACCESS-ESM1-5      & 15.2                         & 17.8                         & 19.2                         & 21.2                         & 23.3                         \\
+    BCC-CSM2-MR        & 15.0                         & 17.6                         & 19.0                         & 20.9                         & 23.3                         \\
+    CanESM5            & 15.4                         & 18.3                         & 19.7                         & 21.6                         & 24.5                         \\
+    CMCC-ESM2          & 15.2                         & 17.9                         & 19.4                         & 21.7                         & 24.2                         \\
+    CNRM-CM6-1         & 15.5                         & 18.0                         & 19.3                         & 21.0                         & 23.2                         \\
+    CNRM-ESM2-1        & 15.2                         & 17.8                         & 19.1                         & 20.8                         & 23.8                         \\
+    EC-Earth3          & 15.3                         & 18.0                         & 19.5                         & 21.6                         & NA                           \\
+    EC-Earth3-Veg-LR   & 15.2                         & 17.9                         & 19.4                         & 21.8                         & NA                           \\
+    FGOALS-g3          & 15.0                         & 17.6                         & 19.1                         & 21.3                         & 23.5                         \\
+    GFDL-ESM4          & 14.9                         & 17.8                         & 19.4                         & 21.8                         & 24.4                         \\
+    INM-CM4-8          & 15.1                         & 17.8                         & 19.4                         & 21.8                         & NA                           \\
+    INM-CM5-0          & 14.8                         & 17.4                         & 18.9                         & 21.1                         & 23.9                         \\
+    IPSL-CM6A-LR       & 15.4                         & 18.0                         & 19.5                         & 21.5                         & 24.2                         \\
+    MIROC-ES2L         & 14.7                         & 17.2                         & 18.6                         & 20.4                         & 22.7                         \\
+    MIROC6             & 14.7                         & 17.1                         & 18.2                         & 19.7                         & 21.5                         \\
+    MPI-ESM1-2-HR      & 15.0                         & 17.7                         & 19.2                         & 21.2                         & 23.5                         \\
+    MPI-ESM1-2-LR      & 15.1                         & 17.7                         & 19.1                         & 21.1                         & 23.0                         \\
+    MRI-ESM2-0         & 15.2                         & 18.1                         & 19.8                         & 22.1                         & NA                           \\
+    NorESM2-LM         & 15.1                         & 18.0                         & 19.6                         & 22.0                         & NA                           \\
+    NorESM2-MM         & 15.1                         & 17.8                         & 19.2                         & 21.1                         & NA                           \\
+    TaiESM1            & 14.8                         & 17.5                         & 19.1                         & 21.4                         & 23.8                         \\
+    \hline
+    Mean               & 15.1                         & 17.7                         & 19.2                         & 21.3                         & 23.5                         \\
+    Standard deviation & 0.2                          & 0.3                          & 0.4                          & 0.5                          & 0.7                          \\
+  \end{tabular}
+\end{table}
 
-\begin{figure}
+\begin{table}
   \centering
-  \includegraphics*[keepaspectratio=true,width=0.9\textwidth]{torino/indicators/historical/reference/parameters/wetdays_thresh}
-  \caption{Quantiles of \gls{pr} evaluated in the reference period from data of each model. These values are used for parameter $\mathrm{p5}$ {Threshold of \gls{pr}} during calculations. The ensemble average with standard deviation as estimate of uncertainty is displayed for reference.}
-  \label{fig:parameters_wetdays_thresh}
-\end{figure}
+  \caption{Quantiles of parameter $\mathrm{p5}$ {Threshold of \gls{pr}} for each model used in the evaluation of indicators. Ensemble average and standard deviation are shown at the bottom of the table.}
+  \label{tab:parameters_wetdays_thresh}
+  \begin{tabular}{lccccc}
+  Model              & Order 0.9                          & Order 0.97                         & Order 0.99                         & Order 0.999                        & Order 0.9999                       \\
+                     & \unit{\milli\metre\per\day}        & \unit{\milli\metre\per\day}        & \unit{\milli\metre\per\day}        & \unit{\milli\metre\per\day}        & \unit{\milli\metre\per\day}        \\
+  \hline
+  ACCESS-CM2         & 10.9                               & 23.5                               & 42                                 & 80                                 & 100                                \\
+  ACCESS-ESM1-5      & 11.3                               & 23.4                               & 38                                 & 78                                 & 120                                \\
+  BCC-CSM2-MR        & 11.0                               & 24.3                               & 45                                 & 94                                 & 130                                \\
+  CanESM5            & 11.0                               & 24.2                               & 43                                 & 82                                 & 110                                \\
+  CMCC-ESM2          & 11.2                               & 24.2                               & 42                                 & 82                                 & 120                                \\
+  CNRM-CM6-1         & 10.9                               & 23.9                               & 45                                 & 92                                 & 130                                \\
+  CNRM-ESM2-1        & 10.8                               & 23.8                               & 45                                 & 95                                 & 130                                \\
+  EC-Earth3          & 11.4                               & 24.8                               & 41                                 & 78                                 & 110                                \\
+  EC-Earth3-Veg-LR   & 10.9                               & 23.9                               & 37                                 & 70                                 & 100                                \\
+  FGOALS-g3          & 10.8                               & 23.6                               & 42                                 & 86                                 & 130                                \\
+  GFDL-ESM4          & 11.0                               & 24.1                               & 44                                 & 86                                 & 120                                \\
+  INM-CM4-8          & 10.7                               & 23.5                               & 40                                 & 86                                 & 120                                \\
+  INM-CM5-0          & 11.0                               & 24.1                               & 38                                 & 65                                 & 90                                 \\
+  IPSL-CM6A-LR       & 11.3                               & 25.4                               & 44                                 & 88                                 & 120                                \\
+  MIROC-ES2L         & 10.9                               & 23.2                               & 41                                 & 87                                 & 130                                \\
+  MIROC6             & 10.6                               & 23.2                               & 38                                 & 73                                 & 100                                \\
+  MPI-ESM1-2-HR      & 11.2                               & 25.4                               & 42                                 & 84                                 & 120                                \\
+  MPI-ESM1-2-LR      & 11.2                               & 23.4                               & 41                                 & 88                                 & 120                                \\
+  MRI-ESM2-0         & 11.5                               & 25.4                               & 52                                 & 105                                & 150                                \\
+  NorESM2-LM         & 10.8                               & 23.0                               & 42                                 & 97                                 & 140                                \\
+  NorESM2-MM         & 10.5                               & 23.4                               & 43                                 & 90                                 & 130                                \\
+  TaiESM1            & 10.8                               & 23.1                               & 42                                 & 90                                 & 130                                \\
+  \hline
+  Mean               & 11.0                               & 23.9                               & 42                                 & 85                                 & 120                                \\
+  Standard deviation & 0.3                                & 0.8                                & 3                                  & 9                                  & 10                                 \\
+\end{tabular}
+\end{table}
