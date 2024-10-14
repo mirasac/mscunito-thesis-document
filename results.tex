@@ -52,7 +52,7 @@ Risk values for scenario SSP1-2.6 are not affected by climate change, as can be 
 \end{figure}
 
 Another threshold which is considered in the present study is for daily precipitation \gls{pr}. Parameter $\mathrm{p5}$ {Threshold of \gls{pr}} affects \glspl{indicator} $\mathrm{Rp5mm}$ and $\mathrm{CWD}$, which describe frequency and duration of a heavy precipitation event, respectively (see section~\ref{sec:Evaluation of indicators}). Same considerations of the temperature case above are applied to fix the remaining parameters.
-Uncertainty on $\mathrm{p5}$ increases for higher order quantiles, as can be seen in figure~\ref{fig:parameters_wetdays_thresh}, but the effects are negligible with respect to the inter-model variability of risk. A proper \gls{UA} which account for the propagation of uncertainties would be more effective to assess the precision of the \gls{CCRA}.
+Uncertainty on $\mathrm{p5}$ increases for higher order quantiles, as can be seen in figure~\ref{fig:parameters_wetdays_thresh}, but the effects are negligible with respect to the inter-model variability of risk. A proper \gls{UA} which accounts for the propagation of uncertainties would be more effective to assess the precision of the \gls{CCRA}.
 
 \begin{figure}
   \centering
@@ -61,7 +61,8 @@ Uncertainty on $\mathrm{p5}$ increases for higher order quantiles, as can be see
   \label{fig:parameters_wetdays_thresh}
 \end{figure}
 
-Effects of changing scenario are analogous to the temperature case. A difference can be noted in the variability of risk values with respect to threshold values, being smaller than the temperature case, particularly on the long-term horizon. Figure~\ref{fig:ssp245_risk_wetdays_thresh-cwd_thresh} show these results for scenario SSP2-4.5.%
+Changing scenario has effects analogous to the temperature case. A difference can be noted in the variability of risk values with respect to {Threshold of \gls{pr}} values, being smaller than the temperature case, particularly on the long-term horizon.
+Figure~\ref{fig:ssp245_risk_wetdays_thresh-cwd_thresh} show these results for scenario SSP2-4.5.%
 \footnote{See figures \url{https://github.com/mirasac/mscunito-thesis-document/blob/main/figures/torino/indicators/ssp126/risk/wetdays_thresh-cwd_thresh.pdf} and \url{https://github.com/mirasac/mscunito-thesis-document/blob/main/figures/torino/indicators/ssp370/risk/wetdays_thresh-cwd_thresh.pdf} for results of scenarios SSP1-2.6 and SSP3-7.0, respectively.}
 
 \begin{figure}
@@ -84,7 +85,7 @@ From a practical point of view, a common choice of number of {Consecutive days o
 \begin{figure}
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/risk/heat_wave_index_window-heat_wave_max_length_window}
-  \caption{Risk values depending on number of consecutive days of extreme heat in scenario SSP2-4.5. Both indicators {Heat wave index} and {Heat wave max length} depend on this parameter. Other parameters are set to the percentile of order 0.99. The risk value is rescaled with respect to the risk in the reference period from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
+  \caption{Risk values depending on number of consecutive days of extreme heat in scenario SSP2-4.5. Both indicators {Heat wave index} and {Heat wave max length} depend on this parameter. Other parameters are set to $\mathrm{p4} = \qty{5}{\day}$ and to the quantile of order 0.99: {Threshold of \gls{tasmax}} $\mathrm{p2} = \qty{30.1(2)}{\degreeCelsius}$, {Threshold of \gls{tasmin}} $\mathrm{p3} = \qty{19.2(4)}{\degreeCelsius}$ and {Threshold of \gls{pr}} $\mathrm{p5} = \qty{42(3)}{\milli\metre\per\day}$. The risk value is rescaled with respect to the risk in the reference period from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
   \label{fig:ssp245_risk_heat_wave_index_window-heat_wave_max_length_window}
 \end{figure}
 
@@ -93,7 +94,7 @@ On the other hand, the curve of risk for precipitation events is increasing, as 
 \begin{figure}
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/risk/max_n_day_precipitation_amount_window}
-  \caption{Risk values depending on number of consecutive days of extreme precipitation in scenario SSP2-4.5. Other parameters are set to the percentile of order 0.99. The risk value is rescaled with respect to the risk in the reference period from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
+  \caption{Risk values depending on number of consecutive days of extreme precipitation in scenario SSP2-4.5. Other parameters are set to $\mathrm{p1} = \qty{4}{\day}$ and to the quantile of order 0.99: {Threshold of \gls{tasmax}} $\mathrm{p2} = \qty{30.1(2)}{\degreeCelsius}$, {Threshold of \gls{tasmin}} $\mathrm{p3} = \qty{19.2(4)}{\degreeCelsius}$ and {Threshold of \gls{pr}} $\mathrm{p5} = \qty{42(3)}{\milli\metre\per\day}$. The risk value is rescaled with respect to the risk in the reference period from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}.}
   \label{fig:ssp245_risk_max_n_day_precipitation_amount_window}
 \end{figure}
 
@@ -108,7 +109,7 @@ This value could be used in \gls{CCRA} where the risk associated to combined ext
 \begin{figure}
   \centering
   \includegraphics*[keepaspectratio=true,width=\textwidth]{torino/indicators/ssp245/risk/window_medium}
-  \caption{Risk values depending on {Number of consecutive days of extreme precipitation} $\mathrm{p4}$ and {Number of consecutive days of extreme temperature} $\mathrm{p1}$ in scenario SSP2-4.5 and medium-term horizon. Other parameters are set to the percentile of order \num{0.99}: {Threshold of \gls{tasmax}} $\mathrm{p2} = \qty{30.1(2)}{\degreeCelsius}$, {Threshold of \gls{tasmin}} $\mathrm{p3} = \qty{19.2(4)}{\degreeCelsius}$ and {Threshold of \gls{pr}} $\mathrm{p5} = \qty{42(3)}{\milli\metre\per\day}$. The risk value is rescaled with respect to the risk in the reference period from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}. The grey vertical plane in the 3D plot represent the constraint on the same values of $\mathrm{p1}$ and $\mathrm{p4}$. Data projected on this plane are displayed with the error bars and the risk categories on the 2D plot.}
+  \caption{Risk values depending on {Number of consecutive days of extreme precipitation} $\mathrm{p4}$ and {Number of consecutive days of extreme temperature} $\mathrm{p1}$ in scenario SSP2-4.5 and medium-term horizon. Other parameters are set to the 99th percentile: {Threshold of \gls{tasmax}} $\mathrm{p2} = \qty{30.1(2)}{\degreeCelsius}$, {Threshold of \gls{tasmin}} $\mathrm{p3} = \qty{19.2(4)}{\degreeCelsius}$ and {Threshold of \gls{pr}} $\mathrm{p5} = \qty{42(3)}{\milli\metre\per\day}$. The risk value is rescaled with respect to the risk in the reference period from \DTMdisplaydate{1971}{1}{1}{-1} to \DTMdisplaydate{2000}{12}{31}{-1}. The grey vertical plane in the 3D plot represent the constraint on the same values of $\mathrm{p1}$ and $\mathrm{p4}$. Data projected on this plane are displayed with the error bars and the risk categories on the 2D plot.}
   \label{fig:ssp245_risk_window_medium}
 \end{figure}
 
