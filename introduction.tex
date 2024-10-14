@@ -144,18 +144,10 @@ where $S_\text{lat}$, $S_\text{lon}$ and $S_\text{time}$ are domains of latitude
 Latitude and longitude are the only spatial dimensions considered, because elevation is specific to each \gls{ECV}. In the following, when spatial dimensions are mentioned, they refer to the horiziontal dimensions of latitude and longitude.
 Every numerical value is equipped with proper unit of measurement, to represent physical quantities correctly. As a consequence, the codomain in equation~\eqref{eq:math_variable} is partially wrong: with an abuse of notation, it represents only the magnitude of the \gls{ECV} and does not consider the unit of measurement. This is a small exception to simplify the notation and in the remainder of this document units of measurement are always addressed explicitly.
 
-A more practical representation of $T$ is a multidimensional array, where values in the domain are coordinates associated to each dimension and each entry of the array is the result of $T$ evaluated on those coordinates. Figure~\ref{fig:multidimensional} shows this representation visually.
-
-\begin{figure}
-  \centering
-  \includegraphics*[keepaspectratio=true,width=0.75\textwidth]{multidimensional}
-  \caption{Representation of a generic \gls{ECV} as multidimensional array.}
-  \label{fig:multidimensional}
-\end{figure}
-
+A more practical representation of $T$ is a multidimensional array, where values in the domain are coordinates associated to each dimension and each entry of the array is the result of $T$ evaluated on those coordinates.
 In the following, this representation is used to simplify the discussion and same \gls{ECV} symbol is used both for the function and the multidimensional array.
 \begin{example}
-  \Glsdesc{tas}, symbol \gls{tas}, is available for some coordinates $S_\text{lat} \times S_\text{lon}$ and timestamps $S_\text{time}$. It can be seen as the scalar function in equation~\eqref{eq:math_variable}, which associates each value in set $S_\text{lat} \times S_\text{lon} \times S_\text{time}$ to a scalar value with unit \glssymbol{tas}, or it can be represented as the multidimensional array in figure~\ref{fig:multidimensional}, where each entry is function~\eqref{eq:math_variable} evaluated at the corresponding coordinates.
+  \Glsdesc{tas}, symbol \gls{tas}, is available for some coordinates $S_\text{lat} \times S_\text{lon}$ and timestamps $S_\text{time}$. It can be seen as the scalar function in equation~\eqref{eq:math_variable}, which associates each value in set $S_\text{lat} \times S_\text{lon} \times S_\text{time}$ to a scalar value with unit \glssymbol{tas}, or it can be represented as a multidimensional array, where each entry is function~\eqref{eq:math_variable} evaluated at the corresponding coordinates.
 \end{example}
 
 As a visual aid when generic symbols are used, capital letters represent both functions and multidimensional arrays, the former being followed by the arguments in parentheses when there is an explicit reference to their values. Instead, lowercase letters are used for functions and values which are one dimensional.
@@ -210,10 +202,7 @@ The dependence of an \gls{indicator} on \glspl{ECV} is not clear in the definiti
         S_\text{y} = \{ 1991, 1992, \dots, 2020 \}
         \quad ;
       \end{equation*}
-    \item the multidimensional array representation of the \gls{indicator} is in the following figure, where each entry is a real value with unit \unit{\kelvin}:
-      \begin{center}
-        \includegraphics*[keepaspectratio=true,width=0.50\linewidth]{indicator_climatological_standard_normal}
-      \end{center}
+    \item the multidimensional array representation of the \gls{indicator} has a real value with unit \unit{\kelvin} for each entry.
   \end{itemize}
 \end{example}
 
