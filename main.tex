@@ -1,5 +1,5 @@
 \RequirePackage[hyphens]{url}
-\documentclass[a4paper,11pt,oneside,openany,british]{book}
+\documentclass[a4paper,11pt,oneside,british]{book}
 
 %%%%%%%%% Packages %%%%%%%%%
 \usepackage[T1]{fontenc}  % Load first.
@@ -17,6 +17,8 @@
 \usepackage{etoolbox}
 \newtoggle{toggle_example}
 \settoggle{toggle_example}{true}  % Set false to remove example boxes.
+
+\usepackage[text={360pt,595pt},left=118pt,top=95pt,bindingoffset=1cm,includeheadfoot]{geometry}
 
 \usepackage{graphicx}
 \graphicspath{{./figures/}{./midterm/figures/}}
