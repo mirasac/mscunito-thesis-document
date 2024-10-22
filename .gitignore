@@ -15,6 +15,7 @@
 
 # Figures
 **/figures/IMG*
+**/figures/**/*.png
 
 figures/torino/indicators/historical/reference/field/*
 !figures/torino/indicators/historical/reference/field/EC-Earth3_heat_wave_max_length
